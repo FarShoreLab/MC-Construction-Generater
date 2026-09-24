@@ -2,6 +2,8 @@
 
 Minecraft 地形自适应聚落规划工程。
 
+仓库含有两个指向上游 MGAIA 项目的 Git 子模块。克隆时运行 `git clone --recurse-submodules <repository-url>`，或克隆后运行 `git submodule update --init --recursive`。
+
 ## 许可证
 
 本项目自有代码采用 GNU General Public License v3.0 only（SPDX：`GPL-3.0-only`），完整条款见 [LICENSE](LICENSE)。分发受 GPL 覆盖的衍生程序时，须按 GPLv3 提供对应源码及许可声明；允许商用，私人修改无需公开。

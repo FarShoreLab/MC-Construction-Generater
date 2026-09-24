@@ -1,0 +1,6 @@
+[submodule "tools/generators/mgaia-wfc"]
+	path = tools/generators/mgaia-wfc
+	url = https://github.com/ScholliYT/MGAIA-Minecraft-GDMC
+[submodule "handoff/settlement-planning-next-ai-20260922/tools/generators/mgaia-wfc"]
+	path = handoff/settlement-planning-next-ai-20260922/tools/generators/mgaia-wfc
+	url = https://github.com/ScholliYT/MGAIA-Minecraft-GDMC
