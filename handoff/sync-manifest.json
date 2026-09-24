@@ -1,0 +1,202 @@
+[
+  {
+    "path": "CHANGED_FILES.txt",
+    "action": "added",
+    "sha256": "769BCC11AEB58378F7043BDFCDFC1FE7AEA33C7E82A80BBBD18B0E66153EA5AD"
+  },
+  {
+    "path": "README_REBUILD_ZH.md",
+    "action": "added",
+    "sha256": "F824973226BF50BC14AC3624B7E8D20EDC537F8951A8CFD60AFB506EDC628249"
+  },
+  {
+    "path": "REBUILD_REPORT_ZH.md",
+    "action": "added",
+    "sha256": "13DA788F89D0B4FBC129A6294CB57C38A2B0DEAC22BF7335297BCD6E38185492"
+  },
+  {
+    "path": "TEST_RESULTS_ZH.md",
+    "action": "added",
+    "sha256": "E6F63F23C64A2AB7668982ED18D02598B2DF47DDF1E73F66438FF75C1D61B2CC"
+  },
+  {
+    "path": "core-planner\\src\\main\\java\\org\\mcsettlement\\planner\\BoundedSettlementPlanner.java",
+    "action": "added",
+    "sha256": "6ABFBE9A2D99E1AE8F62214EAED46F816810044D0894F5DB016DA63E5EF1DF28"
+  },
+  {
+    "path": "core-planner\\src\\main\\java\\org\\mcsettlement\\planner\\RoadGeometry.java",
+    "action": "added",
+    "sha256": "A92424D0D322FDE6DE4FAF841DF57089D76D1C1E78CE720E9BA28DBDF42DB6D1"
+  },
+  {
+    "path": "core-planner\\src\\main\\java\\org\\mcsettlement\\planner\\SettlementPlanner.java",
+    "action": "updated",
+    "sha256": "A91113054119B6C503FB603EF6039F5F37975A6A22E60D6419FB794B7DEAAAE2"
+  },
+  {
+    "path": "core-planner\\src\\main\\java\\org\\mcsettlement\\planner\\civil\\EarthworkOptimizer.java",
+    "action": "updated",
+    "sha256": "4B7618218C7F2F58617358EBA18C45FA5E3EE6A48CBD7BA79031E1828D80A1BE"
+  },
+  {
+    "path": "core-planner\\src\\main\\java\\org\\mcsettlement\\planner\\civil\\PlanConstruction.java",
+    "action": "added",
+    "sha256": "9BC031F6249E68BB90008FD846B9D098A99ED5F59B82FAAA68455E2B41D71B69"
+  },
+  {
+    "path": "core-planner\\src\\main\\java\\org\\mcsettlement\\planner\\cli\\PlannerCli.java",
+    "action": "updated",
+    "sha256": "5413F8C0BE437499E5E18CD445E88EAFA92E65B321AA94897939F1F7C98EDD3B"
+  },
+  {
+    "path": "core-planner\\src\\main\\java\\org\\mcsettlement\\planner\\ir\\PlanningIR.java",
+    "action": "updated",
+    "sha256": "31D4012F5C58D92121F98262C526EB82A15ED9DA49DD3E235DAB0C882F6BBF72"
+  },
+  {
+    "path": "core-planner\\src\\main\\java\\org\\mcsettlement\\planner\\parcel\\PlotPlanner.java",
+    "action": "updated",
+    "sha256": "966A63C526E7B5727032CC337F3FA9A654D2D2CEB33C358F8B2F0637DC34D258"
+  },
+  {
+    "path": "core-planner\\src\\main\\java\\org\\mcsettlement\\planner\\preset\\PlannedBuilding.java",
+    "action": "added",
+    "sha256": "2DE8E99C06D7A4E6C4D1DEE4268F8670E536C070880D0B35DB47F954673853A5"
+  },
+  {
+    "path": "core-planner\\src\\main\\java\\org\\mcsettlement\\planner\\render\\PlanPreviewRenderer.java",
+    "action": "updated",
+    "sha256": "C36916993A1BED79A9499FDC34C8DC2E259E4150E9F195DB12BBE0F10598E936"
+  },
+  {
+    "path": "core-planner\\src\\main\\java\\org\\mcsettlement\\planner\\simulation\\SimulatedSettlementPipeline.java",
+    "action": "updated",
+    "sha256": "1E7CE8753B5C81D4C6CAB997E7938A4BF5F87FD064BC2A65E1E7E93B3A625AE9"
+  },
+  {
+    "path": "core-planner\\src\\main\\java\\org\\mcsettlement\\planner\\simulation\\SimulationViewerRunner.java",
+    "action": "updated",
+    "sha256": "E4B70934CD8516905F1AC8280EDF6CA3F440D59F67FCB40015C955D8412675DF"
+  },
+  {
+    "path": "core-planner\\src\\test\\java\\org\\mcsettlement\\planner\\PlannerTest.java",
+    "action": "updated",
+    "sha256": "4F0DE5815CC983548BAF45386FE09FA2CDFD5E7EEBD8B8E6AB7A4E211206CA13"
+  },
+  {
+    "path": "core-planner\\src\\test\\java\\org\\mcsettlement\\planner\\baseline\\BaselineBudget.java",
+    "action": "added",
+    "sha256": "AA467916AEACCB95F24E0A9A3EE35BD2118569440BE0EE9BACDBD96FAD8D7394"
+  },
+  {
+    "path": "core-planner\\src\\test\\java\\org\\mcsettlement\\planner\\baseline\\SettlementPlanner.java",
+    "action": "added",
+    "sha256": "1539B5FD055E6EC28EC11BCB002A8422081004CD30E1E4D407C30CE756B2EF24"
+  },
+  {
+    "path": "core-planner\\src\\test\\java\\org\\mcsettlement\\planner\\baseline\\civil\\EarthworkOptimizer.java",
+    "action": "added",
+    "sha256": "7B996133EC74002C966B798F19BE2BEAF233EDD030D04F123A1B4775C5F58A5F"
+  },
+  {
+    "path": "core-planner\\src\\test\\java\\org\\mcsettlement\\planner\\baseline\\parcel\\PlotPlanner.java",
+    "action": "added",
+    "sha256": "C7292B8A3167692F303C1128BDB0DFB4BE587254FFDEC9E17B20416E5F816847"
+  },
+  {
+    "path": "core-planner\\src\\test\\java\\org\\mcsettlement\\planner\\baseline\\pathfinding\\SlopeCostAStar.java",
+    "action": "added",
+    "sha256": "17D0824331F414B4987047A007EC79E82833DC169F92E484BA75F94AE1F7E695"
+  },
+  {
+    "path": "core-planner\\src\\test\\java\\org\\mcsettlement\\planner\\regression\\RegressionJUnitTest.java",
+    "action": "added",
+    "sha256": "8777A7E57C304A873E62D99136CCCBFD26B7A7BC9CBEA56CC81AA930E05DE128"
+  },
+  {
+    "path": "core-planner\\src\\test\\java\\org\\mcsettlement\\planner\\regression\\RegressionMain.java",
+    "action": "added",
+    "sha256": "07E714BBC279C5495D7CA64EBF371C5E50B7B6DDB924352CA23DC826E94E5245"
+  },
+  {
+    "path": "fabric-mod\\src\\main\\java\\org\\mcsettlement\\mod\\building\\AdaptiveBuildingPlacer.java",
+    "action": "updated",
+    "sha256": "2DC9C17160B504F8CC3B0CC20C4B9A59861958DB39E6E3BD5E59E3C05B264058"
+  },
+  {
+    "path": "fabric-mod\\src\\main\\java\\org\\mcsettlement\\mod\\client\\gui\\TacticalMapScreen.java",
+    "action": "updated",
+    "sha256": "04C8088A0230009506962FCF995AC68594238EFA86F2AD95A1DE09F121D4630A"
+  },
+  {
+    "path": "fabric-mod\\src\\main\\java\\org\\mcsettlement\\mod\\constructor\\WorldConstructor.java",
+    "action": "updated",
+    "sha256": "020A037494CBF6FD9BE2B597D91FD435DAD5D3956990C67E4FDD2F50C211844F"
+  },
+  {
+    "path": "fabric-mod\\src\\main\\java\\org\\mcsettlement\\mod\\scanner\\WorldTerrainScanner.java",
+    "action": "updated",
+    "sha256": "F232E104AB7196C328B4DAEF08EAF678071DBDBFB3E23706C8094E056F75729D"
+  },
+  {
+    "path": "llm-bridge\\src\\main\\java\\org\\mcsettlement\\llm\\AiBuildingArchitect.java",
+    "action": "updated",
+    "sha256": "F3ABF37E59501612223B3C71C22EE4C8FF10AB8B6778B459B8B19DB3C22B8325"
+  },
+  {
+    "path": "llm-bridge\\src\\main\\java\\org\\mcsettlement\\llm\\AntigravityCliBridge.java",
+    "action": "updated",
+    "sha256": "5BC4999EA83450866CCAFE6D65835E134C4C6B69E796309CAEDF9CA8F9862E2F"
+  },
+  {
+    "path": "llm-bridge\\src\\main\\java\\org\\mcsettlement\\llm\\HeuristicFallbackBridge.java",
+    "action": "updated",
+    "sha256": "FFEC5D8B45210A1FC1C4E69F649103AB2FBC79DC0D0FB9C595CDD01C548ACF27"
+  },
+  {
+    "path": "llm-bridge\\src\\main\\java\\org\\mcsettlement\\llm\\LlmStrategyManager.java",
+    "action": "updated",
+    "sha256": "9E018E01F8E3121A7E487CAF9CE7EE7EDA9F66642F1D3C4088011E77921A4BCA"
+  },
+  {
+    "path": "llm-bridge\\src\\main\\java\\org\\mcsettlement\\llm\\OpenAiApiBridge.java",
+    "action": "updated",
+    "sha256": "F628764655E6D116CFA04C70751C13B63627014EED93A95A01801B6329D56AE5"
+  },
+  {
+    "path": "llm-bridge\\src\\main\\java\\org\\mcsettlement\\llm\\PlanningIntent.java",
+    "action": "updated",
+    "sha256": "121485904706178BDB5AA9C0411D12EA982808F3107D4AAB87D00136C689233B"
+  },
+  {
+    "path": "llm-bridge\\src\\test\\java\\org\\mcsettlement\\llm\\BridgeRegressionJUnitTest.java",
+    "action": "added",
+    "sha256": "2E2061639B31A19B022A3D8DF10A8A76B37CF5DA7BC5B1C9B2358D7B938815C4"
+  },
+  {
+    "path": "llm-bridge\\src\\test\\java\\org\\mcsettlement\\llm\\BridgeRegressionMain.java",
+    "action": "added",
+    "sha256": "CD8EFD429E6A51E6CD431B279D790C79128CA4CD25CA0AC8A6859153669CD21B"
+  },
+  {
+    "path": "tools\\FuzzAudit.java",
+    "action": "added",
+    "sha256": "32B09732C441B4CEB8F5F9376828D524EDC653ED801A44CA1370660452AA89B6"
+  },
+  {
+    "path": "tools\\run-offline-tests.sh",
+    "action": "added",
+    "sha256": "1570F9C86150D4CB147CEE42CF83C52B960C8B2E695580676EBAFAF8486C9937"
+  },
+  {
+    "path": "tools\\SyntaxCheck.java",
+    "action": "added",
+    "sha256": "B292873512E75416E00456E4236D6F031E4A569B9F8E7794AA537C231043ED42"
+  },
+  {
+    "path": "tools\\verify-baseline.py",
+    "action": "added",
+    "sha256": "B278B5B1D3D831ED0348DCC6F34CAC3DE18762313A808371061835AF0BC335FA"
+  }
+]

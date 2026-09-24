@@ -1,0 +1,86 @@
+[
+  {
+    "test": "core-21",
+    "exit_code": 0,
+    "elapsed_seconds": 6.636,
+    "log": "core-21.log"
+  },
+  {
+    "test": "adaptive-29",
+    "exit_code": 0,
+    "elapsed_seconds": 14.192,
+    "log": "adaptive-29.log"
+  },
+  {
+    "test": "fuzz-100",
+    "exit_code": 0,
+    "elapsed_seconds": 29.645,
+    "log": "fuzz-100.log"
+  },
+  {
+    "test": "organic-presets-25",
+    "exit_code": 0,
+    "elapsed_seconds": 9.257,
+    "log": "organic-presets-25.log"
+  },
+  {
+    "test": "route-richness",
+    "exit_code": 0,
+    "elapsed_seconds": 4.127,
+    "log": "route-richness.log"
+  },
+  {
+    "test": "network-diversity",
+    "exit_code": 0,
+    "elapsed_seconds": 36.348,
+    "log": "network-diversity.log"
+  },
+  {
+    "test": "site-expert",
+    "exit_code": 0,
+    "elapsed_seconds": 24.628,
+    "log": "site-expert.log"
+  },
+  {
+    "test": "surface-presets",
+    "exit_code": 0,
+    "elapsed_seconds": 5.001,
+    "log": "surface-presets.log"
+  },
+  {
+    "test": "preset-controls",
+    "exit_code": 0,
+    "elapsed_seconds": 4.102,
+    "log": "preset-controls.log"
+  },
+  {
+    "test": "next-ai-planning",
+    "exit_code": 0,
+    "elapsed_seconds": 4.47,
+    "log": "next-ai-planning.log"
+  },
+  {
+    "test": "land-bridge",
+    "exit_code": 0,
+    "elapsed_seconds": 19.139,
+    "log": "land-bridge.log"
+  },
+  {
+    "test": "terrain-controls",
+    "exit_code": 0,
+    "elapsed_seconds": 4.087,
+    "log": "terrain-controls.log"
+  },
+  {
+    "test": "bridge-diagonal",
+    "exit_code": 0,
+    "elapsed_seconds": 0.638,
+    "log": "bridge-diagonal.log"
+  },
+  {
+    "test": "fabric-syntax-only",
+    "exit_code": 0,
+    "elapsed_seconds": 0.476,
+    "log": "fabric-syntax-only.log"
+  }
+]

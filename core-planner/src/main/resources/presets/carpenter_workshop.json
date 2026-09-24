@@ -1,0 +1,227 @@
+{
+  "id": "carpenter_workshop",
+  "name": "木工工坊",
+  "category": "industrial",
+  "tags": [
+    "industrial",
+    "crafted",
+    "rectangle",
+    "standard",
+    "timber",
+    "workshop",
+    "sawmill"
+  ],
+  "styles": [
+    "medieval_rustic"
+  ],
+  "author": "MCSettlement",
+  "description": "13×12 木工工坊：双跨北向采光锯齿屋顶、白桦板墙与橡木构架、敞口长料间、原木与板材堆场；南门与北侧料门净空两格。",
+  "footprintShape": "rectangle",
+  "sizeTier": "standard",
+  "footprintMask": [
+    "#############",
+    "#############",
+    "#############",
+    "#############",
+    "#############",
+    "#############",
+    "#############",
+    "#############",
+    "#############",
+    "#############",
+    "#############",
+    "#############"
+  ],
+  "sizeX": 13,
+  "sizeZ": 12,
+  "sizeY": 9,
+  "entrance": {
+    "facing": "EAST",
+    "x": 12,
+    "z": 3
+  },
+  "entrances": [
+    {
+      "facing": "EAST",
+      "x": 12,
+      "z": 3
+    },
+    {
+      "facing": "EAST",
+      "x": 12,
+      "z": 6
+    }
+  ],
+  "components": [
+    {
+      "id": "main",
+      "role": "main",
+      "mask": [
+        "#############",
+        "#############",
+        "#############",
+        "#############",
+        "#############",
+        "#############",
+        "#############",
+        "#############",
+        "#############",
+        "#############",
+        "#############",
+        "#############"
+      ]
+    }
+  ],
+  "palette": {
+    ".": "minecraft:air",
+    "_": "minecraft:gravel",
+    "c": "minecraft:cobblestone",
+    "b": "minecraft:stone_bricks",
+    "o": "minecraft:oak_planks",
+    "O": "minecraft:oak_log[axis=y]",
+    "i": "minecraft:birch_planks",
+    "g": "minecraft:glass_pane[waterlogged=false]",
+    "f": "minecraft:oak_fence[east=false,north=false,south=false,water=false,west=false]",
+    "L": "minecraft:lantern[hanging=false,waterlogged=false]",
+    "X": "minecraft:chest[facing=south,type=single,waterlogged=false]",
+    "r": "minecraft:barrel[facing=up,open=false]",
+    "Z": "minecraft:stonecutter",
+    "Fn": "minecraft:furnace[facing=south,lit=false]",
+    "K": "minecraft:crafting_table",
+    "A": "minecraft:anvil[facing=south]",
+    "h": "minecraft:hay_block[axis=y]",
+    "/": "minecraft:short_grass",
+    "\\": "minecraft:fern",
+    "B": "minecraft:oak_planks[facing=north,half=bottom,shape=straight,waterlogged=false]",
+    "C": "minecraft:oak_planks[facing=east,half=bottom,shape=straight,waterlogged=false]"
+  },
+  "themeReplacements": {},
+  "layers": [
+    [
+      "_cc_cc_cc_cc_",
+      "c_cc_cc_cc_cc",
+      "cc_cc_cc_cc_c",
+      "_cc_cc_cc_ccb",
+      "c_cc_cc_cc_cc",
+      "cc_cc_cc_cc_c",
+      "_cc_cc_cc_ccb",
+      "c_cc_cc_cc_cc",
+      "cc_cc_cc_cc_c",
+      "_ccbcc_cc_cc_",
+      "c_cc_cc_cc_cc",
+      "cc_cc_cc_cc_c"
+    ],
+    [
+      "oBBBBBBBBBBBo",
+      "o...........o",
+      "oKZ.......rFnO",
+      "o............",
+      "o...........O",
+      "o...........O",
+      "o....oooo....",
+      "oXX.........C",
+      "o...........C",
+      "ooO.OoooO.OoC",
+      "............C",
+      "............."
+    ],
+    [
+      "OOggOgggOggOO",
+      "o...........i",
+      "i...........O",
+      "i............",
+      "i...........O",
+      "i.....L.....O",
+      "i.....o......",
+      "i...........O",
+      "o...........g",
+      "OiO.OiiiO.Oig",
+      "............O",
+      "............."
+    ],
+    [
+      "OiiiOioiOiiiO",
+      "i...........i",
+      "i...........o",
+      "O...........o",
+      "i...........i",
+      "o.....f.....i",
+      "O...........o",
+      "i...........i",
+      "i...........i",
+      "OiioioiiioiiO",
+      "............O",
+      "............."
+    ],
+    [
+      "O....oO.....g",
+      "O....oO.....g",
+      "O....oO.....g",
+      "O....oO.....g",
+      "O....oO.....g",
+      "O....oO.....g",
+      "O....oO.....g",
+      "O....oO.....g",
+      "O....oO.....g",
+      "O....oO.....g",
+      ".............",
+      "............."
+    ],
+    [
+      ".oooo..ooooo.",
+      ".oooo..ooooo.",
+      ".oooo..ooooo.",
+      ".oooo..ooooo.",
+      "OooOo.OooOooO",
+      ".oooo..ooooo.",
+      ".oooo..ooooo.",
+      ".oooo..ooooo.",
+      ".oooo..ooooo.",
+      ".oooo..ooooo.",
+      ".............",
+      "............."
+    ],
+    [
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      "............."
+    ],
+    [
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      "............."
+    ],
+    [
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      ".............",
+      "............."
+    ]
+  ]
+}

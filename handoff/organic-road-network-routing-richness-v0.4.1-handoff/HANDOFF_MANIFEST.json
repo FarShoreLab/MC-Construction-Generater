@@ -1,0 +1,21 @@
+{
+  "package": "organic-road-network-routing-richness-v0.4.1-handoff",
+  "created": "2026-09-21",
+  "sourceSnapshot": "organic-road-network-v0.4.0-footprint-presets.zip",
+  "sourceFileCount": 111,
+  "algorithmSourceChangedInThisHandoff": false,
+  "purpose": "handoff for improving organic route richness and reducing long straight-line degradation",
+  "attachedImageIsEvidenceOnly": true,
+  "contents": {
+    "source": "v0.4.0 source snapshot",
+    "references": "original package documentation and validation notes",
+    "evidence/baseline": "API baseline responses, metrics, screenshots and logs",
+    "evidence/reproduction": "user reproduction request, full response, metrics and screenshot",
+    "prompt": "PROMPT_ROUTE_RICHNESS_ZH.md"
+  },
+  "verification": {
+    "mainCompilation": "passed",
+    "previewApi": "passed on http://127.0.0.1:18767",
+    "fullExecutableTests": "blocked by current Windows/JDK classpath issue during compile-executable-tests; see references and logs"
+  }
+}

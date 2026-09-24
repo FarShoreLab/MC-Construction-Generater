@@ -1,0 +1,8 @@
+{
+  "input_archive": "browser-terrain-adaptive-handoff.zip",
+  "archive_sha256": "a5c30eaf7a506f8bb792a90059d701d0b4622ed39c9f03f78da86be517fa66f0",
+  "source_member": "browser-terrain-adaptive-handoff/source/core-planner/src/main/java/org/mcsettlement/planner/BoundedSettlementPlanner.java",
+  "source_sha256": "6abfbe9a2d99e1ae8f62214eaed46f816810044d0894f5db016da63e5ef1df28",
+  "reference_normalized_sha256": "6abfbe9a2d99e1ae8f62214eaed46f816810044d0894f5db016da63e5ef1df28",
+  "equal_except_package_declaration": true
+}

@@ -1,0 +1,1598 @@
+{
+  "metadata": {
+    "version": "0.1.0",
+    "timestamp": "2026-09-11T02:54:17.861727400Z",
+    "randomSeed": 12345,
+    "minBounds": [
+      0,
+      0,
+      0
+    ],
+    "maxBounds": [
+      95,
+      256,
+      95
+    ],
+    "score": {
+      "walkability": 0.9189999999999999,
+      "road_network_edges": 3.0,
+      "earthwork_balance": 0.6153846153846154,
+      "total_score": 85.22153846153846,
+      "plots_allocated": 6.0
+    }
+  },
+  "transportNetwork": {
+    "nodes": [
+      {
+        "id": "n_gate",
+        "pos": [
+          73,
+          67,
+          90
+        ],
+        "type": "entry",
+        "elevation": 67.0
+      },
+      {
+        "id": "n_plaza",
+        "pos": [
+          15,
+          70,
+          15
+        ],
+        "type": "plaza",
+        "elevation": 70.0
+      },
+      {
+        "id": "n_ridge",
+        "pos": [
+          32,
+          79,
+          80
+        ],
+        "type": "overlook",
+        "elevation": 79.0
+      },
+      {
+        "id": "n_junc_ridge",
+        "pos": [
+          54,
+          75,
+          63
+        ],
+        "type": "junction",
+        "elevation": 75.0
+      },
+      {
+        "id": "n_junc_loop",
+        "pos": [
+          30,
+          73,
+          30
+        ],
+        "type": "junction",
+        "elevation": 73.0
+      }
+    ],
+    "edges": [
+      {
+        "id": "e_main",
+        "fromNodeId": "n_gate",
+        "toNodeId": "n_plaza",
+        "roadType": "primary_road",
+        "width": 3,
+        "maxSlope": 1.0,
+        "steps": [
+          {
+            "x": 73,
+            "y": 67,
+            "z": 90,
+            "structure": "surface"
+          },
+          {
+            "x": 72,
+            "y": 67,
+            "z": 89,
+            "structure": "surface"
+          },
+          {
+            "x": 72,
+            "y": 67,
+            "z": 88,
+            "structure": "surface"
+          },
+          {
+            "x": 71,
+            "y": 68,
+            "z": 87,
+            "structure": "stair"
+          },
+          {
+            "x": 70,
+            "y": 68,
+            "z": 86,
+            "structure": "surface"
+          },
+          {
+            "x": 69,
+            "y": 68,
+            "z": 85,
+            "structure": "surface"
+          },
+          {
+            "x": 68,
+            "y": 69,
+            "z": 84,
+            "structure": "stair"
+          },
+          {
+            "x": 67,
+            "y": 70,
+            "z": 83,
+            "structure": "stair"
+          },
+          {
+            "x": 66,
+            "y": 70,
+            "z": 82,
+            "structure": "surface"
+          },
+          {
+            "x": 66,
+            "y": 70,
+            "z": 81,
+            "structure": "surface"
+          },
+          {
+            "x": 65,
+            "y": 71,
+            "z": 80,
+            "structure": "stair"
+          },
+          {
+            "x": 64,
+            "y": 72,
+            "z": 79,
+            "structure": "stair"
+          },
+          {
+            "x": 63,
+            "y": 72,
+            "z": 78,
+            "structure": "surface"
+          },
+          {
+            "x": 62,
+            "y": 73,
+            "z": 77,
+            "structure": "stair"
+          },
+          {
+            "x": 61,
+            "y": 74,
+            "z": 76,
+            "structure": "stair"
+          },
+          {
+            "x": 60,
+            "y": 74,
+            "z": 75,
+            "structure": "surface"
+          },
+          {
+            "x": 59,
+            "y": 75,
+            "z": 74,
+            "structure": "stair"
+          },
+          {
+            "x": 58,
+            "y": 75,
+            "z": 73,
+            "structure": "surface"
+          },
+          {
+            "x": 58,
+            "y": 75,
+            "z": 72,
+            "structure": "surface"
+          },
+          {
+            "x": 58,
+            "y": 75,
+            "z": 71,
+            "structure": "surface"
+          },
+          {
+            "x": 58,
+            "y": 75,
+            "z": 70,
+            "structure": "surface"
+          },
+          {
+            "x": 58,
+            "y": 75,
+            "z": 69,
+            "structure": "surface"
+          },
+          {
+            "x": 58,
+            "y": 75,
+            "z": 68,
+            "structure": "surface"
+          },
+          {
+            "x": 57,
+            "y": 75,
+            "z": 67,
+            "structure": "surface"
+          },
+          {
+            "x": 57,
+            "y": 75,
+            "z": 66,
+            "structure": "surface"
+          },
+          {
+            "x": 56,
+            "y": 75,
+            "z": 65,
+            "structure": "surface"
+          },
+          {
+            "x": 55,
+            "y": 75,
+            "z": 64,
+            "structure": "surface"
+          },
+          {
+            "x": 54,
+            "y": 75,
+            "z": 63,
+            "structure": "surface"
+          },
+          {
+            "x": 53,
+            "y": 75,
+            "z": 62,
+            "structure": "surface"
+          },
+          {
+            "x": 52,
+            "y": 75,
+            "z": 61,
+            "structure": "surface"
+          },
+          {
+            "x": 51,
+            "y": 74,
+            "z": 60,
+            "structure": "stair"
+          },
+          {
+            "x": 50,
+            "y": 74,
+            "z": 59,
+            "structure": "surface"
+          },
+          {
+            "x": 50,
+            "y": 74,
+            "z": 58,
+            "structure": "surface"
+          },
+          {
+            "x": 49,
+            "y": 73,
+            "z": 57,
+            "structure": "stair"
+          },
+          {
+            "x": 48,
+            "y": 73,
+            "z": 56,
+            "structure": "surface"
+          },
+          {
+            "x": 47,
+            "y": 73,
+            "z": 55,
+            "structure": "surface"
+          },
+          {
+            "x": 46,
+            "y": 72,
+            "z": 54,
+            "structure": "stair"
+          },
+          {
+            "x": 45,
+            "y": 72,
+            "z": 53,
+            "structure": "surface"
+          },
+          {
+            "x": 44,
+            "y": 72,
+            "z": 52,
+            "structure": "surface"
+          },
+          {
+            "x": 43,
+            "y": 71,
+            "z": 51,
+            "structure": "stair"
+          },
+          {
+            "x": 42,
+            "y": 71,
+            "z": 50,
+            "structure": "surface"
+          },
+          {
+            "x": 41,
+            "y": 71,
+            "z": 49,
+            "structure": "surface"
+          },
+          {
+            "x": 40,
+            "y": 71,
+            "z": 48,
+            "structure": "surface"
+          },
+          {
+            "x": 39,
+            "y": 71,
+            "z": 47,
+            "structure": "surface"
+          },
+          {
+            "x": 38,
+            "y": 71,
+            "z": 46,
+            "structure": "surface"
+          },
+          {
+            "x": 37,
+            "y": 71,
+            "z": 45,
+            "structure": "surface"
+          },
+          {
+            "x": 36,
+            "y": 71,
+            "z": 44,
+            "structure": "surface"
+          },
+          {
+            "x": 36,
+            "y": 71,
+            "z": 43,
+            "structure": "surface"
+          },
+          {
+            "x": 35,
+            "y": 71,
+            "z": 42,
+            "structure": "surface"
+          },
+          {
+            "x": 34,
+            "y": 71,
+            "z": 41,
+            "structure": "surface"
+          },
+          {
+            "x": 33,
+            "y": 72,
+            "z": 40,
+            "structure": "stair"
+          },
+          {
+            "x": 32,
+            "y": 72,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 72,
+            "z": 38,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 72,
+            "z": 37,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 72,
+            "z": 36,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 73,
+            "z": 35,
+            "structure": "stair"
+          },
+          {
+            "x": 30,
+            "y": 73,
+            "z": 34,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 73,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 73,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 73,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 73,
+            "z": 30,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 73,
+            "z": 29,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 73,
+            "z": 28,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 73,
+            "z": 27,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 73,
+            "z": 26,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 73,
+            "z": 25,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 73,
+            "z": 24,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 73,
+            "z": 23,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 22,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 73,
+            "z": 21,
+            "structure": "surface"
+          },
+          {
+            "x": 25,
+            "y": 73,
+            "z": 20,
+            "structure": "surface"
+          },
+          {
+            "x": 24,
+            "y": 73,
+            "z": 19,
+            "structure": "surface"
+          },
+          {
+            "x": 23,
+            "y": 73,
+            "z": 19,
+            "structure": "surface"
+          },
+          {
+            "x": 22,
+            "y": 73,
+            "z": 19,
+            "structure": "surface"
+          },
+          {
+            "x": 21,
+            "y": 72,
+            "z": 18,
+            "structure": "stair"
+          },
+          {
+            "x": 20,
+            "y": 72,
+            "z": 17,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 72,
+            "z": 17,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 71,
+            "z": 16,
+            "structure": "stair"
+          },
+          {
+            "x": 17,
+            "y": 71,
+            "z": 16,
+            "structure": "surface"
+          },
+          {
+            "x": 16,
+            "y": 71,
+            "z": 16,
+            "structure": "surface"
+          },
+          {
+            "x": 15,
+            "y": 70,
+            "z": 15,
+            "structure": "stair"
+          }
+        ]
+      },
+      {
+        "id": "e_branch_ridge",
+        "fromNodeId": "n_junc_ridge",
+        "toNodeId": "n_ridge",
+        "roadType": "secondary_road",
+        "width": 2,
+        "maxSlope": 1.0,
+        "steps": [
+          {
+            "x": 54,
+            "y": 75,
+            "z": 63,
+            "structure": "surface"
+          },
+          {
+            "x": 53,
+            "y": 75,
+            "z": 64,
+            "structure": "surface"
+          },
+          {
+            "x": 52,
+            "y": 76,
+            "z": 65,
+            "structure": "stair"
+          },
+          {
+            "x": 51,
+            "y": 76,
+            "z": 66,
+            "structure": "surface"
+          },
+          {
+            "x": 50,
+            "y": 76,
+            "z": 66,
+            "structure": "surface"
+          },
+          {
+            "x": 49,
+            "y": 76,
+            "z": 67,
+            "structure": "surface"
+          },
+          {
+            "x": 48,
+            "y": 76,
+            "z": 68,
+            "structure": "surface"
+          },
+          {
+            "x": 47,
+            "y": 76,
+            "z": 69,
+            "structure": "surface"
+          },
+          {
+            "x": 46,
+            "y": 76,
+            "z": 70,
+            "structure": "surface"
+          },
+          {
+            "x": 45,
+            "y": 77,
+            "z": 71,
+            "structure": "stair"
+          },
+          {
+            "x": 44,
+            "y": 77,
+            "z": 72,
+            "structure": "surface"
+          },
+          {
+            "x": 43,
+            "y": 77,
+            "z": 73,
+            "structure": "surface"
+          },
+          {
+            "x": 42,
+            "y": 77,
+            "z": 74,
+            "structure": "surface"
+          },
+          {
+            "x": 41,
+            "y": 78,
+            "z": 75,
+            "structure": "stair"
+          },
+          {
+            "x": 40,
+            "y": 78,
+            "z": 76,
+            "structure": "surface"
+          },
+          {
+            "x": 39,
+            "y": 78,
+            "z": 77,
+            "structure": "surface"
+          },
+          {
+            "x": 38,
+            "y": 78,
+            "z": 77,
+            "structure": "surface"
+          },
+          {
+            "x": 37,
+            "y": 78,
+            "z": 78,
+            "structure": "surface"
+          },
+          {
+            "x": 36,
+            "y": 78,
+            "z": 78,
+            "structure": "surface"
+          },
+          {
+            "x": 35,
+            "y": 78,
+            "z": 79,
+            "structure": "surface"
+          },
+          {
+            "x": 34,
+            "y": 78,
+            "z": 79,
+            "structure": "surface"
+          },
+          {
+            "x": 33,
+            "y": 78,
+            "z": 79,
+            "structure": "surface"
+          },
+          {
+            "x": 32,
+            "y": 79,
+            "z": 80,
+            "structure": "stair"
+          }
+        ]
+      },
+      {
+        "id": "e_loop",
+        "fromNodeId": "n_ridge",
+        "toNodeId": "n_junc_loop",
+        "roadType": "pathway",
+        "width": 2,
+        "maxSlope": 1.0,
+        "steps": [
+          {
+            "x": 32,
+            "y": 79,
+            "z": 80,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 78,
+            "z": 79,
+            "structure": "stair"
+          },
+          {
+            "x": 31,
+            "y": 78,
+            "z": 78,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 78,
+            "z": 77,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 78,
+            "z": 76,
+            "structure": "surface"
+          },
+          {
+            "x": 32,
+            "y": 77,
+            "z": 75,
+            "structure": "stair"
+          },
+          {
+            "x": 32,
+            "y": 77,
+            "z": 74,
+            "structure": "surface"
+          },
+          {
+            "x": 32,
+            "y": 77,
+            "z": 73,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 76,
+            "z": 72,
+            "structure": "stair"
+          },
+          {
+            "x": 31,
+            "y": 76,
+            "z": 71,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 76,
+            "z": 70,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 75,
+            "z": 69,
+            "structure": "stair"
+          },
+          {
+            "x": 30,
+            "y": 75,
+            "z": 68,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 75,
+            "z": 67,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 75,
+            "z": 66,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 74,
+            "z": 65,
+            "structure": "stair"
+          },
+          {
+            "x": 29,
+            "y": 74,
+            "z": 64,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 74,
+            "z": 63,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 74,
+            "z": 62,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 73,
+            "z": 61,
+            "structure": "stair"
+          },
+          {
+            "x": 28,
+            "y": 73,
+            "z": 60,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 73,
+            "z": 59,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 73,
+            "z": 58,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 73,
+            "z": 57,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 73,
+            "z": 56,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 73,
+            "z": 55,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 73,
+            "z": 54,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 73,
+            "z": 53,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 73,
+            "z": 52,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 51,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 50,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 49,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 48,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 47,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 46,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 45,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 44,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 43,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 42,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 41,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 40,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 38,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 37,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 73,
+            "z": 36,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 73,
+            "z": 35,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 73,
+            "z": 34,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 73,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 73,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 73,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 73,
+            "z": 30,
+            "structure": "surface"
+          }
+        ]
+      }
+    ]
+  },
+  "plots": [
+    {
+      "id": "plot_1",
+      "tags": [
+        "landmark"
+      ],
+      "polygon2D": [
+        [
+          76,
+          74
+        ],
+        [
+          83,
+          74
+        ],
+        [
+          83,
+          81
+        ],
+        [
+          76,
+          81
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 67,
+        "entranceElevation": 68,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "accessPoint": [
+          73,
+          68,
+          85
+        ],
+        "facing": "WEST",
+        "connectedEdgeId": "e_main"
+      },
+      "foundation": {
+        "type": "horizontal_slab_with_retaining_wall",
+        "retainingWalls": [
+          {
+            "side": "NORTH",
+            "startX": 76,
+            "startZ": 73,
+            "endX": 83,
+            "endZ": 73,
+            "baseElevation": 67,
+            "topElevation": 69,
+            "height": 2,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "SOUTH",
+            "startX": 76,
+            "startZ": 82,
+            "endX": 83,
+            "endZ": 82,
+            "baseElevation": 66,
+            "topElevation": 67,
+            "height": 1,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "WEST",
+            "startX": 75,
+            "startZ": 74,
+            "endX": 75,
+            "endZ": 81,
+            "baseElevation": 67,
+            "topElevation": 69,
+            "height": 2,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "EAST",
+            "startX": 84,
+            "startZ": 74,
+            "endX": 84,
+            "endZ": 81,
+            "baseElevation": 66,
+            "topElevation": 67,
+            "height": 1,
+            "materialTag": "stone_brick"
+          }
+        ]
+      },
+      "builder": {
+        "generatorType": "nbt_structure_pool",
+        "templateCategory": "residential",
+        "footprintSize": [
+          8,
+          8
+        ],
+        "heightLimit": 12,
+        "subSeed": -8979699159253079774
+      }
+    },
+    {
+      "id": "plot_2",
+      "tags": [
+        "workshop"
+      ],
+      "polygon2D": [
+        [
+          48,
+          81
+        ],
+        [
+          55,
+          81
+        ],
+        [
+          55,
+          88
+        ],
+        [
+          48,
+          88
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 75,
+        "entranceElevation": 74,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "accessPoint": [
+          59,
+          74,
+          78
+        ],
+        "facing": "EAST",
+        "connectedEdgeId": "e_main"
+      },
+      "foundation": {
+        "type": "horizontal_slab_with_retaining_wall",
+        "retainingWalls": [
+          {
+            "side": "NORTH",
+            "startX": 48,
+            "startZ": 80,
+            "endX": 55,
+            "endZ": 80,
+            "baseElevation": 75,
+            "topElevation": 77,
+            "height": 2,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "SOUTH",
+            "startX": 48,
+            "startZ": 89,
+            "endX": 55,
+            "endZ": 89,
+            "baseElevation": 73,
+            "topElevation": 76,
+            "height": 3,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "WEST",
+            "startX": 47,
+            "startZ": 81,
+            "endX": 47,
+            "endZ": 88,
+            "baseElevation": 75,
+            "topElevation": 77,
+            "height": 2,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "EAST",
+            "startX": 56,
+            "startZ": 81,
+            "endX": 56,
+            "endZ": 88,
+            "baseElevation": 73,
+            "topElevation": 75,
+            "height": 2,
+            "materialTag": "stone_brick"
+          }
+        ]
+      },
+      "builder": {
+        "generatorType": "nbt_structure_pool",
+        "templateCategory": "residential",
+        "footprintSize": [
+          8,
+          8
+        ],
+        "heightLimit": 12,
+        "subSeed": -3078921119283744887
+      }
+    },
+    {
+      "id": "plot_3",
+      "tags": [
+        "residential"
+      ],
+      "polygon2D": [
+        [
+          61,
+          52
+        ],
+        [
+          68,
+          52
+        ],
+        [
+          68,
+          59
+        ],
+        [
+          61,
+          59
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 75,
+        "entranceElevation": 75,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "accessPoint": [
+          58,
+          75,
+          63
+        ],
+        "facing": "WEST",
+        "connectedEdgeId": "e_main"
+      },
+      "foundation": {
+        "type": "horizontal_slab_with_retaining_wall",
+        "retainingWalls": [
+          {
+            "side": "NORTH",
+            "startX": 61,
+            "startZ": 51,
+            "endX": 68,
+            "endZ": 51,
+            "baseElevation": 74,
+            "topElevation": 75,
+            "height": 1,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "WEST",
+            "startX": 60,
+            "startZ": 52,
+            "endX": 60,
+            "endZ": 59,
+            "baseElevation": 74,
+            "topElevation": 75,
+            "height": 1,
+            "materialTag": "stone_brick"
+          }
+        ]
+      },
+      "builder": {
+        "generatorType": "nbt_structure_pool",
+        "templateCategory": "residential",
+        "footprintSize": [
+          8,
+          8
+        ],
+        "heightLimit": 12,
+        "subSeed": 2299721358978533787
+      }
+    },
+    {
+      "id": "plot_4",
+      "tags": [
+        "residential"
+      ],
+      "polygon2D": [
+        [
+          41,
+          30
+        ],
+        [
+          48,
+          30
+        ],
+        [
+          48,
+          37
+        ],
+        [
+          41,
+          37
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 70,
+        "entranceElevation": 71,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "accessPoint": [
+          38,
+          71,
+          41
+        ],
+        "facing": "WEST",
+        "connectedEdgeId": "e_main"
+      },
+      "foundation": {
+        "type": "horizontal_slab_with_retaining_wall",
+        "retainingWalls": [
+          {
+            "side": "NORTH",
+            "startX": 41,
+            "startZ": 29,
+            "endX": 48,
+            "endZ": 29,
+            "baseElevation": 70,
+            "topElevation": 71,
+            "height": 1,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "WEST",
+            "startX": 40,
+            "startZ": 30,
+            "endX": 40,
+            "endZ": 37,
+            "baseElevation": 70,
+            "topElevation": 71,
+            "height": 1,
+            "materialTag": "stone_brick"
+          }
+        ]
+      },
+      "builder": {
+        "generatorType": "nbt_structure_pool",
+        "templateCategory": "residential",
+        "footprintSize": [
+          8,
+          8
+        ],
+        "heightLimit": 12,
+        "subSeed": -220423784200063172
+      }
+    },
+    {
+      "id": "plot_5",
+      "tags": [
+        "residential"
+      ],
+      "polygon2D": [
+        [
+          13,
+          26
+        ],
+        [
+          20,
+          26
+        ],
+        [
+          20,
+          33
+        ],
+        [
+          13,
+          33
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 75,
+        "entranceElevation": 73,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "accessPoint": [
+          24,
+          73,
+          23
+        ],
+        "facing": "EAST",
+        "connectedEdgeId": "e_main"
+      },
+      "foundation": {
+        "type": "horizontal_slab_with_retaining_wall",
+        "retainingWalls": [
+          {
+            "side": "NORTH",
+            "startX": 13,
+            "startZ": 25,
+            "endX": 20,
+            "endZ": 25,
+            "baseElevation": 73,
+            "topElevation": 75,
+            "height": 2,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "SOUTH",
+            "startX": 13,
+            "startZ": 34,
+            "endX": 20,
+            "endZ": 34,
+            "baseElevation": 75,
+            "topElevation": 76,
+            "height": 1,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "WEST",
+            "startX": 12,
+            "startZ": 26,
+            "endX": 12,
+            "endZ": 33,
+            "baseElevation": 74,
+            "topElevation": 76,
+            "height": 2,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "EAST",
+            "startX": 21,
+            "startZ": 26,
+            "endX": 21,
+            "endZ": 33,
+            "baseElevation": 74,
+            "topElevation": 75,
+            "height": 1,
+            "materialTag": "stone_brick"
+          }
+        ]
+      },
+      "builder": {
+        "generatorType": "nbt_structure_pool",
+        "templateCategory": "residential",
+        "footprintSize": [
+          8,
+          8
+        ],
+        "heightLimit": 12,
+        "subSeed": 2132282762986792902
+      }
+    },
+    {
+      "id": "plot_6",
+      "tags": [
+        "residential"
+      ],
+      "polygon2D": [
+        [
+          18,
+          75
+        ],
+        [
+          25,
+          75
+        ],
+        [
+          25,
+          82
+        ],
+        [
+          18,
+          82
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 77,
+        "entranceElevation": 76,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "accessPoint": [
+          29,
+          76,
+          72
+        ],
+        "facing": "EAST",
+        "connectedEdgeId": "e_loop"
+      },
+      "foundation": {
+        "type": "horizontal_slab_with_retaining_wall",
+        "retainingWalls": [
+          {
+            "side": "NORTH",
+            "startX": 18,
+            "startZ": 74,
+            "endX": 25,
+            "endZ": 74,
+            "baseElevation": 76,
+            "topElevation": 77,
+            "height": 1,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "SOUTH",
+            "startX": 18,
+            "startZ": 83,
+            "endX": 25,
+            "endZ": 83,
+            "baseElevation": 77,
+            "topElevation": 79,
+            "height": 2,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "WEST",
+            "startX": 17,
+            "startZ": 75,
+            "endX": 17,
+            "endZ": 82,
+            "baseElevation": 77,
+            "topElevation": 78,
+            "height": 1,
+            "materialTag": "stone_brick"
+          },
+          {
+            "side": "EAST",
+            "startX": 26,
+            "startZ": 75,
+            "endX": 26,
+            "endZ": 82,
+            "baseElevation": 77,
+            "topElevation": 79,
+            "height": 2,
+            "materialTag": "stone_brick"
+          }
+        ]
+      },
+      "builder": {
+        "generatorType": "nbt_structure_pool",
+        "templateCategory": "residential",
+        "footprintSize": [
+          8,
+          8
+        ],
+        "heightLimit": 12,
+        "subSeed": 1209830369222860200
+      }
+    }
+  ],
+  "earthworks": {
+    "totalCutVolume": 117,
+    "totalFillVolume": 52,
+    "cutFillBalance": 65
+  },
+  "clearance": {
+    "clearVegetationBoxes": []
+  },
+  "auditLog": {
+    "warnings": [],
+    "rejectedCandidates": []
+  }
+}

@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>v0.5.1 · MC Settlement · 选址与水上施工 v0.5.0</title>
+  <style>
+    :root { color-scheme: dark; --bg:#07101c; --panel:#0e1b2b; --line:#24384f; --text:#e5eef9; --muted:#94a8bf; --accent:#65d7c7; --orange:#ff9f5b; --cyan:#58c6ff; }
+    * { box-sizing:border-box; }
+    html, body { margin:0; width:100%; height:100%; overflow:hidden; background:var(--bg); color:var(--text); font:13px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    #app { height:100%; display:grid; grid-template-columns:320px 1fr; }
+    #panel { z-index:5; min-width:0; padding:18px; overflow-x:hidden; overflow-y:auto; background:linear-gradient(180deg,#102238,#0a1524); border-right:1px solid var(--line); }
+    h1 { margin:0 0 4px; font-size:19px; letter-spacing:.02em; }
+    h2 { margin:18px 0 8px; font-size:12px; color:var(--accent); text-transform:uppercase; letter-spacing:.12em; }
+    p { margin:5px 0; color:var(--muted); }
+    .hint { color:#b8c8d9; font-size:12px; }
+    .terrain-group { margin-top:10px; padding:8px 9px; border:1px solid var(--line); border-radius:6px; }
+    .terrain-group summary { cursor:pointer; color:var(--accent); }
+    .terrain-control { margin:10px 0 13px; }
+    .terrain-control .control-heading { display:flex; align-items:center; justify-content:space-between; gap:6px; }
+    .terrain-control label { margin:0; }
+    .terrain-control input[type=number] { width:83px; flex-shrink:0; padding:5px 6px; }
+    .terrain-control input[type=range] { padding:0; margin:7px 0 2px; height:18px; }
+    .terrain-control .direction-hint { font-size:11px; color:#b8c8d9; margin:2px 0; }
+    .terrain-control details { font-size:11px; margin-top:3px; }
+    .terrain-control details summary { color:var(--muted); }
+    #terrainMetrics { margin:8px 0; padding:8px; background:#0a1726; border:1px solid var(--line); border-radius:6px; }
+    [hidden] { display:none !important; }
+    label { display:block; margin:9px 0 4px; color:#c4d3e2; }
+    input, select, button { width:100%; border:1px solid #2b435d; border-radius:6px; background:#0b1726; color:var(--text); padding:8px 9px; font:inherit; }
+    input:focus, select:focus, button:focus { outline:2px solid #4b9eae; outline-offset:1px; }
+    .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:13px; }
+    button { cursor:pointer; background:#132b3b; }
+    button.primary { background:#16726c; border-color:#3eb4a8; }
+    button.secondary { background:#1d334b; }
+    button.active { background:#b35b2f; border-color:#ffae6d; }
+    button:disabled { opacity:.45; cursor:not-allowed; }
+    #actual, #metrics, #message, #compareInfo { min-width:0; padding:9px 10px; border:1px solid var(--line); border-radius:7px; background:#0a1726; overflow-wrap:anywhere; word-break:break-word; }
+    #actual { color:#d6e6f4; font-size:12px; }
+    #actual details { margin-top:6px; }
+    #actual summary { cursor:pointer; color:#b8c8d9; }
+    #metrics { display:grid; grid-template-columns:1fr 1fr; gap:5px 12px; }
+    .metric { color:var(--muted); }
+    .metric b { display:block; color:var(--text); font-size:15px; }
+    #message { margin-top:10px; color:#ffcf9b; display:none; }
+    #message.error { display:block; color:#ff9c9c; }
+    #unmet { margin:8px 0 0; padding-left:18px; color:#ffc88b; overflow-wrap:anywhere; word-break:break-word; }
+    #viewport { position:relative; min-width:0; }
+    #canvas { display:block; width:100%; height:100%; }
+    #hud { position:absolute; right:16px; top:16px; z-index:3; max-width:440px; pointer-events:none; }
+    .chip { display:inline-block; margin:0 0 6px 5px; padding:5px 8px; border-radius:5px; background:#081522d9; border:1px solid #27415a; color:#d8e8f5; }
+    .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:4px; }
+    .orange { background:var(--orange); } .cyan { background:var(--cyan); }
+    #loading { position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; color:#b7d6e8; background:#07101c88; opacity:0; transition:opacity .15s; }
+    #loading.show { opacity:1; }
+    code { color:#a9e9df; }
+    dialog {width:min(1000px,92vw);max-height:90vh;background:#0e1b2b;color:var(--text);border:1px solid #3a536b;border-radius:12px;padding:22px;}
+    dialog::backdrop {background:#02070be0;} .catalog-head {display:flex;justify-content:space-between;align-items:center;gap:20px;}
+    .catalog-head button {width:auto;} #catalogGrid {display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:18px;}
+    .preset-card {padding:12px;text-align:left;background:#102438;}.preset-card canvas {display:block;width:100%;height:100px;image-rendering:pixelated;margin-bottom:8px;}
+    .preset-card small {display:block;color:#a4bace;} #networkDetails {margin-top:10px;}.preset-card:hover{border-color:var(--accent);}
+  </style>
+</head>
+<body>
+<div id="app">
+  <aside id="panel">
+    <h1>🏔️ 聚落交互预演</h1><p class="hint" id="releaseVersion">完整升级包 v0.5.1 · 分散选址与共享路网</p>
+    <p class="hint">地形固定时可反复 roll 方案，比较不同布局。</p>
+
+    <h2>地形输入</h2>
+    <label for="mapSize">地图尺寸</label>
+    <select id="mapSize"><option value="128" selected>128 × 128</option><option value="256">256 × 256</option><option value="512">512 × 512</option><option value="custom">自定义长宽</option></select>
+    <div class="row"><div><label for="mapWidth">宽度 X</label><input id="mapWidth" type="number" min="32" max="512" value="128" disabled></div><div><label for="mapDepth">长度 Z</label><input id="mapDepth" type="number" min="32" max="512" value="128" disabled></div></div>
+    <label for="terrainType">地形类型</label>
+    <select id="terrainType">
+      <option value="rolling_hills">起伏丘陵</option>
+      <option value="mountain">山地脊线</option>
+      <option value="valley">环谷地形</option>
+      <option value="plateau">台地阶地</option>
+    </select>
+    <p id="terrainTypeHelp" class="hint"></p>
+    <div class="row">
+      <div><label for="relief">起伏 relief</label><input id="relief" type="number" min="4" max="36" value="24"></div>
+      <div><label for="baseElevation">基准 Y</label><input id="baseElevation" type="number" min="50" max="75" value="58"></div>
+    </div>
+    <p class="hint">起伏调低：高差收小；调高：高差拉大。基准Y只上下平移地形和水位，不让坡面更平。</p>
+    <label for="terrainSeed">terrainSeed（地形）</label>
+    <input id="terrainSeed" type="number" value="42">
+
+    <p class="hint">种子改变布局，没有“越大越高”的关系。先固定种子，再逐项调节。</p>
+    <div id="terrainControls"></div>
+    <div class="actions">
+      <button class="primary" id="terrainOnly">只生成地形</button>
+      <button id="resetTerrain">重置调节项</button>
+    </div>
+    <p class="hint">修改后点击“只生成地形”或“生成地形 + 规划”。“只重新规划”沿用上次已生成地形，不应用未生成的调节值。</p>
+    <details class="terrain-group"><summary>原生成函数与接口</summary>
+      <p class="hint">原入口 generateHillsideWorld(...)、generateWorld(...) 保留。新增 generateWorld(..., TerrainParameters) 和 sampleSurfaceY(...)；同一份公式同时用于生成和采样。</p>
+      <p class="hint">HTTP：/api/terrain 只生成地形；/api/plan 将同样参数接入原规划。恢复默认不会改种子、尺寸、起伏或基准Y。</p>
+    </details>
+
+    <h2>规划输入</h2>
+    <label for="layoutMode">规划方式</label><select id="layoutMode"><option value="expert">选址专家 · 先建筑后道路</option><option value="legacy">旧版 · 沿路生长（对照）</option></select>
+    <div id="expertFields">
+      <p class="hint">关键建筑优先、逐栋动态选址、近邻拥挤评分、土方与滨水规则；不调用语言模型。满足数量但占图太少或太瘦长，也会拒绝施工。</p>
+      <div class="row"><div><label for="minBBoxCoverage">最小包围框占图 %</label><input id="minBBoxCoverage" type="number" min="0" max="85" step="1" value="25"></div><div><label for="minMinorAxisRatio">最小短／长轴比 %</label><input id="minMinorAxisRatio" type="number" min="0" max="90" step="1" value="30"></div></div>
+      <p class="hint">占图调高：要求建筑展开更广；调低：允许集中。轴比调高：拒绝更瘦长的布局。只统计建筑，不拿道路或码头凑面积。≥3栋还检查中心凸包，防止斜线刷大框。高门槛可能无方案。</p>
+      <div class="row"><div><label for="buildingRepulsion">建筑拥挤惩罚</label><input id="buildingRepulsion" type="number" min="0" max="3" step="0.25" value="1"></div><div><label for="roadMergeDistance">近路复用范围（格）</label><input id="roadMergeDistance" type="number" min="0" max="16" step="1" value="7"></div></div>
+      <p class="hint">拥挤默认1，0—3：调高更排斥自动建筑挤在一起；调低更允许接近；0关闭软评分，但不恢复三片区模板。人工锁定点不移动。近路范围默认7，0—16：调高更倾向复用附近同层道路；调低缩小范围；0关闭此项。交叉路口、不同标高不强行合并。</p>
+      <label><input id="allowBridges" type="checkbox" checked style="width:auto"> 允许桩桥和水上桩基</label>
+      <label><input id="autoDock" type="checkbox" checked style="width:auto"> 尝试一个可选码头</label>
+      <label for="maxBridgeSpan">连续涉水路段上限（格）</label><input id="maxBridgeSpan" type="number" min="4" max="96" step="1" value="48">
+      <p class="hint">调高：允许跨更宽的水域，施工与搜索更多；调低：较长跨水连接会被拒绝。桥面固定在水面上一格，水中直行、桩高≤16格。不会填河或穿过保护区。</p>
+      <details class="terrain-group" id="pinPanel"><summary>人工指定建筑 / 码头（最多8项）</summary>
+        <p class="hint">指定点优先于自动选址；建筑计入目标总数，码头不计。锁定的是旋转后占地框的最小X/Z原点，不是建筑中心。无法安放或连接则整案拒绝，不移动、不缩小。</p>
+        <div class="row"><div><label for="pinId">唯一 ID</label><input id="pinId" value="my_building" maxlength="32"></div><div><label for="pinKind">类型</label><select id="pinKind"><option value="land">陆地建筑</option><option value="water">水上桩基建筑</option><option value="dock">码头端点</option></select></div></div>
+        <label for="pinPreset">建筑预设</label><select id="pinPreset"><option value="square_cabin">方形小屋 · 5 × 5</option></select>
+        <div class="row"><div><label for="pinX">原点 X</label><input id="pinX" type="number" step="1" value="32"></div><div><label for="pinZ">原点 Z</label><input id="pinZ" type="number" step="1" value="32"></div></div>
+        <button id="pickPin" type="button" style="margin-top:8px">从地图点选 X/Z</button>
+        <div class="row"><div><label for="pinFacing">门朝向</label><select id="pinFacing"><option>NORTH</option><option>EAST</option><option>SOUTH</option><option>WEST</option></select></div><div><label for="pinY">平台 Y（留空自动）</label><input id="pinY" type="number" step="1" placeholder="自动选高"></div></div>
+        <label for="pinConnect">强制连接对象</label><input id="pinConnect" list="pinTargets" value="network"><datalist id="pinTargets"><option value="network"><option value="entry"></datalist>
+        <p class="hint">network = 接入路网；entry = 指定连至入口；其他人工 ID = 保留明确的端点到端点路线，可复用已有道路。ID 仅英文、数字、下划线和短横线；水上建筑须实际覆盖水面，码头端点须在水上。</p>
+        <button id="savePin" class="primary" type="button">添加 / 更新同 ID 约束</button><div id="pinList" style="margin-top:9px"></div>
+      </details>
+    </div>
+    <label for="roadDirections">道路航向</label><select id="roadDirections"><option value="8">8方向 · 含45°斜向</option><option value="12">12方向 · 对称(2,1)/(1,2)斜向</option><option value="16" selected>8＋12混合 · 16种航向</option></select>
+    <label for="diagonalBuildings"><input id="diagonalBuildings" type="checkbox" style="width:auto;margin-right:6px">允许45°建筑区域（真实栅格占地）</label>
+    <p class="hint">平台独立选高；升降铺装使用真实台阶。12方向不是精确30°分度；混合模式取8向与12向的并集，可在同一路线上使用45°和(2,1)斜向，不是20向。</p>
+    <label for="planSeed">planSeed（方案 roll）</label>
+    <input id="planSeed" type="number" value="42">
+    <label for="targetPlots">目标建筑数</label>
+    <input id="targetPlots" type="number" min="1" max="64" value="7">
+    <label for="presetPalette">建筑占地预设组</label>
+    <select id="presetPalette"><option value="mixed" selected>混合 · 多尺寸 / 多形状</option><option value="classic">原版 · 公平回归对照</option><option value="compact">紧凑组 · 明确选择小体量</option><option value="spacious">大体量组</option><option value="single">单一指定预设</option></select>
+    <select id="singlePresetId" style="display:none;margin-top:7px"><option value="square_cabin">方形小屋 · 5 × 5</option></select>
+    <button id="openCatalog" style="margin-top:7px">查看 22 个建筑占地预设</button>
+    <p class="hint">混合组锁定不同预设；不会为凑数偷偷缩小建筑。中庭和凹口不计入占地。</p>
+    <div class="actions">
+      <button class="primary" id="generate">生成地形 + 规划</button>
+      <button class="secondary" id="roll">只重新规划</button>
+      <button class="secondary" id="randomTerrain">随机地形种子</button>
+      <button class="secondary" id="compare" disabled>比较上一方案</button>
+    </div>
+
+    <h2>查看模式</h2>
+    <div class="actions">
+      <button data-mode="original">原始地形</button>
+      <button data-mode="planning" class="active">规划叠加</button>
+      <button data-mode="constructed">施工结果</button>
+      <button data-mode="compare" disabled>方案比较</button>
+    </div>
+
+    <button id="topView" style="margin-top:10px">俯视 / 斜视</button>
+    <h2>实际生成参数</h2>
+    <div id="actual">等待规划响应…</div>
+    <h2>指标</h2>
+    <div id="terrainMetrics" hidden></div>
+    <div id="metrics">
+      <div class="metric">状态<b id="status">—</b></div>
+      <div class="metric">建筑地块<b id="plotCount">—</b></div>
+      <div class="metric">铺装列<b id="roadCount">—</b></div>
+      <div class="metric">道路图边<b id="edgeCount">—</b></div>
+      <div class="metric">挖方<b id="cut">—</b></div>
+      <div class="metric">填方<b id="fill">—</b></div>
+      <div class="metric">实际台阶列<b id="stairCount">—</b></div><div class="metric">平台标高范围<b id="platformRange">—</b></div>
+      <div class="metric">施工编辑数<b id="editCount">—</b></div><div class="metric">核心规划耗时<b id="planTime">—</b></div>
+    </div>
+    <div id="networkDetails" class="hint"></div><div id="siteSummary" class="hint" style="margin-top:10px"></div><details id="siteDetails" class="terrain-group" hidden><summary>选址依据与拒绝明细</summary><div id="siteDecisions"></div><div id="siteReasons"></div></details>
+    <details style="margin-top:10px"><summary>搜索与资源上限</summary><div id="budgets" class="hint"></div><p class="hint">响应 ≤32 MiB；每层地上可见体素 ≤400,000；单次服务端请求 ≤90秒。达到上限会拒绝或明确报告缺额，不截断施工。</p></details>
+    <ul id="unmet"></ul>
+    <div id="compareInfo" style="display:none"></div>
+    <div id="message"></div>
+  </aside>
+  <main id="viewport">
+    <div id="hud"><span class="chip"><i class="dot orange"></i>当前方案</span><span class="chip"><i class="dot cyan"></i>上一方案</span></div>
+    <canvas id="canvas"></canvas>
+    <div id="loading">规划请求处理中…</div>
+  </main>
+</div>
+
+<dialog id="catalogDialog"><div class="catalog-head"><div><h1>建筑占地预设</h1><p>高亮格为实际占地；空白格保持原地形。点选卡片切换为单一预设。</p></div><button id="closeCatalog">关闭</button></div><div id="catalogGrid"></div></dialog>
+<script src="/vendor/three.min.js"></script>
+<script src="/vendor/OrbitControls.js"></script>
+<script>
+  const $ = id => document.getElementById(id);
+  const state = { current:null, previous:null, mode:'planning', scene:null, camera:null, renderer:null, controls:null, worldGroup:null, overlayGroup:null, centerY:0, requestPending:false };
+  let terrainSchema=null, terrainLastType=null;
+  let manualPins=[],pickPinMode=false;
+  const terrainSpecs = () => terrainSchema ? terrainSchema.controls : [];
+  const terrainDefaults = (spec,type) => typeof spec.default==='object' ? spec.default[type] : spec.default;
+  function showTerrainType(type, previousType=null) {
+    if (!terrainSchema) return;
+    $('terrainTypeHelp').textContent=terrainSchema.types.find(t=>t.id===type).description;
+    terrainLastType=type;
+    for (const spec of terrainSpecs()) {
+      const input=$(spec.key),active=spec.appliesTo.includes(type);
+      if(previousType && typeof spec.default==='object' && Number(input.value)===terrainDefaults(spec,previousType)) {
+        input.value=terrainDefaults(spec,type);$(spec.key+'Range').value=input.value;
+      }
+      $(spec.key+'Field').hidden=!active;
+      input.disabled=$(spec.key+'Range').disabled=!active;
+    }
+  }
+  async function loadTerrainControls() {
+    const response=await fetch('/api/terrain-controls',{cache:'no-store'});
+    if(!response.ok)throw new Error('地形参数说明加载失败');
+    terrainSchema=await response.json();
+    const groups={};
+    for(const [key,title,open] of [['core','尺度、细节和水位',true],['shape','轮廓与类型参数',false],['trees','树木生成',false]]) {
+      const group=document.createElement('details');group.className='terrain-group';group.id='terrainGroup_'+key;group.open=open;
+      const summary=document.createElement('summary');summary.textContent=title;group.append(summary);
+      $('terrainControls').append(group);groups[key]=group;
+    }
+    for(const spec of terrainSpecs()) {
+      const field=document.createElement('div');field.className='terrain-control';field.id=spec.key+'Field';
+      const heading=document.createElement('div');heading.className='control-heading';
+      const label=document.createElement('label');label.htmlFor=spec.key;label.textContent=spec.label;
+      const input=document.createElement('input');input.id=spec.key;input.type='number';input.min=spec.min;input.max=spec.max;input.step=spec.integer?spec.step:'any';
+      input.value=terrainDefaults(spec,$('terrainType').value);
+      const slider=document.createElement('input');slider.id=spec.key+'Range';slider.type='range';slider.min=spec.min;slider.max=spec.max;slider.step=spec.integer?spec.step:'any';slider.value=input.value;
+      slider.setAttribute('aria-label',spec.label+'滑杆');input.setAttribute('aria-describedby',spec.key+'Help');
+      const commitSlider=()=>{
+        const snapped=spec.min+Math.round((Number(slider.value)-spec.min)/spec.step)*spec.step;
+        input.value=slider.value=String(Math.min(spec.max,Math.max(spec.min,Number(snapped.toFixed(10)))));
+      };
+      slider.addEventListener('input',commitSlider);
+      slider.addEventListener('keydown',event=>{
+        if(!spec.integer && ['ArrowLeft','ArrowDown','ArrowRight','ArrowUp'].includes(event.key)){
+          event.preventDefault();slider.value=Number(slider.value)+(['ArrowLeft','ArrowDown'].includes(event.key)?-1:1)*spec.step;commitSlider();
+        }
+      });
+      input.addEventListener('input',()=>{if(input.value!==''&&Number.isFinite(Number(input.value)))slider.value=input.value;});
+      heading.append(label,input);field.append(heading,slider);
+      const hint=document.createElement('div');hint.className='direction-hint';hint.id=spec.key+'Help';
+      const low=document.createElement('div');low.textContent='调低：'+spec.low;const high=document.createElement('div');high.textContent='调高：'+spec.high;hint.append(low,high);field.append(hint);
+      const details=document.createElement('details'),summary=document.createElement('summary'),body=document.createElement('p');
+      summary.textContent=`原理 / 默认 ${terrainDefaults(spec,$('terrainType').value)} / 范围 ${spec.min}–${spec.max}`;summary.dataset.spec=spec.key;
+      body.textContent=spec.description;details.append(summary,body);field.append(details);
+      const key=['horizontalScale','detailStrength','waterLevelRatio'].includes(spec.key)?'core':spec.group==='trees'?'trees':'shape';groups[key].append(field);
+    }
+    showTerrainType($('terrainType').value);
+    $('terrainType').addEventListener('change',()=>{showTerrainType($('terrainType').value,terrainLastType);updateDefaultLabels();});
+  }
+  function updateDefaultLabels() {
+    for(const spec of terrainSpecs())document.querySelector(`summary[data-spec="${spec.key}"]`).textContent=`原理 / 默认 ${terrainDefaults(spec,$('terrainType').value)} / 范围 ${spec.min}–${spec.max}`;
+  }
+  function terrainOverrides() {
+    const values={};
+    for(const spec of terrainSpecs()) if(spec.appliesTo.includes($('terrainType').value)) {
+      const input=$(spec.key),value=Number(input.value);
+      if(input.value.trim()===''||!Number.isFinite(value)||value<spec.min||value>spec.max||(spec.integer&&!Number.isInteger(value)))
+        throw new Error(`${spec.label}必须为${spec.min}–${spec.max}之间的${spec.integer?'整数':'数值'}`);
+      values[spec.key]=value;
+    }
+    return values;
+  }
+  function syncTerrainControls(config) {
+    for(const spec of terrainSpecs()) {const value=config.terrainParameters[spec.key];$(spec.key).value=value;$(spec.key+'Range').value=value;}
+    showTerrainType(config.terrainType);updateDefaultLabels();
+  }
+  function terrainOnlyParams(params) {
+    const keys=new Set(['width','depth','baseElevation','relief','terrainType','terrainSeed',...terrainSpecs().map(s=>s.key)]);
+    return Object.fromEntries(Object.entries(params).filter(([key])=>keys.has(key)));
+  }
+  function showInputError(error) {$('message').className='error';$('message').textContent=String(error.message||error);}
+  function generateFromForm(terrainOnly=false) {try {requestPlan(formParams(terrainOnly),terrainOnly);}catch(error){showInputError(error);}}
+
+  const colors = { 1:0x64748b, 2:0x795548, 3:0x4f8c3b, 4:0x237bb8, 5:0x5b3a29, 6:0x2d7b45, 7:0xaaa69d, 8:0x73777f, 9:0x4b5563, 10:0xe87936, 11:0x3e2c20, 12:0x8d6e63, 13:0xc9b6a8, 14:0x7dd3fc, 15:0xa1887f };
+  const worldBox = new THREE.BoxGeometry(1, 1, 1);
+  const dummy = new THREE.Object3D();
+
+  function initScene() {
+    const canvas = $('canvas');
+    state.scene = new THREE.Scene();
+    state.scene.background = new THREE.Color(0x07101c);
+    state.camera = new THREE.PerspectiveCamera(42, 1, .1, 1000);
+    state.camera.position.set(95, 78, 105);
+    try { state.renderer = new THREE.WebGLRenderer({canvas, antialias:true}); }
+    catch(error) {
+      state.fallback2D=true;
+      $('hud').insertAdjacentHTML('beforeend','<span class="chip">二维兼容视图 · WebGL 不可用</span>');
+      resize();return;
+    }
+    state.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    state.renderer.outputEncoding = THREE.sRGBEncoding;
+    state.controls = new THREE.OrbitControls(state.camera, canvas);
+    state.controls.enableDamping = true;
+    state.controls.dampingFactor = .08;
+    state.controls.target.set(0, 0, 0);
+    state.scene.add(new THREE.HemisphereLight(0xdcecff, 0x152235, .65));
+    const sun = new THREE.DirectionalLight(0xffedcf, .55); sun.position.set(80, 140, 60); state.scene.add(sun);
+    state.scene.add(new THREE.AmbientLight(0x7894b4, .15));
+    resize();
+    animate();
+  }
+
+  function resize() {
+    const host = $('viewport');
+    const w = host.clientWidth, h = host.clientHeight;
+    if(state.fallback2D){$('canvas').width=w;$('canvas').height=h;if(state.current)render2D();return;}
+    state.renderer.setSize(w, h, false);
+    state.camera.aspect = w / Math.max(1, h);
+    state.camera.updateProjectionMatrix();
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+    state.controls.update();
+    state.renderer.render(state.scene, state.camera);
+  }
+
+  function disposeGroup(group) {
+    if (!group) return;
+    group.traverse(object => {
+      if (object.geometry && object.geometry !== worldBox) object.geometry.dispose();
+      if (object.material) {
+        const materials = Array.isArray(object.material) ? object.material : [object.material];
+        materials.forEach(material => material.dispose());
+      }
+    });
+    state.scene.remove(group);
+  }
+
+  function layerBounds(layer) {
+    const width=layer.sizeX, depth=layer.sizeZ, centerY=layer.minY+layer.sizeY/2;
+    let min=Infinity,max=-Infinity;
+    for (let i=0;i<layer.heights.length;i++) { min=Math.min(min,layer.heights[i]);max=Math.max(max,layer.heights[i]+1,layer.waters[i]+1); }
+    for(const v of layer.voxels) max=Math.max(max,v[1]+layer.minY+1);
+    return new THREE.Box3(new THREE.Vector3(-width/2,min-centerY,-depth/2),new THREE.Vector3(width/2,max-centerY,depth/2));
+  }
+
+  function fitCameraToTerrain(layer) {
+    if(state.fallback2D)return;
+    const bounds = layerBounds(layer);
+    const center = bounds.getCenter(new THREE.Vector3());
+    const radius = bounds.getSize(new THREE.Vector3()).length() / 2;
+    const fov = THREE.MathUtils.degToRad(state.camera.fov);
+    const distance = Math.max(32, radius / Math.sin(fov / 2) * 1.15);
+    const direction = new THREE.Vector3(1.05, 1.45, 1.05).normalize();
+    state.camera.position.copy(center).add(direction.multiplyScalar(distance));
+    state.camera.near = Math.max(.1, distance / 1000);
+    state.camera.far = Math.max(1000, distance * 8);
+    state.camera.updateProjectionMatrix();
+    state.controls.target.copy(center);
+    state.controls.update();
+  }
+
+  function renderWorld(layer, opacity=1) {
+    const group=new THREE.Group(), width=layer.sizeX, depth=layer.sizeZ, centerY=layer.minY+layer.sizeY/2;
+    state.centerY=centerY;
+    const palette={}; for(const [id,value] of Object.entries(colors)) palette[id]=new THREE.Color(value);
+    const terrainMaterial=new THREE.MeshStandardMaterial({vertexColors:true,roughness:.95,side:THREE.DoubleSide});
+    const waterMaterial=new THREE.MeshStandardMaterial({color:colors[4],transparent:true,opacity:.74,roughness:.3,side:THREE.DoubleSide});
+    // 64x64 chunks bound temporary JS buffers and permit frustum culling. No hidden deep-voxel dump.
+    for(let cz=0;cz<depth;cz+=64) for(let cx=0;cx<width;cx+=64) {
+      const positions=[],normals=[],vertexColors=[],indices=[],water=[];
+      function quad(points,normal,id) {
+        const base=positions.length/3, color=palette[id]||palette[1];
+        for(const point of points){positions.push(...point);normals.push(...normal);vertexColors.push(color.r,color.g,color.b);}
+        indices.push(base,base+1,base+2,base,base+2,base+3);
+      }
+      for(let z=cz;z<Math.min(depth,cz+64);z++) for(let x=cx;x<Math.min(width,cx+64);x++) {
+        const i=z*width+x,h=layer.heights[i]+1-centerY,id=layer.materials[i],ax=x-width/2,bx=ax+1,az=z-depth/2,bz=az+1;
+        quad([[ax,h,az],[ax,h,bz],[bx,h,bz],[bx,h,az]],[0,1,0],id);
+        const level=(xx,zz)=>xx<0||zz<0||xx>=width||zz>=depth?layer.minY-centerY:layer.heights[zz*width+xx]+1-centerY;
+        let low=level(x-1,z);if(h>low)quad([[ax,low,az],[ax,low,bz],[ax,h,bz],[ax,h,az]],[-1,0,0],id===3?2:id);
+        low=level(x+1,z);if(h>low)quad([[bx,low,bz],[bx,low,az],[bx,h,az],[bx,h,bz]],[1,0,0],id===3?2:id);
+        low=level(x,z-1);if(h>low)quad([[bx,low,az],[ax,low,az],[ax,h,az],[bx,h,az]],[0,0,-1],id===3?2:id);
+        low=level(x,z+1);if(h>low)quad([[ax,low,bz],[bx,low,bz],[bx,h,bz],[ax,h,bz]],[0,0,1],id===3?2:id);
+        if(layer.waters[i]>=0){const wh=layer.waters[i]+1-centerY;water.push(ax,wh,az,ax,wh,bz,bx,wh,bz,ax,wh,az,bx,wh,bz,bx,wh,az);}
+      }
+      const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));geometry.setAttribute('normal',new THREE.Float32BufferAttribute(normals,3));geometry.setAttribute('color',new THREE.Float32BufferAttribute(vertexColors,3));geometry.setIndex(indices);geometry.computeBoundingSphere();group.add(new THREE.Mesh(geometry,terrainMaterial));
+      if(water.length){const wg=new THREE.BufferGeometry();wg.setAttribute('position',new THREE.Float32BufferAttribute(water,3));wg.computeVertexNormals();group.add(new THREE.Mesh(wg,waterMaterial));}
+    }
+    const grouped=new Map();for(const v of layer.voxels){if(!grouped.has(v[3]))grouped.set(v[3],[]);grouped.get(v[3]).push(v);}
+    grouped.forEach((voxels,id)=>{
+      const material=new THREE.MeshStandardMaterial({color:colors[id]||0x8b96a5,roughness:.82,transparent:opacity<1,opacity});
+      const isStair=id===10,mesh=new THREE.InstancedMesh(worldBox,material,voxels.length*(isStair?2:1));
+      voxels.forEach((v,i)=>{
+        const x=v[0]-width/2+.5,y=v[1]+layer.minY-centerY,z=v[2]-depth/2+.5;
+        dummy.rotation.set(0,0,0);dummy.position.set(x,y+(isStair?.25:.5),z);dummy.scale.set(1,isStair?.5:1,1);dummy.updateMatrix();mesh.setMatrixAt(isStair?i*2:i,dummy.matrix);
+        if(isStair){const dir=[[0,-1],[1,0],[0,1],[-1,0]][v[4]||0];dummy.position.set(x+dir[0]*.25,y+.75,z+dir[1]*.25);dummy.scale.set(dir[0]?.5:1,.5,dir[1]?.5:1);dummy.updateMatrix();mesh.setMatrixAt(i*2+1,dummy.matrix);}
+      });mesh.instanceMatrix.needsUpdate=true;group.add(mesh);
+    });
+    state.scene.add(group);return group;
+  }
+
+  function overlayPlan(plan, color, opacity) {
+    if (!plan) return new THREE.Group();
+    const group = new THREE.Group();
+    group.renderOrder = 20;
+    const width = state.current.config.width, depth = state.current.config.depth;
+    const centerY = state.centerY;
+    const roadColumns = plan.groundColumns.filter(column => column.kind === 'road' || column.kind === 'access');
+    const roadMaterial = new THREE.MeshBasicMaterial({color, transparent:true, opacity, depthTest:false, depthWrite:false});
+    const roadGeometry = new THREE.BoxGeometry(1.05, .16, 1.05);
+    const roads = new THREE.InstancedMesh(roadGeometry, roadMaterial, roadColumns.length);
+    roads.renderOrder = 21;
+    roadColumns.forEach((column, index) => {
+      dummy.position.set(column.x - width / 2 + .5, column.targetY - centerY + 1.09, column.z - depth / 2 + .5);
+      dummy.rotation.set(0, 0, 0); dummy.scale.set(1, 1, 1); dummy.updateMatrix(); roads.setMatrixAt(index, dummy.matrix);
+    });
+    roads.instanceMatrix.needsUpdate = true; group.add(roads);
+    const foundationCells=plan.groundColumns.filter(c=>c.kind==='foundation');
+    const fm=new THREE.MeshBasicMaterial({color,transparent:true,opacity:opacity*.35,depthTest:false,depthWrite:false});
+    const floors=new THREE.InstancedMesh(roadGeometry,fm,foundationCells.length);floors.renderOrder=21;
+    foundationCells.forEach((c,i)=>{dummy.position.set(c.x-width/2+.5,c.targetY-centerY+1.06,c.z-depth/2+.5);dummy.scale.set(1,1,1);dummy.updateMatrix();floors.setMatrixAt(i,dummy.matrix);});
+    floors.instanceMatrix.needsUpdate=true;group.add(floors);
+    const lineMaterial=new THREE.LineBasicMaterial({color,transparent:true,opacity:.95,depthTest:false,depthWrite:false});
+    const points=[];for(const plot of plan.plots)for(const [a,b] of footprintEdges(plot)) {
+      for(const p of [a,b])points.push(new THREE.Vector3(p[0]-width/2,plot.baseElevation-centerY+1.2,p[1]-depth/2));
+    }
+    const outline=new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(points),lineMaterial);outline.renderOrder=22;group.add(outline);
+    return group;
+  }
+
+  function footprintEdges(plot) {
+    const mask=new Set(plot.footprint.map(p=>p[0]+','+p[1])),edges=[],[ox,oz]=plot.origin;
+    for(const [x,z] of plot.footprint){
+      if(!mask.has((x-1)+','+z))edges.push([[ox+x,oz+z],[ox+x,oz+z+1]]);
+      if(!mask.has((x+1)+','+z))edges.push([[ox+x+1,oz+z],[ox+x+1,oz+z+1]]);
+      if(!mask.has(x+','+(z-1)))edges.push([[ox+x,oz+z],[ox+x+1,oz+z]]);
+      if(!mask.has(x+','+(z+1)))edges.push([[ox+x,oz+z+1],[ox+x+1,oz+z+1]]);
+    }return edges;
+  }
+  function togglePreset() {$('singlePresetId').style.display=$('presetPalette').value==='single'?'block':'none';}
+  function updateCatalog(presets) {
+    const old=$('singlePresetId').value,pinOld=$('pinPreset').value;$('singlePresetId').replaceChildren();$('pinPreset').replaceChildren();$('catalogGrid').replaceChildren();
+    for(const p of presets) {
+      const option=new Option(`${p.name} · ${p.width}×${p.depth} / ${p.area}格`,p.id);$('singlePresetId').add(option);$('pinPreset').add(new Option(`${p.name} · ${p.width}×${p.depth}`,p.id));
+      const card=document.createElement('button');card.className='preset-card';const canvas=document.createElement('canvas');canvas.width=170;canvas.height=100;card.append(canvas);
+      const ctx=canvas.getContext('2d'),scale=Math.floor(Math.min(140/p.width,90/p.depth)),ox=(170-p.width*scale)/2,oz=(100-p.depth*scale)/2;
+      ctx.fillStyle='#0a1726';ctx.fillRect(0,0,170,100);ctx.fillStyle='#65d7c7';for(let z=0;z<p.depth;z++)for(let x=0;x<p.width;x++)if(p.mask[z][x]==='#')ctx.fillRect(ox+x*scale,oz+z*scale,Math.max(1,scale-1),Math.max(1,scale-1));
+      const title=document.createElement('strong');title.textContent=p.name;card.append(title);const desc=document.createElement('small');desc.textContent=`${p.width} × ${p.depth} · 占地 ${p.area} 格 · 高 ${p.height}`;card.append(desc);
+      const shape=document.createElement('small');shape.textContent=p.shape+' / '+p.sizeTier;card.append(shape);
+      card.onclick=()=>{$('presetPalette').value='single';$('singlePresetId').value=p.id;togglePreset();$('catalogDialog').close();};$('catalogGrid').append(card);
+    }if(presets.some(p=>p.id===old))$('singlePresetId').value=old;if(presets.some(p=>p.id===pinOld))$('pinPreset').value=pinOld;
+  }
+  function render2D() {
+    const canvas=$('canvas'),ctx=canvas.getContext('2d'),data=state.current;
+    if(!ctx){$('message').textContent='浏览器未提供绘图上下文；规划数据和指标仍可查看。';return;}
+    const layer=state.mode==='constructed'?data.constructed:data.original,w=layer.sizeX,d=layer.sizeZ;
+    const image=document.createElement('canvas');image.width=w;image.height=d;const ic=image.getContext('2d'),pixels=ic.createImageData(w,d);
+    for(let i=0;i<layer.heights.length;i++){
+      const id=layer.waters[i]>=0?4:layer.materials[i],color=colors[id]||0x777777;
+      const shade=Math.max(.45,Math.min(1.25,.65+(layer.heights[i]-data.config.baseElevation)/Math.max(12,data.config.relief)*.5));
+      pixels.data[i*4]=Math.min(255,(color>>16&255)*shade);pixels.data[i*4+1]=Math.min(255,(color>>8&255)*shade);pixels.data[i*4+2]=Math.min(255,(color&255)*shade);pixels.data[i*4+3]=255;
+    }
+    ic.putImageData(pixels,0,0);
+    for(const v of layer.voxels){ic.fillStyle='#'+(colors[v[3]]||0x777777).toString(16).padStart(6,'0');ic.fillRect(v[0],v[2],1,1);}
+    if(state.mode!=='original'&&state.mode!=='constructed') {
+      const overlay=(plan,color,alpha)=>{ic.globalAlpha=alpha;ic.fillStyle=color;for(const c of plan.groundColumns)ic.fillRect(c.x,c.z,1,1);ic.globalAlpha=1;ic.strokeStyle=color;ic.lineWidth=.4;for(const p of plan.plots){ic.beginPath();for(const [a,b] of footprintEdges(p)){ic.moveTo(...a);ic.lineTo(...b);}ic.stroke();}};
+      if(state.mode==='compare'&&state.previous)overlay(state.previous.plan,'#58c6ff',.65);overlay(data.plan,'#ff9f5b',.85);
+    }
+    ctx.fillStyle='#07101c';ctx.fillRect(0,0,canvas.width,canvas.height);const scale=Math.min((canvas.width-48)/w,(canvas.height-80)/d),ox=(canvas.width-w*scale)/2,oz=(canvas.height-d*scale)/2;
+    ctx.imageSmoothingEnabled=false;ctx.drawImage(image,ox,oz,w*scale,d*scale);drawSite2D(ctx,ox,oz,scale);ctx.fillStyle='#c4d3e2';ctx.font='13px system-ui';ctx.fillText(data.kind==='TERRAIN_ONLY'?`${w} × ${d} · 仅地形 · 地表Y ${data.metrics.minSurface}–${data.metrics.maxSurface}`:`${w} × ${d} · ${data.metrics.status} · 平台 Y ${data.metrics.minPlatform}—${data.metrics.maxPlatform}`,ox,oz+d*scale+25);
+  }
+
+  function render() {
+    if (!state.current) return;
+    if(state.fallback2D){render2D();return;}
+    disposeGroup(state.worldGroup); disposeGroup(state.overlayGroup);disposeGroup(state.pinGroup);state.pinGroup=null;
+    state.worldGroup = null; state.overlayGroup = null;
+    const mode = state.mode;
+    if (mode === 'constructed') state.worldGroup = renderWorld(state.current.constructed);
+    else {
+      state.worldGroup = renderWorld(state.current.original);
+      if (mode === 'planning') {
+        state.overlayGroup = overlayPlan(state.current.plan, 0xff9f5b, .85);
+        state.scene.add(state.overlayGroup);
+      }
+      if (mode === 'compare') {
+        state.overlayGroup = new THREE.Group();
+        state.overlayGroup.add(overlayPlan(state.previous ? state.previous.plan : null, 0x58c6ff, .55));
+        state.overlayGroup.add(overlayPlan(state.current.plan, 0xff9f5b, .9));
+        state.scene.add(state.overlayGroup);
+      }
+    }
+    drawPins3D();
+  }
+
+  function formParams(terrainOnly=false) {
+    return {
+      width:Number($('mapWidth').value), depth:Number($('mapDepth').value),
+      roadDirections:Number($('roadDirections').value), diagonalBuildings:$('diagonalBuildings').checked,
+      baseElevation:Number($('baseElevation').value), relief:Number($('relief').value),
+      terrainType:$('terrainType').value, terrainSeed:Number($('terrainSeed').value),
+      planSeed:Number($('planSeed').value), targetPlots:Number($('targetPlots').value),
+      presetPalette:$('presetPalette').value,singlePresetId:$('singlePresetId').value,
+      ...expertParams(!terrainOnly),...terrainOverrides()
+    };
+  }
+
+  function syncForm(config, terrainOnly=false) {
+    $('mapWidth').value=config.width;$('mapDepth').value=config.depth;
+    $('mapSize').value=config.width===config.depth&&[128,256,512].includes(config.width)?String(config.width):'custom';
+    $('mapWidth').disabled=$('mapDepth').disabled=$('mapSize').value!=='custom';
+    if(!terrainOnly) {
+    $('presetPalette').value=config.presetPalette||'classic';$('singlePresetId').value=config.singlePresetId||'square_cabin';togglePreset();
+    $('roadDirections').value=config.roadDirections;$('diagonalBuildings').checked=config.diagonalBuildings;
+    $('planSeed').value = config.planSeed; $('targetPlots').value = config.targetPlots;syncExpert(config);
+    }
+    $('baseElevation').value = config.baseElevation; $('relief').value = config.relief;
+    $('terrainType').value = config.terrainType; $('terrainSeed').value = config.terrainSeed;
+    syncTerrainControls(config);
+  }
+
+  function setRequestPending(pending) {
+    if(pending){pickPinMode=false;$('canvas').style.cursor='';if(state.controls)state.controls.enabled=true;}
+    state.requestPending = pending;document.querySelectorAll('#expertFields input,#expertFields select,#pinList button').forEach(e=>e.disabled=pending);$('layoutMode').disabled=pending;
+    ['generate', 'roll', 'randomTerrain', 'terrainOnly', 'resetTerrain', 'pickPin','savePin'].forEach(id => { $(id).disabled = pending; });
+    if(!pending)togglePinKind();
+  }
+
+  async function requestPlan(params, terrainOnly=false) {
+    if (state.requestPending) return;
+    setRequestPending(true);
+    $('loading').classList.add('show'); $('message').className = ''; $('message').textContent = '';
+    try {
+      for(const key of (terrainOnly?['width','depth','baseElevation','relief','terrainSeed']:['width','depth','baseElevation','relief','terrainSeed','planSeed','targetPlots','roadDirections']))if(!Number.isSafeInteger(params[key]))throw new Error(key+' 必须为安全范围内的整数');
+      const query = new URLSearchParams(terrainOnly?terrainOnlyParams(params):params);
+      $('loading').textContent=terrainOnly?'地形生成中…':'规划请求处理中…';
+      const response = await fetch(terrainOnly?'/api/terrain?'+query.toString():'/api/plan', terrainOnly?{cache:'no-store',signal:AbortSignal.timeout(100000)}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(params),cache:'no-store',signal:AbortSignal.timeout(100000)});
+      const data = await response.json();
+      if (!response.ok || !data.ok) throw new Error(data.error || '规划请求失败');
+      const prior = state.current;
+      state.previous = data.plan && prior && prior.plan && prior.config.originalTerrainHash === data.config.originalTerrainHash ? {config:prior.config,metrics:prior.metrics,plan:prior.plan} : null;
+      const terrainChanged = !prior || prior.config.originalTerrainHash !== data.config.originalTerrainHash;
+      state.current = data; if(data.presets)updateCatalog(data.presets); syncForm(data.config,terrainOnly);
+      if(terrainOnly) state.mode='original';
+      else if(prior && !prior.plan) state.mode='planning';
+      for(const mode of ['planning','constructed'])document.querySelector(`[data-mode="${mode}"]`).disabled=terrainOnly;
+      document.querySelectorAll('[data-mode]').forEach(button=>button.classList.toggle('active',button.dataset.mode===state.mode));
+      $('compare').disabled = !state.previous; document.querySelector('[data-mode="compare"]').disabled = !state.previous;
+      if (state.mode === 'compare' && !state.previous) state.mode = 'planning';
+      updateSummary(data); render();
+      if (terrainChanged) fitCameraToTerrain(state.current.original);
+    } catch (error) {
+      $('message').className = 'error'; $('message').textContent = String(error.message || error);
+    } finally { $('loading').classList.remove('show'); setRequestPending(false); }
+  }
+
+  function updateSummary(data) {
+    const c=data.config, m=data.metrics, p=data.plan;
+    const terrainOnly=data.kind==='TERRAIN_ONLY';updateSiteSummary(data);
+    $('metrics').hidden=terrainOnly;$('terrainMetrics').hidden=!terrainOnly;
+    if(terrainOnly) {
+      $('actual').textContent=`地图 ${c.width} × ${c.depth} · ${c.terrainType} · relief ${c.relief} · 基准Y ${c.baseElevation} · terrainSeed ${c.terrainSeed}`;
+      $('terrainMetrics').textContent=`仅生成地形，未执行规划。地表Y ${m.minSurface}–${m.maxSurface}；水域 ${(100*m.waterFraction).toFixed(1)}%；树木 ${m.treeCount}；平均相邻格高差 ${m.meanNeighborStep.toFixed(3)}。`;
+      $('networkDetails').textContent='';$('budgets').textContent='未执行规划或施工；原资源上限保持。';$('unmet').replaceChildren();$('compareInfo').style.display='none';
+      appendTerrainSummary(c);return;
+    }
+    $('actual').innerHTML = `地图 <code>${c.width} × ${c.depth}</code> · 道路 ${c.roadDirections}方向 · 斜向建筑 ${c.diagonalBuildings?'允许':'关闭'}<br>类型 <code>${c.terrainType}</code> · relief <code>${c.relief}</code> · 基准 Y <code>${c.baseElevation}</code><br>terrainSeed <code>${c.terrainSeed}</code> · planSeed <code>${c.planSeed}</code><details><summary>查看方案标识</summary><div>原始地形 hash <code>${c.originalTerrainHash.slice(0,16)}…</code><br>方案 hash <code>${m.planHash.slice(0,16)}…</code></div></details>`;
+    appendTerrainSummary(c);
+    $('status').textContent=m.status; $('plotCount').textContent=`${m.plotCount} / ${c.targetPlots}`; $('roadCount').textContent=m.roadColumnCount;
+    $('edgeCount').textContent=m.roadEdgeCount; $('cut').textContent=m.cutBlocks; $('fill').textContent=m.fillBlocks;
+    $('stairCount').textContent=m.stairBlocks;$('platformRange').textContent=`${m.minPlatform}—${m.maxPlatform}`;
+    $('editCount').textContent=m.constructionEdits;$('planTime').textContent=(m.search.elapsedNanos/1e6).toFixed(0)+' ms';
+    const n=m.network||{},types=n.roadTypes||{};const labels={collector:'主连接',local:'局部分支',secondary:'二级路',ring:'环路'};
+    $('networkDetails').textContent=`网络：${n.status||'基线'} · 枢纽 ${n.hubs||0} · 真实分叉枢纽 ${n.branchNodes||0} · 已验证回路 ${n.verifiedLoops||0} · 语义环秩 ${n.cycleRank||0}。${Object.entries(types).map(([k,v])=>(labels[k]||k)+' '+v).join(' / ')}。最长直段比例 ${((n.longestStraightRatio||0)*100).toFixed(0)}%。${(n.reasons||[]).slice(-2).join('；')}`;
+    if(m.sitePlanning)$('networkDetails').textContent=`网络：${n.status}。${Object.entries(types).map(([k,v])=>({collector:'主连接',local:'支路',secondary:'次级路',required:'强制连接',dock:'码头路'}[k]||k)+' '+v).join(' / ')}。所有已提交建筑均接入同一实际铺装图；不把铺装网格的小环算作聚落环路。实际独立中心线 ${(n.uniqueCenterlineLength??0).toFixed(1)}格；共享重复段 ${(n.sharedCenterlineLength??0).toFixed(1)}格；近邻平行警报 ${(n.nearParallelLength??0).toFixed(1)}格；45°段 ${n.diagonal45Steps??0}；(2,1)段 ${n.obliqueSteps??0}。`;
+    const b=m.search;$('budgets').textContent=`候选 ${b.candidateChecks}/${b.candidateLimit}；寻路扩展 ${b.pathExpanded}/${b.pathLimit}；单路状态峰值 ${b.peakPathStates}/${b.stateLimit}；标高求解 ${b.gradeRelaxations}/${b.gradeLimit}；施工列 ${p.groundColumns.length}/${b.columnLimit}；编辑 ${m.constructionEdits}/${b.editLimit}。预算触发：${b.exhaustedBudgets.join(', ')||'无'}。`;
+    $('unmet').innerHTML='';
+    (p.unmetRequirements || []).forEach(u => { const li=document.createElement('li'); li.textContent=`${u.requirementId}: ${u.allocated}/${u.requested} · ${u.reason}`; $('unmet').appendChild(li); });
+    const info=$('compareInfo');
+    if (state.previous) { info.style.display='block'; const same=state.previous.config.originalTerrainHash===c.originalTerrainHash; info.textContent=same ? `同一地形：上一方案 ${state.previous.metrics.plotCount} 栋 / 挖填 ${state.previous.metrics.cutBlocks+state.previous.metrics.fillBlocks}；当前 ${m.plotCount} 栋 / 挖填 ${m.cutBlocks+m.fillBlocks}。${state.previous.metrics.plotCount===m.plotCount?'建筑数量相同。':'建筑数量不同，不能据此声称挖填改善。'}` : '上一方案来自不同原始地形，比较视图同时保留两次结果的标记。'; }
+    else info.style.display='none';
+  }
+
+  function appendTerrainSummary(c) {
+    const details=document.createElement('details'),summary=document.createElement('summary'),body=document.createElement('div');
+    summary.textContent=`已生成地形参数 · 水面Y ${c.waterLevel}`;
+    body.textContent=terrainSpecs().filter(s=>s.appliesTo.includes(c.terrainType)).map(s=>`${s.label}=${c.terrainParameters[s.key]}`).join('；')+`。${c.terrainGeneratorVersion} · hash ${c.originalTerrainHash.slice(0,16)}…`;
+    details.append(summary,body);$('actual').append(details);
+  }
+
+  function setMode(mode) {
+    if(state.current && !state.current.plan && mode!=='original')return;
+    if (mode==='compare' && !state.previous) return;
+    state.mode=mode;
+    document.querySelectorAll('[data-mode]').forEach(button => button.classList.toggle('active', button.dataset.mode===mode));
+    render();
+  }
+
+
+  function expertParams(validate=true) {
+    if(validate&&$('layoutMode').value==='expert') {
+      for(const [id,min,max,integer] of [['minBBoxCoverage',0,85,false],['minMinorAxisRatio',0,90,false],['maxBridgeSpan',4,96,true],['buildingRepulsion',0,3,false],['roadMergeDistance',0,16,true]]) {
+        const v=Number($(id).value);if(!$(id).value.trim()||!Number.isFinite(v)||v<min||v>max||(integer&&!Number.isInteger(v)))throw new Error(`${id}：必须填写${min}—${max}之间的${integer?'整数':'数值'}`);
+      }
+    }
+    return {layoutMode:$('layoutMode').value,minBBoxCoverage:Number($('minBBoxCoverage').value)/100,
+      minMinorAxisRatio:Number($('minMinorAxisRatio').value)/100,allowBridges:$('allowBridges').checked,
+      autoDock:$('autoDock').checked,maxBridgeSpan:Number($('maxBridgeSpan').value),buildingRepulsion:Number($('buildingRepulsion').value),roadMergeDistance:Number($('roadMergeDistance').value),pins:manualPins.map(p=>({...p}))};
+  }
+  function syncExpert(config) {
+    $('layoutMode').value=config.layoutMode||'legacy';
+    if(config.expertSettings){const e=config.expertSettings;$('minBBoxCoverage').value=e.minBBoxCoverage*100;$('minMinorAxisRatio').value=e.minMinorAxisRatio*100;
+      $('allowBridges').checked=e.allowBridges;$('autoDock').checked=e.autoDock;$('maxBridgeSpan').value=e.maxBridgeSpan;$('buildingRepulsion').value=e.buildingRepulsion??1;$('roadMergeDistance').value=e.roadMergeDistance??7;manualPins=e.pins.map(p=>({...p}));}
+    toggleExpert();renderPins();
+  }
+  function toggleExpert(){$('expertFields').hidden=$('layoutMode').value!=='expert';}
+  function renderPins(){
+    $('pinList').replaceChildren();$('pinTargets').replaceChildren(new Option('接入路网','network'),new Option('入口','entry'));
+    manualPins.forEach(pin=>{
+      $('pinTargets').append(new Option(pin.id,pin.id));const row=document.createElement('div');row.className='terrain-group';
+      const label=document.createElement('div');label.textContent=`${pin.id} · ${pin.kind==='dock'?'码头':pin.medium==='water'?'水上建筑':'建筑'} (${pin.x}, ${pin.z}) · Y ${pin.y??'自动'} → ${pin.connectTo}`;
+      const actions=document.createElement('div');actions.className='row';const edit=document.createElement('button'),remove=document.createElement('button');edit.textContent='编辑';remove.textContent='移除';
+      edit.onclick=()=>{$('pinId').value=pin.id;$('pinX').value=pin.x;$('pinZ').value=pin.z;$('pinY').value=pin.y??'';$('pinKind').value=pin.kind==='dock'?'dock':pin.medium;$('pinPreset').value=pin.presetId;$('pinFacing').value=pin.facing;$('pinConnect').value=pin.connectTo;togglePinKind();};
+      remove.onclick=()=>{manualPins=manualPins.filter(p=>p.id!==pin.id);renderPins();render();};actions.append(edit,remove);row.append(label,actions);$('pinList').append(row);
+    });
+  }
+  function savePin(){try {
+    const kind=$('pinKind').value,id=$('pinId').value.trim(),x=Number($('pinX').value),z=Number($('pinZ').value);
+    if(!/^[A-Za-z][A-Za-z0-9_-]{0,31}$/.test(id)||['entry','network'].includes(id))throw new Error('ID须以英文字母开头，长度1–32，不能为entry/network');
+    if(!$('pinX').value.trim()||!$('pinZ').value.trim()||!Number.isSafeInteger(x)||!Number.isSafeInteger(z))throw new Error('X/Z须为整数');
+    const pin={id,x,z,kind:kind==='dock'?'dock':'building',medium:kind==='water'?'water':'land',presetId:$('pinPreset').value,facing:$('pinFacing').value,connectTo:$('pinConnect').value.trim()||'network'};
+    if($('pinY').value.trim()!==''){pin.y=Number($('pinY').value);if(!Number.isSafeInteger(pin.y))throw new Error('平台Y须为整数或留空');}
+    const i=manualPins.findIndex(p=>p.id===id);if(i<0&&manualPins.length>=8)throw new Error('人工约束最多8项');
+    if(i>=0)manualPins[i]=pin;else manualPins.push(pin);renderPins();render();$('message').className='';$('message').style.display='block';$('message').textContent='已加入待提交约束；点击生成或只重新规划。黄色十字是指定原点，不是已建建筑。';
+  }catch(error){showInputError(error);}}
+  function drawSite2D(ctx,ox,oz,scale){
+    if(state.mode==='constructed')return;
+    const site=state.current.plan?.sitePlanning;
+    if(site?.status==='ACCEPTED'&&state.mode!=='original'&&site.bounds){const [a,b,c,d]=site.bounds;ctx.save();ctx.strokeStyle='#b2e4da';ctx.lineWidth=1;ctx.setLineDash([5,4]);ctx.strokeRect(ox+a*scale,oz+b*scale,(c-a+1)*scale,(d-b+1)*scale);ctx.restore();}
+    if($('layoutMode').value!=='expert')return;
+    ctx.save();ctx.strokeStyle='#ffe078';ctx.fillStyle='#ffe078';ctx.lineWidth=2;ctx.font='12px system-ui';
+    for(const p of manualPins){const x=ox+(p.x+.5)*scale,z=oz+(p.z+.5)*scale;ctx.beginPath();ctx.moveTo(x-6,z);ctx.lineTo(x+6,z);ctx.moveTo(x,z-6);ctx.lineTo(x,z+6);ctx.stroke();ctx.fillText(p.id,x+8,z-6);}ctx.restore();
+  }
+  function drawPins3D(){
+    if(state.fallback2D||state.mode==='constructed'||$('layoutMode').value!=='expert')return;
+    const layer=state.current.original,w=layer.sizeX,d=layer.sizeZ,points=[];
+    for(const p of manualPins){if(p.x<0||p.z<0||p.x>=w||p.z>=d)continue;const i=p.z*w+p.x,y=Math.max(layer.heights[i],layer.waters[i])+2-state.centerY,x=p.x+.5-w/2,z=p.z+.5-d/2,size=Math.max(2,w/140);
+      for(const [dx,dz] of [[-size,0],[size,0],[0,-size],[0,size]])points.push(new THREE.Vector3(x+dx,y,z+dz));}
+    const group=new THREE.Group();group.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(points),new THREE.LineBasicMaterial({color:0xffe078,depthTest:false,depthWrite:false})));group.renderOrder=30;state.scene.add(group);state.pinGroup=group;
+  }
+  function pickMap(event){
+    if(!pickPinMode||state.requestPending||!state.current)return;const rect=$('canvas').getBoundingClientRect(),u=event.clientX-rect.left,v=event.clientY-rect.top;let x,z;
+    const {width:w,depth:d}=state.current.config;
+    if(state.fallback2D){const scale=Math.min((rect.width-48)/w,(rect.height-80)/d);x=Math.floor((u-(rect.width-w*scale)/2)/scale);z=Math.floor((v-(rect.height-d*scale)/2)/scale);}
+    else {const ray=new THREE.Raycaster();ray.setFromCamera(new THREE.Vector2(u/rect.width*2-1,1-v/rect.height*2),state.camera);const hit=ray.intersectObject(state.worldGroup,true)[0];if(!hit)return;x=Math.floor(hit.point.x+w/2);z=Math.floor(hit.point.z+d/2);}
+    if(x<0||z<0||x>=w||z>=d)return;$('pinX').value=x;$('pinZ').value=z;pickPinMode=false;$('pickPin').textContent=`已选 (${x}, ${z}) · 再次点选`;$('canvas').style.cursor='';if(state.controls)state.controls.enabled=true;
+  }
+  function updateSiteSummary(data){
+    const site=data.metrics.sitePlanning;$('siteDetails').hidden=!site;$('siteSummary').textContent='';$('siteDecisions').replaceChildren();$('siteReasons').replaceChildren();if(!site)return;
+    $('siteSummary').textContent=`${site.status==='ACCEPTED'?'已提交布局':'未提交的候选布局'}：建筑包围框 ${(site.bboxCoverage*100).toFixed(1)}%（最低 ${(site.minBBoxCoverage*100).toFixed(0)}%）；短／长轴比 ${(site.minorAxisRatio*100).toFixed(1)}%；中心凸包 ${(site.hullCoverage*100).toFixed(1)}%。近邻拥挤对 ${site.closePairs??0}；拥挤罚分 ${(site.crowdingPenalty??0).toFixed(3)}；宏观围合 ${site.macroLoops??0}；新增跨区联系 ${site.crossLinksBuilt??0}/${site.crossLinksTried??0}。水上建筑 ${site.waterBuildingCount}；桥面列 ${site.bridgeColumns}；桩列 ${site.pileColumns}；码头 ${site.docks}。`;
+    const roles={civic:'公共核心',trade:'作坊／商贸',residential:'居住',highland:'高地节点'};
+    for(const a of site.decisions){const p=document.createElement('p');p.textContent=`${a.pinned?'[人工锁定]':'[规则选址]'} ${a.id} · ${roles[a.role]||a.role} (${a.x},${a.z}) Y${a.y} · 拥挤项 ${(a.repulsionPenalty??0).toFixed(3)} · 单位土方 ${a.terrainCost.toFixed(2)}${a.shoreDistance<1000000?' · 距水 '+a.shoreDistance+'格':''}`;$('siteDecisions').append(p);}
+    for(const c of site.requiredConnections){const p=document.createElement('p');p.textContent=`强制连接 ${c.from} → ${c.to}: ${c.status}${c.reason?' · '+c.reason:''}`;$('siteDecisions').append(p);}
+    const reasons=[...site.reasons,...site.attempts];for(const reason of reasons){const p=document.createElement('p');p.textContent=reason;$('siteReasons').append(p);}
+    if(data.metrics.status==='REJECTED'){$('message').className='error';$('message').textContent='方案未通过硬约束，未施工。查看选址与拒绝明细；人工点不会被自动挪走。';}
+  }
+  function togglePinKind(){const dock=$('pinKind').value==='dock';$('pinPreset').disabled=dock;$('pinFacing').disabled=dock;}
+  $('pinKind').addEventListener('change',togglePinKind);
+  $('layoutMode').addEventListener('change',()=>{toggleExpert();render();});$('savePin').onclick=savePin;
+  $('pickPin').onclick=()=>{if(!state.current)return;pickPinMode=!pickPinMode;if(pickPinMode)setMode('original');$('pickPin').textContent=pickPinMode?'点击地图指定原点（再次点击取消）':'从地图点选 X/Z';$('canvas').style.cursor=pickPinMode?'crosshair':'';if(state.controls)state.controls.enabled=!pickPinMode;};
+  $('canvas').addEventListener('click',pickMap);
+
+  $('presetPalette').addEventListener('change',togglePreset);
+  $('openCatalog').onclick=()=>$('catalogDialog').showModal();$('closeCatalog').onclick=()=>$('catalogDialog').close();
+  $('topView').onclick=()=>{if(!state.current||state.fallback2D)return;state.topView=!state.topView;if(!state.topView){state.camera.up.set(0,1,0);fitCameraToTerrain(state.current.original);return;}const c=state.controls.target.clone(),size=Math.max(state.current.config.width,state.current.config.depth);state.camera.position.set(c.x,c.y+size*1.55,c.z+.01);state.camera.up.set(0,0,-1);state.controls.update();};
+  $('mapSize').addEventListener('change',()=>{const custom=$('mapSize').value==='custom';$('mapWidth').disabled=$('mapDepth').disabled=!custom;if(!custom)$('mapWidth').value=$('mapDepth').value=$('mapSize').value;});
+  $('generate').addEventListener('click', () => generateFromForm());
+  $('terrainOnly').addEventListener('click', () => generateFromForm(true));
+  $('resetTerrain').addEventListener('click',()=>{
+    for(const spec of terrainSpecs()){$(spec.key).value=terrainDefaults(spec,$('terrainType').value);$(spec.key+'Range').value=$(spec.key).value;}
+    showTerrainType($('terrainType').value);updateDefaultLabels();
+  });
+  $('roll').addEventListener('click', () => {try {
+    const current = state.current;
+    const params = current ? {
+      width: current.config.width, depth: current.config.depth,
+      roadDirections:Number($('roadDirections').value), diagonalBuildings:$('diagonalBuildings').checked,
+      baseElevation: current.config.baseElevation, relief: current.config.relief,
+      terrainType: current.config.terrainType, terrainSeed: current.config.terrainSeed,
+      planSeed: Number(current.plan?current.config.planSeed:$('planSeed').value) + 1,
+      ...current.config.terrainParameters,
+      ...expertParams(),targetPlots: Number($('targetPlots').value),presetPalette:$('presetPalette').value,singlePresetId:$('singlePresetId').value
+    } : formParams();
+    if (!current) params.planSeed += 1;
+    $('planSeed').value = params.planSeed;
+    requestPlan(params);
+  }catch(error){showInputError(error);}});
+  $('randomTerrain').addEventListener('click', () => { $('terrainSeed').value=Math.floor(Math.random()*2147483647); $('planSeed').value=Math.floor(Math.random()*2147483647); generateFromForm(state.current?.kind==='TERRAIN_ONLY'); });
+  $('compare').addEventListener('click', () => setMode('compare'));
+  document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.mode)));
+  window.addEventListener('resize', resize);
+  initScene();
+  setRequestPending(true);
+  loadTerrainControls().then(()=>{setRequestPending(false);generateFromForm();}).catch(error=>{setRequestPending(false);showInputError(error);});
+</script>
+</body>
+</html>

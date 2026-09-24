@@ -1,0 +1,26 @@
+PASS intent_to_request_preserves_requirements
+PASS offline_keywords_are_per_purpose
+[LLM] Using offline heuristic strategy generator.
+PASS offline_manager_zero_model_calls
+Exception in thread "main" java.io.IOException: Unable to establish loopback connection
+	at java.base/sun.nio.ch.PipeImpl$Initializer.run(PipeImpl.java:103)
+	at java.base/sun.nio.ch.PipeImpl$Initializer.run(PipeImpl.java:67)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:571)
+	at java.base/sun.nio.ch.PipeImpl.<init>(PipeImpl.java:197)
+	at java.base/sun.nio.ch.WEPollSelectorImpl.<init>(WEPollSelectorImpl.java:79)
+	at java.base/sun.nio.ch.WEPollSelectorProvider.openSelector(WEPollSelectorProvider.java:33)
+	at java.base/java.nio.channels.Selector.open(Selector.java:295)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl.<init>(ServerImpl.java:149)
+	at jdk.httpserver/sun.net.httpserver.HttpServerImpl.<init>(HttpServerImpl.java:50)
+	at jdk.httpserver/sun.net.httpserver.DefaultHttpServerProvider.createHttpServer(DefaultHttpServerProvider.java:35)
+	at jdk.httpserver/com.sun.net.httpserver.HttpServer.create(HttpServer.java:152)
+	at org.mcsettlement.llm.BridgeRegressionMain.main(BridgeRegressionMain.java:29)
+Caused by: java.net.SocketException: Invalid argument: connect
+	at java.base/sun.nio.ch.UnixDomainSockets.connect0(Native Method)
+	at java.base/sun.nio.ch.UnixDomainSockets.connect(UnixDomainSockets.java:154)
+	at java.base/sun.nio.ch.UnixDomainSockets.connect(UnixDomainSockets.java:150)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:878)
+	at java.base/java.nio.channels.SocketChannel.open(SocketChannel.java:285)
+	at java.base/sun.nio.ch.PipeImpl$Initializer$LoopbackConnector.run(PipeImpl.java:132)
+	at java.base/sun.nio.ch.PipeImpl$Initializer.run(PipeImpl.java:85)
+	... 11 more

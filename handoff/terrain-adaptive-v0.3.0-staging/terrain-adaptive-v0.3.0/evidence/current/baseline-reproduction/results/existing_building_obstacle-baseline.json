@@ -1,0 +1,1055 @@
+{
+  "metadata": {
+    "version": "0.2.0",
+    "timestamp": "2026-09-20T13:43:19.760729116Z",
+    "randomSeed": 42,
+    "minBounds": [
+      0,
+      0,
+      0
+    ],
+    "maxBounds": [
+      63,
+      256,
+      63
+    ],
+    "score": {
+      "walkability": 1.0,
+      "road_network_edges": 3.0,
+      "earthwork_balance": 1.0,
+      "total_score": 100.0,
+      "plots_allocated": 4.0
+    }
+  },
+  "transportNetwork": {
+    "corridorWidth": 0,
+    "corridors": [],
+    "nodes": [
+      {
+        "id": "n_gate",
+        "pos": [
+          5,
+          64,
+          5
+        ],
+        "type": "entry",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_plaza",
+        "pos": [
+          47,
+          64,
+          47
+        ],
+        "type": "plaza",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_ridge",
+        "pos": [
+          12,
+          64,
+          12
+        ],
+        "type": "overlook",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_junc_ridge",
+        "pos": [
+          18,
+          64,
+          25
+        ],
+        "type": "junction",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_junc_loop",
+        "pos": [
+          32,
+          64,
+          40
+        ],
+        "type": "junction",
+        "elevation": 64.0
+      }
+    ],
+    "edges": [
+      {
+        "id": "e_main",
+        "fromNodeId": "n_gate",
+        "toNodeId": "n_plaza",
+        "roadType": "primary_road",
+        "width": 3,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 5,
+            "y": 64,
+            "z": 5,
+            "structure": "surface"
+          },
+          {
+            "x": 6,
+            "y": 64,
+            "z": 6,
+            "structure": "surface"
+          },
+          {
+            "x": 7,
+            "y": 64,
+            "z": 7,
+            "structure": "surface"
+          },
+          {
+            "x": 8,
+            "y": 64,
+            "z": 8,
+            "structure": "surface"
+          },
+          {
+            "x": 9,
+            "y": 64,
+            "z": 9,
+            "structure": "surface"
+          },
+          {
+            "x": 10,
+            "y": 64,
+            "z": 10,
+            "structure": "surface"
+          },
+          {
+            "x": 11,
+            "y": 64,
+            "z": 11,
+            "structure": "surface"
+          },
+          {
+            "x": 12,
+            "y": 64,
+            "z": 12,
+            "structure": "surface"
+          },
+          {
+            "x": 13,
+            "y": 64,
+            "z": 13,
+            "structure": "surface"
+          },
+          {
+            "x": 14,
+            "y": 64,
+            "z": 14,
+            "structure": "surface"
+          },
+          {
+            "x": 15,
+            "y": 64,
+            "z": 15,
+            "structure": "surface"
+          },
+          {
+            "x": 16,
+            "y": 64,
+            "z": 16,
+            "structure": "surface"
+          },
+          {
+            "x": 17,
+            "y": 64,
+            "z": 17,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 18,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 19,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 20,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 21,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 22,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 23,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 24,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 25,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 26,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 27,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 28,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 29,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 30,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 34,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 35,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 36,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 37,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 38,
+            "structure": "surface"
+          },
+          {
+            "x": 20,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 21,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 22,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 23,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 24,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 25,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": 40,
+            "structure": "surface"
+          },
+          {
+            "x": 32,
+            "y": 64,
+            "z": 40,
+            "structure": "surface"
+          },
+          {
+            "x": 33,
+            "y": 64,
+            "z": 41,
+            "structure": "surface"
+          },
+          {
+            "x": 34,
+            "y": 64,
+            "z": 41,
+            "structure": "surface"
+          },
+          {
+            "x": 35,
+            "y": 64,
+            "z": 42,
+            "structure": "surface"
+          },
+          {
+            "x": 36,
+            "y": 64,
+            "z": 42,
+            "structure": "surface"
+          },
+          {
+            "x": 37,
+            "y": 64,
+            "z": 42,
+            "structure": "surface"
+          },
+          {
+            "x": 38,
+            "y": 64,
+            "z": 43,
+            "structure": "surface"
+          },
+          {
+            "x": 39,
+            "y": 64,
+            "z": 43,
+            "structure": "surface"
+          },
+          {
+            "x": 40,
+            "y": 64,
+            "z": 44,
+            "structure": "surface"
+          },
+          {
+            "x": 41,
+            "y": 64,
+            "z": 44,
+            "structure": "surface"
+          },
+          {
+            "x": 42,
+            "y": 64,
+            "z": 44,
+            "structure": "surface"
+          },
+          {
+            "x": 43,
+            "y": 64,
+            "z": 45,
+            "structure": "surface"
+          },
+          {
+            "x": 44,
+            "y": 64,
+            "z": 46,
+            "structure": "surface"
+          },
+          {
+            "x": 45,
+            "y": 64,
+            "z": 46,
+            "structure": "surface"
+          },
+          {
+            "x": 46,
+            "y": 64,
+            "z": 47,
+            "structure": "surface"
+          },
+          {
+            "x": 47,
+            "y": 64,
+            "z": 47,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_branch_ridge",
+        "fromNodeId": "n_junc_ridge",
+        "toNodeId": "n_ridge",
+        "roadType": "secondary_road",
+        "width": 2,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 18,
+            "y": 64,
+            "z": 25,
+            "structure": "surface"
+          },
+          {
+            "x": 17,
+            "y": 64,
+            "z": 24,
+            "structure": "surface"
+          },
+          {
+            "x": 16,
+            "y": 64,
+            "z": 23,
+            "structure": "surface"
+          },
+          {
+            "x": 16,
+            "y": 64,
+            "z": 22,
+            "structure": "surface"
+          },
+          {
+            "x": 15,
+            "y": 64,
+            "z": 21,
+            "structure": "surface"
+          },
+          {
+            "x": 15,
+            "y": 64,
+            "z": 20,
+            "structure": "surface"
+          },
+          {
+            "x": 15,
+            "y": 64,
+            "z": 19,
+            "structure": "surface"
+          },
+          {
+            "x": 15,
+            "y": 64,
+            "z": 18,
+            "structure": "surface"
+          },
+          {
+            "x": 14,
+            "y": 64,
+            "z": 17,
+            "structure": "surface"
+          },
+          {
+            "x": 14,
+            "y": 64,
+            "z": 16,
+            "structure": "surface"
+          },
+          {
+            "x": 13,
+            "y": 64,
+            "z": 15,
+            "structure": "surface"
+          },
+          {
+            "x": 13,
+            "y": 64,
+            "z": 14,
+            "structure": "surface"
+          },
+          {
+            "x": 12,
+            "y": 64,
+            "z": 13,
+            "structure": "surface"
+          },
+          {
+            "x": 12,
+            "y": 64,
+            "z": 12,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_loop",
+        "fromNodeId": "n_ridge",
+        "toNodeId": "n_junc_loop",
+        "roadType": "pathway",
+        "width": 2,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 12,
+            "y": 64,
+            "z": 12,
+            "structure": "surface"
+          },
+          {
+            "x": 13,
+            "y": 64,
+            "z": 13,
+            "structure": "surface"
+          },
+          {
+            "x": 14,
+            "y": 64,
+            "z": 14,
+            "structure": "surface"
+          },
+          {
+            "x": 15,
+            "y": 64,
+            "z": 15,
+            "structure": "surface"
+          },
+          {
+            "x": 15,
+            "y": 64,
+            "z": 16,
+            "structure": "surface"
+          },
+          {
+            "x": 15,
+            "y": 64,
+            "z": 17,
+            "structure": "surface"
+          },
+          {
+            "x": 15,
+            "y": 64,
+            "z": 18,
+            "structure": "surface"
+          },
+          {
+            "x": 16,
+            "y": 64,
+            "z": 19,
+            "structure": "surface"
+          },
+          {
+            "x": 17,
+            "y": 64,
+            "z": 20,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 21,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 22,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 23,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 24,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 25,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 26,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 27,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 28,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 29,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 30,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 34,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 35,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 36,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 37,
+            "structure": "surface"
+          },
+          {
+            "x": 19,
+            "y": 64,
+            "z": 38,
+            "structure": "surface"
+          },
+          {
+            "x": 20,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 21,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 22,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 23,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 24,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 25,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": 39,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": 40,
+            "structure": "surface"
+          },
+          {
+            "x": 32,
+            "y": 64,
+            "z": 40,
+            "structure": "surface"
+          }
+        ]
+      }
+    ]
+  },
+  "plots": [
+    {
+      "id": "plot_1",
+      "tags": [
+        "landmark"
+      ],
+      "polygon2D": [
+        [
+          24,
+          19
+        ],
+        [
+          31,
+          19
+        ],
+        [
+          31,
+          26
+        ],
+        [
+          24,
+          26
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 64,
+        "entranceElevation": 64,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "width": 1,
+        "accessPoint": [
+          21,
+          64,
+          30
+        ],
+        "facing": "WEST",
+        "connectedEdgeId": "e_main",
+        "path": []
+      },
+      "foundation": {
+        "type": "horizontal_slab_with_retaining_wall",
+        "retainingWalls": []
+      },
+      "builder": {
+        "generatorType": "nbt_structure_pool",
+        "templateCategory": "residential",
+        "footprintSize": [
+          8,
+          8
+        ],
+        "heightLimit": 12,
+        "subSeed": 884324181205335268
+      }
+    },
+    {
+      "id": "plot_2",
+      "tags": [
+        "workshop"
+      ],
+      "polygon2D": [
+        [
+          24,
+          47
+        ],
+        [
+          31,
+          47
+        ],
+        [
+          31,
+          54
+        ],
+        [
+          24,
+          54
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 64,
+        "entranceElevation": 64,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "width": 1,
+        "accessPoint": [
+          35,
+          64,
+          44
+        ],
+        "facing": "EAST",
+        "connectedEdgeId": "e_main",
+        "path": []
+      },
+      "foundation": {
+        "type": "horizontal_slab_with_retaining_wall",
+        "retainingWalls": []
+      },
+      "builder": {
+        "generatorType": "nbt_structure_pool",
+        "templateCategory": "residential",
+        "footprintSize": [
+          8,
+          8
+        ],
+        "heightLimit": 12,
+        "subSeed": -5391787952107853122
+      }
+    },
+    {
+      "id": "plot_3",
+      "tags": [
+        "residential"
+      ],
+      "polygon2D": [
+        [
+          3,
+          27
+        ],
+        [
+          10,
+          27
+        ],
+        [
+          10,
+          34
+        ],
+        [
+          3,
+          34
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 64,
+        "entranceElevation": 64,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "width": 1,
+        "accessPoint": [
+          14,
+          64,
+          24
+        ],
+        "facing": "EAST",
+        "connectedEdgeId": "e_branch_ridge",
+        "path": []
+      },
+      "foundation": {
+        "type": "horizontal_slab_with_retaining_wall",
+        "retainingWalls": []
+      },
+      "builder": {
+        "generatorType": "nbt_structure_pool",
+        "templateCategory": "residential",
+        "footprintSize": [
+          8,
+          8
+        ],
+        "heightLimit": 12,
+        "subSeed": -1782466964123969572
+      }
+    },
+    {
+      "id": "plot_4",
+      "tags": [
+        "residential"
+      ],
+      "polygon2D": [
+        [
+          19,
+          3
+        ],
+        [
+          26,
+          3
+        ],
+        [
+          26,
+          10
+        ],
+        [
+          19,
+          10
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 64,
+        "entranceElevation": 64,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "width": 1,
+        "accessPoint": [
+          16,
+          64,
+          14
+        ],
+        "facing": "WEST",
+        "connectedEdgeId": "e_branch_ridge",
+        "path": []
+      },
+      "foundation": {
+        "type": "horizontal_slab_with_retaining_wall",
+        "retainingWalls": []
+      },
+      "builder": {
+        "generatorType": "nbt_structure_pool",
+        "templateCategory": "residential",
+        "footprintSize": [
+          8,
+          8
+        ],
+        "heightLimit": 12,
+        "subSeed": 7040072382879853816
+      }
+    }
+  ],
+  "earthworks": {
+    "totalCutVolume": 0,
+    "totalFillVolume": 0,
+    "cutFillBalance": 0
+  },
+  "clearance": {
+    "clearVegetationBoxes": []
+  },
+  "auditLog": {
+    "warnings": [],
+    "rejectedCandidates": []
+  },
+  "status": "UNVALIDATED",
+  "unmetRequirements": [],
+  "search": {
+    "candidateChecks": 0,
+    "pathExpanded": 0,
+    "attempts": 0,
+    "candidateLimit": 0,
+    "pathLimit": 0,
+    "budgetExhausted": false,
+    "modelCalls": 0,
+    "elapsedNanos": 0
+  },
+  "groundColumns": []
+}

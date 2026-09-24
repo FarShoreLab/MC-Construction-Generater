@@ -1,0 +1,26 @@
+[
+  {
+    "type": "mountain",
+    "hash": "a3a4cc8dea57f14955485b9ac68a563cd123e382b5170f24db9fc4f7b96254b4",
+    "status": "PARTIAL",
+    "plots": 4,
+    "visibleWater": 2657,
+    "visibleTrees": 4038
+  },
+  {
+    "type": "valley",
+    "hash": "55afaf816bba11f44514c5a5d7ba62db61094f73842406c18bf994f1eaa8499f",
+    "status": "COMPLETE",
+    "plots": 7,
+    "visibleWater": 1430,
+    "visibleTrees": 4749
+  },
+  {
+    "type": "plateau",
+    "hash": "0430629c6f66329917a007abf77f09acd345d3ac4f9ef6c8ad596be78777d4f1",
+    "status": "PARTIAL",
+    "plots": 2,
+    "visibleWater": 1017,
+    "visibleTrees": 4632
+  }
+]

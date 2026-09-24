@@ -1,0 +1,8 @@
+{
+  "sameTerrainOnRoll": true,
+  "sameSeedReproducesPlan": true,
+  "rollChangesPlan": true,
+  "aPlots": 7,
+  "bPlots": 7,
+  "status": "COMPLETE"
+}

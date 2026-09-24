@@ -1,0 +1,165 @@
+{
+  "id": "octagonal_lodge",
+  "name": "八角住宅",
+  "category": "residential",
+  "tags": [
+    "residential",
+    "octagon",
+    "standard"
+  ],
+  "styles": [
+    "medieval_rustic"
+  ],
+  "author": "MCSettlement",
+  "description": "八角住宅；明确占地掩码，不占用凹角/中庭空地；固定尺寸不可裁剪。",
+  "footprintShape": "octagon",
+  "sizeTier": "standard",
+  "footprintMask": [
+    "..#######..",
+    ".#########.",
+    "###########",
+    "###########",
+    "###########",
+    "###########",
+    "###########",
+    "###########",
+    "###########",
+    ".#########.",
+    "..#######.."
+  ],
+  "sizeX": 11,
+  "sizeZ": 11,
+  "sizeY": 9,
+  "entrance": {
+    "facing": "SOUTH",
+    "x": 5,
+    "z": 10
+  },
+  "palette": {
+    ".": "minecraft:air",
+    "S": "minecraft:cobblestone",
+    "W": "minecraft:spruce_planks",
+    "R": "minecraft:stone_bricks",
+    "G": "minecraft:glass_pane"
+  },
+  "themeReplacements": {},
+  "layers": [
+    [
+      "..SSSSSSS..",
+      ".SSSSSSSSS.",
+      "SSSSSSSSSSS",
+      "SSSSSSSSSSS",
+      "SSSSSSSSSSS",
+      "SSSSSSSSSSS",
+      "SSSSSSSSSSS",
+      "SSSSSSSSSSS",
+      "SSSSSSSSSSS",
+      ".SSSSSSSSS.",
+      "..SSSSSSS.."
+    ],
+    [
+      "..WWWWWWW..",
+      ".W.......W.",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      ".W.......W.",
+      "..WWW.WWW.."
+    ],
+    [
+      "..WWWWWWW..",
+      ".W.......W.",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      ".W.......W.",
+      "..WWW.WWW.."
+    ],
+    [
+      "..WWWGWWW..",
+      ".W.......W.",
+      "W.........W",
+      "W.........G",
+      "W.........W",
+      "G.........W",
+      "W.........W",
+      "W.........G",
+      "W.........W",
+      ".W.......W.",
+      "..WGWWWGW.."
+    ],
+    [
+      "..WWWWWWW..",
+      ".W.......W.",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      ".W.......W.",
+      "..WWWWWWW.."
+    ],
+    [
+      "..WWWWWWW..",
+      ".W.......W.",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      ".W.......W.",
+      "..WWWWWWW.."
+    ],
+    [
+      "..WWWWWWW..",
+      ".W.......W.",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      ".W.......W.",
+      "..WWWWWWW.."
+    ],
+    [
+      "..WWWWWWW..",
+      ".W.......W.",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      "W.........W",
+      ".W.......W.",
+      "..WWWWWWW.."
+    ],
+    [
+      "..RRRRRRR..",
+      ".RRRRRRRRR.",
+      "RRRRRRRRRRR",
+      "RRRRRRRRRRR",
+      "RRRRRRRRRRR",
+      "RRRRRRRRRRR",
+      "RRRRRRRRRRR",
+      "RRRRRRRRRRR",
+      "RRRRRRRRRRR",
+      ".RRRRRRRRR.",
+      "..RRRRRRR.."
+    ]
+  ]
+}

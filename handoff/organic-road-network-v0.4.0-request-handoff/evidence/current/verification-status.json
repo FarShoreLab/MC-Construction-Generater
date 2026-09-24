@@ -1,0 +1,32 @@
+[
+  {
+    "test": "core-21",
+    "exit_code": 0,
+    "elapsed_seconds": 2.927,
+    "log": "core-21.log"
+  },
+  {
+    "test": "adaptive-29",
+    "exit_code": 0,
+    "elapsed_seconds": 19.382,
+    "log": "adaptive-29.log"
+  },
+  {
+    "test": "fuzz-100",
+    "exit_code": 0,
+    "elapsed_seconds": 26.095,
+    "log": "fuzz-100.log"
+  },
+  {
+    "test": "bridge-diagonal",
+    "exit_code": 0,
+    "elapsed_seconds": 0.693,
+    "log": "bridge-diagonal.log"
+  },
+  {
+    "test": "fabric-syntax-only",
+    "exit_code": 0,
+    "elapsed_seconds": 0.428,
+    "log": "fabric-syntax-only.log"
+  }
+]

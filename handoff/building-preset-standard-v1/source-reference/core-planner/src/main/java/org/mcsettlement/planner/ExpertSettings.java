@@ -1,0 +1,118 @@
+package org.mcsettlement.planner;
+
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import java.io.*;
+import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import org.mcsettlement.planner.preset.BuildingPresetRegistry;
+
+/** Small deterministic rule configuration. No model calls; pins are hard spatial constraints. */
+public final class ExpertSettings {
+    public double minBBoxCoverage=.25, minMinorAxisRatio=.30;
+    public boolean allowBridges=true, autoDock=true;
+    public int maxBridgeSpan=48;
+    /** Dry-land decks are only short obstacle crossings; water bridges use maxBridgeSpan. */
+    public int maxLandBridgeSpan=12;
+    /** village, town, city: density/continuity/vertical hierarchy presets without changing target count. */
+    public String settlementMode="village";
+    public String sitePreference="balanced"; // clearings prefers flat, low-clearance-cost land near shore
+    public List<BuildingSelection> buildingSelection=new ArrayList<>();
+    public static final class BuildingSelection {
+        public String presetId;
+        public boolean enabled=true;
+        public int count=1;
+    }
+    public static List<BuildingSelection> parseBuildingSelection(String json){
+        List<BuildingSelection> out=new ArrayList<>();Set<String> ids=new HashSet<>();
+        try(JsonReader reader=new JsonReader(new StringReader(json))){
+            reader.setLenient(false);reader.beginArray();
+            while(reader.hasNext()){
+                if(out.size()>=64)throw new IllegalArgumentException("BUILDING_SELECTION_LIMIT");
+                BuildingSelection item=new BuildingSelection();Set<String> keys=new HashSet<>();reader.beginObject();
+                while(reader.hasNext()){String key=reader.nextName();if(!keys.add(key))throw new IllegalArgumentException("DUPLICATE_BUILDING_FIELD");
+                    switch(key){case "presetId"->item.presetId=text(reader);case "count"->item.count=integer(reader);case "enabled"->{if(reader.peek()!=JsonToken.BOOLEAN)throw new IllegalArgumentException("ENABLED_MUST_BE_BOOLEAN");item.enabled=reader.nextBoolean();}default->throw new IllegalArgumentException("UNKNOWN_BUILDING_FIELD");}}
+                reader.endObject();var preset=BuildingPresetRegistry.getInstance().getPreset(item.presetId);
+                if(preset==null||preset.archived||!ids.add(item.presetId)||item.count<0||item.count>64||item.enabled&&item.count==0)throw new IllegalArgumentException("INVALID_BUILDING_SELECTION");
+                out.add(item);
+            }
+            reader.endArray();if(reader.peek()!=JsonToken.END_DOCUMENT)throw new IllegalArgumentException("TRAILING_BUILDING_SELECTION");
+        }catch(IOException|IllegalStateException|NumberFormatException|ArithmeticException ex){throw new IllegalArgumentException("INVALID_BUILDING_SELECTION",ex);}
+        return out;
+    }
+    /** Optional stable site-roll seed. When set, planSeed may roll roads without moving automatic sites. */
+    public Long siteSeed;
+    /** Strict automatic planSeed retries after REJECTED, including the first attempt. */
+    public int maxPlanAttempts=3;
+    public double buildingRepulsion=1.0; // soft spacing penalty; exact human pins take precedence
+    public int roadMergeDistance=7; // 0 disables the proximity field and explicit centerline reuse
+    public List<Pin> pins=new ArrayList<>();
+    public static final class Pin {
+        public String id, kind="building", presetId="square_cabin", facing="NORTH", medium="land", connectTo="network";
+        public int x,z;
+        public Integer y;
+    }
+    public void validate(int width,int depth,int minX,int minZ,int target) {
+        if(!Set.of("balanced","clearings").contains(sitePreference))throw new IllegalArgumentException("INVALID_SITE_PREFERENCE");
+        if(!Double.isFinite(minBBoxCoverage)||minBBoxCoverage<0||minBBoxCoverage>.85||
+           !Double.isFinite(minMinorAxisRatio)||minMinorAxisRatio<0||minMinorAxisRatio>.9||maxBridgeSpan<4||maxBridgeSpan>96||maxLandBridgeSpan<2||maxLandBridgeSpan>32||maxPlanAttempts<1||maxPlanAttempts>8||!Set.of("village","town","city").contains(settlementMode))
+            throw new IllegalArgumentException("INVALID_EXPERT_SETTINGS");
+        if(!Double.isFinite(buildingRepulsion)||buildingRepulsion<0||buildingRepulsion>3||roadMergeDistance<0||roadMergeDistance>16)
+            throw new IllegalArgumentException("INVALID_NETWORK_DIVERSITY_SETTINGS");
+        if(pins==null||pins.size()>8)throw new IllegalArgumentException("PINS_LIMIT_8");
+        Set<String> ids=new HashSet<>();int buildings=0;
+        for(Pin p:pins) {
+            if(p==null||p.id==null||!p.id.matches("[a-zA-Z][a-zA-Z0-9_-]{0,31}")||Set.of("network","entry").contains(p.id)||!ids.add(p.id))throw new IllegalArgumentException("INVALID_OR_DUPLICATE_PIN_ID");
+            if(!Set.of("building","dock").contains(String.valueOf(p.kind))||!Set.of("land","water").contains(String.valueOf(p.medium))||!Set.of("NORTH","EAST","SOUTH","WEST").contains(String.valueOf(p.facing))||p.connectTo==null||p.id.equals(p.connectTo))throw new IllegalArgumentException("INVALID_PIN_OPTIONS: "+p.id);
+            if(p.x<minX||p.x>=minX+width||p.z<minZ||p.z>=minZ+depth||p.y!=null&&(p.y< -2000||p.y>2000))throw new IllegalArgumentException("PIN_OUT_OF_BOUNDS: "+p.id);
+            if("building".equals(p.kind)) {buildings++;if(BuildingPresetRegistry.getInstance().getPreset(p.presetId)==null||BuildingPresetRegistry.getInstance().getPreset(p.presetId).archived)throw new IllegalArgumentException("UNKNOWN_PIN_PRESET: "+p.id);}
+            if(("water".equals(p.medium)||"dock".equals(p.kind))&&!allowBridges)throw new IllegalArgumentException("WATER_PIN_REQUIRES_BRIDGES: "+p.id);
+        }
+        if(buildings>target)throw new IllegalArgumentException("PIN_BUILDINGS_EXCEED_TARGET");
+        for(Pin p:pins)if(!Set.of("network","entry").contains(p.connectTo)&&!ids.contains(p.connectTo))throw new IllegalArgumentException("UNKNOWN_CONNECTION_TARGET: "+p.connectTo);
+    }
+    public double spacingScale(){return switch(settlementMode){case "city"->.48;case "town"->.72;default->1.0;};}
+    public double coverageScale(){return switch(settlementMode){case "city"->.30;case "town"->.65;default->1.0;};}
+    public double axisScale(){return switch(settlementMode){case "city"->.65;case "town"->.85;default->1.0;};}
+    public long effectiveSiteSeed(long planSeed){return siteSeed==null?planSeed:siteSeed;}
+
+    /** Strict bounded input; unknown fields and fractional integer coordinates are rejected. */
+    public static List<Pin> parsePins(String json) {
+        if(json==null||json.getBytes(StandardCharsets.UTF_8).length>8192)throw new IllegalArgumentException("PIN_JSON_LIMIT");
+        List<Pin> out=new ArrayList<>();
+        try(JsonReader reader=new JsonReader(new StringReader(json))) {
+            reader.setLenient(false);
+            if(reader.peek()!=JsonToken.BEGIN_ARRAY)throw new IllegalArgumentException("PINS_MUST_BE_ARRAY_MAX_8");
+            reader.beginArray();
+            while(reader.hasNext()) {
+                if(out.size()>=8||reader.peek()!=JsonToken.BEGIN_OBJECT)throw new IllegalArgumentException("PIN_MUST_BE_OBJECT_MAX_8");
+                Pin p=new Pin();Set<String> keys=new HashSet<>();reader.beginObject();
+                while(reader.hasNext()) {
+                    String k=reader.nextName();if(!keys.add(k))throw new IllegalArgumentException("DUPLICATE_PIN_FIELD: "+k);
+                    switch(k) {
+                        case "x" -> p.x=integer(reader);
+                        case "z" -> p.z=integer(reader);
+                        case "y" -> {if(reader.peek()==JsonToken.NULL)reader.nextNull();else p.y=integer(reader);}
+                        case "id" -> p.id=text(reader);
+                        case "kind" -> p.kind=text(reader);
+                        case "presetId" -> p.presetId=text(reader);
+                        case "facing" -> p.facing=text(reader);
+                        case "medium" -> p.medium=text(reader);
+                        case "connectTo" -> p.connectTo=text(reader);
+                        default -> throw new IllegalArgumentException("UNKNOWN_PIN_FIELD: "+k);
+                    }
+                }
+                reader.endObject();if(!keys.containsAll(Set.of("id","x","z")))throw new IllegalArgumentException("PIN_REQUIRES_ID_X_Z");out.add(p);
+            }
+            reader.endArray();if(reader.peek()!=JsonToken.END_DOCUMENT)throw new IllegalArgumentException("TRAILING_PIN_JSON");
+        }catch(IOException|NumberFormatException|ArithmeticException ex){throw new IllegalArgumentException("INVALID_PIN_JSON: "+ex.getMessage(),ex);}
+        return out;
+    }
+    private static String text(JsonReader reader)throws IOException {
+        if(reader.peek()!=JsonToken.STRING)throw new IllegalArgumentException("PIN_STRING_REQUIRED");return reader.nextString();
+    }
+    private static int integer(JsonReader reader)throws IOException {
+        if(reader.peek()!=JsonToken.NUMBER)throw new IllegalArgumentException("PIN_INTEGER_REQUIRED");return new BigDecimal(reader.nextString()).intValueExact();
+    }
+}

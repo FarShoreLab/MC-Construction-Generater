@@ -1,0 +1,152 @@
+{
+  "id": "stepped_workshop",
+  "name": "阶梯形工坊",
+  "category": "workshop",
+  "tags": [
+    "workshop",
+    "stepped",
+    "standard"
+  ],
+  "styles": [
+    "medieval_rustic"
+  ],
+  "author": "MCSettlement",
+  "description": "阶梯形工坊；明确占地掩码，不占用凹角/中庭空地；固定尺寸不可裁剪。",
+  "footprintShape": "stepped",
+  "sizeTier": "standard",
+  "footprintMask": [
+    "#####........",
+    "#####........",
+    "#####........",
+    "#########....",
+    "#########....",
+    "#########....",
+    "#############",
+    "#############",
+    "#############",
+    "#############",
+    "#############"
+  ],
+  "sizeX": 13,
+  "sizeZ": 11,
+  "sizeY": 8,
+  "entrance": {
+    "facing": "SOUTH",
+    "x": 6,
+    "z": 10
+  },
+  "palette": {
+    ".": "minecraft:air",
+    "S": "minecraft:cobblestone",
+    "W": "minecraft:spruce_planks",
+    "R": "minecraft:stone_bricks",
+    "G": "minecraft:glass_pane"
+  },
+  "themeReplacements": {},
+  "layers": [
+    [
+      "SSSSS........",
+      "SSSSS........",
+      "SSSSS........",
+      "SSSSSSSSS....",
+      "SSSSSSSSS....",
+      "SSSSSSSSS....",
+      "SSSSSSSSSSSSS",
+      "SSSSSSSSSSSSS",
+      "SSSSSSSSSSSSS",
+      "SSSSSSSSSSSSS",
+      "SSSSSSSSSSSSS"
+    ],
+    [
+      "WWWWW........",
+      "W...W........",
+      "W...W........",
+      "W....WWWW....",
+      "W.......W....",
+      "W.......W....",
+      "W........WWWW",
+      "W...........W",
+      "W...........W",
+      "W...........W",
+      "WWWWWW.WWWWWW"
+    ],
+    [
+      "WWWWW........",
+      "W...W........",
+      "W...W........",
+      "W....WWWW....",
+      "W.......W....",
+      "W.......W....",
+      "W........WWWW",
+      "W...........W",
+      "W...........W",
+      "W...........W",
+      "WWWWWW.WWWWWW"
+    ],
+    [
+      "WGWWW........",
+      "G...G........",
+      "W...W........",
+      "W....WGWW....",
+      "W.......W....",
+      "G.......G....",
+      "W........WWGW",
+      "W...........W",
+      "W...........W",
+      "G...........G",
+      "WWWGWWWGWWWGW"
+    ],
+    [
+      "WWWWW........",
+      "W...W........",
+      "W...W........",
+      "W....WWWW....",
+      "W.......W....",
+      "W.......W....",
+      "W........WWWW",
+      "W...........W",
+      "W...........W",
+      "W...........W",
+      "WWWWWWWWWWWWW"
+    ],
+    [
+      "WWWWW........",
+      "W...W........",
+      "W...W........",
+      "W....WWWW....",
+      "W.......W....",
+      "W.......W....",
+      "W........WWWW",
+      "W...........W",
+      "W...........W",
+      "W...........W",
+      "WWWWWWWWWWWWW"
+    ],
+    [
+      "WWWWW........",
+      "W...W........",
+      "W...W........",
+      "W....WWWW....",
+      "W.......W....",
+      "W.......W....",
+      "W........WWWW",
+      "W...........W",
+      "W...........W",
+      "W...........W",
+      "WWWWWWWWWWWWW"
+    ],
+    [
+      "RRRRR........",
+      "RRRRR........",
+      "RRRRR........",
+      "RRRRRRRRR....",
+      "RRRRRRRRR....",
+      "RRRRRRRRR....",
+      "RRRRRRRRRRRRR",
+      "RRRRRRRRRRRRR",
+      "RRRRRRRRRRRRR",
+      "RRRRRRRRRRRRR",
+      "RRRRRRRRRRRRR"
+    ]
+  ]
+}

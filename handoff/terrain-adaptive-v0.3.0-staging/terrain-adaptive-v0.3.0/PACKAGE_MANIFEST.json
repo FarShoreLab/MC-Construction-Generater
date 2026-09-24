@@ -1,0 +1,1128 @@
+{
+  "format": "terrain-adaptive-handoff-0.3.0",
+  "input_archive_sha256": "a5c30eaf7a506f8bb792a90059d701d0b4622ed39c9f03f78da86be517fa66f0",
+  "hash_algorithm": "SHA-256",
+  "coverage": "All delivered files except PACKAGE_MANIFEST.json itself. No compiled classes, caches, credentials or local Gson jar. Original Gradle wrapper jar retained unchanged.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 58,
+      "sha256": "c0f7590a400c4bfa819d942c8c6f44d78e6d18e22a906979b7ee5097a7466515"
+    },
+    {
+      "path": "CHANGED_FILES.txt",
+      "bytes": 4216,
+      "sha256": "821258cd33c073e51c8db1af6590bc4b009e78f7b39eda08a40fd47fa1bdcea4"
+    },
+    {
+      "path": "IMPLEMENTATION_NOTES_ZH.md",
+      "bytes": 9167,
+      "sha256": "c8886645ecf36c3ccb9d13b9e23e0850355e646a6a5133c9e34ca88b13ec0da9"
+    },
+    {
+      "path": "PROMPT_BROWSER_ZH.md",
+      "bytes": 2512,
+      "sha256": "f1f1a4515d0fcc3f54d0c83737b4e6400687fdee84908bebefb675b6058b9f55"
+    },
+    {
+      "path": "README_HANDOFF_ZH.md",
+      "bytes": 7210,
+      "sha256": "4bf7b1597cf89e26535db47c3844151ee72ef019e5b4b8ccc4c69f6afa3c970f"
+    },
+    {
+      "path": "SHA256SUMS.txt",
+      "bytes": 11337,
+      "sha256": "e73a305a67cd1240d4cd5f11c233c5f461505c3e832f09db7c8f2bfdde0c7a6a"
+    },
+    {
+      "path": "SOURCE_CHANGES.patch",
+      "bytes": 364626,
+      "sha256": "280f260fe1158f2802c29d570b6ce3502adac53a28aa95ad36fbd687c904ed66"
+    },
+    {
+      "path": "SOURCE_SHA256SUMS.txt",
+      "bytes": 12102,
+      "sha256": "675087dc0b38a73750d581be59e4f6e7ed705b1c30f2dc4e5c38b69db6b28760"
+    },
+    {
+      "path": "VALIDATION_REPORT_ZH.md",
+      "bytes": 8735,
+      "sha256": "b805a0079acbeeed0010fad4ba6a2815cedd727cd2d52430fec1383fc0b8e599"
+    },
+    {
+      "path": "evidence/current/api/api-checks.json",
+      "bytes": 4109,
+      "sha256": "a6851b2cb4cce7fe7ee3fab3be8990a34c967bf51c09519daa5ce7b9e6cefe07"
+    },
+    {
+      "path": "evidence/current/api/api-metrics.csv",
+      "bytes": 1021,
+      "sha256": "823b8684770cbf7b723cd9b53700aeaf4cef7f5396238ae6cb407b337b39b749"
+    },
+    {
+      "path": "evidence/current/api/budget_rejection.json",
+      "bytes": 2137,
+      "sha256": "b108aca0fb1c504d93d3ab65a90de1d66c7b2ee0fddd39bb50c19244075ea9a7"
+    },
+    {
+      "path": "evidence/current/api/custom192x96.json",
+      "bytes": 352877,
+      "sha256": "92ba9a089f9c174060a24c5ed649bf77f2682764643e18884406abe2cb6f39fc"
+    },
+    {
+      "path": "evidence/current/api/default128.json",
+      "bytes": 363481,
+      "sha256": "2f1300262191dc84d928d9b9622a6d883fa6b75b4aaf8ecb0ce27d03daddfa2a"
+    },
+    {
+      "path": "evidence/current/api/repeat128.json",
+      "bytes": 363482,
+      "sha256": "826b51ba4e3c65f3d9aa5c7a690c7b04de432ad5c0ac6a9c531a4244aafc5a94"
+    },
+    {
+      "path": "evidence/current/api/roll128.json",
+      "bytes": 407202,
+      "sha256": "514a1640673295cc6f5ca71255d47a3717d46707f2e9286260499222a59a8032"
+    },
+    {
+      "path": "evidence/current/api/size256.json",
+      "bytes": 439869,
+      "sha256": "9cffb658f3c7de87a557311ee9eef7dfdffc32dc0edac6743ee3eef98011884c"
+    },
+    {
+      "path": "evidence/current/api/size512-response.json.gz",
+      "bytes": 1030040,
+      "sha256": "1220bac930371e1d6cf7144feca73eebd02e6d39ae5bca046864fa00d8744b5a"
+    },
+    {
+      "path": "evidence/current/api/size512.json",
+      "bytes": 441118,
+      "sha256": "abd3869b5eb7b523def4d864685fde5a08a1ec58962a0ad2623b15ed4343791c"
+    },
+    {
+      "path": "evidence/current/api.log",
+      "bytes": 2951,
+      "sha256": "30703406c792659a7a67c9163a9ac6299d22c9bdef42c56211d1102245c974bf"
+    },
+    {
+      "path": "evidence/current/baseline-identity.json",
+      "bytes": 525,
+      "sha256": "37e0abf4b29159d7d39bbad2cc8b979e21f129fe04dec31ba6c73bcb4995ee8a"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/core-21.log",
+      "bytes": 789,
+      "sha256": "d13452151b0827bd3e5ba4e1cdb795309457b035ce26523695ff7debfb1c986c"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/benchmark.csv",
+      "bytes": 2397,
+      "sha256": "cf2725d29cf8cf2028db654f265af2b2b4e8148bb4cbf41f8145dc33fdc4f665"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/bridge_required_rejected-baseline.json",
+      "bytes": 12401,
+      "sha256": "1f52ccb28ce57dfcff0fefbf0525ba22bb57c247ba4193a605f7f07f46f4dc8e"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/bridge_required_rejected-new.json",
+      "bytes": 1252,
+      "sha256": "8325792b8b0561db287f05e5a6442877ccfc6412afba12ecd65ddbd9cbcbe645"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/entry_elevation_gap-baseline.json",
+      "bytes": 1455,
+      "sha256": "0444db3bf55d3b14082cf512140d43cae9d16b33a0316412a0fb271971dba209"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/entry_elevation_gap-new.json",
+      "bytes": 1255,
+      "sha256": "3b92c2a904902ed66e97824325e7a310ee6fb4666a7798d0d9ceb039fd86526d"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/even_width_negative_coordinates-baseline.json",
+      "bytes": 15112,
+      "sha256": "d91a15abef1b22ba071ae28f8acb7fcc80466b19cd9d1806beaaf892e368dba6"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/even_width_negative_coordinates-new.json",
+      "bytes": 117859,
+      "sha256": "699bebf9fa8d3522e4bc923c3a6f44c83ca5ecb901f183e0fa6d36d5f1864e38"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/existing_building_obstacle-baseline.json",
+      "bytes": 20845,
+      "sha256": "b32366850ef54c87b327a4bea3986764e8d80b78f9146d22d9243ce6440cda01"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/existing_building_obstacle-new.json",
+      "bytes": 292713,
+      "sha256": "a4cf7b1ef547c6d2a551f29a994ad995edeec4a8eb404cfe723ed57df9fb08a3"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/flat_mixed-baseline.json",
+      "bytes": 16036,
+      "sha256": "99e5f952e276ad25b0e797c0abaf937b8ca8e466cbf6c211ac8f59cb52241f39"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/flat_mixed-new.json",
+      "bytes": 288424,
+      "sha256": "07379629b482877636a6fc5876f85ceae7d4f1c8497563859a1777d5b342f8ff"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/fully_disconnected-baseline.json",
+      "bytes": 8367,
+      "sha256": "1c63774b8fc8f2641421bf14f7c0328159361404bafb0442beb412d14540918e"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/fully_disconnected-new.json",
+      "bytes": 1253,
+      "sha256": "4ecfa2b691a17f5e7071e5ea65e3642bab42fb82f84adaf85e2dbab3d37c4a21"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/hard_near_purpose_relation-baseline.json",
+      "bytes": 15019,
+      "sha256": "bae56a65dd9a3f331fab30bbab1f1e2eb7d0fc33834b629167be68e975d530ad"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/hard_near_purpose_relation-new.json",
+      "bytes": 154555,
+      "sha256": "423c03bb6242aed7068d0d44ba9e3918351559852d61f93e39a8e228665a4e32"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/insufficient_space-baseline.json",
+      "bytes": 2208,
+      "sha256": "5017271999c2e56102ab02c61f65ed1e84f107ce985a829d69ce9e35475a9050"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/insufficient_space-new.json",
+      "bytes": 27912,
+      "sha256": "d20a7f295066e19e731b981fb085d7846446aa027029928dbb05c0d211fd7d20"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/limited_slope-baseline.json",
+      "bytes": 19148,
+      "sha256": "fe2ce11e13315266cf3acd26db11ad1ea20205a094a7879dee80a29d75c97c34"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/limited_slope-new.json",
+      "bytes": 214960,
+      "sha256": "34e3c28d144f5952dae3ffc353497b7e699744a5fbf5d624ae6527b0f9d413da"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/metric-notes.txt",
+      "bytes": 3617,
+      "sha256": "4306fe060bb4084acc52e69b71a510ba16db543a7aaa435073698ce30f1fedab"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/multiple_sizes_and_rotation-baseline.json",
+      "bytes": 20095,
+      "sha256": "96b5114f3ae4a456969748bc05dda10b827d9963348656730adc2791652f6cf3"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/multiple_sizes_and_rotation-new.json",
+      "bytes": 368181,
+      "sha256": "54862993413750e8406364e7562de80444f660620337071d0bdd5258cf961344"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/one_cell_private_access_is_legal-baseline.json",
+      "bytes": 8367,
+      "sha256": "cb72f49689b1c14ddd7283d6ab8ef5d1ea12d53139961ce1136f0ce701a1aa00"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/one_cell_private_access_is_legal-new.json",
+      "bytes": 67424,
+      "sha256": "4f5837ef5e09e76e43ad25cfc51be57111f309d5a279a61b203de6c5e6bd15b4"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/riverbank-baseline.json",
+      "bytes": 15019,
+      "sha256": "e9f0d4dbe0391cac622f279e2e45dc0f9496911ade169b6e2e50be355fbd75ca"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/riverbank-new.json",
+      "bytes": 165218,
+      "sha256": "1749d19ef779ec0152c6a68a6fe48c22c9aaa965eb2db23cc2e5668f0d505220"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/tiny_search_budget-baseline.json",
+      "bytes": 813,
+      "sha256": "cd90421a1f3d12998a9f494ca41f248cbae5753e7a9a1e745dc1a43b1edff953"
+    },
+    {
+      "path": "evidence/current/baseline-reproduction/results/tiny_search_budget-new.json",
+      "bytes": 1236,
+      "sha256": "14ffc7dba7dd2aa07a026ebcaa32906dc05e1af7fedcd028a395e5ac8e0b8eb7"
+    },
+    {
+      "path": "evidence/current/browser/12-directions-compare.png",
+      "bytes": 113086,
+      "sha256": "c779c0f1c3c9049c11bac3f05eb1bb5d6d02609ffff87c054eb9d9ca597adced"
+    },
+    {
+      "path": "evidence/current/browser/128-constructed.png",
+      "bytes": 109096,
+      "sha256": "94098f4795eeac51caeffdcbd6ea1c3c7ff1708b77bef0aa001eb8b1c4b04db7"
+    },
+    {
+      "path": "evidence/current/browser/128-planning.png",
+      "bytes": 110113,
+      "sha256": "08ae935d9865f8678d8a8ef90f10e737b456c38e6f4652c13da7ff7dfe287209"
+    },
+    {
+      "path": "evidence/current/browser/512-planning.png",
+      "bytes": 209403,
+      "sha256": "7cec71b0692d3d74d7526eb80bfe39d43bb247eac6e31f0adf508b73d653d76b"
+    },
+    {
+      "path": "evidence/current/browser/browser-results.json",
+      "bytes": 6837,
+      "sha256": "7e2a80383ee5a858e7524cfd76c708962dfdb105e8e4c4300bd72aa7aaf335b9"
+    },
+    {
+      "path": "evidence/current/browser/custom-192x96.png",
+      "bytes": 112846,
+      "sha256": "8ef12976327d67be7878a9dfa7fa8aef6fa97716523bc198303d3ede1364d42a"
+    },
+    {
+      "path": "evidence/current/browser.log",
+      "bytes": 5169,
+      "sha256": "730401e8988837f3e73588490bf78d39ffe27842ba9612f7766868cfee8af1e8"
+    },
+    {
+      "path": "evidence/current/core/adaptive/adaptive-results.json",
+      "bytes": 2456,
+      "sha256": "8a14b35d1f5a6824bc8c821d1782a967d7c00ec38ced53fb243e79645e5be664"
+    },
+    {
+      "path": "evidence/current/core/adaptive/diagonal-buildings-12.json",
+      "bytes": 42346,
+      "sha256": "d803b9407da33bf9def7d08509d9c5c50af172e72e8dbac4b0b5840c71d5ff9d"
+    },
+    {
+      "path": "evidence/current/core/adaptive/equal-count-earthwork.csv",
+      "bytes": 738,
+      "sha256": "37c50824bb34bce95376e808ce2844c29994b8a9aa3e90e3118689a041308ea6"
+    },
+    {
+      "path": "evidence/current/core/adaptive/equal-count-slope-12-adaptive.json",
+      "bytes": 97254,
+      "sha256": "6d67e640a87d77931490f4856f28425f26b47a4d159dd4f9d053cab85f719c68"
+    },
+    {
+      "path": "evidence/current/core/adaptive/equal-count-slope-12-provided.json",
+      "bytes": 154390,
+      "sha256": "87b9cc6d3028f0707e7a9e1556945e5baf68a668ea3b71aa4feea967ea0689e0"
+    },
+    {
+      "path": "evidence/current/core/adaptive/equal-count-slope-16-adaptive.json",
+      "bytes": 117870,
+      "sha256": "7abc64048a968f7a4e1010c2419d8a043be4ba38b27e2dffe70d00897d02aed6"
+    },
+    {
+      "path": "evidence/current/core/adaptive/equal-count-slope-16-provided.json",
+      "bytes": 123111,
+      "sha256": "2f6e6684ffb8ed78d9a6e041ecece95274a8bd4a737db3754cb9e7b9dc3c6be4"
+    },
+    {
+      "path": "evidence/current/core/adaptive/equal-count-slope-20-adaptive.json",
+      "bytes": 121125,
+      "sha256": "025aa8576f1513a0c3f614183000a9bb9383e2aeeb6d289bc09e0158cc9bc7cd"
+    },
+    {
+      "path": "evidence/current/core/adaptive/equal-count-slope-20-provided.json",
+      "bytes": 123111,
+      "sha256": "8626e298dd429909fed85fe490a85266e1bcced65d9cb5804b164296734660a9"
+    },
+    {
+      "path": "evidence/current/core/adaptive/equal-count-slope-8-adaptive.json",
+      "bytes": 58076,
+      "sha256": "5189af4fe6861ea2f03da7167e6e34baad1ce2942500ff52e0ca56ccfac44eac"
+    },
+    {
+      "path": "evidence/current/core/adaptive/equal-count-slope-8-provided.json",
+      "bytes": 154390,
+      "sha256": "48b3468211b771c7853b8c2feb6fa00549b760c388f5e974b81e12a6552cdd38"
+    },
+    {
+      "path": "evidence/current/core/adaptive/large-128x128.json",
+      "bytes": 120545,
+      "sha256": "2111d915d81d9207b610ec6e43758de8ecea1310183391e59eff3ee549153e88"
+    },
+    {
+      "path": "evidence/current/core/adaptive/large-192x96.json",
+      "bytes": 107791,
+      "sha256": "ed104b678f7ee940ae6cc258cbffe877024b2dc7edc0864eeb499e6b95a70c16"
+    },
+    {
+      "path": "evidence/current/core/adaptive/large-256x256.json",
+      "bytes": 127112,
+      "sha256": "159616fe4f1b6654a1af27664ad830c0cc0f81902cc7500dfc2729fea25b7e72"
+    },
+    {
+      "path": "evidence/current/core/adaptive/large-511x257.json",
+      "bytes": 131532,
+      "sha256": "7b47e5926ed0bbc4c94c3e8bc85923d2ad737a66f741dd4e5a0e1137097183cc"
+    },
+    {
+      "path": "evidence/current/core/adaptive/large-512x512.json",
+      "bytes": 197835,
+      "sha256": "8f5f6c714de0d9ea33f60f41a712c9485e6b9e7455606a490c9fca4fbbd9b8bc"
+    },
+    {
+      "path": "evidence/current/core/adaptive/multilevel-platforms.json",
+      "bytes": 97254,
+      "sha256": "d47c8f8f8770dc159481c29104ca69f1e41bf6da611f28e3d7e99c2c23dad095"
+    },
+    {
+      "path": "evidence/current/core/adaptive-29.log",
+      "bytes": 1356,
+      "sha256": "04feaf5d349ca4259c07038f24ab35bf5883c48e1e71e2e5ebd17de0f80be6d8"
+    },
+    {
+      "path": "evidence/current/core/bridge-diagonal.log",
+      "bytes": 143,
+      "sha256": "b7d338d6fbe77e8cfd929dedd876963609839e1b662a01f26a8e52d81cbae2ae"
+    },
+    {
+      "path": "evidence/current/core/bridge-loopback.log",
+      "bytes": 624,
+      "sha256": "4571b0aebdfb5a236f1ed974a69d59ba7cb9d807f8bc784b86b261f966bce450"
+    },
+    {
+      "path": "evidence/current/core/compile-executable-tests.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/current/core/compile-main.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/current/core/core-21.log",
+      "bytes": 789,
+      "sha256": "d13452151b0827bd3e5ba4e1cdb795309457b035ce26523695ff7debfb1c986c"
+    },
+    {
+      "path": "evidence/current/core/environment.json",
+      "bytes": 543,
+      "sha256": "fb863ba9f65aff8246a6bcfe8879d7ebaa9b4d56b9d4d5f3f185a900f3487045"
+    },
+    {
+      "path": "evidence/current/core/fabric-syntax-only.log",
+      "bytes": 67,
+      "sha256": "eaa722067d2e0733d09b28d5488fa750e9e9ade17fd19a4681c8dcfef8ae46a0"
+    },
+    {
+      "path": "evidence/current/core/fuzz-100.log",
+      "bytes": 190,
+      "sha256": "a8291439c6af49cb4cfd723c24c9aba5c6c8ec640aa46382566ec4c88aa260a2"
+    },
+    {
+      "path": "evidence/current/core/regression/benchmark.csv",
+      "bytes": 2396,
+      "sha256": "50bbe0f054b7d85937e698dcb417ab915500484a9fb57e47d6e351635aa1815d"
+    },
+    {
+      "path": "evidence/current/core/regression/bridge_required_rejected-baseline.json",
+      "bytes": 12746,
+      "sha256": "59f852dc8060ae417b103637e721f26aff5572066ad58b20c725be9e8dddf0b0"
+    },
+    {
+      "path": "evidence/current/core/regression/bridge_required_rejected-new.json",
+      "bytes": 1544,
+      "sha256": "c9c7800e6291245eaeb3b88c97ddcaae774cb151230039c41d42ffec7d13fd13"
+    },
+    {
+      "path": "evidence/current/core/regression/entry_elevation_gap-baseline.json",
+      "bytes": 1748,
+      "sha256": "be629d2762a6aa5087e65a3d8be57629c48cb38bba6e678629880757a55ad737"
+    },
+    {
+      "path": "evidence/current/core/regression/entry_elevation_gap-new.json",
+      "bytes": 1578,
+      "sha256": "6e092972d403866aaf18b6e3dbed5f63dc6d9dd40e529b888f42846bd0cb336a"
+    },
+    {
+      "path": "evidence/current/core/regression/even_width_negative_coordinates-baseline.json",
+      "bytes": 15561,
+      "sha256": "215c3a9a31d9709316b9c6c5c1103612a677c97a0e2a19d4193b014a7156b440"
+    },
+    {
+      "path": "evidence/current/core/regression/even_width_negative_coordinates-new.json",
+      "bytes": 141285,
+      "sha256": "6cf19a5cd95c6a7781aaab6c0e83bedbc74299c3bb4389c23201d7f393614cfa"
+    },
+    {
+      "path": "evidence/current/core/regression/existing_building_obstacle-baseline.json",
+      "bytes": 21346,
+      "sha256": "d4caf513351ceb41e80c9c43dc0df3d6747d38c1759981dca8d5513e27798c50"
+    },
+    {
+      "path": "evidence/current/core/regression/existing_building_obstacle-new.json",
+      "bytes": 246727,
+      "sha256": "27b0805c061d08c98cf54ada4a755e6b8f3cb86ac1ed5437b70f5def736bea73"
+    },
+    {
+      "path": "evidence/current/core/regression/flat_mixed-baseline.json",
+      "bytes": 16537,
+      "sha256": "e31751a42c3acc778c0aff1e561f6a723bae4b706179df0384d42f1b2b435f21"
+    },
+    {
+      "path": "evidence/current/core/regression/flat_mixed-new.json",
+      "bytes": 273037,
+      "sha256": "0003fbbb512913f399a223e54f170fec93babc75d1f395bd709e866afafd845d"
+    },
+    {
+      "path": "evidence/current/core/regression/fully_disconnected-baseline.json",
+      "bytes": 8712,
+      "sha256": "fa5d4cd9b5235700051e235e89351e0df50a12d9b0c3b424a2a02865f885c052"
+    },
+    {
+      "path": "evidence/current/core/regression/fully_disconnected-new.json",
+      "bytes": 1546,
+      "sha256": "2cda26b1cc823e247790d0ac16e539c53dd4a043b22ad1a16f9dde0a3992a40d"
+    },
+    {
+      "path": "evidence/current/core/regression/hard_near_purpose_relation-baseline.json",
+      "bytes": 15468,
+      "sha256": "063f2591b1fa90858717d894a3fc53567c44386174742526f4c552d1dbf8aee0"
+    },
+    {
+      "path": "evidence/current/core/regression/hard_near_purpose_relation-new.json",
+      "bytes": 177107,
+      "sha256": "07a733ec097b8a23d478e9f71c5350cbc7a00247ea180691c1b677b0c033ae32"
+    },
+    {
+      "path": "evidence/current/core/regression/insufficient_space-baseline.json",
+      "bytes": 2501,
+      "sha256": "43bcbb6b4f1fd122139fd2ff2521b1e3c393fe01cdb19b3bd996291264ff845f"
+    },
+    {
+      "path": "evidence/current/core/regression/insufficient_space-new.json",
+      "bytes": 36313,
+      "sha256": "27c81121606d780e4e9937105e8d7e7b5d67c1c0dea2f1f1c3c52c1b183da82a"
+    },
+    {
+      "path": "evidence/current/core/regression/limited_slope-baseline.json",
+      "bytes": 19597,
+      "sha256": "d0adc3b364a1a20af184e9e95e616349818f9f11080bb0a42920eb0364807298"
+    },
+    {
+      "path": "evidence/current/core/regression/limited_slope-new.json",
+      "bytes": 170021,
+      "sha256": "6b9ed5857e194828e1b5a29a5a9465696cda602c5f094f65075165a9d19ac9a6"
+    },
+    {
+      "path": "evidence/current/core/regression/metric-notes.txt",
+      "bytes": 3617,
+      "sha256": "4306fe060bb4084acc52e69b71a510ba16db543a7aaa435073698ce30f1fedab"
+    },
+    {
+      "path": "evidence/current/core/regression/multiple_sizes_and_rotation-baseline.json",
+      "bytes": 20596,
+      "sha256": "8724b5dc208c5d146e1e079410ccc9ed705c4567c9e9fbb1bc8b89dcaf1c0a4d"
+    },
+    {
+      "path": "evidence/current/core/regression/multiple_sizes_and_rotation-new.json",
+      "bytes": 282675,
+      "sha256": "e37bc04fc9552a9063e48b92f50dc42ab4643b118a18abd78b1234dbada07614"
+    },
+    {
+      "path": "evidence/current/core/regression/one_cell_private_access_is_legal-baseline.json",
+      "bytes": 8712,
+      "sha256": "869d4612cdc8965124a805f1306be162e3c1437a7f8d5df2adb44a6a6b07b60f"
+    },
+    {
+      "path": "evidence/current/core/regression/one_cell_private_access_is_legal-new.json",
+      "bytes": 76808,
+      "sha256": "a72a897dc283e33fd05f1b39e5c2ebf8d4978744835adfcdb99d38a3e5489494"
+    },
+    {
+      "path": "evidence/current/core/regression/riverbank-baseline.json",
+      "bytes": 15468,
+      "sha256": "1206dee91444ec13ad659ecac0b8960b8b4b9dbb3966e702f41f73317a821251"
+    },
+    {
+      "path": "evidence/current/core/regression/riverbank-new.json",
+      "bytes": 193016,
+      "sha256": "9b838e487b1a093b0b66ebd6faf6efd9e6bf06fba263c67dc202b2012b2b7e23"
+    },
+    {
+      "path": "evidence/current/core/regression/tiny_search_budget-baseline.json",
+      "bytes": 1106,
+      "sha256": "5a6e245488a33525ba2808d2c23064778a12038bb51e58a2c647dbb23aca75e4"
+    },
+    {
+      "path": "evidence/current/core/regression/tiny_search_budget-new.json",
+      "bytes": 1582,
+      "sha256": "47d0b7bb982818272f0a52ae8c1ac8ed20ff410332fa3a7acfb223e14b3af371"
+    },
+    {
+      "path": "evidence/current/core/verification-status.json",
+      "bytes": 709,
+      "sha256": "5f3c8e9d8287d6ce3b3bfc23499cd406e1018391f9fda842a3cf2ac70d53ab76"
+    },
+    {
+      "path": "evidence/current/core-driver.log",
+      "bytes": 199,
+      "sha256": "7e62fc645519bf53a9be52174e2d51120c4300d7de86aafb0c14a8dd29c41f25"
+    },
+    {
+      "path": "evidence/current/environment-and-limitations.json",
+      "bytes": 1299,
+      "sha256": "abcb36d8b6ab96faf3ecec142c238557d59c7c4a0ba308387a4eb8c5c59ec483"
+    },
+    {
+      "path": "evidence/current/exit-codes.txt",
+      "bytes": 23,
+      "sha256": "65244dfa9761d53a5565beaffd4f83ed54d75524c5df4a7b508217d56bef601c"
+    },
+    {
+      "path": "evidence/current/frontend-syntax.log",
+      "bytes": 55,
+      "sha256": "55b85b80e57028e2a745dd0a3b873339b6ba490d4cc7e7b924ec76a5668e5b68"
+    },
+    {
+      "path": "evidence/current/patch-verification.json",
+      "bytes": 449,
+      "sha256": "2dcc448539cbf11fb860aa5338b76b576e0cfbcd5fbdd058e38fc6e39483f76c"
+    },
+    {
+      "path": "evidence/current/performance/java512-measurement.json",
+      "bytes": 6043,
+      "sha256": "46e40ea3cfcb4add1006103bc33b39eab7ca14e40986dd1991a1fff820379a21"
+    },
+    {
+      "path": "evidence/current/performance/java512-stderr.log",
+      "bytes": 71,
+      "sha256": "02a0a4c56fa96c51155daad3e6962e89d96400007fed68ee57e935dc67dfc204"
+    },
+    {
+      "path": "evidence/current/performance/java512-time.txt",
+      "bytes": 889,
+      "sha256": "ec59e2b8c7afaad34861b003e59f0a8405db9744afe70f3b68b3387058e34dad"
+    },
+    {
+      "path": "evidence/historical_input/CHANGED_FILES.txt",
+      "bytes": 1027,
+      "sha256": "2c0f466ff1d330ff99d2e2b1085fafa73020d46fa77130512c5f8d22fb050317"
+    },
+    {
+      "path": "evidence/historical_input/PROMPT_BROWSER_ZH.md",
+      "bytes": 4593,
+      "sha256": "d5c892c6c86430cf69f7a1ed25749e3ac922418610bae656b0d587157193d2e4"
+    },
+    {
+      "path": "evidence/historical_input/README_HANDOFF_ZH.md",
+      "bytes": 2108,
+      "sha256": "aeab37e29da31f17e869017b91d336b44b556c88ecaa12deeb4dc0ddf5a85014"
+    },
+    {
+      "path": "evidence/historical_input/evidence/benchmark.csv",
+      "bytes": 2424,
+      "sha256": "b2c168bcf9ee8189c1e0e15812eb6dc7b5913807f36072cf25ac35bacf91c08c"
+    },
+    {
+      "path": "evidence/historical_input/evidence/fuzz.log",
+      "bytes": 192,
+      "sha256": "69db18510abbd0ec39718fe1db06a05995172f0431ede34324a72cb91a5aff6a"
+    },
+    {
+      "path": "evidence/historical_input/evidence/interactive-api-check.json",
+      "bytes": 155,
+      "sha256": "a4fd096036490c99835ee17eb00003b7b9a100d6903f27c3856c8fb09c972a3e"
+    },
+    {
+      "path": "evidence/historical_input/evidence/interactive-core-tests.log",
+      "bytes": 812,
+      "sha256": "9728d080ec7184344583b7b59456c2df351ff7ef3b8400106462d3532a00e4a4"
+    },
+    {
+      "path": "evidence/historical_input/evidence/interactive-height-check.json",
+      "bytes": 79,
+      "sha256": "a0af32897b9a8c09fa489b1f7381958a137ea6b5d9212ad1961dd526ec8bf75e"
+    },
+    {
+      "path": "evidence/historical_input/evidence/interactive-terrain-check.json",
+      "bytes": 642,
+      "sha256": "ded330b111434a4a002187624f83d2fcfb51660e8ffdb49f4e4c5cb1925ed146"
+    },
+    {
+      "path": "evidence/historical_input/evidence/tests.log",
+      "bytes": 812,
+      "sha256": "9728d080ec7184344583b7b59456c2df351ff7ef3b8400106462d3532a00e4a4"
+    },
+    {
+      "path": "evidence/historical_input/source/DEPLOYMENT.md",
+      "bytes": 7965,
+      "sha256": "bdf26c887f2eaa69a4a2f4b2e6fa6345f83d8cd96f6c3abcb32719fe3e315f99"
+    },
+    {
+      "path": "evidence/historical_input/source/README_REBUILD_ZH.md",
+      "bytes": 604,
+      "sha256": "f824973226bf50bc14ac3624b7e8d20edc537f8951a8cfd60afb506edc628249"
+    },
+    {
+      "path": "evidence/historical_input/source/REBUILD_REPORT_ZH.md",
+      "bytes": 14105,
+      "sha256": "13da788f89d0b4fbc129a6294cb57c38a2b0deac22bf7335297bcd6e38185492"
+    },
+    {
+      "path": "evidence/historical_input/source/TEST_RESULTS_ZH.md",
+      "bytes": 9989,
+      "sha256": "e6f63f23c64a2ab7668982ed18d02598b2df47ddf1e73f66438ff75c1d61b2cc"
+    },
+    {
+      "path": "source/DEPLOYMENT.md",
+      "bytes": 1682,
+      "sha256": "5e6e8390b1506e384fb80690303aff78e762755508ba75e437b9ebdad4870a77"
+    },
+    {
+      "path": "source/README_REBUILD_ZH.md",
+      "bytes": 787,
+      "sha256": "ec0cb785ae3b4021a820a9e565895fd7c1c2dca5463cf696763a85bedee6d4a5"
+    },
+    {
+      "path": "source/REBUILD_REPORT_ZH.md",
+      "bytes": 562,
+      "sha256": "5b0526e3181f98a85f7ee308a2378ade08bdf429d11714ba32384f37f41c25c4"
+    },
+    {
+      "path": "source/TEST_RESULTS_ZH.md",
+      "bytes": 687,
+      "sha256": "91549a64e8af636d9d3a5d30d315b4b1b76d050d878d01d28c600531eaced9b8"
+    },
+    {
+      "path": "source/build.gradle",
+      "bytes": 500,
+      "sha256": "a9798863bae41e1f223f75205fa7ad4912493665cbcd3b326ef7e5c872fdce58"
+    },
+    {
+      "path": "source/core-planner/build.gradle",
+      "bytes": 451,
+      "sha256": "328b2f98d1b18df883e121b6a21491385c0dd0893e7721b407f462935c03f216"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/BoundedSettlementPlanner.java",
+      "bytes": 28118,
+      "sha256": "988156c409051d59f9add9de97f0f7fc4fbe7c8828b23d1ade54f46f69d17d28"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/PavementGrades.java",
+      "bytes": 7549,
+      "sha256": "c9426056b2451ff70f68e220bfc5797515d86fa58755b5621f89da263e74d8e0"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/RoadGeometry.java",
+      "bytes": 6290,
+      "sha256": "82dffabbac780aa0af1504fbaf7fe3bd995cd4f05286eaa65de5213110af3b13"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/SettlementPlanner.java",
+      "bytes": 2467,
+      "sha256": "4234e1c27dd2d863d1d360196f487f63a98daf1f1a47324ab737ecf1346139f0"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/TerrainRoadRouter.java",
+      "bytes": 6127,
+      "sha256": "543578ca4ca774194607cb80e9e2e428c4a7506e8ef9aea0153026b86c885ddb"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/civil/EarthworkOptimizer.java",
+      "bytes": 2548,
+      "sha256": "4b7618218c7f2f58617358eba18c45fa5e3ee6a48cbd7ba79031e1828d80a1be"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/civil/PlanConstruction.java",
+      "bytes": 9628,
+      "sha256": "51b270e345416d560d4529a6e75723c44bc8b005182be41c15b41285f5923e4f"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/cli/PlannerCli.java",
+      "bytes": 3646,
+      "sha256": "5413f8c0be437499e5e18cd445e88eafa92e65b321aa94897939f1f7c98edd3b"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/ir/PlanningIR.java",
+      "bytes": 7767,
+      "sha256": "cd4e7ecf2e53615a2a85ed4d3d0a809e289d9878597dd97fa892f80e1c1624b3"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/parcel/PlotPlanner.java",
+      "bytes": 8955,
+      "sha256": "966a63c526e7b5727032cc337f3fa9a654d2d2ceb33c358f8b2f0637dc34d258"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/pathfinding/SlopeCostAStar.java",
+      "bytes": 6262,
+      "sha256": "f117d2fb27ca014982e56f9ce7c63a7dc760441016448890d23da93677f693a9"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/preset/BuildingPreset.java",
+      "bytes": 8073,
+      "sha256": "d99563a6834170ac5cb3d092bdebe221153c40294bb69cec00cbfb2531ba6fcd"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/preset/BuildingPresetRegistry.java",
+      "bytes": 7387,
+      "sha256": "557694afa051f8947dc7959ee3a14c2d93a60c8e6c8522d2602d29adfcdf0b99"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/preset/BuildingShape.java",
+      "bytes": 6049,
+      "sha256": "45dd6cd97d32eee0f9207c1482343f9b2295ca6a8d41b3ea96656a223740a7ef"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/preset/PlannedBuilding.java",
+      "bytes": 3626,
+      "sha256": "61474f3d791cc41821bf188ec5b001eddc5f4c67d7d722edc20e79ff7003997a"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/render/PlanPreviewRenderer.java",
+      "bytes": 4264,
+      "sha256": "0ff4206f5226eac62ef361df97fcf925703bfa2afead4fea0b00ed83212e140e"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulatedSettlementPipeline.java",
+      "bytes": 12085,
+      "sha256": "adf6dc85b1a76248c41b829deb2af2be0927f3f954b665c25ca1f948c03bc2af"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulatedVoxelWorld.java",
+      "bytes": 3972,
+      "sha256": "efd4ee0a5f768bbb96863ec8cdcd93bcd5e18fdcd3980e4798963591cfe52ad2"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulationApiRunner.java",
+      "bytes": 9790,
+      "sha256": "c4682ba737a17375267bba1d442215defcfb03ecf2175d41634bc9a20199a27e"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulationViewerRunner.java",
+      "bytes": 15906,
+      "sha256": "78efa8d9e055d6e7d2990e2dcb293c0553c8d3537737659da03e87f43519a2ad"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/simulation/TerrainBlockGenerator.java",
+      "bytes": 7456,
+      "sha256": "2d5c80d6c90d4acc13af630c2c961658d31c3bdd758baf0fd6d9170b2b613025"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/terrain/HeightfieldMap.java",
+      "bytes": 6226,
+      "sha256": "9e1e16ce4f63b65fa026d0ae6bf9b822c5b444344cd3b7944550f3393111a7af"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/adventurer_tavern.json",
+      "bytes": 6787,
+      "sha256": "6b8539f9311d6f4bb5783498464b13a551d007d61723f5c442f005774247e591"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/artisan_blacksmith.json",
+      "bytes": 5366,
+      "sha256": "e909f1d8103332545e2b66cf65b68f73006cc097cb73a4405db6988222ac880d"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/country_windmill.json",
+      "bytes": 6087,
+      "sha256": "9e2257351c284d3c57ca6e67eb8e7ba0a2073f95f6f0428f3019a5d2521117cf"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/farmstead_granary.json",
+      "bytes": 5032,
+      "sha256": "27b44f2ad7ad05c80687edfe3df835adb9f42409960d46733efac61060082813"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/highland_watchtower.json",
+      "bytes": 5903,
+      "sha256": "f4a27b6d2b32955411e5923ccc8d2e276ab5dee0ff648538f6c0c665cf65950b"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/lumber_mill.json",
+      "bytes": 5312,
+      "sha256": "75799f77443335e763cdc5725f856c15119ab4f5e8178ae02c781c575056c737"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/nordic_cottage.json",
+      "bytes": 4620,
+      "sha256": "4ea9c60b2f7c54b96f439bc469bf555b9bf491d8f8ec83785131967aea49e9ea"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/town_hall.json",
+      "bytes": 7336,
+      "sha256": "a61bc3ae1227eab4b2e2707a9109be0b9b6d90e01747e8a2ad44f3a4d1812688"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/village_chapel.json",
+      "bytes": 6850,
+      "sha256": "bad29cc77b91ff3046a7d92dbe92dba04ce95a4041a416ef657589eb24ac6834"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/wizard_tower.json",
+      "bytes": 6811,
+      "sha256": "491977bba7fc0f4b1ecda50a1e6a861812ba8442e9e16b21f7f2d632d80c8ea9"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/AdaptiveTerrainJUnitTest.java",
+      "bytes": 351,
+      "sha256": "0e67b6c8a2832dbb8e3d4a02d77567f09ef92517b8888198f68c19e2f05e66ef"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/AdaptiveTerrainMain.java",
+      "bytes": 17053,
+      "sha256": "076ee11467b9d9d547ab4b1341b1f78e6a9466ef80948cd42ba30668f49f3327"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/PlannerTest.java",
+      "bytes": 4396,
+      "sha256": "4f0de5815cc983548baf45386fe09fa2cdfd5e7eebd8b8e6ab7a4e211206ca13"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/baseline/BaselineBudget.java",
+      "bytes": 734,
+      "sha256": "aa467916aeaccb95f24e0a9a3ee35bd2118569440be0ee9bacdbd96fad8d7394"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/baseline/SettlementPlanner.java",
+      "bytes": 10668,
+      "sha256": "1539b5fd055e6ec28ec11bcb002a8422081004cd30e1e4d407c30ce756b2ef24"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/baseline/civil/EarthworkOptimizer.java",
+      "bytes": 5658,
+      "sha256": "7b996133ec74002c966b798f19be2beaf233edd030d04f123a1b4775c5f58a5f"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/baseline/parcel/PlotPlanner.java",
+      "bytes": 8973,
+      "sha256": "c7292b8a3167692f303c1128bdb0dfb4be587254ffdec9e17b20416e5f816847"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/baseline/pathfinding/SlopeCostAStar.java",
+      "bytes": 6340,
+      "sha256": "17d0824331f414b4987047a007ec79e82833dc169f92e484ba75f94ae1f7e695"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/preset/BuildingPresetTest.java",
+      "bytes": 6168,
+      "sha256": "8bdb6dfe50cbef261b11fb2d950fe48bbe31f90a49028f0ccb781de2a46d674b"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/regression/RegressionJUnitTest.java",
+      "bytes": 422,
+      "sha256": "8777a7e57c304a873e62d99136cccbfd26b7a7bc9cbea56cc81aa930e05de128"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/regression/RegressionMain.java",
+      "bytes": 18891,
+      "sha256": "06ebb8e1863fc8f3af91f20e086441638141b7cedabaccd98fe7cb67dd44e08d"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/regression/TerrainAudit.java",
+      "bytes": 12028,
+      "sha256": "77c969909a3fbdda2fbb298a54215c9800358b5267affe4f62975b0514b95eeb"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/singlegrade/BoundedSettlementPlanner.java",
+      "bytes": 28755,
+      "sha256": "8cdb7507c390f274625a1d8dbb4805fcf172b3d84dc6f78d1136bc5785d8cbd3"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/singlegrade/SingleGradeReference.java",
+      "bytes": 523,
+      "sha256": "ac28328c55a04883afbb754cbc1e23194bc6ce82ed435ce46cf4a7b9dc6c4bc6"
+    },
+    {
+      "path": "source/fabric-mod/build.gradle",
+      "bytes": 1004,
+      "sha256": "ee68a02bd48978219b24bf4a26b26a4c1777fa9a7da782766e58297e1e4ef8d6"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/ModClientEntry.java",
+      "bytes": 1532,
+      "sha256": "da6b3a2b4575bfcbcab36a727db16eb1a98eb336812b1385add42d922a4d4f5b"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/ModConfig.java",
+      "bytes": 1882,
+      "sha256": "0cb1297859be7383fffeec7207156a9cc328e4ecd43f7869bf8039f66a5c5340"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/ModEntry.java",
+      "bytes": 590,
+      "sha256": "1707a5cf7c35d68d62ee0050cb87b3bed9071570661f24261be478d5b6f72d75"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/building/AdaptiveBuildingPlacer.java",
+      "bytes": 9878,
+      "sha256": "2dc9c17160b504f8cc3b0cc20c4b9a59861958db39e6e3bd5e59e3c05b264058"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/client/gui/TacticalMapScreen.java",
+      "bytes": 15693,
+      "sha256": "23504c060aab10ff59e2b78bbee4741b184b900905aa4ecccaa36afa26edeee9"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/command/PresetCommands.java",
+      "bytes": 6051,
+      "sha256": "278613c99e3ea9e4f72752ef8641a293e8083dbfb9b251ae6a935a1bf60f925b"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/constructor/WorldConstructor.java",
+      "bytes": 4144,
+      "sha256": "5cae9923ed3c431680acaedcb70b4267615a3364e089cf633ea85f214ffd5204"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/scanner/WorldTerrainScanner.java",
+      "bytes": 5269,
+      "sha256": "f232e104ab7196c328b4daef08eaf678071dbdbfb3e23706c8094e056f75729d"
+    },
+    {
+      "path": "source/fabric-mod/src/main/resources/assets/mcsettlement/lang/en_us.json",
+      "bytes": 140,
+      "sha256": "337a51694d2ba26b255b01ee8052a61c66dfed97b1e608da556c029809a3863b"
+    },
+    {
+      "path": "source/fabric-mod/src/main/resources/assets/mcsettlement/lang/zh_cn.json",
+      "bytes": 135,
+      "sha256": "48c8f4bf167ac93f96c3db83b0d6fcd29773da412c7c9e0826b671b98f5ffecf"
+    },
+    {
+      "path": "source/fabric-mod/src/main/resources/fabric.mod.json",
+      "bytes": 736,
+      "sha256": "8380d01be43a3af1346020e4c73c63ed630542c159a779e92e1ad1c5d00b0563"
+    },
+    {
+      "path": "source/gradle/wrapper/gradle-wrapper.jar",
+      "bytes": 43453,
+      "sha256": "cb0da6751c2b753a16ac168bb354870ebb1e162e9083f116729cec9c781156b8"
+    },
+    {
+      "path": "source/gradle/wrapper/gradle-wrapper.properties",
+      "bytes": 250,
+      "sha256": "05e7bec397ce5a52628d31dcc4c8b636cbdc55e28f8cef19d097c71b5c5fbb42"
+    },
+    {
+      "path": "source/gradlew",
+      "bytes": 8706,
+      "sha256": "d8231d345ab33433ab7b2c0720d5beb416c8d5c6789dbc01ad122b63bc2cae0d"
+    },
+    {
+      "path": "source/gradlew.bat",
+      "bytes": 2918,
+      "sha256": "bdecf875b6868cbcbd36a1f85eedf0832f358ff28092c5797ed645f7edce77d9"
+    },
+    {
+      "path": "source/llm-bridge/build.gradle",
+      "bytes": 115,
+      "sha256": "9503ffea961c4c80e6c0d3563954eb4858b5161805366855dbe48be7436b8c47"
+    },
+    {
+      "path": "source/llm-bridge/src/main/java/org/mcsettlement/llm/AiBuildingArchitect.java",
+      "bytes": 16849,
+      "sha256": "f3abf37e59501612223b3c71c22ee4c8ff10ab8b6778b459b8b19db3c22b8325"
+    },
+    {
+      "path": "source/llm-bridge/src/main/java/org/mcsettlement/llm/AntigravityCliBridge.java",
+      "bytes": 1619,
+      "sha256": "5bc4999ea83450866ccafe6d65835e134c4c6b69e796309caedf9ca8f9862e2f"
+    },
+    {
+      "path": "source/llm-bridge/src/main/java/org/mcsettlement/llm/HeuristicFallbackBridge.java",
+      "bytes": 5208,
+      "sha256": "ffec5d8b45210a1fc1c4e69f649103ab2fbc79dc0d0fb9c595cdd01c548acf27"
+    },
+    {
+      "path": "source/llm-bridge/src/main/java/org/mcsettlement/llm/LlmStrategyManager.java",
+      "bytes": 2231,
+      "sha256": "9e018e01f8e3121a7e487caf9ce7ee7eda9f66642f1d3c4088011e77921a4bca"
+    },
+    {
+      "path": "source/llm-bridge/src/main/java/org/mcsettlement/llm/OpenAiApiBridge.java",
+      "bytes": 3152,
+      "sha256": "f628764655e6d116cfa04c70751c13b63627014eed93a95a01801b6329d56ae5"
+    },
+    {
+      "path": "source/llm-bridge/src/main/java/org/mcsettlement/llm/PlanningIntent.java",
+      "bytes": 3912,
+      "sha256": "121485904706178bdb5aa9c0411d12ea982808f3107d4aab87d00136c689233b"
+    },
+    {
+      "path": "source/llm-bridge/src/test/java/org/mcsettlement/llm/BridgeRegressionJUnitTest.java",
+      "bytes": 331,
+      "sha256": "2e2061639b31a19b022a3d8df10a8a76b37cf5da7bc5b1c9b2358d7b938815c4"
+    },
+    {
+      "path": "source/llm-bridge/src/test/java/org/mcsettlement/llm/BridgeRegressionMain.java",
+      "bytes": 6437,
+      "sha256": "cd8efd429e6a51e6cd431b279d790c79128ca4cd25ca0ac8a6859153669cd21b"
+    },
+    {
+      "path": "source/llm-bridge/src/test/java/org/mcsettlement/llm/BridgeTerrainRegressionMain.java",
+      "bytes": 2009,
+      "sha256": "f5f222e914f983743c7d30a30351a43c7215598ac7009b7a46920241171f839a"
+    },
+    {
+      "path": "source/settings.gradle",
+      "bytes": 312,
+      "sha256": "94c9774a01e8b556b11629c5527cf1f28a56a6e00033a37cfa2aea12e18bee48"
+    },
+    {
+      "path": "source/tools/FuzzAudit.java",
+      "bytes": 2128,
+      "sha256": "32b09732c441b4ceb8f5f9376828d524edc653ed801a44ca1370660452aa89b6"
+    },
+    {
+      "path": "source/tools/SyntaxCheck.java",
+      "bytes": 1202,
+      "sha256": "b292873512e75416e00456e4236d6f031e4a569b9f8e7794aa537c231043ed42"
+    },
+    {
+      "path": "source/tools/build_offline.py",
+      "bytes": 5050,
+      "sha256": "ed64971c5601677b9c7ea7186072986bad5b4ccbd940b495d4b0e023badb71e3"
+    },
+    {
+      "path": "source/tools/generators/OrbitControls.js",
+      "bytes": 26375,
+      "sha256": "02bb4ade710f3e607329e37a21f098bc3ac70eb6e33daf8a65e79f4db785e7b2"
+    },
+    {
+      "path": "source/tools/generators/three.min.js",
+      "bytes": 603445,
+      "sha256": "9274bbcec8d96168626c732b5d31c775aa8cfb7eaa0599bec0c175908a2c1ce2"
+    },
+    {
+      "path": "source/tools/preview.html",
+      "bytes": 27350,
+      "sha256": "e8d566ef172c2518e4d3c9ad87c8e734649758331d7f41b6bec4946264536a48"
+    },
+    {
+      "path": "source/tools/preview_server.py",
+      "bytes": 8414,
+      "sha256": "f7ee617f5eeb598c1464f5ebc8f3600371b18f76ef3184d2aa18271b7ff2c0f7"
+    },
+    {
+      "path": "source/tools/start_preview.ps1",
+      "bytes": 421,
+      "sha256": "03bfd4831f0c22fba8e996c4943480ea10026d0371ea9012a072f1c8205c7cab"
+    },
+    {
+      "path": "source/tools/start_preview.sh",
+      "bytes": 153,
+      "sha256": "c85438da6bfd3a4344282515cb0149b843ea1681c6e725e91c59bfd05d9f6bfe"
+    },
+    {
+      "path": "source/tools/verify_preview_api.py",
+      "bytes": 5339,
+      "sha256": "8aac4967afc7cf490f4a0b0f6e49001d35a283b460cd1103b3037efe3c643b7d"
+    },
+    {
+      "path": "source/tools/verify_preview_browser.py",
+      "bytes": 5338,
+      "sha256": "a1ade4b94f36668665e34baf72cc28452ee6afeb6837f29b2e211211427affdd"
+    }
+  ]
+}

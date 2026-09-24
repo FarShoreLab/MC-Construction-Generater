@@ -1,0 +1,22 @@
+[
+  {
+    "file": "SettlementPlanner.java",
+    "result": "PASS",
+    "original_normalized_sha256": "1ad415cd802b4891bad6b3ba9eb2b8406df928aced362800e7fd76b4f4859deb"
+  },
+  {
+    "file": "parcel/PlotPlanner.java",
+    "result": "PASS",
+    "original_normalized_sha256": "b4cc44d123e29d7342a25489f67228e5d1eef3eaca5089aec1f6c8ceab9a349f"
+  },
+  {
+    "file": "civil/EarthworkOptimizer.java",
+    "result": "PASS",
+    "original_normalized_sha256": "1722972559c49be3664ac7974a71bc0ca6e5e03759e26925cd2a8ef1f6692e79"
+  },
+  {
+    "file": "pathfinding/SlopeCostAStar.java",
+    "result": "PASS",
+    "original_normalized_sha256": "f117d2fb27ca014982e56f9ce7c63a7dc760441016448890d23da93677f693a9"
+  }
+]

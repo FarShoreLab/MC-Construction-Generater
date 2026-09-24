@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "version": "0.3.0",
+    "timestamp": "2026-09-20T14:15:58.559538970Z",
+    "randomSeed": 42,
+    "minBounds": [
+      0,
+      -2048,
+      0
+    ],
+    "maxBounds": [
+      63,
+      2048,
+      63
+    ],
+    "score": {
+      "demand_satisfaction": 0.0,
+      "plots_allocated": 0.0
+    }
+  },
+  "transportNetwork": {
+    "corridorWidth": 0,
+    "directionCount": 8,
+    "corridors": [],
+    "nodes": [],
+    "edges": []
+  },
+  "plots": [],
+  "earthworks": {
+    "totalCutVolume": 0,
+    "totalFillVolume": 0,
+    "cutFillBalance": 0
+  },
+  "clearance": {
+    "clearVegetationBoxes": []
+  },
+  "auditLog": {
+    "warnings": [
+      "Bounded search / stair-orientation failure is not a proof of global infeasibility."
+    ],
+    "rejectedCandidates": []
+  },
+  "status": "INFEASIBLE",
+  "unmetRequirements": [
+    {
+      "requirementId": "home",
+      "purpose": "residential",
+      "reason": "NO_FEASIBLE_CANDIDATE_IN_BUDGET",
+      "requested": 1,
+      "allocated": 0
+    }
+  ],
+  "search": {
+    "candidateChecks": 2,
+    "pathExpanded": 1,
+    "attempts": 3,
+    "candidateLimit": 2,
+    "pathLimit": 1,
+    "budgetExhausted": true,
+    "modelCalls": 0,
+    "prefilterExpanded": 1,
+    "peakPathStates": 1,
+    "peakOpenNodes": 1,
+    "gradeRelaxations": 0,
+    "routeAttempts": 1,
+    "stateLimit": 100000,
+    "gradeLimit": 2000000,
+    "columnLimit": 40000,
+    "editLimit": 500000,
+    "constructionEdits": 0,
+    "exhaustedBudgets": [
+      "PATH_EXPANSIONS",
+      "CANDIDATE_CHECKS"
+    ],
+    "elapsedNanos": 2980914
+  },
+  "groundColumns": []
+}

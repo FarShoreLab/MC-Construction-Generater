@@ -1,0 +1,60 @@
+本轮变更清单：PlanningIR 0.3.0 / terrain-adaptive diagonal networks
+
+按用户实际上传ZIP逐字节比较；不把build产物、缓存或历史材料算作源码改动。
+源码/源码文档共 35 个新增或修改文件。未删除生产源码文件。
+
+核心：8/12方向高度状态路由、全宽supercover、全铺装等级/楼梯求解、独立平台、45度建筑实际掩码。
+施工：groundColumns唯一真源、实际楼梯状态、同一预设网格、全量清单预检及明确编辑上限。
+浏览器：默认128、256/512/矩形、独立seed、可选45度、12方向、紧凑传输、CPU分块网格、2D回退。
+验证：保留21项，新增29项/40随机、原100随机、桥接、HTTP/API/浏览器可执行脚本。
+
+MODIFY source/DEPLOYMENT.md
+MODIFY source/README_REBUILD_ZH.md
+MODIFY source/REBUILD_REPORT_ZH.md
+MODIFY source/TEST_RESULTS_ZH.md
+MODIFY source/core-planner/src/main/java/org/mcsettlement/planner/BoundedSettlementPlanner.java
+ADD    source/core-planner/src/main/java/org/mcsettlement/planner/PavementGrades.java
+MODIFY source/core-planner/src/main/java/org/mcsettlement/planner/RoadGeometry.java
+MODIFY source/core-planner/src/main/java/org/mcsettlement/planner/SettlementPlanner.java
+ADD    source/core-planner/src/main/java/org/mcsettlement/planner/TerrainRoadRouter.java
+MODIFY source/core-planner/src/main/java/org/mcsettlement/planner/civil/PlanConstruction.java
+MODIFY source/core-planner/src/main/java/org/mcsettlement/planner/ir/PlanningIR.java
+ADD    source/core-planner/src/main/java/org/mcsettlement/planner/preset/BuildingShape.java
+MODIFY source/core-planner/src/main/java/org/mcsettlement/planner/preset/PlannedBuilding.java
+MODIFY source/core-planner/src/main/java/org/mcsettlement/planner/render/PlanPreviewRenderer.java
+MODIFY source/core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulatedSettlementPipeline.java
+MODIFY source/core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulatedVoxelWorld.java
+MODIFY source/core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulationApiRunner.java
+MODIFY source/core-planner/src/main/java/org/mcsettlement/planner/simulation/TerrainBlockGenerator.java
+MODIFY source/core-planner/src/main/java/org/mcsettlement/planner/terrain/HeightfieldMap.java
+ADD    source/core-planner/src/test/java/org/mcsettlement/planner/AdaptiveTerrainJUnitTest.java
+ADD    source/core-planner/src/test/java/org/mcsettlement/planner/AdaptiveTerrainMain.java
+MODIFY source/core-planner/src/test/java/org/mcsettlement/planner/regression/RegressionMain.java
+ADD    source/core-planner/src/test/java/org/mcsettlement/planner/regression/TerrainAudit.java
+ADD    source/core-planner/src/test/java/org/mcsettlement/planner/singlegrade/BoundedSettlementPlanner.java
+ADD    source/core-planner/src/test/java/org/mcsettlement/planner/singlegrade/SingleGradeReference.java
+MODIFY source/fabric-mod/src/main/java/org/mcsettlement/mod/client/gui/TacticalMapScreen.java
+MODIFY source/fabric-mod/src/main/java/org/mcsettlement/mod/constructor/WorldConstructor.java
+ADD    source/llm-bridge/src/test/java/org/mcsettlement/llm/BridgeTerrainRegressionMain.java
+ADD    source/tools/build_offline.py
+MODIFY source/tools/preview.html
+MODIFY source/tools/preview_server.py
+MODIFY source/tools/start_preview.ps1
+ADD    source/tools/start_preview.sh
+ADD    source/tools/verify_preview_api.py
+ADD    source/tools/verify_preview_browser.py
+
+交接与证据：
+MODIFY PROMPT_BROWSER_ZH.md
+MODIFY README_HANDOFF_ZH.md
+MODIFY CHANGED_FILES.txt
+ADD    IMPLEMENTATION_NOTES_ZH.md
+ADD    VALIDATION_REPORT_ZH.md
+ADD    .gitignore
+ADD    evidence/current/（最终原始日志、IR、CSV、HTTP快照、浏览器截图及环境限制）
+MOVE   原evidence与旧文档 -> evidence/historical_input/（逐字节保留，不作本轮通过证据）
+ADD    SOURCE_SHA256SUMS.txt（当前源码全部文件hash）
+ADD    PACKAGE_MANIFEST.json（源码及当前证据清单，打包时生成）
+
+unified diff覆盖source及交接文本，不嵌入截图和压缩响应体；完整证据在交付ZIP内。
+保留Gradle原有依赖版本、预设JSON和vendor资源；未加入本机Gson、编译class、密钥或历史ZIP。

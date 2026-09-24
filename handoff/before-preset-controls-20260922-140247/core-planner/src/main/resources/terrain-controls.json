@@ -1,0 +1,212 @@
+{
+  "version": "terrain-controls/1",
+  "generatorVersion": "terrain-block/0.4.2",
+  "types": [
+    {
+      "id": "rolling_hills",
+      "label": "起伏丘陵",
+      "description": "大、中、小三层起伏加固定对角倾斜；适合先看尺度和起伏，再调水位。"
+    },
+    {
+      "id": "mountain",
+      "label": "山地脊线",
+      "description": "噪声脊线叠加局部起伏；收窄系数控制高脊带宽窄，而不是山峰高度。"
+    },
+    {
+      "id": "valley",
+      "label": "环谷地形",
+      "description": "以地图中心低、周边高为基础，叠加起伏；谷地宽度与水位共同决定低地和湖面范围。"
+    },
+    {
+      "id": "plateau",
+      "label": "台地阶地",
+      "description": "将原起伏分级成台地，仍保留细噪声。减少分级数会增大每级落差，不等于更容易通路。"
+    }
+  ],
+  "controls": [
+    {
+      "key": "horizontalScale",
+      "label": "地形横向尺度",
+      "default": 1,
+      "min": 0.25,
+      "max": 4,
+      "step": 0.05,
+      "integer": false,
+      "group": "shape",
+      "appliesTo": [
+        "rolling_hills",
+        "mountain",
+        "valley",
+        "plateau"
+      ],
+      "description": "只缩放起伏噪声及其扭曲的水平尺度，不改变地图尺寸；不缩放环谷半径、整体倾斜或树木间距。",
+      "low": "山丘、脊线更小、更密；通常坡变更频繁。",
+      "high": "山丘、脊线更宽、更疏；小地图可能只看到一个大坡。"
+    },
+    {
+      "key": "detailStrength",
+      "label": "细节起伏强度",
+      "default": 1,
+      "min": 0,
+      "max": 2,
+      "step": 0.1,
+      "integer": false,
+      "group": "shape",
+      "appliesTo": [
+        "rolling_hills",
+        "mountain",
+        "valley",
+        "plateau"
+      ],
+      "description": "控制原来19格尺度的细噪声振幅，不改变中大尺度形状。整数高度下，小幅修改可能不变。",
+      "low": "细碎起伏减少；0只关闭细噪声，不保证整张图平坦。",
+      "high": "坡面小起伏增多，局部平整成本通常增加。"
+    },
+    {
+      "key": "waterLevelRatio",
+      "label": "相对水位",
+      "default": {
+        "rolling_hills": 0.22,
+        "mountain": 0.22,
+        "valley": 0.28,
+        "plateau": 0.22
+      },
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "integer": false,
+      "group": "shape",
+      "appliesTo": [
+        "rolling_hills",
+        "mountain",
+        "valley",
+        "plateau"
+      ],
+      "description": "水面Y = 基准Y + floor(起伏×相对水位)。它不是水域面积比例，也不挖湖盆。",
+      "low": "只淹没更低的洼地；0完全无水。",
+      "high": "同一地表下水域只会扩大或不变，可能连成大片水面。"
+    },
+    {
+      "key": "warpStrength",
+      "label": "形状扭曲强度",
+      "default": 1,
+      "min": 0,
+      "max": 2,
+      "step": 0.1,
+      "integer": false,
+      "group": "shape",
+      "appliesTo": [
+        "rolling_hills",
+        "mountain",
+        "valley",
+        "plateau"
+      ],
+      "description": "控制原有两路坐标扭曲的位移振幅；保持噪声通道和种子不变。",
+      "low": "轮廓少些扭曲；0关闭坐标扭曲，仍有自然噪声。",
+      "high": "轮廓偏移和弯曲更明显；不保证山更高或水更多。"
+    },
+    {
+      "key": "slopeStrength",
+      "label": "整体倾斜强度",
+      "default": 1,
+      "min": 0,
+      "max": 2,
+      "step": 0.1,
+      "integer": false,
+      "group": "shape",
+      "appliesTo": [
+        "rolling_hills",
+        "plateau"
+      ],
+      "description": "只影响丘陵和台地；沿X、Z同时增大的对角方向抬升，方向固定。",
+      "low": "全图的定向高低差减弱；0去掉整体倾斜。",
+      "high": "对角方向的高低差增加；台地可能出现更多跨级边缘。"
+    },
+    {
+      "key": "ridgeSharpness",
+      "label": "山脊收窄系数",
+      "default": 1.65,
+      "min": 0.5,
+      "max": 3,
+      "step": 0.05,
+      "integer": false,
+      "group": "type",
+      "appliesTo": [
+        "mountain"
+      ],
+      "description": "只影响山地。原式ridge = 1 - min(1, abs(noise)×系数)。",
+      "low": "高脊带更宽，地形整体偏高。",
+      "high": "高脊带更窄、两侧降低；不是把山峰抬高。"
+    },
+    {
+      "key": "valleyWidth",
+      "label": "谷地展开宽度",
+      "default": 1,
+      "min": 0.5,
+      "max": 2,
+      "step": 0.05,
+      "integer": false,
+      "group": "type",
+      "appliesTo": [
+        "valley"
+      ],
+      "description": "只影响环谷；缩放以地图中心为原点的径向距离归一化尺度。",
+      "low": "中心低地变窄，周围更快升高。",
+      "high": "低地向外展开；水位不变时水域可能扩大。"
+    },
+    {
+      "key": "terraceLevels",
+      "label": "台地分级数",
+      "default": 5,
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "integer": true,
+      "group": "type",
+      "appliesTo": [
+        "plateau"
+      ],
+      "description": "只影响台地。原round(raw×5)/5中的5；细噪声仍可使台面不完全平。",
+      "low": "台面级别更少、每级落差更大。",
+      "high": "台面级别更多、每级落差更小；不代表连续缓坡。"
+    },
+    {
+      "key": "treeDensity",
+      "label": "树木密度倍率",
+      "default": 1,
+      "min": 0,
+      "max": 2,
+      "step": 0.1,
+      "integer": false,
+      "group": "trees",
+      "appliesTo": [
+        "rolling_hills",
+        "mountain",
+        "valley",
+        "plateau"
+      ],
+      "description": "乘在原湿度筛选通过率上；树木优先级和间距筛选不变。",
+      "low": "同一间距下树木减少；0不生成树木。",
+      "high": "同一间距下树木增加直至饱和；2不保证树数翻倍。"
+    },
+    {
+      "key": "treeSpacing",
+      "label": "树木间距控制",
+      "default": 4,
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "integer": true,
+      "group": "trees",
+      "appliesTo": [
+        "rolling_hills",
+        "mountain",
+        "valley",
+        "plateau"
+      ],
+      "description": "原局部优先级筛选的邻域半径；不是等间隔栅格，树冠允许交叠。",
+      "low": "允许树长得更近、数量更多。",
+      "high": "树间距更大、数量更少；边缘留白也可能变宽。"
+    }
+  ]
+}

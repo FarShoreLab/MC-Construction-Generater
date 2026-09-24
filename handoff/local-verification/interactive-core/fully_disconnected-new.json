@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "version": "0.2.0",
+    "timestamp": "2026-09-20T11:24:49.795870300Z",
+    "randomSeed": 42,
+    "minBounds": [
+      0,
+      -2048,
+      0
+    ],
+    "maxBounds": [
+      63,
+      2048,
+      63
+    ],
+    "score": {
+      "demand_satisfaction": 0.0,
+      "plots_allocated": 0.0
+    }
+  },
+  "transportNetwork": {
+    "corridorWidth": 0,
+    "corridors": [],
+    "nodes": [],
+    "edges": []
+  },
+  "plots": [],
+  "earthworks": {
+    "totalCutVolume": 0,
+    "totalFillVolume": 0,
+    "cutFillBalance": 0
+  },
+  "clearance": {
+    "clearVegetationBoxes": []
+  },
+  "auditLog": {
+    "warnings": [
+      "Unmet requirements are not a proof of global infeasibility; search and supported road grade are bounded."
+    ],
+    "rejectedCandidates": []
+  },
+  "status": "INFEASIBLE",
+  "unmetRequirements": [
+    {
+      "requirementId": "home",
+      "purpose": "residential",
+      "reason": "NO_FEASIBLE_CANDIDATE_IN_BUDGET",
+      "requested": 1,
+      "allocated": 0
+    }
+  ],
+  "search": {
+    "candidateChecks": 12288,
+    "pathExpanded": 126,
+    "attempts": 3,
+    "candidateLimit": 24000,
+    "pathLimit": 180000,
+    "budgetExhausted": false,
+    "modelCalls": 0,
+    "elapsedNanos": 19002400
+  },
+  "groundColumns": []
+}

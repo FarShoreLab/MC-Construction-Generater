@@ -1,0 +1,9 @@
+case,algorithm,requested,allocated,foundation_cells,cut,fill,total_earthwork,stairs,candidate_checks,path_expanded,elapsed_ms,equal_count_comparison
+slope_x_div_8,provided_single_grade,4,4,400,254,0,254,0,24000,5971,127.299,false
+slope_x_div_8,adaptive,4,3,300,40,22,62,4,24000,180000,4057.386,false
+slope_x_div_12,provided_single_grade,4,4,400,158,0,158,0,24000,8947,157.949,true
+slope_x_div_12,adaptive,4,4,400,0,0,0,3,24000,180000,4992.909,true
+slope_x_div_16,provided_single_grade,4,4,400,95,0,95,0,24000,11751,279.277,true
+slope_x_div_16,adaptive,4,4,400,0,0,0,3,24000,11621,314.088,true
+slope_x_div_20,provided_single_grade,4,4,400,40,0,40,0,24000,11751,130.857,true
+slope_x_div_20,adaptive,4,4,400,0,0,0,1,24000,11643,299.359,true

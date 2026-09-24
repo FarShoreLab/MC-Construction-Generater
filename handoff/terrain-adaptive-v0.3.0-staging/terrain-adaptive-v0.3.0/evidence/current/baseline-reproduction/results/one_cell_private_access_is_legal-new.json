@@ -1,0 +1,3584 @@
+{
+  "metadata": {
+    "version": "0.2.0",
+    "timestamp": "2026-09-20T13:43:19.783082998Z",
+    "randomSeed": 42,
+    "minBounds": [
+      0,
+      -2048,
+      0
+    ],
+    "maxBounds": [
+      63,
+      2048,
+      63
+    ],
+    "score": {
+      "demand_satisfaction": 1.0,
+      "plots_allocated": 1.0
+    }
+  },
+  "transportNetwork": {
+    "corridorWidth": 3,
+    "corridors": [
+      {
+        "id": "corridor_1",
+        "roadType": "primary_road",
+        "width": 3,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 13,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 12,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 11,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 10,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 9,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 8,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 7,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 6,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 5,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 4,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 3,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 2,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 1,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      }
+    ],
+    "nodes": [
+      {
+        "id": "n_0_31",
+        "pos": [
+          0,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_0_32",
+        "pos": [
+          0,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_0_33",
+        "pos": [
+          0,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_1_31",
+        "pos": [
+          1,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_1_32",
+        "pos": [
+          1,
+          64,
+          32
+        ],
+        "type": "entry",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_1_33",
+        "pos": [
+          1,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_2_31",
+        "pos": [
+          2,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_2_32",
+        "pos": [
+          2,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_2_33",
+        "pos": [
+          2,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_3_31",
+        "pos": [
+          3,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_3_32",
+        "pos": [
+          3,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_3_33",
+        "pos": [
+          3,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_4_31",
+        "pos": [
+          4,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_4_32",
+        "pos": [
+          4,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_4_33",
+        "pos": [
+          4,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_5_31",
+        "pos": [
+          5,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_5_32",
+        "pos": [
+          5,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_5_33",
+        "pos": [
+          5,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_6_31",
+        "pos": [
+          6,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_6_32",
+        "pos": [
+          6,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_6_33",
+        "pos": [
+          6,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_7_31",
+        "pos": [
+          7,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_7_32",
+        "pos": [
+          7,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_7_33",
+        "pos": [
+          7,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_8_31",
+        "pos": [
+          8,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_8_32",
+        "pos": [
+          8,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_8_33",
+        "pos": [
+          8,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_9_31",
+        "pos": [
+          9,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_9_32",
+        "pos": [
+          9,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_9_33",
+        "pos": [
+          9,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_10_31",
+        "pos": [
+          10,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_10_32",
+        "pos": [
+          10,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_10_33",
+        "pos": [
+          10,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_11_31",
+        "pos": [
+          11,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_11_32",
+        "pos": [
+          11,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_11_33",
+        "pos": [
+          11,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_12_31",
+        "pos": [
+          12,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_12_32",
+        "pos": [
+          12,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_12_33",
+        "pos": [
+          12,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_13_31",
+        "pos": [
+          13,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_13_32",
+        "pos": [
+          13,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_13_33",
+        "pos": [
+          13,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_14_31",
+        "pos": [
+          14,
+          64,
+          31
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_14_32",
+        "pos": [
+          14,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_14_33",
+        "pos": [
+          14,
+          64,
+          33
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_15_32",
+        "pos": [
+          15,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_16_32",
+        "pos": [
+          16,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_17_32",
+        "pos": [
+          17,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_18_32",
+        "pos": [
+          18,
+          64,
+          32
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      }
+    ],
+    "edges": [
+      {
+        "id": "e_0",
+        "fromNodeId": "n_0_31",
+        "toNodeId": "n_1_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 0,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 1,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_1",
+        "fromNodeId": "n_0_31",
+        "toNodeId": "n_0_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 0,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 0,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_2",
+        "fromNodeId": "n_0_32",
+        "toNodeId": "n_1_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 0,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 1,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_3",
+        "fromNodeId": "n_0_32",
+        "toNodeId": "n_0_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 0,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 0,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_4",
+        "fromNodeId": "n_0_33",
+        "toNodeId": "n_1_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 0,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 1,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_5",
+        "fromNodeId": "n_1_31",
+        "toNodeId": "n_2_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 1,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 2,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_6",
+        "fromNodeId": "n_1_31",
+        "toNodeId": "n_1_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 1,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 1,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_7",
+        "fromNodeId": "n_1_32",
+        "toNodeId": "n_2_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 1,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 2,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_8",
+        "fromNodeId": "n_1_32",
+        "toNodeId": "n_1_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 1,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 1,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_9",
+        "fromNodeId": "n_1_33",
+        "toNodeId": "n_2_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 1,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 2,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_10",
+        "fromNodeId": "n_2_31",
+        "toNodeId": "n_3_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 2,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 3,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_11",
+        "fromNodeId": "n_2_31",
+        "toNodeId": "n_2_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 2,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 2,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_12",
+        "fromNodeId": "n_2_32",
+        "toNodeId": "n_3_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 2,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 3,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_13",
+        "fromNodeId": "n_2_32",
+        "toNodeId": "n_2_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 2,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 2,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_14",
+        "fromNodeId": "n_2_33",
+        "toNodeId": "n_3_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 2,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 3,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_15",
+        "fromNodeId": "n_3_31",
+        "toNodeId": "n_4_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 3,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 4,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_16",
+        "fromNodeId": "n_3_31",
+        "toNodeId": "n_3_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 3,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 3,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_17",
+        "fromNodeId": "n_3_32",
+        "toNodeId": "n_4_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 3,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 4,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_18",
+        "fromNodeId": "n_3_32",
+        "toNodeId": "n_3_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 3,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 3,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_19",
+        "fromNodeId": "n_3_33",
+        "toNodeId": "n_4_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 3,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 4,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_20",
+        "fromNodeId": "n_4_31",
+        "toNodeId": "n_5_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 4,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 5,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_21",
+        "fromNodeId": "n_4_31",
+        "toNodeId": "n_4_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 4,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 4,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_22",
+        "fromNodeId": "n_4_32",
+        "toNodeId": "n_5_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 4,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 5,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_23",
+        "fromNodeId": "n_4_32",
+        "toNodeId": "n_4_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 4,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 4,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_24",
+        "fromNodeId": "n_4_33",
+        "toNodeId": "n_5_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 4,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 5,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_25",
+        "fromNodeId": "n_5_31",
+        "toNodeId": "n_6_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 5,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 6,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_26",
+        "fromNodeId": "n_5_31",
+        "toNodeId": "n_5_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 5,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 5,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_27",
+        "fromNodeId": "n_5_32",
+        "toNodeId": "n_6_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 5,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 6,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_28",
+        "fromNodeId": "n_5_32",
+        "toNodeId": "n_5_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 5,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 5,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_29",
+        "fromNodeId": "n_5_33",
+        "toNodeId": "n_6_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 5,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 6,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_30",
+        "fromNodeId": "n_6_31",
+        "toNodeId": "n_7_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 6,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 7,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_31",
+        "fromNodeId": "n_6_31",
+        "toNodeId": "n_6_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 6,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 6,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_32",
+        "fromNodeId": "n_6_32",
+        "toNodeId": "n_7_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 6,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 7,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_33",
+        "fromNodeId": "n_6_32",
+        "toNodeId": "n_6_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 6,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 6,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_34",
+        "fromNodeId": "n_6_33",
+        "toNodeId": "n_7_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 6,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 7,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_35",
+        "fromNodeId": "n_7_31",
+        "toNodeId": "n_8_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 7,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 8,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_36",
+        "fromNodeId": "n_7_31",
+        "toNodeId": "n_7_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 7,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 7,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_37",
+        "fromNodeId": "n_7_32",
+        "toNodeId": "n_8_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 7,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 8,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_38",
+        "fromNodeId": "n_7_32",
+        "toNodeId": "n_7_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 7,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 7,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_39",
+        "fromNodeId": "n_7_33",
+        "toNodeId": "n_8_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 7,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 8,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_40",
+        "fromNodeId": "n_8_31",
+        "toNodeId": "n_9_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 8,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 9,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_41",
+        "fromNodeId": "n_8_31",
+        "toNodeId": "n_8_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 8,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 8,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_42",
+        "fromNodeId": "n_8_32",
+        "toNodeId": "n_9_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 8,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 9,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_43",
+        "fromNodeId": "n_8_32",
+        "toNodeId": "n_8_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 8,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 8,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_44",
+        "fromNodeId": "n_8_33",
+        "toNodeId": "n_9_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 8,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 9,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_45",
+        "fromNodeId": "n_9_31",
+        "toNodeId": "n_10_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 9,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 10,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_46",
+        "fromNodeId": "n_9_31",
+        "toNodeId": "n_9_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 9,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 9,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_47",
+        "fromNodeId": "n_9_32",
+        "toNodeId": "n_10_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 9,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 10,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_48",
+        "fromNodeId": "n_9_32",
+        "toNodeId": "n_9_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 9,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 9,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_49",
+        "fromNodeId": "n_9_33",
+        "toNodeId": "n_10_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 9,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 10,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_50",
+        "fromNodeId": "n_10_31",
+        "toNodeId": "n_11_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 10,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 11,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_51",
+        "fromNodeId": "n_10_31",
+        "toNodeId": "n_10_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 10,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 10,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_52",
+        "fromNodeId": "n_10_32",
+        "toNodeId": "n_11_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 10,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 11,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_53",
+        "fromNodeId": "n_10_32",
+        "toNodeId": "n_10_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 10,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 10,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_54",
+        "fromNodeId": "n_10_33",
+        "toNodeId": "n_11_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 10,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 11,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_55",
+        "fromNodeId": "n_11_31",
+        "toNodeId": "n_12_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 11,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 12,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_56",
+        "fromNodeId": "n_11_31",
+        "toNodeId": "n_11_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 11,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 11,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_57",
+        "fromNodeId": "n_11_32",
+        "toNodeId": "n_12_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 11,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 12,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_58",
+        "fromNodeId": "n_11_32",
+        "toNodeId": "n_11_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 11,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 11,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_59",
+        "fromNodeId": "n_11_33",
+        "toNodeId": "n_12_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 11,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 12,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_60",
+        "fromNodeId": "n_12_31",
+        "toNodeId": "n_13_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 12,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 13,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_61",
+        "fromNodeId": "n_12_31",
+        "toNodeId": "n_12_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 12,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 12,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_62",
+        "fromNodeId": "n_12_32",
+        "toNodeId": "n_13_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 12,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 13,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_63",
+        "fromNodeId": "n_12_32",
+        "toNodeId": "n_12_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 12,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 12,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_64",
+        "fromNodeId": "n_12_33",
+        "toNodeId": "n_13_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 12,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 13,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_65",
+        "fromNodeId": "n_13_31",
+        "toNodeId": "n_14_31",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 13,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 14,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_66",
+        "fromNodeId": "n_13_31",
+        "toNodeId": "n_13_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 13,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 13,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_67",
+        "fromNodeId": "n_13_32",
+        "toNodeId": "n_14_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 13,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 14,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_68",
+        "fromNodeId": "n_13_32",
+        "toNodeId": "n_13_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 13,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 13,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_69",
+        "fromNodeId": "n_13_33",
+        "toNodeId": "n_14_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 13,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          },
+          {
+            "x": 14,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_70",
+        "fromNodeId": "n_14_31",
+        "toNodeId": "n_14_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 14,
+            "y": 64,
+            "z": 31,
+            "structure": "surface"
+          },
+          {
+            "x": 14,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_71",
+        "fromNodeId": "n_14_32",
+        "toNodeId": "n_15_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 14,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 15,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_72",
+        "fromNodeId": "n_14_32",
+        "toNodeId": "n_14_33",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 14,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 14,
+            "y": 64,
+            "z": 33,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_73",
+        "fromNodeId": "n_15_32",
+        "toNodeId": "n_16_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 15,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 16,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_74",
+        "fromNodeId": "n_16_32",
+        "toNodeId": "n_17_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 16,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 17,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_75",
+        "fromNodeId": "n_17_32",
+        "toNodeId": "n_18_32",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 17,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 18,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      }
+    ]
+  },
+  "plots": [
+    {
+      "id": "plot_1",
+      "requirementId": "home",
+      "tags": [
+        "residential"
+      ],
+      "polygon2D": [
+        [
+          18,
+          28
+        ],
+        [
+          27,
+          28
+        ],
+        [
+          27,
+          37
+        ],
+        [
+          18,
+          37
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 64,
+        "entranceElevation": 64,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "width": 1,
+        "accessPoint": [
+          18,
+          64,
+          32
+        ],
+        "facing": "WEST",
+        "connectedEdgeId": "e_75",
+        "path": [
+          {
+            "x": 18,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 17,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 16,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 15,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 14,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          },
+          {
+            "x": 13,
+            "y": 64,
+            "z": 32,
+            "structure": "surface"
+          }
+        ]
+      },
+      "foundation": {
+        "type": "bounded_slab",
+        "retainingWalls": []
+      },
+      "builder": {
+        "generatorType": "locked_preset",
+        "presetId": "nordic_cottage",
+        "templateCategory": "residential",
+        "footprintSize": [
+          10,
+          10
+        ],
+        "heightLimit": 10,
+        "subSeed": -6387817139659442654
+      }
+    }
+  ],
+  "earthworks": {
+    "totalCutVolume": 0,
+    "totalFillVolume": 0,
+    "cutFillBalance": 0
+  },
+  "clearance": {
+    "clearVegetationBoxes": []
+  },
+  "auditLog": {
+    "warnings": [],
+    "rejectedCandidates": []
+  },
+  "status": "COMPLETE",
+  "unmetRequirements": [],
+  "search": {
+    "candidateChecks": 12288,
+    "pathExpanded": 165,
+    "attempts": 3,
+    "candidateLimit": 24000,
+    "pathLimit": 180000,
+    "budgetExhausted": false,
+    "modelCalls": 0,
+    "elapsedNanos": 24649463
+  },
+  "groundColumns": [
+    {
+      "x": 0,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 0,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 0,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 1,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 1,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 1,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 2,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 2,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 2,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 3,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 3,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 3,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 4,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 4,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 4,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 5,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 5,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 5,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 6,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 6,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 6,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 7,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 7,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 7,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 8,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 8,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 8,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 9,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 9,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 9,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 10,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 10,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 10,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 11,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 11,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 11,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 12,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 12,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 12,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 13,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 13,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 13,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 14,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 14,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 14,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 15,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "access"
+    },
+    {
+      "x": 16,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "access"
+    },
+    {
+      "x": 17,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "access"
+    },
+    {
+      "x": 18,
+      "z": 28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": 29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": 30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": 34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": 35,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": 36,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": 37,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": 28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": 29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": 30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": 34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": 35,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": 36,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": 37,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": 28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": 29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": 30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": 34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": 35,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": 36,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": 37,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": 28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": 29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": 30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": 34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": 35,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": 36,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": 37,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 35,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 36,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 37,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 35,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 36,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 37,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 35,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 36,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 37,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 35,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 36,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 37,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 35,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 36,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 37,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 35,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 36,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 37,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    }
+  ]
+}

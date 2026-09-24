@@ -1,0 +1,152 @@
+{
+  "id": "t_lodge",
+  "name": "T形合住屋",
+  "category": "residential",
+  "tags": [
+    "residential",
+    "t",
+    "standard"
+  ],
+  "styles": [
+    "medieval_rustic"
+  ],
+  "author": "MCSettlement",
+  "description": "T形合住屋；明确占地掩码，不占用凹角/中庭空地；固定尺寸不可裁剪。",
+  "footprintShape": "T",
+  "sizeTier": "standard",
+  "footprintMask": [
+    "#############",
+    "#############",
+    "#############",
+    "#############",
+    "#############",
+    "....#####....",
+    "....#####....",
+    "....#####....",
+    "....#####....",
+    "....#####....",
+    "....#####...."
+  ],
+  "sizeX": 13,
+  "sizeZ": 11,
+  "sizeY": 8,
+  "entrance": {
+    "facing": "SOUTH",
+    "x": 6,
+    "z": 10
+  },
+  "palette": {
+    ".": "minecraft:air",
+    "S": "minecraft:cobblestone",
+    "W": "minecraft:spruce_planks",
+    "R": "minecraft:stone_bricks",
+    "G": "minecraft:glass_pane"
+  },
+  "themeReplacements": {},
+  "layers": [
+    [
+      "SSSSSSSSSSSSS",
+      "SSSSSSSSSSSSS",
+      "SSSSSSSSSSSSS",
+      "SSSSSSSSSSSSS",
+      "SSSSSSSSSSSSS",
+      "....SSSSS....",
+      "....SSSSS....",
+      "....SSSSS....",
+      "....SSSSS....",
+      "....SSSSS....",
+      "....SSSSS...."
+    ],
+    [
+      "WWWWWWWWWWWWW",
+      "W...........W",
+      "W...........W",
+      "W...........W",
+      "WWWW.....WWWW",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....WW.WW...."
+    ],
+    [
+      "WWWWWWWWWWWWW",
+      "W...........W",
+      "W...........W",
+      "W...........W",
+      "WWWW.....WWWW",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....WW.WW...."
+    ],
+    [
+      "WGWWWGWWWGWWW",
+      "G...........G",
+      "W...........W",
+      "W...........W",
+      "WGWW.....GWWW",
+      "....G...G....",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....G...G....",
+      "....WWWGW...."
+    ],
+    [
+      "WWWWWWWWWWWWW",
+      "W...........W",
+      "W...........W",
+      "W...........W",
+      "WWWW.....WWWW",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....WWWWW...."
+    ],
+    [
+      "WWWWWWWWWWWWW",
+      "W...........W",
+      "W...........W",
+      "W...........W",
+      "WWWW.....WWWW",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....WWWWW...."
+    ],
+    [
+      "WWWWWWWWWWWWW",
+      "W...........W",
+      "W...........W",
+      "W...........W",
+      "WWWW.....WWWW",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....W...W....",
+      "....WWWWW...."
+    ],
+    [
+      "RRRRRRRRRRRRR",
+      "RRRRRRRRRRRRR",
+      "RRRRRRRRRRRRR",
+      "RRRRRRRRRRRRR",
+      "RRRRRRRRRRRRR",
+      "....RRRRR....",
+      "....RRRRR....",
+      "....RRRRR....",
+      "....RRRRR....",
+      "....RRRRR....",
+      "....RRRRR...."
+    ]
+  ]
+}

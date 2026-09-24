@@ -1,0 +1,495 @@
+{
+  "format": "organic-road-network-v0.4.0-request-handoff",
+  "created_at": "2026-09-21T00:51:23.9326971Z",
+  "baseline": "terrain-adaptive-v0.3.0 / PlanningIR 0.3.0",
+  "purpose": "Implementation request: non-repeating terrain and hierarchical organic/neural road topology",
+  "hash_algorithm": "SHA-256",
+  "coverage": "All delivered files except PACKAGE_MANIFEST.json itself; no compiled classes, Python cache, credentials, local Gson jar, or build cache.",
+  "files": [
+    {
+      "path": "ACCEPTANCE_CRITERIA_ZH.md",
+      "bytes": 2967,
+      "sha256": "83f6a1f0910d32c33234a89b2cd7c97bd8e4e886d9f5134dc77ec3e5bffe7bb1"
+    },
+    {
+      "path": "evidence/current/api-checks.json",
+      "bytes": 4272,
+      "sha256": "7a478557795e42ce889e36d2ae76ea15eea871c7d09d51e30fc81e3da2b62397"
+    },
+    {
+      "path": "evidence/current/verification-status.json",
+      "bytes": 618,
+      "sha256": "0e3913aceca7b9d424b9ea2e55ff77fae7e2c9fb5b5d75344dbe274233165afd"
+    },
+    {
+      "path": "PROMPT_ORGANIC_ROADS_ZH.md",
+      "bytes": 4927,
+      "sha256": "471898d8c3c77bbb267561ecb3171367b24ffd0937b4908ca92e7b36f44aca04"
+    },
+    {
+      "path": "README_HANDOFF_ZH.md",
+      "bytes": 3287,
+      "sha256": "218ffa897ad779668a810b5910d1850d01e2fb6d7ccddcd1e0e04fdd78416f9d"
+    },
+    {
+      "path": "reference/reported-512-mountain-roads-too-straight.png",
+      "bytes": 533462,
+      "sha256": "11c787fc1baf6197397d7c1c4995be761a29035722b9ac0d153469cb71d93ceb"
+    },
+    {
+      "path": "SOURCE_SHA256SUMS.txt",
+      "bytes": 11562,
+      "sha256": "12ae58440b733f59a63eb82e634f12ef935e87e6f4bd456ca7dae4a13b8f9417"
+    },
+    {
+      "path": "source/build.gradle",
+      "bytes": 500,
+      "sha256": "a9798863bae41e1f223f75205fa7ad4912493665cbcd3b326ef7e5c872fdce58"
+    },
+    {
+      "path": "source/core-planner/build.gradle",
+      "bytes": 451,
+      "sha256": "328b2f98d1b18df883e121b6a21491385c0dd0893e7721b407f462935c03f216"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/BoundedSettlementPlanner.java",
+      "bytes": 28118,
+      "sha256": "988156c409051d59f9add9de97f0f7fc4fbe7c8828b23d1ade54f46f69d17d28"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/civil/EarthworkOptimizer.java",
+      "bytes": 2548,
+      "sha256": "4b7618218c7f2f58617358eba18c45fa5e3ee6a48cbd7ba79031e1828d80a1be"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/civil/PlanConstruction.java",
+      "bytes": 9628,
+      "sha256": "51b270e345416d560d4529a6e75723c44bc8b005182be41c15b41285f5923e4f"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/cli/PlannerCli.java",
+      "bytes": 3646,
+      "sha256": "5413f8c0be437499e5e18cd445e88eafa92e65b321aa94897939f1f7c98edd3b"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/ir/PlanningIR.java",
+      "bytes": 7767,
+      "sha256": "cd4e7ecf2e53615a2a85ed4d3d0a809e289d9878597dd97fa892f80e1c1624b3"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/parcel/PlotPlanner.java",
+      "bytes": 8955,
+      "sha256": "966a63c526e7b5727032cc337f3fa9a654d2d2ceb33c358f8b2f0637dc34d258"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/pathfinding/SlopeCostAStar.java",
+      "bytes": 6262,
+      "sha256": "f117d2fb27ca014982e56f9ce7c63a7dc760441016448890d23da93677f693a9"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/PavementGrades.java",
+      "bytes": 7549,
+      "sha256": "c9426056b2451ff70f68e220bfc5797515d86fa58755b5621f89da263e74d8e0"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/preset/BuildingPreset.java",
+      "bytes": 8073,
+      "sha256": "d99563a6834170ac5cb3d092bdebe221153c40294bb69cec00cbfb2531ba6fcd"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/preset/BuildingPresetRegistry.java",
+      "bytes": 7387,
+      "sha256": "557694afa051f8947dc7959ee3a14c2d93a60c8e6c8522d2602d29adfcdf0b99"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/preset/BuildingShape.java",
+      "bytes": 6049,
+      "sha256": "45dd6cd97d32eee0f9207c1482343f9b2295ca6a8d41b3ea96656a223740a7ef"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/preset/PlannedBuilding.java",
+      "bytes": 3626,
+      "sha256": "61474f3d791cc41821bf188ec5b001eddc5f4c67d7d722edc20e79ff7003997a"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/render/PlanPreviewRenderer.java",
+      "bytes": 4264,
+      "sha256": "0ff4206f5226eac62ef361df97fcf925703bfa2afead4fea0b00ed83212e140e"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/RoadGeometry.java",
+      "bytes": 6290,
+      "sha256": "82dffabbac780aa0af1504fbaf7fe3bd995cd4f05286eaa65de5213110af3b13"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/SettlementPlanner.java",
+      "bytes": 2467,
+      "sha256": "4234e1c27dd2d863d1d360196f487f63a98daf1f1a47324ab737ecf1346139f0"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulatedSettlementPipeline.java",
+      "bytes": 12085,
+      "sha256": "adf6dc85b1a76248c41b829deb2af2be0927f3f954b665c25ca1f948c03bc2af"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulatedVoxelWorld.java",
+      "bytes": 3972,
+      "sha256": "efd4ee0a5f768bbb96863ec8cdcd93bcd5e18fdcd3980e4798963591cfe52ad2"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulationApiRunner.java",
+      "bytes": 9790,
+      "sha256": "c4682ba737a17375267bba1d442215defcfb03ecf2175d41634bc9a20199a27e"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulationViewerRunner.java",
+      "bytes": 15906,
+      "sha256": "78efa8d9e055d6e7d2990e2dcb293c0553c8d3537737659da03e87f43519a2ad"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/simulation/TerrainBlockGenerator.java",
+      "bytes": 7456,
+      "sha256": "2d5c80d6c90d4acc13af630c2c961658d31c3bdd758baf0fd6d9170b2b613025"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/terrain/HeightfieldMap.java",
+      "bytes": 6226,
+      "sha256": "9e1e16ce4f63b65fa026d0ae6bf9b822c5b444344cd3b7944550f3393111a7af"
+    },
+    {
+      "path": "source/core-planner/src/main/java/org/mcsettlement/planner/TerrainRoadRouter.java",
+      "bytes": 6127,
+      "sha256": "543578ca4ca774194607cb80e9e2e428c4a7506e8ef9aea0153026b86c885ddb"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/adventurer_tavern.json",
+      "bytes": 6787,
+      "sha256": "6b8539f9311d6f4bb5783498464b13a551d007d61723f5c442f005774247e591"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/artisan_blacksmith.json",
+      "bytes": 5366,
+      "sha256": "e909f1d8103332545e2b66cf65b68f73006cc097cb73a4405db6988222ac880d"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/country_windmill.json",
+      "bytes": 6087,
+      "sha256": "9e2257351c284d3c57ca6e67eb8e7ba0a2073f95f6f0428f3019a5d2521117cf"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/farmstead_granary.json",
+      "bytes": 5032,
+      "sha256": "27b44f2ad7ad05c80687edfe3df835adb9f42409960d46733efac61060082813"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/highland_watchtower.json",
+      "bytes": 5903,
+      "sha256": "f4a27b6d2b32955411e5923ccc8d2e276ab5dee0ff648538f6c0c665cf65950b"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/lumber_mill.json",
+      "bytes": 5312,
+      "sha256": "75799f77443335e763cdc5725f856c15119ab4f5e8178ae02c781c575056c737"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/nordic_cottage.json",
+      "bytes": 4620,
+      "sha256": "4ea9c60b2f7c54b96f439bc469bf555b9bf491d8f8ec83785131967aea49e9ea"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/town_hall.json",
+      "bytes": 7336,
+      "sha256": "a61bc3ae1227eab4b2e2707a9109be0b9b6d90e01747e8a2ad44f3a4d1812688"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/village_chapel.json",
+      "bytes": 6850,
+      "sha256": "bad29cc77b91ff3046a7d92dbe92dba04ce95a4041a416ef657589eb24ac6834"
+    },
+    {
+      "path": "source/core-planner/src/main/resources/presets/wizard_tower.json",
+      "bytes": 6811,
+      "sha256": "491977bba7fc0f4b1ecda50a1e6a861812ba8442e9e16b21f7f2d632d80c8ea9"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/AdaptiveTerrainJUnitTest.java",
+      "bytes": 351,
+      "sha256": "0e67b6c8a2832dbb8e3d4a02d77567f09ef92517b8888198f68c19e2f05e66ef"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/AdaptiveTerrainMain.java",
+      "bytes": 17053,
+      "sha256": "076ee11467b9d9d547ab4b1341b1f78e6a9466ef80948cd42ba30668f49f3327"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/baseline/BaselineBudget.java",
+      "bytes": 734,
+      "sha256": "aa467916aeaccb95f24e0a9a3ee35bd2118569440be0ee9bacdbd96fad8d7394"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/baseline/civil/EarthworkOptimizer.java",
+      "bytes": 5658,
+      "sha256": "7b996133ec74002c966b798f19be2beaf233edd030d04f123a1b4775c5f58a5f"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/baseline/parcel/PlotPlanner.java",
+      "bytes": 8973,
+      "sha256": "c7292b8a3167692f303c1128bdb0dfb4be587254ffdec9e17b20416e5f816847"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/baseline/pathfinding/SlopeCostAStar.java",
+      "bytes": 6340,
+      "sha256": "17d0824331f414b4987047a007ec79e82833dc169f92e484ba75f94ae1f7e695"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/baseline/SettlementPlanner.java",
+      "bytes": 10668,
+      "sha256": "1539b5fd055e6ec28ec11bcb002a8422081004cd30e1e4d407c30ce756b2ef24"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/PlannerTest.java",
+      "bytes": 4396,
+      "sha256": "4f0de5815cc983548baf45386fe09fa2cdfd5e7eebd8b8e6ab7a4e211206ca13"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/preset/BuildingPresetTest.java",
+      "bytes": 6168,
+      "sha256": "8bdb6dfe50cbef261b11fb2d950fe48bbe31f90a49028f0ccb781de2a46d674b"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/regression/RegressionJUnitTest.java",
+      "bytes": 422,
+      "sha256": "8777a7e57c304a873e62d99136cccbfd26b7a7bc9cbea56cc81aa930e05de128"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/regression/RegressionMain.java",
+      "bytes": 18891,
+      "sha256": "06ebb8e1863fc8f3af91f20e086441638141b7cedabaccd98fe7cb67dd44e08d"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/regression/TerrainAudit.java",
+      "bytes": 12028,
+      "sha256": "77c969909a3fbdda2fbb298a54215c9800358b5267affe4f62975b0514b95eeb"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/singlegrade/BoundedSettlementPlanner.java",
+      "bytes": 28755,
+      "sha256": "8cdb7507c390f274625a1d8dbb4805fcf172b3d84dc6f78d1136bc5785d8cbd3"
+    },
+    {
+      "path": "source/core-planner/src/test/java/org/mcsettlement/planner/singlegrade/SingleGradeReference.java",
+      "bytes": 523,
+      "sha256": "ac28328c55a04883afbb754cbc1e23194bc6ce82ed435ce46cf4a7b9dc6c4bc6"
+    },
+    {
+      "path": "source/DEPLOYMENT.md",
+      "bytes": 1682,
+      "sha256": "5e6e8390b1506e384fb80690303aff78e762755508ba75e437b9ebdad4870a77"
+    },
+    {
+      "path": "source/fabric-mod/build.gradle",
+      "bytes": 1004,
+      "sha256": "ee68a02bd48978219b24bf4a26b26a4c1777fa9a7da782766e58297e1e4ef8d6"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/building/AdaptiveBuildingPlacer.java",
+      "bytes": 9878,
+      "sha256": "2dc9c17160b504f8cc3b0cc20c4b9a59861958db39e6e3bd5e59e3c05b264058"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/client/gui/TacticalMapScreen.java",
+      "bytes": 15693,
+      "sha256": "23504c060aab10ff59e2b78bbee4741b184b900905aa4ecccaa36afa26edeee9"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/command/PresetCommands.java",
+      "bytes": 6051,
+      "sha256": "278613c99e3ea9e4f72752ef8641a293e8083dbfb9b251ae6a935a1bf60f925b"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/constructor/WorldConstructor.java",
+      "bytes": 4144,
+      "sha256": "5cae9923ed3c431680acaedcb70b4267615a3364e089cf633ea85f214ffd5204"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/ModClientEntry.java",
+      "bytes": 1532,
+      "sha256": "da6b3a2b4575bfcbcab36a727db16eb1a98eb336812b1385add42d922a4d4f5b"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/ModConfig.java",
+      "bytes": 1882,
+      "sha256": "0cb1297859be7383fffeec7207156a9cc328e4ecd43f7869bf8039f66a5c5340"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/ModEntry.java",
+      "bytes": 590,
+      "sha256": "1707a5cf7c35d68d62ee0050cb87b3bed9071570661f24261be478d5b6f72d75"
+    },
+    {
+      "path": "source/fabric-mod/src/main/java/org/mcsettlement/mod/scanner/WorldTerrainScanner.java",
+      "bytes": 5269,
+      "sha256": "f232e104ab7196c328b4daef08eaf678071dbdbfb3e23706c8094e056f75729d"
+    },
+    {
+      "path": "source/fabric-mod/src/main/resources/assets/mcsettlement/lang/en_us.json",
+      "bytes": 140,
+      "sha256": "337a51694d2ba26b255b01ee8052a61c66dfed97b1e608da556c029809a3863b"
+    },
+    {
+      "path": "source/fabric-mod/src/main/resources/assets/mcsettlement/lang/zh_cn.json",
+      "bytes": 135,
+      "sha256": "48c8f4bf167ac93f96c3db83b0d6fcd29773da412c7c9e0826b671b98f5ffecf"
+    },
+    {
+      "path": "source/fabric-mod/src/main/resources/fabric.mod.json",
+      "bytes": 736,
+      "sha256": "8380d01be43a3af1346020e4c73c63ed630542c159a779e92e1ad1c5d00b0563"
+    },
+    {
+      "path": "source/gradle/wrapper/gradle-wrapper.jar",
+      "bytes": 43453,
+      "sha256": "cb0da6751c2b753a16ac168bb354870ebb1e162e9083f116729cec9c781156b8"
+    },
+    {
+      "path": "source/gradle/wrapper/gradle-wrapper.properties",
+      "bytes": 250,
+      "sha256": "05e7bec397ce5a52628d31dcc4c8b636cbdc55e28f8cef19d097c71b5c5fbb42"
+    },
+    {
+      "path": "source/gradlew",
+      "bytes": 8706,
+      "sha256": "d8231d345ab33433ab7b2c0720d5beb416c8d5c6789dbc01ad122b63bc2cae0d"
+    },
+    {
+      "path": "source/gradlew.bat",
+      "bytes": 2918,
+      "sha256": "bdecf875b6868cbcbd36a1f85eedf0832f358ff28092c5797ed645f7edce77d9"
+    },
+    {
+      "path": "source/llm-bridge/build.gradle",
+      "bytes": 115,
+      "sha256": "9503ffea961c4c80e6c0d3563954eb4858b5161805366855dbe48be7436b8c47"
+    },
+    {
+      "path": "source/llm-bridge/src/main/java/org/mcsettlement/llm/AiBuildingArchitect.java",
+      "bytes": 16849,
+      "sha256": "f3abf37e59501612223b3c71c22ee4c8ff10ab8b6778b459b8b19db3c22b8325"
+    },
+    {
+      "path": "source/llm-bridge/src/main/java/org/mcsettlement/llm/AntigravityCliBridge.java",
+      "bytes": 1619,
+      "sha256": "5bc4999ea83450866ccafe6d65835e134c4c6b69e796309caedf9ca8f9862e2f"
+    },
+    {
+      "path": "source/llm-bridge/src/main/java/org/mcsettlement/llm/HeuristicFallbackBridge.java",
+      "bytes": 5208,
+      "sha256": "ffec5d8b45210a1fc1c4e69f649103ab2fbc79dc0d0fb9c595cdd01c548acf27"
+    },
+    {
+      "path": "source/llm-bridge/src/main/java/org/mcsettlement/llm/LlmStrategyManager.java",
+      "bytes": 2231,
+      "sha256": "9e018e01f8e3121a7e487caf9ce7ee7eda9f66642f1d3c4088011e77921a4bca"
+    },
+    {
+      "path": "source/llm-bridge/src/main/java/org/mcsettlement/llm/OpenAiApiBridge.java",
+      "bytes": 3152,
+      "sha256": "f628764655e6d116cfa04c70751c13b63627014eed93a95a01801b6329d56ae5"
+    },
+    {
+      "path": "source/llm-bridge/src/main/java/org/mcsettlement/llm/PlanningIntent.java",
+      "bytes": 3912,
+      "sha256": "121485904706178bdb5aa9c0411d12ea982808f3107d4aab87d00136c689233b"
+    },
+    {
+      "path": "source/llm-bridge/src/test/java/org/mcsettlement/llm/BridgeRegressionJUnitTest.java",
+      "bytes": 331,
+      "sha256": "2e2061639b31a19b022a3d8df10a8a76b37cf5da7bc5b1c9b2358d7b938815c4"
+    },
+    {
+      "path": "source/llm-bridge/src/test/java/org/mcsettlement/llm/BridgeRegressionMain.java",
+      "bytes": 6437,
+      "sha256": "cd8efd429e6a51e6cd431b279d790c79128ca4cd25ca0ac8a6859153669cd21b"
+    },
+    {
+      "path": "source/llm-bridge/src/test/java/org/mcsettlement/llm/BridgeTerrainRegressionMain.java",
+      "bytes": 2009,
+      "sha256": "f5f222e914f983743c7d30a30351a43c7215598ac7009b7a46920241171f839a"
+    },
+    {
+      "path": "source/README_REBUILD_ZH.md",
+      "bytes": 787,
+      "sha256": "ec0cb785ae3b4021a820a9e565895fd7c1c2dca5463cf696763a85bedee6d4a5"
+    },
+    {
+      "path": "source/REBUILD_REPORT_ZH.md",
+      "bytes": 562,
+      "sha256": "5b0526e3181f98a85f7ee308a2378ade08bdf429d11714ba32384f37f41c25c4"
+    },
+    {
+      "path": "source/settings.gradle",
+      "bytes": 312,
+      "sha256": "94c9774a01e8b556b11629c5527cf1f28a56a6e00033a37cfa2aea12e18bee48"
+    },
+    {
+      "path": "source/TEST_RESULTS_ZH.md",
+      "bytes": 687,
+      "sha256": "91549a64e8af636d9d3a5d30d315b4b1b76d050d878d01d28c600531eaced9b8"
+    },
+    {
+      "path": "source/tools/build_offline.py",
+      "bytes": 5050,
+      "sha256": "ed64971c5601677b9c7ea7186072986bad5b4ccbd940b495d4b0e023badb71e3"
+    },
+    {
+      "path": "source/tools/FuzzAudit.java",
+      "bytes": 2128,
+      "sha256": "32b09732c441b4ceb8f5f9376828d524edc653ed801a44ca1370660452aa89b6"
+    },
+    {
+      "path": "source/tools/generators/OrbitControls.js",
+      "bytes": 26375,
+      "sha256": "02bb4ade710f3e607329e37a21f098bc3ac70eb6e33daf8a65e79f4db785e7b2"
+    },
+    {
+      "path": "source/tools/generators/three.min.js",
+      "bytes": 603445,
+      "sha256": "9274bbcec8d96168626c732b5d31c775aa8cfb7eaa0599bec0c175908a2c1ce2"
+    },
+    {
+      "path": "source/tools/preview_server.py",
+      "bytes": 8414,
+      "sha256": "f7ee617f5eeb598c1464f5ebc8f3600371b18f76ef3184d2aa18271b7ff2c0f7"
+    },
+    {
+      "path": "source/tools/preview.html",
+      "bytes": 27350,
+      "sha256": "e8d566ef172c2518e4d3c9ad87c8e734649758331d7f41b6bec4946264536a48"
+    },
+    {
+      "path": "source/tools/start_preview.ps1",
+      "bytes": 421,
+      "sha256": "03bfd4831f0c22fba8e996c4943480ea10026d0371ea9012a072f1c8205c7cab"
+    },
+    {
+      "path": "source/tools/start_preview.sh",
+      "bytes": 153,
+      "sha256": "c85438da6bfd3a4344282515cb0149b843ea1681c6e725e91c59bfd05d9f6bfe"
+    },
+    {
+      "path": "source/tools/SyntaxCheck.java",
+      "bytes": 1202,
+      "sha256": "b292873512e75416e00456e4236d6f031e4a569b9f8e7794aa537c231043ed42"
+    },
+    {
+      "path": "source/tools/verify_preview_api.py",
+      "bytes": 5339,
+      "sha256": "8aac4967afc7cf490f4a0b0f6e49001d35a283b460cd1103b3037efe3c643b7d"
+    },
+    {
+      "path": "source/tools/verify_preview_browser.py",
+      "bytes": 5338,
+      "sha256": "a1ade4b94f36668665e34baf72cc28452ee6afeb6837f29b2e211211427affdd"
+    }
+  ]
+}

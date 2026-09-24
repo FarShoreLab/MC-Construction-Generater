@@ -1,0 +1,7 @@
+PASS core + llm-bridge compilation (28 files); local Gson: /mnt/data/deps/gson-local.jar
+PASS core-21
+PASS adaptive-29
+PASS fuzz-100
+PASS bridge-diagonal
+PASS fabric-syntax-only
+PASS bridge-loopback

@@ -1,0 +1,124 @@
+{
+  "id": "gen_baseline_nordic_coastal",
+  "name": "原始基线盒子预设 (nordic_coastal)",
+  "generator": "Baseline Simple Preset",
+  "paradigm": "Static Voxel Bounding Box",
+  "theme": "nordic_coastal",
+  "execution_ms": 0.014,
+  "sizeX": 8,
+  "sizeY": 7,
+  "sizeZ": 8,
+  "solid_voxels": 260,
+  "total_volume": 448,
+  "layers": [
+    [
+      "CCCCCCCC",
+      "CCCCCCCC",
+      "CCCCCCCC",
+      "CCCCCCCC",
+      "CCCCCCCC",
+      "CCCCCCCC",
+      "CCCCCCCC",
+      "CCCCCCCC"
+    ],
+    [
+      "LSSSSSSL",
+      "S..RR..S",
+      "S..RR..S",
+      "S......S",
+      "LSSSSSSL",
+      "L......L",
+      "I..A...I",
+      "L......L"
+    ],
+    [
+      "LSGGGGSL",
+      "S..RR..S",
+      "X..FB..S",
+      "T..K...S",
+      "LSGGGGSL",
+      "L......L",
+      "I......I",
+      "L......L"
+    ],
+    [
+      "LSSSSSSL",
+      "S..RR..S",
+      "S..RR..S",
+      "S......S",
+      "LSSSSSSL",
+      "L......L",
+      "I......I",
+      "L......L"
+    ],
+    [
+      "LLLLLLLL",
+      "L..RR..L",
+      "L..RR..L",
+      "L......L",
+      "LLLLLLLL",
+      "L......L",
+      "L......L",
+      "LLLLLLLL"
+    ],
+    [
+      ".WWWWWW.",
+      ".W.RR.W.",
+      ".W.RR.W.",
+      ".WWWWWW.",
+      ".WWWWWW.",
+      ".OOOOOO.",
+      ".OOOOOO.",
+      ".OOOOOO."
+    ],
+    [
+      "..OOOO..",
+      "..ORRO..",
+      "..ORHO..",
+      "..OOOO..",
+      "........",
+      "........",
+      "........",
+      "........"
+    ]
+  ],
+  "palette": {
+    ".": "minecraft:air",
+    "C": "minecraft:cobblestone",
+    "S": "minecraft:stone_bricks",
+    "W": "minecraft:oak_planks",
+    "L": "minecraft:oak_log[axis=y]",
+    "G": "minecraft:glass_pane",
+    "B": "minecraft:blast_furnace[facing=north]",
+    "F": "minecraft:furnace[facing=north]",
+    "A": "minecraft:anvil[facing=east]",
+    "I": "minecraft:iron_bars",
+    "R": "minecraft:bricks",
+    "H": "minecraft:campfire",
+    "K": "minecraft:cauldron",
+    "T": "minecraft:crafting_table",
+    "X": "minecraft:chest[facing=south]",
+    "P": "minecraft:lantern",
+    "O": "minecraft:oak_slab"
+  },
+  "themeReplacements": {
+    "nordic_coastal": {
+      "minecraft:oak_planks": "minecraft:spruce_planks",
+      "minecraft:oak_log[axis=y]": "minecraft:spruce_log[axis=y]",
+      "minecraft:oak_slab": "minecraft:spruce_slab"
+    },
+    "mountain_outpost": {
+      "minecraft:cobblestone": "minecraft:cobbled_deepslate",
+      "minecraft:stone_bricks": "minecraft:deepslate_bricks",
+      "minecraft:oak_planks": "minecraft:dark_oak_planks",
+      "minecraft:oak_log[axis=y]": "minecraft:dark_oak_log[axis=y]"
+    }
+  },
+  "metrics": {
+    "void_ratio_pct": 42.0,
+    "facade_depth_index": 37.7,
+    "roof_complexity_score": 45,
+    "interior_furnishing_score": 58.3,
+    "overall_aesthetic_grade": "B"
+  }
+}

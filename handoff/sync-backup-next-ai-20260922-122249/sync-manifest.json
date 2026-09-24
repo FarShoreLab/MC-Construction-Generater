@@ -1,0 +1,94 @@
+[
+  {
+    "path": "NEXT_AI_IMPLEMENTATION_ZH.md",
+    "action": "added"
+  },
+  {
+    "path": "PROMPT_ZH.md",
+    "action": "added"
+  },
+  {
+    "path": "road-height-problem.png",
+    "action": "added"
+  },
+  {
+    "path": "tools/build_offline.py",
+    "action": "modified"
+  },
+  {
+    "path": "tools/preview.html",
+    "action": "modified"
+  },
+  {
+    "path": "tools/preview_server.py",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/test/java/org/mcsettlement/planner/LandBridgeMain.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/test/java/org/mcsettlement/planner/NextAiPlanningMain.java",
+    "action": "added"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/BoundedSettlementPlanner.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/ExpertSettings.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/ExpertSettlementPlanner.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/ExpertTerrainAudit.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/PavementGrades.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/RoadTerrain.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/SettlementPlanner.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/SiteMetrics.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/TerrainLandUsePlanner.java",
+    "action": "added"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/TerrainRoadRouter.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/civil/PlanConstruction.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/ir/PlanningIR.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/preset/PresetPalette.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulatedSettlementPipeline.java",
+    "action": "modified"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulationApiRunner.java",
+    "action": "modified"
+  }
+]

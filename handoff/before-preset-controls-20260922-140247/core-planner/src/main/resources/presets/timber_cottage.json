@@ -1,0 +1,171 @@
+{
+  "id": "timber_cottage",
+  "name": "木构山墙屋",
+  "category": "residential",
+  "tags": [
+    "residential",
+    "rectangle",
+    "compact",
+    "crafted"
+  ],
+  "styles": [
+    "medieval_rustic"
+  ],
+  "author": "MCSettlement",
+  "description": "7×9 实际占地包络；分层坡屋顶、木构梁柱、窗带与石基。空缺占地保持原地形。",
+  "footprintShape": "rectangle",
+  "sizeTier": "compact",
+  "footprintMask": [
+    "#######",
+    "#######",
+    "#######",
+    "#######",
+    "#######",
+    "#######",
+    "#######",
+    "#######",
+    "#######"
+  ],
+  "sizeX": 7,
+  "sizeZ": 9,
+  "sizeY": 11,
+  "entrance": {
+    "facing": "SOUTH",
+    "x": 3,
+    "z": 8
+  },
+  "palette": {
+    ".": "minecraft:air",
+    "S": "minecraft:stone_bricks",
+    "W": "minecraft:oak_planks",
+    "L": "minecraft:spruce_log",
+    "P": "minecraft:oak_planks",
+    "G": "minecraft:glass_pane",
+    "R": "minecraft:dark_oak_planks",
+    "B": "minecraft:bricks"
+  },
+  "themeReplacements": {},
+  "layers": [
+    [
+      "SSSSSSS",
+      "SSSSSSS",
+      "SSSSSSS",
+      "SSSSSSS",
+      "SSSSSSS",
+      "SSSSSSS",
+      "SSSSSSS",
+      "SSSSSSS",
+      "SSSSSSS"
+    ],
+    [
+      "LPPPLPP",
+      "P.....P",
+      "P.....P",
+      "P.....P",
+      "L.....P",
+      "P.....P",
+      "P.....P",
+      "P.....P",
+      "LPP.LPP"
+    ],
+    [
+      "LGGGLGG",
+      "G.....G",
+      "G.....G",
+      "G.....G",
+      "L.....G",
+      "G.....G",
+      "G.....G",
+      "G.....G",
+      "LGG.LGG"
+    ],
+    [
+      "LGGGLGG",
+      "G.....G",
+      "G.....G",
+      "G.....G",
+      "L.....G",
+      "G.....G",
+      "G.....G",
+      "G.....G",
+      "LGGLLGG"
+    ],
+    [
+      "LPPPLPP",
+      "P.....P",
+      "P.....P",
+      "P.....P",
+      "L.....P",
+      "P.....P",
+      "P.....P",
+      "P.....P",
+      "LPPPLPP"
+    ],
+    [
+      "LLLLLLL",
+      "LWWWWWL",
+      "LWBWWWL",
+      "LWWWWWL",
+      "LWWWWWL",
+      "LWWWWWL",
+      "LWWWWWL",
+      "LWWWWWL",
+      "LLLLLLL"
+    ],
+    [
+      "RRRRRRR",
+      "R.....R",
+      "R.B...R",
+      "R.....R",
+      "R.....R",
+      "R.....R",
+      "R.....R",
+      "R.....R",
+      "RRRRRRR"
+    ],
+    [
+      ".......",
+      ".RRRRR.",
+      ".RB..R.",
+      ".R...R.",
+      ".R...R.",
+      ".R...R.",
+      ".R...R.",
+      ".RRRRR.",
+      "......."
+    ],
+    [
+      ".......",
+      ".......",
+      "..BRR..",
+      "..R.R..",
+      "..R.R..",
+      "..R.R..",
+      "..RRR..",
+      ".......",
+      "......."
+    ],
+    [
+      ".......",
+      ".......",
+      "..B....",
+      "...R...",
+      "...R...",
+      "...R...",
+      ".......",
+      ".......",
+      "......."
+    ],
+    [
+      ".......",
+      ".......",
+      "..B....",
+      ".......",
+      ".......",
+      ".......",
+      ".......",
+      ".......",
+      "......."
+    ]
+  ]
+}

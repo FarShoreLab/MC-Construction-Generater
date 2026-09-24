@@ -1,0 +1,36 @@
+Package contents
+
+PROMPT_BROWSER_ZH.md
+README_HANDOFF_ZH.md
+CHANGED_FILES.txt
+source/build.gradle
+source/settings.gradle
+source/gradlew
+source/gradlew.bat
+source/gradle/wrapper/*
+source/core-planner/build.gradle
+source/core-planner/src/**
+source/llm-bridge/build.gradle
+source/llm-bridge/src/**
+source/fabric-mod/build.gradle
+source/fabric-mod/src/**
+source/tools/preview.html
+source/tools/preview_server.py
+source/tools/start_preview.ps1
+source/tools/FuzzAudit.java
+source/tools/SyntaxCheck.java
+source/tools/generators/three.min.js
+source/tools/generators/OrbitControls.js
+source/DEPLOYMENT.md
+source/README_REBUILD_ZH.md
+source/REBUILD_REPORT_ZH.md
+source/TEST_RESULTS_ZH.md
+evidence/benchmark.csv
+evidence/fuzz.log
+evidence/interactive-api-check.json
+evidence/interactive-core-tests.log
+evidence/interactive-height-check.json
+evidence/interactive-terrain-check.json
+evidence/tests.log
+
+The archive deliberately excludes build/, .gradle/, compiled classes, generated viewers, historical ZIPs, credentials, and local caches.

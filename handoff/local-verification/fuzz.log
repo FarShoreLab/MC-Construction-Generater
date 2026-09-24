@@ -1,0 +1,2 @@
+[BuildingPresetRegistry] Successfully initialized 10 building presets.
+PASS 100 deterministic randomized invariant cases; allocated=300 complete=100 partial=0 no_build=0 elapsed_ms=5587.958

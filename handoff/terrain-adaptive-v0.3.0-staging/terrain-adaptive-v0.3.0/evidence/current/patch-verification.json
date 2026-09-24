@@ -1,0 +1,11 @@
+{
+  "patch": "terrain-adaptive-v0.3.0-changes.patch",
+  "patch_bytes": 364626,
+  "patch_sha256": "280f260fe1158f2802c29d570b6ce3502adac53a28aa95ad36fbd687c904ed66",
+  "applied_to": "fresh extraction of actual user-uploaded archive",
+  "git_apply_check": 0,
+  "git_apply": 0,
+  "source_files_compared": 90,
+  "byte_mismatches": [],
+  "note": "Patch contains source and current handoff text; binary evidence is included in the full deliverable ZIP."
+}

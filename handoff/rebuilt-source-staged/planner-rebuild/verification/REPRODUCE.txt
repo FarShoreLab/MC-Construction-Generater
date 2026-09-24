@@ -1,0 +1,9 @@
+# Run from the extracted project root. Java 21 required; no automatic downloads in this script.
+export GSON_JAR=/path/gson-2.10.1.jar
+bash tools/run-offline-tests.sh build/offline-evidence
+python3 tools/verify-baseline.py /path/to/original/planner-rebuild.zip
+javac -proc:none --release 21 -cp "build/offline-evidence/classes:$GSON_JAR" -d build/offline-evidence/classes tools/FuzzAudit.java tools/SyntaxCheck.java
+java -Xmx1g -cp "build/offline-evidence/classes:$GSON_JAR" FuzzAudit
+java -cp build/offline-evidence/classes SyntaxCheck fabric-mod/src/main/java
+# Requires network/cache for Gradle and Fabric; NOT successfully run in the delivery environment:
+bash gradlew :core-planner:test :llm-bridge:test :fabric-mod:compileJava --no-daemon

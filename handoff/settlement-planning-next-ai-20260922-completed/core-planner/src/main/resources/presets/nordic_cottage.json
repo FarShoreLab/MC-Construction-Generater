@@ -1,0 +1,192 @@
+{
+  "id": "nordic_cottage",
+  "name": "北欧斜顶民居 (Nordic Timber Cottage Pro)",
+  "category": "residential",
+  "tags": [
+    "residential",
+    "nordic",
+    "cozy",
+    "house",
+    "master"
+  ],
+  "styles": [
+    "nordic_coastal",
+    "medieval_rustic",
+    "mountain_outpost"
+  ],
+  "author": "MCSettlement Master",
+  "description": "大师级北欧人字斜顶木屋，双层外挑立体架构，外露原木立柱与内凹木板立面，全向倒置楼梯雀替挑檐，高耸陡坡屋顶与烟囱冒烟效果",
+  "sizeX": 10,
+  "sizeY": 10,
+  "sizeZ": 10,
+  "entrance": {
+    "facing": "SOUTH",
+    "x": 4,
+    "z": 9
+  },
+  "palette": {
+    ".": "minecraft:air",
+    "C": "minecraft:cobblestone",
+    "S": "minecraft:stone_bricks",
+    "W": "minecraft:spruce_planks",
+    "L": "minecraft:dark_oak_log[axis=y]",
+    "G": "minecraft:glass_pane",
+    "U": "minecraft:oak_stairs[half=top,facing=east]",
+    "u": "minecraft:oak_stairs[half=top,facing=west]",
+    "[": "minecraft:oak_stairs[facing=east,half=bottom]",
+    "]": "minecraft:oak_stairs[facing=west,half=bottom]",
+    "{": "minecraft:stone_brick_stairs[facing=east,half=bottom]",
+    "}": "minecraft:stone_brick_stairs[facing=west,half=bottom]",
+    "O": "minecraft:spruce_slab",
+    "o": "minecraft:stone_brick_slab",
+    "R": "minecraft:bricks",
+    "H": "minecraft:campfire",
+    "I": "minecraft:iron_bars",
+    "T": "minecraft:crafting_table",
+    "X": "minecraft:chest[facing=south]",
+    "F": "minecraft:furnace[facing=north]",
+    "B": "minecraft:blast_furnace[facing=north]",
+    "A": "minecraft:anvil[facing=east]",
+    "K": "minecraft:cauldron",
+    "E": "minecraft:red_bed",
+    "M": "minecraft:bookshelf",
+    "P": "minecraft:lantern",
+    "J": "minecraft:red_carpet",
+    "N": "minecraft:oak_fence",
+    "D": "minecraft:dark_oak_planks"
+  },
+  "themeReplacements": {
+    "medieval_rustic": {
+      "minecraft:spruce_planks": "minecraft:oak_planks",
+      "minecraft:dark_oak_log[axis=y]": "minecraft:oak_log[axis=y]",
+      "minecraft:spruce_slab": "minecraft:oak_slab"
+    },
+    "mountain_outpost": {
+      "minecraft:cobblestone": "minecraft:cobbled_deepslate",
+      "minecraft:spruce_planks": "minecraft:dark_oak_planks",
+      "minecraft:dark_oak_log[axis=y]": "minecraft:deepslate_bricks"
+    }
+  },
+  "layers": [
+    [
+      "CCCCCCCCCC",
+      "CWWWWWWWWC",
+      "CWWWWWWWWC",
+      "CWWWWWWWWC",
+      "CWWWWWWWWC",
+      "CWWWWWWWWC",
+      "CWWWWWWWWC",
+      "CWWWWWWWWC",
+      "CWWWWWWWWC",
+      "CCCCCCCCCC"
+    ],
+    [
+      "LCCCCCCCCL",
+      "C...R....C",
+      "C...R....C",
+      "C........C",
+      "C........C",
+      "C........C",
+      "C........C",
+      "C........C",
+      "C...JJ...C",
+      "LCC....CCL"
+    ],
+    [
+      "LWWWWWWWWL",
+      "W...R....W",
+      "G...R....G",
+      "W...JJ...W",
+      "G...JJ...G",
+      "W........W",
+      "G...E....G",
+      "W...M....W",
+      "W........W",
+      "LWW....WWL"
+    ],
+    [
+      "LWWWWWWWWL",
+      "W..RR....W",
+      "W..RR....W",
+      "W..TF....W",
+      "W..X.....W",
+      "W........W",
+      "W...P....W",
+      "W........W",
+      "W........W",
+      "LWWWWWWWWL"
+    ],
+    [
+      "ULLLLLLLLU",
+      "LWWWWWWWWL",
+      "LWWWWWWWWL",
+      "LWWWWWWWWL",
+      "LWWWWWWWWL",
+      "LWWWWWWWWL",
+      "LWWWWWWWWL",
+      "LWWWWWWWWL",
+      "LWWWWWWWWL",
+      "ULLLLLLLLU"
+    ],
+    [
+      "UUUUUUUUUU",
+      "U..RR....U",
+      "U..RR....U",
+      "U........U",
+      "U...G....U",
+      "U...G....U",
+      "U........U",
+      "U........U",
+      "U........U",
+      "UUUUUUUUUU"
+    ],
+    [
+      ".OOOOOOOO.",
+      ".OWRROWW..",
+      ".OWRROWW..",
+      ".OWWWWWW..",
+      ".OWGWWWW..",
+      ".OWWWWWW..",
+      ".OWWWWWW..",
+      ".OWWWWWW..",
+      ".OWWWWWW..",
+      ".OOOOOOOO."
+    ],
+    [
+      "..OOOOOO..",
+      "..OWRROW..",
+      "..OWRROW..",
+      "..OWWWWO..",
+      "..OWWWWO..",
+      "..OWWWWO..",
+      "..OWWWWO..",
+      "..OWWWWO..",
+      "..OWWWWO..",
+      "..OOOOOO.."
+    ],
+    [
+      "...OOOO...",
+      "...ORRO...",
+      "...ORRO...",
+      "...OWWO...",
+      "...OWWO...",
+      "...OWWO...",
+      "...OWWO...",
+      "...OWWO...",
+      "...OWWO...",
+      "...OOOO..."
+    ],
+    [
+      "....SS....",
+      "....RR....",
+      "....RH....",
+      "....SS....",
+      "....SS....",
+      "....SS....",
+      "....SS....",
+      "....SS....",
+      "....SS....",
+      "....SS...."
+    ]
+  ]
+}

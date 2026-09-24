@@ -1,0 +1,42 @@
+[
+  {
+    "case": "dirt_path",
+    "status": "PASS"
+  },
+  {
+    "case": "gravel",
+    "status": "PASS"
+  },
+  {
+    "case": "cobblestone",
+    "status": "PASS"
+  },
+  {
+    "case": "stone_bricks",
+    "status": "PASS"
+  },
+  {
+    "case": "archived_estate_48",
+    "status": "PASS"
+  },
+  {
+    "case": "archived_estate_64",
+    "status": "PASS"
+  },
+  {
+    "case": "archived_estate_96",
+    "status": "PASS"
+  },
+  {
+    "case": "balanced256",
+    "status": "PASS"
+  },
+  {
+    "case": "archived-on-small-map",
+    "status": "PASS"
+  },
+  {
+    "case": "invalid-material-and-map-capacity",
+    "status": "PASS"
+  }
+]

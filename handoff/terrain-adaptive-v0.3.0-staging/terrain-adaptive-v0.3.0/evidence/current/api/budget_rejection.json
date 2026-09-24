@@ -1,0 +1,79 @@
+{
+  "config": {
+    "width": 64,
+    "depth": 64,
+    "baseElevation": 58,
+    "relief": 24,
+    "terrainType": "rolling_hills",
+    "terrainSeed": 42,
+    "planSeed": 42,
+    "targetPlots": 1,
+    "roadDirections": 8,
+    "diagonalBuildings": false,
+    "originalTerrainHash": "eacb6f8cdbe2eea673c93ed7692c72e806d663f429a6e7b2e40938ac8d74cfef"
+  },
+  "metrics": {
+    "status": "INFEASIBLE",
+    "planHash": "15f6233be08c0673f688cb967d3c98d54faa9690406a0562ada4cb64ae12302b",
+    "plotCount": 0,
+    "roadColumnCount": 0,
+    "roadEdgeCount": 0,
+    "clearedBlocks": 0,
+    "cutBlocks": 0,
+    "fillBlocks": 0,
+    "buildingBlocks": 0,
+    "stairBlocks": 0,
+    "constructionEdits": 0,
+    "minPlatform": 0,
+    "maxPlatform": 0,
+    "diagonalPlots": 0,
+    "search": {
+      "candidateChecks": 12288,
+      "pathExpanded": 14611,
+      "attempts": 3,
+      "candidateLimit": 24000,
+      "pathLimit": 180000,
+      "budgetExhausted": true,
+      "modelCalls": 0,
+      "prefilterExpanded": 11529,
+      "peakPathStates": 3870,
+      "peakOpenNodes": 2569,
+      "gradeRelaxations": 0,
+      "routeAttempts": 24,
+      "stateLimit": 100000,
+      "gradeLimit": 2000000,
+      "columnLimit": 1,
+      "editLimit": 1,
+      "constructionEdits": 0,
+      "exhaustedBudgets": [
+        "GROUND_COLUMNS"
+      ],
+      "elapsedNanos": 676454230
+    },
+    "responseByteLimit": 33554432,
+    "extraVoxelLimit": 400000
+  },
+  "plan": {
+    "status": "INFEASIBLE",
+    "hash": "15f6233be08c0673f688cb967d3c98d54faa9690406a0562ada4cb64ae12302b",
+    "plots": [],
+    "groundColumns": [],
+    "roadPaths": [],
+    "unmetRequirements": [
+      {
+        "requirementId": "landmark",
+        "purpose": "government",
+        "reason": "NO_CONSTRUCTIBLE_FULL_WIDTH_HEIGHT_ROUTE_IN_SHORTLIST",
+        "requested": 1,
+        "allocated": 0
+      }
+    ],
+    "warnings": [
+      "Bounded search / stair-orientation failure is not a proof of global infeasibility."
+    ]
+  },
+  "original_extras": 2565,
+  "constructed_extras": 2565,
+  "response_bytes": 142714,
+  "response_sha256": "337dbe770c541c87c712be7589741ad05955b4952eaeac39976caf27afe86d8a"
+}

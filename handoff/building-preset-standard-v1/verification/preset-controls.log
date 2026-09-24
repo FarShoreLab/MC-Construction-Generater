@@ -1,0 +1,7 @@
+[BuildingPresetRegistry] Successfully initialized 37 building presets.
+PASS archived presets excluded, resources retained
+PASS exact per-preset counts, disabled items, invalid counts, JSON construction replay
+PASS every entrance / cardinal / diagonal orientation and tampered index rejection
+PREFERENCE balanced -> clearings: forest 100 -> 0; shore 116 -> 20; slope 0.00 -> 0.00
+PASS standard compound example constructs with main, annex, yard and entrances
+ALL PRESET CONTROL CHECKS PASSED

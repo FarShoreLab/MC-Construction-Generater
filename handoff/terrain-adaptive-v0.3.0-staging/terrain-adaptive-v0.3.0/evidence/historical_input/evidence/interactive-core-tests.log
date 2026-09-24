@@ -1,0 +1,23 @@
+[BuildingPresetRegistry] Successfully initialized 10 building presets.
+PASS flat_mixed
+PASS limited_slope
+PASS riverbank
+PASS existing_building_obstacle
+PASS insufficient_space
+PASS one_cell_private_access_is_legal
+PASS fully_disconnected
+PASS multiple_sizes_and_rotation
+PASS entry_elevation_gap
+PASS even_width_negative_coordinates
+PASS tiny_search_budget
+PASS hard_near_purpose_relation
+PASS bridge_required_rejected
+PASS earthwork_no_common_grade
+PASS reproducibility_and_no_request_mutation
+PASS every_preset_all_rotations_has_walkable_declared_door
+PASS explicit_entry_wrong_height_rejected
+PASS invalid_request_and_unavailable_preset
+PASS spatial_relation_cycle_is_explained
+PASS json_roundtrip_and_consumer_manifest
+PASS legacy_plan_is_not_constructible
+RESULT 21 passed; 0 failed

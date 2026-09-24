@@ -1,0 +1,11 @@
+{
+  "actual_gson": "2.10.1",
+  "exact_declared_gson_verified": true,
+  "python": "3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)]",
+  "java": "openjdk version \"21.0.10\" 2026-01-20 LTS\nOpenJDK Runtime Environment Temurin-21.0.10+7 (build 21.0.10+7-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.10+7 (build 21.0.10+7-LTS, mixed mode, sharing)\n",
+  "gson_jar": "C:\\Users\\Construct\\.gradle\\caches\\modules-2\\files-2.1\\com.google.code.gson\\gson\\2.10.1\\b3add478d4382b78ea20b1671390a858002feb6c\\gson-2.10.1.jar",
+  "gson_sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593",
+  "declared_gson": "2.10.1",
+  "fabric_type_check": "NOT_RUN: requires the Fabric/Gradle dependency cache",
+  "minecraft_runtime": "NOT_RUN"
+}

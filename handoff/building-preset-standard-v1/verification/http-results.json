@@ -1,0 +1,52 @@
+[
+  {
+    "case": "clearings",
+    "status": "PASS",
+    "plots": 3
+  },
+  {
+    "case": "balanced",
+    "status": "PASS",
+    "plots": 3
+  },
+  {
+    "case": "archive_48",
+    "status": "PASS"
+  },
+  {
+    "case": "archive_64",
+    "status": "PASS"
+  },
+  {
+    "case": "archive_96",
+    "status": "PASS"
+  },
+  {
+    "case": "custom_list_exceeds_map_capacity_no_partial_construction",
+    "status": "PASS"
+  },
+  {
+    "case": "invalid_{'targetPlots': 4}",
+    "status": "PASS"
+  },
+  {
+    "case": "invalid_{'buildingSelection': []}",
+    "status": "PASS"
+  },
+  {
+    "case": "invalid_{'sitePreference': 'invalid'}",
+    "status": "PASS"
+  },
+  {
+    "case": "invalid_{'buildingSelection': [{'presetId': 'meadow_hut', 'count': 1.5}]}",
+    "status": "PASS"
+  },
+  {
+    "case": "invalid_{'buildingSelection': [{'presetId': 'meadow_hut', 'enabled': False, 'count': 3}]}",
+    "status": "PASS"
+  },
+  {
+    "case": "invalid_{'layoutMode': 'legacy'}",
+    "status": "PASS"
+  }
+]

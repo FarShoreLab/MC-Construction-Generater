@@ -1,0 +1,69 @@
+{
+  "response_bytes": 10308489,
+  "response_sha256": "d95dd76f5d3109b25c003fe6a94791ee352ac770cccc041e28311e14954a13c8",
+  "config": {
+    "width": 512,
+    "depth": 512,
+    "baseElevation": 58,
+    "relief": 24,
+    "terrainType": "rolling_hills",
+    "terrainSeed": 42,
+    "planSeed": 42,
+    "targetPlots": 7,
+    "roadDirections": 8,
+    "diagonalBuildings": false,
+    "originalTerrainHash": "1a9a39c065279ab6adcdba218c603ed4a4c26245040577326647a9f384aa4568"
+  },
+  "metrics": {
+    "status": "COMPLETE",
+    "planHash": "cd3350a0830cc1d8829aa5cd92c34d89eed97f533d2438a56b792df245ce674b",
+    "plotCount": 7,
+    "roadColumnCount": 1225,
+    "roadEdgeCount": 1888,
+    "clearedBlocks": 591,
+    "cutBlocks": 60,
+    "fillBlocks": 66,
+    "buildingBlocks": 5352,
+    "stairBlocks": 272,
+    "constructionEdits": 12657,
+    "minPlatform": 69,
+    "maxPlatform": 82,
+    "diagonalPlots": 0,
+    "search": {
+      "candidateChecks": 24000,
+      "pathExpanded": 46133,
+      "attempts": 3,
+      "candidateLimit": 24000,
+      "pathLimit": 180000,
+      "budgetExhausted": true,
+      "modelCalls": 0,
+      "prefilterExpanded": 30259,
+      "peakPathStates": 10141,
+      "peakOpenNodes": 9344,
+      "gradeRelaxations": 367941,
+      "routeAttempts": 31,
+      "stateLimit": 100000,
+      "gradeLimit": 2000000,
+      "columnLimit": 40000,
+      "editLimit": 500000,
+      "constructionEdits": 12657,
+      "exhaustedBudgets": [
+        "CANDIDATE_CHECKS"
+      ],
+      "elapsedNanos": 1738999484
+    },
+    "responseByteLimit": 33554432,
+    "extraVoxelLimit": 400000
+  },
+  "uname": {
+    "system": "Linux",
+    "node": "localhost",
+    "release": "6.18.44",
+    "version": "#1 SMP Sat Sep 12 15:35:21 UTC 2026",
+    "machine": "x86_64",
+    "processor": ""
+  },
+  "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 57 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  5\nOn-line CPU(s) list:                     0-4\nVendor ID:                               GenuineIntel\nModel name:                              INTEL(R) XEON(R) PLATINUM 8573C\nCPU family:                              6\nModel:                                   207\nThread(s) per core:                      1\nCore(s) per socket:                      5\nSocket(s):                               1\nStepping:                                2\nBogoMIPS:                                4599.99\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx_vnni avx512_bf16 arat avx512vbmi umip waitpkg avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid cldemote movdiri movdir64b fsrm serialize tsxldtrk avx512_fp16 arch_capabilities\nHypervisor vendor:                       KVM\nVirtualization type:                     full\nL1d cache:                               144 KiB (3 instances)\nL1i cache:                               96 KiB (3 instances)\nL2 cache:                                6 MiB (3 instances)\nL3 cache:                                260 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-4\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Vulnerable\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Vulnerable\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Vulnerable\nVulnerability Spectre v1:                Vulnerable: __user pointer sanitization and usercopy barriers only; no swapgs barriers\nVulnerability Spectre v2:                Vulnerable; STIBP: disabled; PBRSB-eIBRS: Not affected; BHI: Vulnerable\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\n",
+  "time_log": "\tCommand being timed: \"java -Xmx1g -cp core-planner/build/classes/java/main:/mnt/data/deps/gson-local.jar org.mcsettlement.planner.simulation.SimulationApiRunner --width=512 --depth=512\"\n\tUser time (seconds): 8.51\n\tSystem time (seconds): 0.27\n\tPercent of CPU this job got: 260%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:03.38\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 316792\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 87037\n\tVoluntary context switches: 2646\n\tInvoluntary context switches: 376\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 20208\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 0\n",
+  "note": "One direct Java process, cold request. -Xmx1g is heap limit; time maximum RSS excludes Python/Chromium."
+}

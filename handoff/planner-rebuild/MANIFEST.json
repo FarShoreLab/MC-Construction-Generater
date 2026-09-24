@@ -1,0 +1,510 @@
+[
+  {
+    "path": "build.gradle",
+    "sha256": "A9798863BAE41E1F223F75205FA7AD4912493665CBCD3B326EF7E5C872FDCE58"
+  },
+  {
+    "path": "core-planner/build.gradle",
+    "sha256": "328B2F98D1B18DF883E121B6A21491385C0DD0893E7721B407F462935C03F216"
+  },
+  {
+    "path": "core-planner/output/benchmark_report.md",
+    "sha256": "D2CDE6CB11CAF2082B58E1672AC7462DA52ABD6D66FA71DC3A3AD313C216B19C"
+  },
+  {
+    "path": "core-planner/output/plan.json",
+    "sha256": "5923A7038711D37447AC1F9037A2AAA2825EEA5C665BD8AF405A2AE32307410A"
+  },
+  {
+    "path": "core-planner/output/preview.svg",
+    "sha256": "5CF2F322EEE7AAE7DD7EA0EF13FDF1C88998B27B7D469AAF32FA2E107A18992B"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/civil/EarthworkOptimizer.java",
+    "sha256": "1722972559C49BE3664AC7974A71BC0CA6E5E03759E26925CD2A8EF1F6692E79"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/cli/PlannerCli.java",
+    "sha256": "72C1E7E4A170C8236310E7186712AF9578FF9E41ABF5A0BCBECB6EA94DBA9D98"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/ir/PlanningIR.java",
+    "sha256": "8B1056E3182CFB3E212CD709296CA24A8439453CD291CD036E1068C0C03797E8"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/parcel/PlotPlanner.java",
+    "sha256": "B4CC44D123E29D7342A25489F67228E5D1EEF3EACA5089AEC1F6C8CEAB9A349F"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/pathfinding/SlopeCostAStar.java",
+    "sha256": "F117D2FB27CA014982E56F9CE7C63A7DC760441016448890D23DA93677F693A9"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/preset/BuildingPreset.java",
+    "sha256": "D99563A6834170AC5CB3D092BDEBE221153C40294BB69CEC00CBFB2531BA6FCD"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/preset/BuildingPresetRegistry.java",
+    "sha256": "557694AFA051F8947DC7959EE3A14C2D93A60C8E6C8522D2602D29ADFCDF0B99"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/render/PlanPreviewRenderer.java",
+    "sha256": "7F16F4CE4375AB86523AC5FDE92BA5544994F78CECC181DC43886455C559F47D"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/SettlementPlanner.java",
+    "sha256": "1AD415CD802B4891BAD6B3BA9EB2B8406DF928ACED362800E7FD76B4F4859DEB"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulatedSettlementPipeline.java",
+    "sha256": "B56A4C1CE297DAD7864EC3FAE3311C569454FFB173F119F0AAEBEE64BF20AE6D"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulatedVoxelWorld.java",
+    "sha256": "3A0ED556357BC5AE1276F7005F8D50C83A4FB7803B5A7DA09C20D1D67994E7EC"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/simulation/SimulationViewerRunner.java",
+    "sha256": "E07121B9FCA991D36672CFB26836968BD4194F5E1A22EE51152F24E3044AD286"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/simulation/TerrainBlockGenerator.java",
+    "sha256": "9559F7F658ADA7708D898713E7F354BE228F7F1ACA9A5A9B1BB8702D58E9E5F4"
+  },
+  {
+    "path": "core-planner/src/main/java/org/mcsettlement/planner/terrain/HeightfieldMap.java",
+    "sha256": "C5C5E3A67D1285AF029E8F4B4D4F7B3917AD665D4F6136D266A98C674A9894F5"
+  },
+  {
+    "path": "core-planner/src/main/resources/presets/adventurer_tavern.json",
+    "sha256": "6B8539F9311D6F4BB5783498464B13A551D007D61723F5C442F005774247E591"
+  },
+  {
+    "path": "core-planner/src/main/resources/presets/artisan_blacksmith.json",
+    "sha256": "E909F1D8103332545E2B66CF65B68F73006CC097CB73A4405DB6988222AC880D"
+  },
+  {
+    "path": "core-planner/src/main/resources/presets/country_windmill.json",
+    "sha256": "9E2257351C284D3C57CA6E67EB8E7BA0A2073F95F6F0428F3019A5D2521117CF"
+  },
+  {
+    "path": "core-planner/src/main/resources/presets/farmstead_granary.json",
+    "sha256": "27B44F2AD7AD05C80687EDFE3DF835ADB9F42409960D46733EFAC61060082813"
+  },
+  {
+    "path": "core-planner/src/main/resources/presets/highland_watchtower.json",
+    "sha256": "F4A27B6D2B32955411E5923CCC8D2E276AB5DEE0FF648538F6C0C665CF65950B"
+  },
+  {
+    "path": "core-planner/src/main/resources/presets/lumber_mill.json",
+    "sha256": "75799F77443335E763CDC5725F856C15119AB4F5E8178AE02C781C575056C737"
+  },
+  {
+    "path": "core-planner/src/main/resources/presets/nordic_cottage.json",
+    "sha256": "4EA9C60B2F7C54B96F439BC469BF555B9BF491D8F8EC83785131967AEA49E9EA"
+  },
+  {
+    "path": "core-planner/src/main/resources/presets/town_hall.json",
+    "sha256": "A61BC3AE1227EAB4B2E2707A9109BE0B9B6D90E01747E8A2AD44F3A4D1812688"
+  },
+  {
+    "path": "core-planner/src/main/resources/presets/village_chapel.json",
+    "sha256": "BAD29CC77B91FF3046A7D92DBE92DBA04CE95A4041A416EF657589EB24AC6834"
+  },
+  {
+    "path": "core-planner/src/main/resources/presets/wizard_tower.json",
+    "sha256": "491977BBA7FC0F4B1ECDA50A1E6A861812BA8442E9E16B21F7F2D632D80C8EA9"
+  },
+  {
+    "path": "core-planner/src/test/java/org/mcsettlement/planner/PlannerTest.java",
+    "sha256": "687591094B6B251AAB802EC60867F21D509CB2DBCB4F0D271A377B24D7ADA7C9"
+  },
+  {
+    "path": "core-planner/src/test/java/org/mcsettlement/planner/preset/BuildingPresetTest.java",
+    "sha256": "8BDB6DFE50CBEF261B11FB2D950FE48BBE31F90A49028F0CCB781DE2A46D674B"
+  },
+  {
+    "path": "DEPLOYMENT.md",
+    "sha256": "BDF26C887F2EAA69A4A2F4B2E6FA6345F83D8CD96F6C3ABCB32719FE3E315F99"
+  },
+  {
+    "path": "fabric-mod/build.gradle",
+    "sha256": "EE68A02BD48978219B24BF4A26B26A4C1777FA9A7DA782766E58297E1E4EF8D6"
+  },
+  {
+    "path": "fabric-mod/src/main/java/org/mcsettlement/mod/building/AdaptiveBuildingPlacer.java",
+    "sha256": "A551025594C95A60B4EDD5DFBB20E9AC9F256411533F2AD56ED277A56F835E4D"
+  },
+  {
+    "path": "fabric-mod/src/main/java/org/mcsettlement/mod/client/gui/TacticalMapScreen.java",
+    "sha256": "4E5E7F904D7DE7BE0A8456B1FD45268868B1FA6EEF3AF0A6B17E98C45A6BD100"
+  },
+  {
+    "path": "fabric-mod/src/main/java/org/mcsettlement/mod/command/PresetCommands.java",
+    "sha256": "278613C99E3EA9E4F72752EF8641A293E8083DBFB9B251AE6A935A1BF60F925B"
+  },
+  {
+    "path": "fabric-mod/src/main/java/org/mcsettlement/mod/constructor/WorldConstructor.java",
+    "sha256": "3E9CB24AF6B4E8E06AE02A635769670ABFF2CB565B1B756AF94EC86B71455701"
+  },
+  {
+    "path": "fabric-mod/src/main/java/org/mcsettlement/mod/ModClientEntry.java",
+    "sha256": "DA6B3A2B4575BFCBCAB36A727DB16EB1A98EB336812B1385ADD42D922A4D4F5B"
+  },
+  {
+    "path": "fabric-mod/src/main/java/org/mcsettlement/mod/ModConfig.java",
+    "sha256": "0CB1297859BE7383FFFEEC7207156A9CC328E4ECD43F7869BF8039F66A5C5340"
+  },
+  {
+    "path": "fabric-mod/src/main/java/org/mcsettlement/mod/ModEntry.java",
+    "sha256": "1707A5CF7C35D68D62EE0050CB87B3BED9071570661F24261BE478D5B6F72D75"
+  },
+  {
+    "path": "fabric-mod/src/main/java/org/mcsettlement/mod/scanner/WorldTerrainScanner.java",
+    "sha256": "B248E012BA59FDC1B756AFBCDC3B659805118012976507835C531307E6A4D0E7"
+  },
+  {
+    "path": "fabric-mod/src/main/resources/assets/mcsettlement/lang/en_us.json",
+    "sha256": "337A51694D2BA26B255B01EE8052A61C66DFED97B1E608DA556C029809A3863B"
+  },
+  {
+    "path": "fabric-mod/src/main/resources/assets/mcsettlement/lang/zh_cn.json",
+    "sha256": "48C8F4BF167AC93F96C3DB83B0D6FCD29773DA412C7C9E0826B671B98F5FFECF"
+  },
+  {
+    "path": "fabric-mod/src/main/resources/fabric.mod.json",
+    "sha256": "8380D01BE43A3AF1346020E4C73C63ED630542C159A779E92E1AD1C5D00B0563"
+  },
+  {
+    "path": "gradle/wrapper/gradle-wrapper.jar",
+    "sha256": "CB0DA6751C2B753A16AC168BB354870EBB1E162E9083F116729CEC9C781156B8"
+  },
+  {
+    "path": "gradle/wrapper/gradle-wrapper.properties",
+    "sha256": "05E7BEC397CE5A52628D31DCC4C8B636CBDC55E28F8CEF19D097C71B5C5FBB42"
+  },
+  {
+    "path": "gradlew",
+    "sha256": "D8231D345AB33433AB7B2C0720D5BEB416C8D5C6789DBC01AD122B63BC2CAE0D"
+  },
+  {
+    "path": "gradlew.bat",
+    "sha256": "BDECF875B6868CBCBD36A1F85EEDF0832F358FF28092C5797ED645F7EDCE77D9"
+  },
+  {
+    "path": "llm-bridge/build.gradle",
+    "sha256": "9503FFEA961C4C80E6C0D3563954EB4858B5161805366855DBE48BE7436B8C47"
+  },
+  {
+    "path": "llm-bridge/src/main/java/org/mcsettlement/llm/AiBuildingArchitect.java",
+    "sha256": "90E9A1C8809EFCB478C9C961459F964AD29713A7B280E21CF56E3878E42C3ED9"
+  },
+  {
+    "path": "llm-bridge/src/main/java/org/mcsettlement/llm/AntigravityCliBridge.java",
+    "sha256": "BE26CEF9A0AA967D804D4887024383D57644440A1228199BA1565F907B7A584B"
+  },
+  {
+    "path": "llm-bridge/src/main/java/org/mcsettlement/llm/HeuristicFallbackBridge.java",
+    "sha256": "3476F3D581343AF2DA81D816620FCD7A9B140F5D7E22CDABDEBFDBCA3113ED68"
+  },
+  {
+    "path": "llm-bridge/src/main/java/org/mcsettlement/llm/LlmStrategyManager.java",
+    "sha256": "029FCF9FA5FDA20051FF8AE4B76DF597ECD2C1A786F62E8A9F130D73C27FA3BD"
+  },
+  {
+    "path": "llm-bridge/src/main/java/org/mcsettlement/llm/OpenAiApiBridge.java",
+    "sha256": "591FCEA4813DF84773C006C2321E33DDF991AE536611B5A4530D5E2C02B592AC"
+  },
+  {
+    "path": "llm-bridge/src/main/java/org/mcsettlement/llm/PlanningIntent.java",
+    "sha256": "E758D71377A8B8825B8A2B43843CB3A37E85C3B314939F1F37107EFB056FD943"
+  },
+  {
+    "path": "settings.gradle",
+    "sha256": "94C9774A01E8B556B11629C5527CF1F28A56A6E00033A37CFA2AEA12E18BEE48"
+  },
+  {
+    "path": "tools/generators/ai_hybrid_solver.py",
+    "sha256": "70BCD7CD23D8D68EA261F6097A411E00D45CFED1F3F4B26C12E879AFD04F8106"
+  },
+  {
+    "path": "tools/generators/benchmark_runner.py",
+    "sha256": "0360B0C86ED52818CE8C82D7EC0DB82EA47643AD478551103AAEE182E0FC9383"
+  },
+  {
+    "path": "tools/generators/build_embed_dense_voxel.py",
+    "sha256": "C94EAC16EDCC887E3EA33EB2B10BC06E9103BF2BBFCB80BC071173448D274312"
+  },
+  {
+    "path": "tools/generators/build_embed_html.py",
+    "sha256": "C2300ABC8ECF3196D789B2E428D54E6EC96B7A2D88A947F8A273D03FCCE45B98"
+  },
+  {
+    "path": "tools/generators/build_fullscreen_viewer.py",
+    "sha256": "A66DD5FFCEA6F7C103FA397AB7F429F27BB45862B0234740E063C125D7FE9FD2"
+  },
+  {
+    "path": "tools/generators/build_interactive_viewer.py",
+    "sha256": "EFC90C676FD5F932ACB260E1E311CC72721BE867FD1FCD244843B78D62D6177E"
+  },
+  {
+    "path": "tools/generators/create_deep_viewer.py",
+    "sha256": "518D463E91E970B5E0E5D04E3917A47B516EC63BC3119BF024CBB0D42760B84A"
+  },
+  {
+    "path": "tools/generators/deep_architect_engine.py",
+    "sha256": "C3435FF336171FBC2C1006EC92E05E2B0E04EB44BE880C1F51355BD8760778FB"
+  },
+  {
+    "path": "tools/generators/grammar_generator/shape_grammar_builder.py",
+    "sha256": "09E680CE972443F37E2A39F8EE07533D0D03E9B98191835D97F50858813C339B"
+  },
+  {
+    "path": "tools/generators/jigsaw_generator/jigsaw_assembler.py",
+    "sha256": "66FFA58656EAA42FFA0B027D764AF989DC3F91B0932157E97C812703EFCABB05"
+  },
+  {
+    "path": "tools/generators/master_generator/master_architect_engine.py",
+    "sha256": "138D280D8135AAE288B86B1EF2F81178FF7A2E6CD469957A2784712A44826112"
+  },
+  {
+    "path": "tools/generators/master_generator/rebuild_all_presets.py",
+    "sha256": "621E447BBD75F4E0FACF26F5E7BD318E8CD52CDB9B7504D71A1F10B5477D20D1"
+  },
+  {
+    "path": "tools/generators/mc_architect_cli.py",
+    "sha256": "339744E38E1BEFED3A3BD1B4A01AD130F6C952434F2E5CFDC0D190720B72E366"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/__init__.py",
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/bakery/__init__.py",
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/bakery/bakery_showcase.py",
+    "sha256": "C8B9C3EB51A86B1E48CB8D1BD57DEE99C46DA7F6D24F661F7A9AF282B33E7B5A"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/bakery/bakery.py",
+    "sha256": "34A0C5B79AE611FB4EFB8C25BBE78F7781D1AF62653966124C8D510E706DBB51"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/bakery/structure_adjacencies.py",
+    "sha256": "82287D8373BE58B325984A06C300C97915F0AB045B07F79A1D634CBD0356CBAE"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/bakery/structures.py",
+    "sha256": "816E1293ABCE9DEA87E82D07C847A987C410E7C468F6B0909EACEB8E4ACFC849"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/brickhouse/__init__.py",
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/brickhouse/brickhouse_showcase.py",
+    "sha256": "000E0EDBE991C162EC32ACF184ABF9ADF76D6225D6F17924ED94DD739EB0410B"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/brickhouse/brickhouse.py",
+    "sha256": "577C84090971BED596AE7AABB586B83E9A73B318FA786858DA23ECF5409CE386"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/brickhouse/structure_adjacencies.py",
+    "sha256": "1B2AF7965053BA0C3BC1840F3525BB38462C201A2566752DA6D46D3327E0D2C1"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/brickhouse/structures.py",
+    "sha256": "063CF6204151491DE733B59A5A3032A5668FDA989A0B6CF8ECD4FBD5BE7B9FC2"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/buildarea/__init__.py",
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/buildarea/build_functions.py",
+    "sha256": "F610DFC090D43A3F522AA56BDF0A01EAA6DD3AD9A51B1922B126FC6F09876D7E"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/buildarea/build_map.py",
+    "sha256": "F99DC90CD8F7FE9AF98C61C31A6F75C0DE0DE682A95DE47ED39D97E2D52853DB"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/buildarea/helper.py",
+    "sha256": "D24848FCBFF7373820819784F079E1F0A405696FE5FA0CDEF22246C311FAA9A5"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/buildarea/team.py",
+    "sha256": "2C5FA9EC06E8E46307C159AE8CD65661D8C05BE622466A3298D1AA43D42E91CB"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/church/__init__.py",
+    "sha256": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/church/church_showcase.py",
+    "sha256": "25967B679CACA04AF4E94F86839D93E86C64D18078B0D2ADE4B85B096CBC78BB"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/church/church.py",
+    "sha256": "8A9FC960A191B98459AD9500371A1F2F8C749624B52C01FDD82517C8CACD0D7C"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/church/structure_adjacencies.py",
+    "sha256": "A3E13BDD81C17222FE3DC696EAA82A6B4C1EF1C8254C041A6B4C5920FC2ABD3D"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/church/structures.py",
+    "sha256": "63503E3FAF5CE21453DED6C22E62FE7F068BE71EBD3C3D3648C5D93412059945"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/farm/farm_showcase.py",
+    "sha256": "A5CF2347827F1428AF56ACCBA6A83FDE84F37B8BC706DCEFEFE2F39D357CE719"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/farm/farm.py",
+    "sha256": "629A62D587A7E98B6BF4840A783BD6D819664628E24A6B903DAE6E1E7C97CAE2"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/farm/structure_adjacencies.py",
+    "sha256": "AE8D1510614CB0859215C641C426C3765B0DCA4CE28D633FB6F4C5D9E1CDDD1F"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/farm/structures.py",
+    "sha256": "2C63A2288729543237A502DCEBD55B573C7E8CBAF95FC53B7E06AE7512B797D9"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/main.py",
+    "sha256": "04663DD3D7DBE80F3C7AB76E905C961F7E6585207B7D996B4504B99DBE027D82"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/narrator/__init__.py",
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/narrator/narrator.py",
+    "sha256": "2672CAE7DDE4A38DA8808FF32EF494EE92A99F85606017034A7CDD46F7AEE0C6"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/pathing/__init__.py",
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/pathing/water_real.py",
+    "sha256": "B7A7083B3E6A0B17FFCDE2FDD358A125DDCA5FA7FF886CD60074AA7B02CA30AA"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/school/__init__.py",
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/school/school_showcase.py",
+    "sha256": "F21A5979948937CCB43AEB6F5E1FC4FCC6377F71D82DC26DEB0891E1F5A7E4AE"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/school/school.py",
+    "sha256": "517FF16D42F319A9A7EB603ADF7715622A83D4933E4CC434450A95512BDCBA2D"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/school/structure_adjacencies.py",
+    "sha256": "710F3E87DCF1A961D9768B4534B1699196003453A1AF51E6A6A1CCC036EB52EE"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/school/structures.py",
+    "sha256": "16E2580B0B6F8E247C5CBC30889A0A42C15B989B9DCCDD22EBB3F066372FF571"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/structure_builder.py",
+    "sha256": "43F99A1CD8393AC827F8B6752AE702C482252250B393E43E025A2DDBEB75B89E"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/structure_scanner.py",
+    "sha256": "7C9600CBBFEF6549C825E2ACF7B39E28DF4D44977D78AB432D6ECCA4AAD633A2"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/utils/__init__.py",
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/utils/building_info.py",
+    "sha256": "DD54790908DDF34A123272AC513C45439D4C617A67270B5F408B61B17CE5C779"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/utils/not_collapsable_exception.py",
+    "sha256": "852A8505E5FA518D31743AD2FD5992EB49B3251C31D65D9ED74534E58D558A62"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/utils/structure_adjacency.py",
+    "sha256": "B27FD3615135338F95C494F444A5900B5F23D91A7F80943B7EDE8F21C292C2C9"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/utils/structure_rotation.py",
+    "sha256": "C4913680CF2211094FB88D5E4ED3432B8D4D7C84A53CABB57B4AE3B75C5C7685"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/utils/structure_showcase.py",
+    "sha256": "165FB0499E9BAAC1B7E4C90F7A75881796F89FDE32F7A55D8A4FA327766F69EB"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/utils/structure.py",
+    "sha256": "AF7AA75EAE5586D7F535F1D6C3D0F33984D8DF643603809687921B9F6D046AB5"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/utils/wave_function_collaplse_util.py",
+    "sha256": "4F917D4F0264D755A11DBC3780163C92F154CB574B8F999B691D3A987E48073C"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/assignment/utils/wave_function_collapse.py",
+    "sha256": "26E5152E32B1A899090166E7270FBC68098D65567D7DE424F35A35A482D07319"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/Pathing_stand_alone_code/Ant_colony.py",
+    "sha256": "E6181C85461B223A7E17AC67DCA36D1BA40B7095514B6D9625CE07B4CDC0B3BA"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/Pathing_stand_alone_code/GA.py",
+    "sha256": "72F2F9C6BC836C070D54C05DBA78FD08C48C780D02D9D7909DB7CD6A983262F5"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/Pathing_stand_alone_code/path.py",
+    "sha256": "60E9FA88A791F9972E2CFBAED655BD39675478F8ED881F53F0006B5A1FBB896B"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/Pathing_stand_alone_code/Water_sim.py",
+    "sha256": "50756A0967486A68CFE475B746B6B726A7717B1AB62AA9044B4FB2B0E8EBF591"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/tests/__init__.py",
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/tests/structure_adjacency_tests.py",
+    "sha256": "438E4A1F4D07C8C9016397324B1DB261D65BE60B57A3AA91BCE77ECC75723DFD"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/tests/wave_function_collapse_air_tests.py",
+    "sha256": "43AF4A7549257A953AA24311CB3BAE8A91649913504A70ADF77DC9E2A78E4FD5"
+  },
+  {
+    "path": "tools/generators/mgaia-wfc/tests/wave_function_collapse_tests.py",
+    "sha256": "0BB13770529B25C49048AD32F620750A5D6457F307FFB2C41604594057CDEB8E"
+  },
+  {
+    "path": "tools/generators/monumental_architect_engine.py",
+    "sha256": "A22602818AADA962D3B164E7E07BCF24EECB60924B8267671A42C91E27362E0F"
+  },
+  {
+    "path": "tools/generators/multi_scale_benchmark.py",
+    "sha256": "18CE89A6F2321BB8A4B31102D3EA257484ABB80B8F7267AD8417198E6D0EB745"
+  },
+  {
+    "path": "tools/generators/rebuild_deep_models.py",
+    "sha256": "0769E97732ED8E3DAB2487EE88FBB54FE5C0F8EC152995179182C675AEBA6154"
+  },
+  {
+    "path": "tools/generators/wfc_generator/wfc_builder.py",
+    "sha256": "AF5986C8D6A2043EC9F2C00CC9C1CB2DCB4BF41150BFB9F8F794E3C025DE3FD2"
+  }
+]

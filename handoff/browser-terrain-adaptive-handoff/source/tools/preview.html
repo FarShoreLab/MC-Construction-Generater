@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MC Settlement · 交互预演</title>
+  <style>
+    :root { color-scheme: dark; --bg:#07101c; --panel:#0e1b2b; --line:#24384f; --text:#e5eef9; --muted:#94a8bf; --accent:#65d7c7; --orange:#ff9f5b; --cyan:#58c6ff; }
+    * { box-sizing:border-box; }
+    html, body { margin:0; width:100%; height:100%; overflow:hidden; background:var(--bg); color:var(--text); font:13px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    #app { height:100%; display:grid; grid-template-columns:320px 1fr; }
+    #panel { z-index:5; min-width:0; padding:18px; overflow-x:hidden; overflow-y:auto; background:linear-gradient(180deg,#102238,#0a1524); border-right:1px solid var(--line); }
+    h1 { margin:0 0 4px; font-size:19px; letter-spacing:.02em; }
+    h2 { margin:18px 0 8px; font-size:12px; color:var(--accent); text-transform:uppercase; letter-spacing:.12em; }
+    p { margin:5px 0; color:var(--muted); }
+    .hint { color:#b8c8d9; font-size:12px; }
+    label { display:block; margin:9px 0 4px; color:#c4d3e2; }
+    input, select, button { width:100%; border:1px solid #2b435d; border-radius:6px; background:#0b1726; color:var(--text); padding:8px 9px; font:inherit; }
+    input:focus, select:focus, button:focus { outline:2px solid #4b9eae; outline-offset:1px; }
+    .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:13px; }
+    button { cursor:pointer; background:#132b3b; }
+    button.primary { background:#16726c; border-color:#3eb4a8; }
+    button.secondary { background:#1d334b; }
+    button.active { background:#b35b2f; border-color:#ffae6d; }
+    button:disabled { opacity:.45; cursor:not-allowed; }
+    #actual, #metrics, #message, #compareInfo { min-width:0; padding:9px 10px; border:1px solid var(--line); border-radius:7px; background:#0a1726; overflow-wrap:anywhere; word-break:break-word; }
+    #actual { color:#d6e6f4; font-size:12px; }
+    #actual details { margin-top:6px; }
+    #actual summary { cursor:pointer; color:#b8c8d9; }
+    #metrics { display:grid; grid-template-columns:1fr 1fr; gap:5px 12px; }
+    .metric { color:var(--muted); }
+    .metric b { display:block; color:var(--text); font-size:15px; }
+    #message { margin-top:10px; color:#ffcf9b; display:none; }
+    #message.error { display:block; color:#ff9c9c; }
+    #unmet { margin:8px 0 0; padding-left:18px; color:#ffc88b; overflow-wrap:anywhere; word-break:break-word; }
+    #viewport { position:relative; min-width:0; }
+    #canvas { display:block; width:100%; height:100%; }
+    #hud { position:absolute; right:16px; top:16px; z-index:3; max-width:440px; pointer-events:none; }
+    .chip { display:inline-block; margin:0 0 6px 5px; padding:5px 8px; border-radius:5px; background:#081522d9; border:1px solid #27415a; color:#d8e8f5; }
+    .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:4px; }
+    .orange { background:var(--orange); } .cyan { background:var(--cyan); }
+    #loading { position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; color:#b7d6e8; background:#07101c88; opacity:0; transition:opacity .15s; }
+    #loading.show { opacity:1; }
+    code { color:#a9e9df; }
+  </style>
+</head>
+<body>
+<div id="app">
+  <aside id="panel">
+    <h1>🏔️ 聚落交互预演</h1>
+    <p class="hint">地形固定时可反复 roll 方案，比较不同布局。</p>
+
+    <h2>地形输入</h2>
+    <label for="terrainType">地形类型</label>
+    <select id="terrainType">
+      <option value="rolling_hills">起伏丘陵</option>
+      <option value="mountain">山地脊线</option>
+      <option value="valley">环谷地形</option>
+      <option value="plateau">台地阶地</option>
+    </select>
+    <div class="row">
+      <div><label for="relief">起伏 relief</label><input id="relief" type="number" min="4" max="36" value="24"></div>
+      <div><label for="baseElevation">基准 Y</label><input id="baseElevation" type="number" min="50" max="75" value="58"></div>
+    </div>
+    <label for="terrainSeed">terrainSeed（地形）</label>
+    <input id="terrainSeed" type="number" value="42">
+
+    <h2>规划输入</h2>
+    <label for="planSeed">planSeed（方案 roll）</label>
+    <input id="planSeed" type="number" value="42">
+    <label for="targetPlots">目标建筑数</label>
+    <input id="targetPlots" type="number" min="1" max="12" value="7">
+    <div class="actions">
+      <button class="primary" id="generate">生成地形 + 规划</button>
+      <button class="secondary" id="roll">只重新规划</button>
+      <button class="secondary" id="randomTerrain">随机地形种子</button>
+      <button class="secondary" id="compare" disabled>比较上一方案</button>
+    </div>
+
+    <h2>查看模式</h2>
+    <div class="actions">
+      <button data-mode="original">原始地形</button>
+      <button data-mode="planning" class="active">规划叠加</button>
+      <button data-mode="constructed">施工结果</button>
+      <button data-mode="compare" disabled>方案比较</button>
+    </div>
+
+    <h2>实际生成参数</h2>
+    <div id="actual">等待规划响应…</div>
+    <h2>指标</h2>
+    <div id="metrics">
+      <div class="metric">状态<b id="status">—</b></div>
+      <div class="metric">建筑地块<b id="plotCount">—</b></div>
+      <div class="metric">铺装列<b id="roadCount">—</b></div>
+      <div class="metric">道路图边<b id="edgeCount">—</b></div>
+      <div class="metric">挖方<b id="cut">—</b></div>
+      <div class="metric">填方<b id="fill">—</b></div>
+    </div>
+    <ul id="unmet"></ul>
+    <div id="compareInfo" style="display:none"></div>
+    <div id="message"></div>
+  </aside>
+  <main id="viewport">
+    <div id="hud"><span class="chip"><i class="dot orange"></i>当前方案</span><span class="chip"><i class="dot cyan"></i>上一方案</span></div>
+    <canvas id="canvas"></canvas>
+    <div id="loading">规划请求处理中…</div>
+  </main>
+</div>
+
+<script src="/vendor/three.min.js"></script>
+<script src="/vendor/OrbitControls.js"></script>
+<script>
+  const $ = id => document.getElementById(id);
+  const state = { current:null, previous:null, mode:'planning', scene:null, camera:null, renderer:null, controls:null, worldGroup:null, overlayGroup:null, centerY:0, requestPending:false };
+  const colors = { 1:0x64748b, 2:0x795548, 3:0x4f8c3b, 4:0x237bb8, 5:0x5b3a29, 6:0x2d7b45, 7:0xaaa69d, 8:0x73777f, 9:0x4b5563, 10:0xe87936, 11:0x3e2c20, 12:0x8d6e63, 13:0xc9b6a8, 14:0x7dd3fc, 15:0xa1887f };
+  const worldBox = new THREE.BoxGeometry(1, 1, 1);
+  const dummy = new THREE.Object3D();
+
+  function initScene() {
+    const canvas = $('canvas');
+    state.scene = new THREE.Scene();
+    state.scene.background = new THREE.Color(0x07101c);
+    state.camera = new THREE.PerspectiveCamera(42, 1, .1, 1000);
+    state.camera.position.set(95, 78, 105);
+    state.renderer = new THREE.WebGLRenderer({canvas, antialias:true});
+    state.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    state.renderer.outputEncoding = THREE.sRGBEncoding;
+    state.controls = new THREE.OrbitControls(state.camera, canvas);
+    state.controls.enableDamping = true;
+    state.controls.dampingFactor = .08;
+    state.controls.target.set(0, 0, 0);
+    state.scene.add(new THREE.HemisphereLight(0xdcecff, 0x152235, .65));
+    const sun = new THREE.DirectionalLight(0xffedcf, .55); sun.position.set(80, 140, 60); state.scene.add(sun);
+    state.scene.add(new THREE.AmbientLight(0x7894b4, .15));
+    resize();
+    animate();
+  }
+
+  function resize() {
+    const host = $('viewport');
+    const w = host.clientWidth, h = host.clientHeight;
+    state.renderer.setSize(w, h, false);
+    state.camera.aspect = w / Math.max(1, h);
+    state.camera.updateProjectionMatrix();
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+    state.controls.update();
+    state.renderer.render(state.scene, state.camera);
+  }
+
+  function disposeGroup(group) {
+    if (!group) return;
+    group.traverse(object => {
+      if (object.geometry && object.geometry !== worldBox) object.geometry.dispose();
+      if (object.material) {
+        const materials = Array.isArray(object.material) ? object.material : [object.material];
+        materials.forEach(material => material.dispose());
+      }
+    });
+    state.scene.remove(group);
+  }
+
+  function layerBounds(layer) {
+    const width = state.current.config.width, depth = state.current.config.depth;
+    const centerY = layer.minY + layer.sizeY / 2;
+    const bounds = new THREE.Box3();
+    layer.voxels.forEach(v => {
+      const center = new THREE.Vector3(
+        v[0] - width / 2 + .5,
+        v[1] + layer.minY - centerY + .5,
+        v[2] - depth / 2 + .5
+      );
+      bounds.expandByPoint(center.clone().addScalar(-.5));
+      bounds.expandByPoint(center.clone().addScalar(.5));
+    });
+    if (bounds.isEmpty()) bounds.setFromCenterAndSize(new THREE.Vector3(0, 0, 0), new THREE.Vector3(width, 1, depth));
+    return bounds;
+  }
+
+  function fitCameraToTerrain(layer) {
+    const bounds = layerBounds(layer);
+    const center = bounds.getCenter(new THREE.Vector3());
+    const radius = bounds.getSize(new THREE.Vector3()).length() / 2;
+    const fov = THREE.MathUtils.degToRad(state.camera.fov);
+    const distance = Math.max(32, radius / Math.sin(fov / 2) * 1.15);
+    const direction = new THREE.Vector3(1.05, 1.45, 1.05).normalize();
+    state.camera.position.copy(center).add(direction.multiplyScalar(distance));
+    state.camera.near = Math.max(.1, distance / 1000);
+    state.camera.far = Math.max(1000, distance * 8);
+    state.camera.updateProjectionMatrix();
+    state.controls.target.copy(center);
+    state.controls.update();
+  }
+
+  function renderWorld(layer, opacity=1) {
+    const group = new THREE.Group();
+    const grouped = new Map();
+    const width = state.current.config.width, depth = state.current.config.depth;
+    const centerY = layer.minY + layer.sizeY / 2;
+    state.centerY = centerY;
+    layer.voxels.forEach(v => { if (!grouped.has(v[3])) grouped.set(v[3], []); grouped.get(v[3]).push(v); });
+    grouped.forEach((voxels, id) => {
+      const material = new THREE.MeshStandardMaterial({color:colors[id] || 0x8b96a5, roughness:.82, transparent:opacity < 1, opacity});
+      const mesh = new THREE.InstancedMesh(worldBox, material, voxels.length);
+      voxels.forEach((v, index) => {
+        dummy.position.set(v[0] - width / 2 + .5, v[1] + layer.minY - centerY + .5, v[2] - depth / 2 + .5);
+        dummy.rotation.set(0, 0, 0); dummy.scale.set(1, 1, 1); dummy.updateMatrix(); mesh.setMatrixAt(index, dummy.matrix);
+      });
+      mesh.instanceMatrix.needsUpdate = true;
+      group.add(mesh);
+    });
+    state.scene.add(group);
+    return group;
+  }
+
+  function overlayPlan(plan, color, opacity) {
+    if (!plan) return new THREE.Group();
+    const group = new THREE.Group();
+    group.renderOrder = 20;
+    const width = state.current.config.width, depth = state.current.config.depth;
+    const centerY = state.centerY;
+    const roadColumns = plan.groundColumns.filter(column => column.kind === 'road');
+    const roadMaterial = new THREE.MeshBasicMaterial({color, transparent:true, opacity, depthTest:false, depthWrite:false});
+    const roadGeometry = new THREE.BoxGeometry(1.05, .16, 1.05);
+    const roads = new THREE.InstancedMesh(roadGeometry, roadMaterial, roadColumns.length);
+    roads.renderOrder = 21;
+    roadColumns.forEach((column, index) => {
+      dummy.position.set(column.x - width / 2 + .5, column.targetY - centerY + .59, column.z - depth / 2 + .5);
+      dummy.rotation.set(0, 0, 0); dummy.scale.set(1, 1, 1); dummy.updateMatrix(); roads.setMatrixAt(index, dummy.matrix);
+    });
+    roads.instanceMatrix.needsUpdate = true; group.add(roads);
+    const lineMaterial = new THREE.LineBasicMaterial({color, transparent:true, opacity:.9, depthTest:false, depthWrite:false});
+    const targetYByCell = new Map(plan.groundColumns.map(column => [`${column.x},${column.z}`, column.targetY]));
+    plan.plots.forEach(plot => {
+      const firstPoint = plot.polygon[0];
+      const targetY = targetYByCell.get(`${firstPoint[0]},${firstPoint[1]}`) ?? plot.baseElevation;
+      const points = plot.polygon.map(point => new THREE.Vector3(point[0] - width / 2 + .5, targetY - centerY + .72, point[1] - depth / 2 + .5));
+      points.push(points[0].clone());
+      const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), lineMaterial);
+      line.renderOrder = 22;
+      group.add(line);
+    });
+    return group;
+  }
+
+  function render() {
+    if (!state.current) return;
+    disposeGroup(state.worldGroup); disposeGroup(state.overlayGroup);
+    state.worldGroup = null; state.overlayGroup = null;
+    const mode = state.mode;
+    if (mode === 'constructed') state.worldGroup = renderWorld(state.current.constructed);
+    else {
+      state.worldGroup = renderWorld(state.current.original);
+      if (mode === 'planning') {
+        state.overlayGroup = overlayPlan(state.current.plan, 0xff9f5b, .85);
+        state.scene.add(state.overlayGroup);
+      }
+      if (mode === 'compare') {
+        state.overlayGroup = new THREE.Group();
+        state.overlayGroup.add(overlayPlan(state.previous ? state.previous.plan : null, 0x58c6ff, .55));
+        state.overlayGroup.add(overlayPlan(state.current.plan, 0xff9f5b, .9));
+        state.scene.add(state.overlayGroup);
+      }
+    }
+  }
+
+  function formParams() {
+    return {
+      width:96, depth:96,
+      baseElevation:Number($('baseElevation').value), relief:Number($('relief').value),
+      terrainType:$('terrainType').value, terrainSeed:Number($('terrainSeed').value),
+      planSeed:Number($('planSeed').value), targetPlots:Number($('targetPlots').value)
+    };
+  }
+
+  function syncForm(config) {
+    $('baseElevation').value = config.baseElevation; $('relief').value = config.relief;
+    $('terrainType').value = config.terrainType; $('terrainSeed').value = config.terrainSeed;
+    $('planSeed').value = config.planSeed; $('targetPlots').value = config.targetPlots;
+  }
+
+  function setRequestPending(pending) {
+    state.requestPending = pending;
+    ['generate', 'roll', 'randomTerrain'].forEach(id => { $(id).disabled = pending; });
+  }
+
+  async function requestPlan(params) {
+    if (state.requestPending) return;
+    setRequestPending(true);
+    $('loading').classList.add('show'); $('message').className = ''; $('message').textContent = '';
+    try {
+      const query = new URLSearchParams(params);
+      const response = await fetch('/api/plan?' + query.toString(), {cache:'no-store'});
+      const data = await response.json();
+      if (!response.ok || !data.ok) throw new Error(data.error || '规划请求失败');
+      const prior = state.current;
+      state.previous = prior && prior.config.originalTerrainHash === data.config.originalTerrainHash ? prior : null;
+      const terrainChanged = !prior || prior.config.originalTerrainHash !== data.config.originalTerrainHash;
+      state.current = data; syncForm(data.config);
+      $('compare').disabled = !state.previous; document.querySelector('[data-mode="compare"]').disabled = !state.previous;
+      if (state.mode === 'compare' && !state.previous) state.mode = 'planning';
+      updateSummary(data); render();
+      if (terrainChanged) fitCameraToTerrain(state.current.original);
+    } catch (error) {
+      $('message').className = 'error'; $('message').textContent = String(error.message || error);
+    } finally { $('loading').classList.remove('show'); setRequestPending(false); }
+  }
+
+  function updateSummary(data) {
+    const c=data.config, m=data.metrics, p=data.plan;
+    $('actual').innerHTML = `类型 <code>${c.terrainType}</code> · relief <code>${c.relief}</code> · 基准 Y <code>${c.baseElevation}</code><br>terrainSeed <code>${c.terrainSeed}</code> · planSeed <code>${c.planSeed}</code><details><summary>查看方案标识</summary><div>原始地形 hash <code>${c.originalTerrainHash.slice(0,16)}…</code><br>方案 hash <code>${m.planHash.slice(0,16)}…</code></div></details>`;
+    $('status').textContent=m.status; $('plotCount').textContent=`${m.plotCount} / ${c.targetPlots}`; $('roadCount').textContent=m.roadColumnCount;
+    $('edgeCount').textContent=m.roadEdgeCount; $('cut').textContent=m.cutBlocks; $('fill').textContent=m.fillBlocks;
+    $('unmet').innerHTML='';
+    (p.unmetRequirements || []).forEach(u => { const li=document.createElement('li'); li.textContent=`${u.requirementId}: ${u.allocated}/${u.requested} · ${u.reason}`; $('unmet').appendChild(li); });
+    const info=$('compareInfo');
+    if (state.previous) { info.style.display='block'; const same=state.previous.config.originalTerrainHash===c.originalTerrainHash; info.textContent=same ? '上一方案与当前方案使用同一份原始地形，可直接比较布局。' : '上一方案来自不同原始地形，比较视图同时保留两次结果的标记。'; }
+    else info.style.display='none';
+  }
+
+  function setMode(mode) {
+    if (mode==='compare' && !state.previous) return;
+    state.mode=mode;
+    document.querySelectorAll('[data-mode]').forEach(button => button.classList.toggle('active', button.dataset.mode===mode));
+    render();
+  }
+
+  $('generate').addEventListener('click', () => requestPlan(formParams()));
+  $('roll').addEventListener('click', () => {
+    const current = state.current;
+    const params = current ? {
+      width: current.config.width, depth: current.config.depth,
+      baseElevation: current.config.baseElevation, relief: current.config.relief,
+      terrainType: current.config.terrainType, terrainSeed: current.config.terrainSeed,
+      planSeed: Number(current.config.planSeed) + 1,
+      targetPlots: Number($('targetPlots').value)
+    } : formParams();
+    if (!current) params.planSeed += 1;
+    $('planSeed').value = params.planSeed;
+    requestPlan(params);
+  });
+  $('randomTerrain').addEventListener('click', () => { $('terrainSeed').value=Math.floor(Math.random()*2147483647); $('planSeed').value=Math.floor(Math.random()*2147483647); requestPlan(formParams()); });
+  $('compare').addEventListener('click', () => setMode('compare'));
+  document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.mode)));
+  window.addEventListener('resize', resize);
+  initScene();
+  requestPlan(formParams());
+</script>
+</body>
+</html>

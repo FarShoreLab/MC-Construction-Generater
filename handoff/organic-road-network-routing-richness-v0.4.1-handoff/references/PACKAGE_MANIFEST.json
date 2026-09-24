@@ -1,0 +1,24 @@
+{
+  "version": "0.4.0",
+  "source_files": 111,
+  "changed_files": 46,
+  "preset_count": 22,
+  "added_presets": 12,
+  "test_suites": [
+    "core-21",
+    "adaptive-29",
+    "fuzz-100",
+    "organic-presets-25",
+    "bridge-diagonal",
+    "bridge-loopback",
+    "fabric-syntax-only"
+  ],
+  "actual_gson": "2.8.9",
+  "declared_gson": "2.10.1",
+  "fabric_typecheck": "NOT_VERIFIED",
+  "minecraft_runtime": "NOT_VERIFIED",
+  "webgl": "NOT_VERIFIED",
+  "browser_render_mode": "2D fallback",
+  "native_browser_loopback": "blocked; real HTTP bridge used",
+  "source_diff_applied_and_byte_verified": true
+}

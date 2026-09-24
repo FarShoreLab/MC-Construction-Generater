@@ -1,0 +1,98 @@
+{
+  "id": "t_cabin",
+  "name": "T形小屋",
+  "category": "residential",
+  "tags": [
+    "residential",
+    "t",
+    "compact"
+  ],
+  "styles": [
+    "medieval_rustic"
+  ],
+  "author": "MCSettlement",
+  "description": "T形小屋；明确占地掩码，不占用凹角/中庭空地；固定尺寸不可裁剪。",
+  "footprintShape": "T",
+  "sizeTier": "compact",
+  "footprintMask": [
+    "#########",
+    "#########",
+    "#########",
+    "...###...",
+    "...###...",
+    "...###...",
+    "...###..."
+  ],
+  "sizeX": 9,
+  "sizeZ": 7,
+  "sizeY": 6,
+  "entrance": {
+    "facing": "SOUTH",
+    "x": 4,
+    "z": 6
+  },
+  "palette": {
+    ".": "minecraft:air",
+    "S": "minecraft:cobblestone",
+    "W": "minecraft:spruce_planks",
+    "R": "minecraft:stone_bricks",
+    "G": "minecraft:glass_pane"
+  },
+  "themeReplacements": {},
+  "layers": [
+    [
+      "SSSSSSSSS",
+      "SSSSSSSSS",
+      "SSSSSSSSS",
+      "...SSS...",
+      "...SSS...",
+      "...SSS...",
+      "...SSS..."
+    ],
+    [
+      "WWWWWWWWW",
+      "W.......W",
+      "WWW...WWW",
+      "...W.W...",
+      "...W.W...",
+      "...W.W...",
+      "...W.W..."
+    ],
+    [
+      "WWWWWWWWW",
+      "W.......W",
+      "WWW...WWW",
+      "...W.W...",
+      "...W.W...",
+      "...W.W...",
+      "...W.W..."
+    ],
+    [
+      "WGWWWGWWW",
+      "G.......G",
+      "WWW...WGW",
+      "...W.W...",
+      "...W.G...",
+      "...W.W...",
+      "...GWW..."
+    ],
+    [
+      "WWWWWWWWW",
+      "W.......W",
+      "WWW...WWW",
+      "...W.W...",
+      "...W.W...",
+      "...W.W...",
+      "...WWW..."
+    ],
+    [
+      "RRRRRRRRR",
+      "RRRRRRRRR",
+      "RRRRRRRRR",
+      "...RRR...",
+      "...RRR...",
+      "...RRR...",
+      "...RRR..."
+    ]
+  ]
+}

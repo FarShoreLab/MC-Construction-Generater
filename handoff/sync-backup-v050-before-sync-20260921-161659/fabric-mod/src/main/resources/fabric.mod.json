@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "mcsettlement",
+  "version": "${version}",
+  "name": "Minecraft Terrain-Adaptive Settlement Generator",
+  "description": "Adaptive settlement planning and construction system with tactical bird's-eye map and LLM intent compiler.",
+  "authors": [
+    "Antigravity"
+  ],
+  "contact": {
+    "homepage": "https://github.com/example/mc-settlement"
+  },
+  "license": "MIT",
+  "icon": "assets/mcsettlement/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "org.mcsettlement.mod.ModEntry"
+    ],
+    "client": [
+      "org.mcsettlement.mod.ModClientEntry"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "~1.20.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

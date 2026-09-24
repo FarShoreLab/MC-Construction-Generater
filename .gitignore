@@ -1,0 +1,15 @@
+# Local build caches and outputs
+.gradle/
+build/
+/tools/gradle-8.8/
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local credentials
+.env
+.env.*
+!.env.example

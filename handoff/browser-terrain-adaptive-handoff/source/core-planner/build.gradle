@@ -1,0 +1,22 @@
+plugins {
+    id 'application'
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.10.1'
+}
+
+application {
+    mainClass = 'org.mcsettlement.planner.cli.PlannerCli'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.mcsettlement.planner.cli.PlannerCli'
+    }
+}
+
+tasks.register('runSim', JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.mcsettlement.planner.simulation.SimulationViewerRunner'
+}

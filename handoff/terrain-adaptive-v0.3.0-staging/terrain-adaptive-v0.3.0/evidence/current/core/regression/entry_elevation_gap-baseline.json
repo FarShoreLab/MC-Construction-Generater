@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "version": "0.3.0",
+    "timestamp": "2026-09-20T14:15:58.408553690Z",
+    "randomSeed": 42,
+    "minBounds": [
+      0,
+      0,
+      0
+    ],
+    "maxBounds": [
+      63,
+      256,
+      63
+    ],
+    "score": {}
+  },
+  "transportNetwork": {
+    "corridorWidth": 0,
+    "directionCount": 8,
+    "corridors": [],
+    "nodes": [
+      {
+        "id": "n_gate",
+        "pos": [
+          5,
+          64,
+          5
+        ],
+        "type": "entry",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_plaza",
+        "pos": [
+          47,
+          70,
+          47
+        ],
+        "type": "plaza",
+        "elevation": 70.0
+      },
+      {
+        "id": "n_ridge",
+        "pos": [
+          12,
+          70,
+          12
+        ],
+        "type": "overlook",
+        "elevation": 70.0
+      }
+    ],
+    "edges": []
+  },
+  "plots": [],
+  "earthworks": {
+    "totalCutVolume": 0,
+    "totalFillVolume": 0,
+    "cutFillBalance": 0
+  },
+  "clearance": {
+    "clearVegetationBoxes": []
+  },
+  "auditLog": {
+    "warnings": [
+      "Failed to find walkable road connecting entry and plaza due to impassable terrain."
+    ],
+    "rejectedCandidates": []
+  },
+  "status": "UNVALIDATED",
+  "unmetRequirements": [],
+  "search": {
+    "candidateChecks": 0,
+    "pathExpanded": 0,
+    "attempts": 0,
+    "candidateLimit": 0,
+    "pathLimit": 0,
+    "budgetExhausted": false,
+    "modelCalls": 0,
+    "prefilterExpanded": 0,
+    "peakPathStates": 0,
+    "peakOpenNodes": 0,
+    "gradeRelaxations": 0,
+    "routeAttempts": 0,
+    "stateLimit": 0,
+    "gradeLimit": 0,
+    "columnLimit": 0,
+    "editLimit": 0,
+    "constructionEdits": 0,
+    "exhaustedBudgets": [],
+    "elapsedNanos": 0
+  },
+  "groundColumns": []
+}

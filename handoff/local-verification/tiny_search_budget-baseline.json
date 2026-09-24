@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "version": "0.2.0",
+    "randomSeed": 0,
+    "minBounds": [
+      0,
+      0,
+      0
+    ],
+    "maxBounds": [
+      0,
+      0,
+      0
+    ],
+    "score": {}
+  },
+  "transportNetwork": {
+    "corridorWidth": 0,
+    "corridors": [],
+    "nodes": [],
+    "edges": []
+  },
+  "plots": [],
+  "earthworks": {
+    "totalCutVolume": 0,
+    "totalFillVolume": 0,
+    "cutFillBalance": 0
+  },
+  "clearance": {
+    "clearVegetationBoxes": []
+  },
+  "auditLog": {
+    "warnings": [],
+    "rejectedCandidates": []
+  },
+  "status": "UNVALIDATED",
+  "unmetRequirements": [],
+  "search": {
+    "candidateChecks": 0,
+    "pathExpanded": 0,
+    "attempts": 0,
+    "candidateLimit": 0,
+    "pathLimit": 0,
+    "budgetExhausted": false,
+    "modelCalls": 0,
+    "elapsedNanos": 0
+  },
+  "groundColumns": []
+}

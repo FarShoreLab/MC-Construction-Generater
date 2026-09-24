@@ -1,0 +1,19 @@
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "java": "openjdk version \"21.0.11\" 2026-04-21\nOpenJDK Runtime Environment (build 21.0.11+10-1-deb13u2-Debian)\nOpenJDK 64-Bit Server VM (build 21.0.11+10-1-deb13u2-Debian, mixed mode, sharing)\n",
+  "gson_jar": "/mnt/data/deps/gson-local.jar",
+  "gson_sha256": "d3344105905e96803a4c170dfe54afdcb631c57a394c42f92eaf3d522e8ecb94",
+  "declared_gson": "2.10.1",
+  "fabric_type_check": "NOT_RUN: requires the Fabric/Gradle dependency cache",
+  "minecraft_runtime": "NOT_RUN",
+  "gson_test_version": "2.8.9 (real bundled Gson from local TeXLive; extracted locally, not shipped)",
+  "gson_source": "/usr/share/texlive/texmf-dist/scripts/texplate/texplate.jar:com/google/gson/",
+  "gradle_executable": null,
+  "gradle_wrapper_cached_distributions": [],
+  "junit_execution": "NOT_RUN: direct Java test mains were run; no replacement/stub JUnit classes",
+  "browser_native_loopback_navigation": "NOT_VERIFIED: ERR_BLOCKED_BY_ADMINISTRATOR; policy not bypassed",
+  "webgl_gpu_rendering": "NOT_AVAILABLE: THREE.WebGLRenderer failed to create context",
+  "browser_verified_mode": "Canvas 2D + unchanged application JS with injected Python->real local HTTP fetch bridge",
+  "fabric_type_compilation": "NOT_RUN",
+  "external_model_calls": 0
+}

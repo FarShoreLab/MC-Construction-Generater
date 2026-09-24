@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "version": "0.2.0",
+    "timestamp": "2026-09-20T11:24:49.752956600Z",
+    "randomSeed": 42,
+    "minBounds": [
+      0,
+      0,
+      0
+    ],
+    "maxBounds": [
+      17,
+      256,
+      17
+    ],
+    "score": {
+      "walkability": 1.0,
+      "road_network_edges": 1.0,
+      "earthwork_balance": 1.0,
+      "total_score": 70.0,
+      "plots_allocated": 0.0
+    }
+  },
+  "transportNetwork": {
+    "corridorWidth": 0,
+    "corridors": [],
+    "nodes": [
+      {
+        "id": "n_gate",
+        "pos": [
+          5,
+          64,
+          5
+        ],
+        "type": "entry",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_plaza",
+        "pos": [
+          8,
+          64,
+          8
+        ],
+        "type": "plaza",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_ridge",
+        "pos": [
+          2,
+          64,
+          2
+        ],
+        "type": "overlook",
+        "elevation": 64.0
+      }
+    ],
+    "edges": [
+      {
+        "id": "e_main",
+        "fromNodeId": "n_gate",
+        "toNodeId": "n_plaza",
+        "roadType": "primary_road",
+        "width": 3,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 5,
+            "y": 64,
+            "z": 5,
+            "structure": "surface"
+          },
+          {
+            "x": 6,
+            "y": 64,
+            "z": 6,
+            "structure": "surface"
+          },
+          {
+            "x": 7,
+            "y": 64,
+            "z": 7,
+            "structure": "surface"
+          },
+          {
+            "x": 8,
+            "y": 64,
+            "z": 8,
+            "structure": "surface"
+          }
+        ]
+      }
+    ]
+  },
+  "plots": [],
+  "earthworks": {
+    "totalCutVolume": 0,
+    "totalFillVolume": 0,
+    "cutFillBalance": 0
+  },
+  "clearance": {
+    "clearVegetationBoxes": []
+  },
+  "auditLog": {
+    "warnings": [],
+    "rejectedCandidates": []
+  },
+  "status": "UNVALIDATED",
+  "unmetRequirements": [],
+  "search": {
+    "candidateChecks": 0,
+    "pathExpanded": 0,
+    "attempts": 0,
+    "candidateLimit": 0,
+    "pathLimit": 0,
+    "budgetExhausted": false,
+    "modelCalls": 0,
+    "elapsedNanos": 0
+  },
+  "groundColumns": []
+}

@@ -1,0 +1,63 @@
+{
+  "status": "COMPLETE",
+  "planHash": "0b2519f2211e97bb446bdbd9f8c6958b3569c4acf57849cca7f72e1697da75ee",
+  "plots": {
+    "count": 7,
+    "target": 7
+  },
+  "roads": {
+    "roadColumnCount": 2083,
+    "roadEdgeCount": 3452,
+    "roadTypes": {
+      "collector": 3,
+      "local": 7,
+      "secondary": 1
+    },
+    "stairs": 195,
+    "edits": 16368
+  },
+  "network": {
+    "status": "CONNECTED_WITH_LOOPS",
+    "hubs": 3,
+    "branchNodes": 3,
+    "semanticNodes": 11,
+    "semanticEdges": 11,
+    "cycleRank": 1,
+    "pavedEnclosures": 1,
+    "verifiedLoops": 1
+  },
+  "routeShape": {
+    "longestStraightRatio": 0.33068004499894843,
+    "microZigzagRatio": 0,
+    "maximumStraightRun": 24,
+    "routeCount": 11,
+    "routes": [
+      {"id": "organic_1", "roadType": "collector", "routingStyle": "sparse_arc_height_astar", "steps": 12, "turns": 2, "directionCount": 2, "maxStraightRun": 6, "meanStraightRun": 3.67},
+      {"id": "organic_2", "roadType": "collector", "routingStyle": "sparse_arc_height_astar", "steps": 78, "turns": 9, "directionCount": 4, "maxStraightRun": 24, "meanStraightRun": 7.70},
+      {"id": "organic_3", "roadType": "collector", "routingStyle": "sparse_arc_height_astar", "steps": 49, "turns": 7, "directionCount": 3, "maxStraightRun": 11, "meanStraightRun": 6.00},
+      {"id": "organic_4", "roadType": "local", "routingStyle": "sparse_arc_height_astar", "steps": 9, "turns": 0, "directionCount": 1, "maxStraightRun": 8},
+      {"id": "organic_5", "roadType": "local", "routingStyle": "sparse_arc_height_astar", "steps": 40, "turns": 6, "directionCount": 4, "maxStraightRun": 12},
+      {"id": "organic_6", "roadType": "local", "routingStyle": "sparse_arc_height_astar", "steps": 7, "turns": 1, "directionCount": 2, "maxStraightRun": 4},
+      {"id": "organic_7", "roadType": "local", "routingStyle": "constrained_fallback", "steps": 22, "turns": 6, "directionCount": 3, "maxStraightRun": 7},
+      {"id": "organic_8", "roadType": "local", "routingStyle": "sparse_arc_height_astar", "steps": 9, "turns": 2, "directionCount": 3, "maxStraightRun": 3},
+      {"id": "organic_9", "roadType": "local", "routingStyle": "sparse_arc_height_astar", "steps": 4, "turns": 0, "directionCount": 1, "maxStraightRun": 3},
+      {"id": "organic_10", "roadType": "local", "routingStyle": "constrained_fallback", "steps": 13, "turns": 4, "directionCount": 3, "maxStraightRun": 5},
+      {"id": "organic_11", "roadType": "secondary", "routingStyle": "sparse_arc_height_astar", "steps": 53, "turns": 9, "directionCount": 3, "maxStraightRun": 10}
+    ]
+  },
+  "search": {
+    "candidateChecks": 9266,
+    "pathExpanded": 180000,
+    "attempts": 1,
+    "routeAttempts": 28,
+    "heuristicExpanded": 24247,
+    "topologyEdgesTried": 19,
+    "gradeRelaxations": 221739,
+    "budgetReasons": ["ROUTE_OR_SLOT_EXPANSIONS", "PATH_EXPANSIONS"]
+  },
+  "reasons": [
+    "ROUTE_FAILED: ring plaza_1 -> plaza_2 from=158,66,293 to=15,72,261",
+    "ROUTE_FAILED: ring plaza_2 -> plaza_3 from=15,72,261 to=253,66,304"
+  ],
+  "interpretation": "规划完成且拓扑有环，但 organic_2 存在 24 步连续同向段；longestStraightRatio 和 microZigzagRatio 不能单独表达低频长直线退化。"
+}

@@ -1,0 +1,6352 @@
+{
+  "metadata": {
+    "version": "0.2.0",
+    "timestamp": "2026-09-20T11:24:49.933329200Z",
+    "randomSeed": 42,
+    "minBounds": [
+      -32,
+      -2048,
+      -40
+    ],
+    "maxBounds": [
+      31,
+      2048,
+      23
+    ],
+    "score": {
+      "demand_satisfaction": 1.0,
+      "plots_allocated": 3.0
+    }
+  },
+  "transportNetwork": {
+    "corridorWidth": 2,
+    "corridors": [
+      {
+        "id": "corridor_1",
+        "roadType": "primary_road",
+        "width": 2,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "corridor_2",
+        "roadType": "primary_road",
+        "width": 2,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 26,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -19,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -18,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -17,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -16,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -15,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -14,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -13,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "corridor_3",
+        "roadType": "primary_road",
+        "width": 2,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 27,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -4,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -5,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -6,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -7,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -8,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -9,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -10,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -11,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      }
+    ],
+    "nodes": [
+      {
+        "id": "n_24_-12",
+        "pos": [
+          24,
+          64,
+          -12
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_25_-21",
+        "pos": [
+          25,
+          64,
+          -21
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_25_-20",
+        "pos": [
+          25,
+          64,
+          -20
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_25_-12",
+        "pos": [
+          25,
+          64,
+          -12
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_26_-25",
+        "pos": [
+          26,
+          64,
+          -25
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_26_-24",
+        "pos": [
+          26,
+          64,
+          -24
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_26_-23",
+        "pos": [
+          26,
+          64,
+          -23
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_26_-22",
+        "pos": [
+          26,
+          64,
+          -22
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_26_-21",
+        "pos": [
+          26,
+          64,
+          -21
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_26_-20",
+        "pos": [
+          26,
+          64,
+          -20
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_26_-12",
+        "pos": [
+          26,
+          64,
+          -12
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_26_-3",
+        "pos": [
+          26,
+          64,
+          -3
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_26_-2",
+        "pos": [
+          26,
+          64,
+          -2
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_27_0",
+        "pos": [
+          27,
+          64,
+          0
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_27_1",
+        "pos": [
+          27,
+          64,
+          1
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_27_2",
+        "pos": [
+          27,
+          64,
+          2
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_27_-21",
+        "pos": [
+          27,
+          64,
+          -21
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_27_-20",
+        "pos": [
+          27,
+          64,
+          -20
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_27_-12",
+        "pos": [
+          27,
+          64,
+          -12
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_27_-3",
+        "pos": [
+          27,
+          64,
+          -3
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_27_-2",
+        "pos": [
+          27,
+          64,
+          -2
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_27_-1",
+        "pos": [
+          27,
+          64,
+          -1
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_28_-21",
+        "pos": [
+          28,
+          64,
+          -21
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_28_-20",
+        "pos": [
+          28,
+          64,
+          -20
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_28_-12",
+        "pos": [
+          28,
+          64,
+          -12
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_28_-3",
+        "pos": [
+          28,
+          64,
+          -3
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_28_-2",
+        "pos": [
+          28,
+          64,
+          -2
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-21",
+        "pos": [
+          29,
+          64,
+          -21
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-20",
+        "pos": [
+          29,
+          64,
+          -20
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-13",
+        "pos": [
+          29,
+          64,
+          -13
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-12",
+        "pos": [
+          29,
+          64,
+          -12
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-11",
+        "pos": [
+          29,
+          64,
+          -11
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-10",
+        "pos": [
+          29,
+          64,
+          -10
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-9",
+        "pos": [
+          29,
+          64,
+          -9
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-8",
+        "pos": [
+          29,
+          64,
+          -8
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-7",
+        "pos": [
+          29,
+          64,
+          -7
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-6",
+        "pos": [
+          29,
+          64,
+          -6
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-5",
+        "pos": [
+          29,
+          64,
+          -5
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-4",
+        "pos": [
+          29,
+          64,
+          -4
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-3",
+        "pos": [
+          29,
+          64,
+          -3
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_29_-2",
+        "pos": [
+          29,
+          64,
+          -2
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-21",
+        "pos": [
+          30,
+          64,
+          -21
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-20",
+        "pos": [
+          30,
+          64,
+          -20
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-19",
+        "pos": [
+          30,
+          64,
+          -19
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-18",
+        "pos": [
+          30,
+          64,
+          -18
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-17",
+        "pos": [
+          30,
+          64,
+          -17
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-16",
+        "pos": [
+          30,
+          64,
+          -16
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-15",
+        "pos": [
+          30,
+          64,
+          -15
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-14",
+        "pos": [
+          30,
+          64,
+          -14
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-13",
+        "pos": [
+          30,
+          64,
+          -13
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-12",
+        "pos": [
+          30,
+          64,
+          -12
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-11",
+        "pos": [
+          30,
+          64,
+          -11
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-10",
+        "pos": [
+          30,
+          64,
+          -10
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-9",
+        "pos": [
+          30,
+          64,
+          -9
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-8",
+        "pos": [
+          30,
+          64,
+          -8
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-7",
+        "pos": [
+          30,
+          64,
+          -7
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-6",
+        "pos": [
+          30,
+          64,
+          -6
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-5",
+        "pos": [
+          30,
+          64,
+          -5
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-4",
+        "pos": [
+          30,
+          64,
+          -4
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-3",
+        "pos": [
+          30,
+          64,
+          -3
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_30_-2",
+        "pos": [
+          30,
+          64,
+          -2
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_31_-21",
+        "pos": [
+          31,
+          64,
+          -21
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_31_-20",
+        "pos": [
+          31,
+          64,
+          -20
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_31_-19",
+        "pos": [
+          31,
+          64,
+          -19
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_31_-18",
+        "pos": [
+          31,
+          64,
+          -18
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_31_-17",
+        "pos": [
+          31,
+          64,
+          -17
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_31_-16",
+        "pos": [
+          31,
+          64,
+          -16
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_31_-15",
+        "pos": [
+          31,
+          64,
+          -15
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_31_-14",
+        "pos": [
+          31,
+          64,
+          -14
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_31_-13",
+        "pos": [
+          31,
+          64,
+          -13
+        ],
+        "type": "walkable",
+        "elevation": 64.0
+      },
+      {
+        "id": "n_31_-12",
+        "pos": [
+          31,
+          64,
+          -12
+        ],
+        "type": "entry",
+        "elevation": 64.0
+      }
+    ],
+    "edges": [
+      {
+        "id": "e_0",
+        "fromNodeId": "n_24_-12",
+        "toNodeId": "n_25_-12",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 24,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 25,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_1",
+        "fromNodeId": "n_25_-21",
+        "toNodeId": "n_26_-21",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 25,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_2",
+        "fromNodeId": "n_25_-21",
+        "toNodeId": "n_25_-20",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 25,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 25,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_3",
+        "fromNodeId": "n_25_-20",
+        "toNodeId": "n_26_-20",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 25,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_4",
+        "fromNodeId": "n_25_-12",
+        "toNodeId": "n_26_-12",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 25,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_5",
+        "fromNodeId": "n_26_-25",
+        "toNodeId": "n_26_-24",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 26,
+            "y": 64,
+            "z": -25,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -24,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_6",
+        "fromNodeId": "n_26_-24",
+        "toNodeId": "n_26_-23",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 26,
+            "y": 64,
+            "z": -24,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -23,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_7",
+        "fromNodeId": "n_26_-23",
+        "toNodeId": "n_26_-22",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 26,
+            "y": 64,
+            "z": -23,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -22,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_8",
+        "fromNodeId": "n_26_-22",
+        "toNodeId": "n_26_-21",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 26,
+            "y": 64,
+            "z": -22,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_9",
+        "fromNodeId": "n_26_-21",
+        "toNodeId": "n_27_-21",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 26,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_10",
+        "fromNodeId": "n_26_-21",
+        "toNodeId": "n_26_-20",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 26,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_11",
+        "fromNodeId": "n_26_-20",
+        "toNodeId": "n_27_-20",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 26,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_12",
+        "fromNodeId": "n_26_-12",
+        "toNodeId": "n_27_-12",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 26,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_13",
+        "fromNodeId": "n_26_-3",
+        "toNodeId": "n_27_-3",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 26,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_14",
+        "fromNodeId": "n_26_-3",
+        "toNodeId": "n_26_-2",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 26,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_15",
+        "fromNodeId": "n_26_-2",
+        "toNodeId": "n_27_-2",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 26,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_16",
+        "fromNodeId": "n_27_0",
+        "toNodeId": "n_27_1",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 27,
+            "y": 64,
+            "z": 0,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": 1,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_17",
+        "fromNodeId": "n_27_1",
+        "toNodeId": "n_27_2",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 27,
+            "y": 64,
+            "z": 1,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": 2,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_18",
+        "fromNodeId": "n_27_-21",
+        "toNodeId": "n_28_-21",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 27,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_19",
+        "fromNodeId": "n_27_-21",
+        "toNodeId": "n_27_-20",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 27,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_20",
+        "fromNodeId": "n_27_-20",
+        "toNodeId": "n_28_-20",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 27,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_21",
+        "fromNodeId": "n_27_-12",
+        "toNodeId": "n_28_-12",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 27,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_22",
+        "fromNodeId": "n_27_-3",
+        "toNodeId": "n_28_-3",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 27,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_23",
+        "fromNodeId": "n_27_-3",
+        "toNodeId": "n_27_-2",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 27,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_24",
+        "fromNodeId": "n_27_-2",
+        "toNodeId": "n_28_-2",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 27,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_25",
+        "fromNodeId": "n_27_-2",
+        "toNodeId": "n_27_-1",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 27,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": -1,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_26",
+        "fromNodeId": "n_27_-1",
+        "toNodeId": "n_27_0",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 27,
+            "y": 64,
+            "z": -1,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": 0,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_27",
+        "fromNodeId": "n_28_-21",
+        "toNodeId": "n_29_-21",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 28,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_28",
+        "fromNodeId": "n_28_-21",
+        "toNodeId": "n_28_-20",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 28,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_29",
+        "fromNodeId": "n_28_-20",
+        "toNodeId": "n_29_-20",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 28,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_30",
+        "fromNodeId": "n_28_-12",
+        "toNodeId": "n_29_-12",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 28,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_31",
+        "fromNodeId": "n_28_-3",
+        "toNodeId": "n_29_-3",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 28,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_32",
+        "fromNodeId": "n_28_-3",
+        "toNodeId": "n_28_-2",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 28,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_33",
+        "fromNodeId": "n_28_-2",
+        "toNodeId": "n_29_-2",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 28,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_34",
+        "fromNodeId": "n_29_-21",
+        "toNodeId": "n_30_-21",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_35",
+        "fromNodeId": "n_29_-21",
+        "toNodeId": "n_29_-20",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_36",
+        "fromNodeId": "n_29_-20",
+        "toNodeId": "n_30_-20",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_37",
+        "fromNodeId": "n_29_-13",
+        "toNodeId": "n_30_-13",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -13,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -13,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_38",
+        "fromNodeId": "n_29_-13",
+        "toNodeId": "n_29_-12",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -13,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_39",
+        "fromNodeId": "n_29_-12",
+        "toNodeId": "n_30_-12",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_40",
+        "fromNodeId": "n_29_-12",
+        "toNodeId": "n_29_-11",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -11,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_41",
+        "fromNodeId": "n_29_-11",
+        "toNodeId": "n_30_-11",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -11,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -11,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_42",
+        "fromNodeId": "n_29_-11",
+        "toNodeId": "n_29_-10",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -11,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -10,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_43",
+        "fromNodeId": "n_29_-10",
+        "toNodeId": "n_30_-10",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -10,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -10,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_44",
+        "fromNodeId": "n_29_-10",
+        "toNodeId": "n_29_-9",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -10,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -9,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_45",
+        "fromNodeId": "n_29_-9",
+        "toNodeId": "n_30_-9",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -9,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -9,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_46",
+        "fromNodeId": "n_29_-9",
+        "toNodeId": "n_29_-8",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -9,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -8,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_47",
+        "fromNodeId": "n_29_-8",
+        "toNodeId": "n_30_-8",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -8,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -8,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_48",
+        "fromNodeId": "n_29_-8",
+        "toNodeId": "n_29_-7",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -8,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -7,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_49",
+        "fromNodeId": "n_29_-7",
+        "toNodeId": "n_30_-7",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -7,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -7,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_50",
+        "fromNodeId": "n_29_-7",
+        "toNodeId": "n_29_-6",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -7,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -6,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_51",
+        "fromNodeId": "n_29_-6",
+        "toNodeId": "n_30_-6",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -6,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -6,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_52",
+        "fromNodeId": "n_29_-6",
+        "toNodeId": "n_29_-5",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -6,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -5,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_53",
+        "fromNodeId": "n_29_-5",
+        "toNodeId": "n_30_-5",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -5,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -5,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_54",
+        "fromNodeId": "n_29_-5",
+        "toNodeId": "n_29_-4",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -5,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -4,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_55",
+        "fromNodeId": "n_29_-4",
+        "toNodeId": "n_30_-4",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -4,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -4,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_56",
+        "fromNodeId": "n_29_-4",
+        "toNodeId": "n_29_-3",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -4,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_57",
+        "fromNodeId": "n_29_-3",
+        "toNodeId": "n_30_-3",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_58",
+        "fromNodeId": "n_29_-3",
+        "toNodeId": "n_29_-2",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_59",
+        "fromNodeId": "n_29_-2",
+        "toNodeId": "n_30_-2",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 29,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_60",
+        "fromNodeId": "n_30_-21",
+        "toNodeId": "n_31_-21",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_61",
+        "fromNodeId": "n_30_-21",
+        "toNodeId": "n_30_-20",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_62",
+        "fromNodeId": "n_30_-20",
+        "toNodeId": "n_31_-20",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_63",
+        "fromNodeId": "n_30_-20",
+        "toNodeId": "n_30_-19",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -19,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_64",
+        "fromNodeId": "n_30_-19",
+        "toNodeId": "n_31_-19",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -19,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -19,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_65",
+        "fromNodeId": "n_30_-19",
+        "toNodeId": "n_30_-18",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -19,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -18,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_66",
+        "fromNodeId": "n_30_-18",
+        "toNodeId": "n_31_-18",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -18,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -18,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_67",
+        "fromNodeId": "n_30_-18",
+        "toNodeId": "n_30_-17",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -18,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -17,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_68",
+        "fromNodeId": "n_30_-17",
+        "toNodeId": "n_31_-17",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -17,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -17,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_69",
+        "fromNodeId": "n_30_-17",
+        "toNodeId": "n_30_-16",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -17,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -16,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_70",
+        "fromNodeId": "n_30_-16",
+        "toNodeId": "n_31_-16",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -16,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -16,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_71",
+        "fromNodeId": "n_30_-16",
+        "toNodeId": "n_30_-15",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -16,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -15,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_72",
+        "fromNodeId": "n_30_-15",
+        "toNodeId": "n_31_-15",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -15,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -15,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_73",
+        "fromNodeId": "n_30_-15",
+        "toNodeId": "n_30_-14",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -15,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -14,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_74",
+        "fromNodeId": "n_30_-14",
+        "toNodeId": "n_31_-14",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -14,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -14,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_75",
+        "fromNodeId": "n_30_-14",
+        "toNodeId": "n_30_-13",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -14,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -13,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_76",
+        "fromNodeId": "n_30_-13",
+        "toNodeId": "n_31_-13",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -13,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -13,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_77",
+        "fromNodeId": "n_30_-13",
+        "toNodeId": "n_30_-12",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -13,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_78",
+        "fromNodeId": "n_30_-12",
+        "toNodeId": "n_31_-12",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_79",
+        "fromNodeId": "n_30_-12",
+        "toNodeId": "n_30_-11",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -11,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_80",
+        "fromNodeId": "n_30_-11",
+        "toNodeId": "n_30_-10",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -11,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -10,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_81",
+        "fromNodeId": "n_30_-10",
+        "toNodeId": "n_30_-9",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -10,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -9,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_82",
+        "fromNodeId": "n_30_-9",
+        "toNodeId": "n_30_-8",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -9,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -8,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_83",
+        "fromNodeId": "n_30_-8",
+        "toNodeId": "n_30_-7",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -8,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -7,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_84",
+        "fromNodeId": "n_30_-7",
+        "toNodeId": "n_30_-6",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -7,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -6,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_85",
+        "fromNodeId": "n_30_-6",
+        "toNodeId": "n_30_-5",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -6,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -5,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_86",
+        "fromNodeId": "n_30_-5",
+        "toNodeId": "n_30_-4",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -5,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -4,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_87",
+        "fromNodeId": "n_30_-4",
+        "toNodeId": "n_30_-3",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -4,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_88",
+        "fromNodeId": "n_30_-3",
+        "toNodeId": "n_30_-2",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 30,
+            "y": 64,
+            "z": -3,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_89",
+        "fromNodeId": "n_31_-21",
+        "toNodeId": "n_31_-20",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 31,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_90",
+        "fromNodeId": "n_31_-20",
+        "toNodeId": "n_31_-19",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 31,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -19,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_91",
+        "fromNodeId": "n_31_-19",
+        "toNodeId": "n_31_-18",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 31,
+            "y": 64,
+            "z": -19,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -18,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_92",
+        "fromNodeId": "n_31_-18",
+        "toNodeId": "n_31_-17",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 31,
+            "y": 64,
+            "z": -18,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -17,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_93",
+        "fromNodeId": "n_31_-17",
+        "toNodeId": "n_31_-16",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 31,
+            "y": 64,
+            "z": -17,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -16,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_94",
+        "fromNodeId": "n_31_-16",
+        "toNodeId": "n_31_-15",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 31,
+            "y": 64,
+            "z": -16,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -15,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_95",
+        "fromNodeId": "n_31_-15",
+        "toNodeId": "n_31_-14",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 31,
+            "y": 64,
+            "z": -15,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -14,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_96",
+        "fromNodeId": "n_31_-14",
+        "toNodeId": "n_31_-13",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 31,
+            "y": 64,
+            "z": -14,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -13,
+            "structure": "surface"
+          }
+        ]
+      },
+      {
+        "id": "e_97",
+        "fromNodeId": "n_31_-13",
+        "toNodeId": "n_31_-12",
+        "roadType": "walkable_adjacency",
+        "width": 1,
+        "maxSlope": 0.0,
+        "steps": [
+          {
+            "x": 31,
+            "y": 64,
+            "z": -13,
+            "structure": "surface"
+          },
+          {
+            "x": 31,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      }
+    ]
+  },
+  "plots": [
+    {
+      "id": "plot_1",
+      "requirementId": "forge",
+      "tags": [
+        "workshop"
+      ],
+      "polygon2D": [
+        [
+          16,
+          -16
+        ],
+        [
+          25,
+          -16
+        ],
+        [
+          25,
+          -7
+        ],
+        [
+          16,
+          -7
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 64,
+        "entranceElevation": 64,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "width": 1,
+        "accessPoint": [
+          24,
+          64,
+          -12
+        ],
+        "facing": "EAST",
+        "connectedEdgeId": "e_0",
+        "path": [
+          {
+            "x": 24,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 25,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 28,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 29,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          },
+          {
+            "x": 30,
+            "y": 64,
+            "z": -12,
+            "structure": "surface"
+          }
+        ]
+      },
+      "foundation": {
+        "type": "bounded_slab",
+        "retainingWalls": []
+      },
+      "builder": {
+        "generatorType": "locked_preset",
+        "presetId": "artisan_blacksmith",
+        "templateCategory": "workshop",
+        "footprintSize": [
+          10,
+          10
+        ],
+        "heightLimit": 8,
+        "subSeed": -6387817139659442654
+      }
+    },
+    {
+      "id": "plot_2",
+      "requirementId": "homes",
+      "tags": [
+        "residential"
+      ],
+      "polygon2D": [
+        [
+          22,
+          -34
+        ],
+        [
+          31,
+          -34
+        ],
+        [
+          31,
+          -25
+        ],
+        [
+          22,
+          -25
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 64,
+        "entranceElevation": 64,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "width": 1,
+        "accessPoint": [
+          26,
+          64,
+          -25
+        ],
+        "facing": "SOUTH",
+        "connectedEdgeId": "e_5",
+        "path": [
+          {
+            "x": 26,
+            "y": 64,
+            "z": -25,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -24,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -23,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -22,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -21,
+            "structure": "surface"
+          },
+          {
+            "x": 26,
+            "y": 64,
+            "z": -20,
+            "structure": "surface"
+          }
+        ]
+      },
+      "foundation": {
+        "type": "bounded_slab",
+        "retainingWalls": []
+      },
+      "builder": {
+        "generatorType": "locked_preset",
+        "presetId": "nordic_cottage",
+        "templateCategory": "residential",
+        "footprintSize": [
+          10,
+          10
+        ],
+        "heightLimit": 10,
+        "subSeed": 5695472266747893962
+      }
+    },
+    {
+      "id": "plot_3",
+      "requirementId": "homes",
+      "tags": [
+        "residential"
+      ],
+      "polygon2D": [
+        [
+          22,
+          2
+        ],
+        [
+          31,
+          2
+        ],
+        [
+          31,
+          11
+        ],
+        [
+          22,
+          11
+        ]
+      ],
+      "elevation": {
+        "baseElevation": 64,
+        "entranceElevation": 64,
+        "maxCutDepth": 4,
+        "maxFillHeight": 4
+      },
+      "entrance": {
+        "width": 1,
+        "accessPoint": [
+          27,
+          64,
+          2
+        ],
+        "facing": "NORTH",
+        "connectedEdgeId": "e_17",
+        "path": [
+          {
+            "x": 27,
+            "y": 64,
+            "z": 2,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": 1,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": 0,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": -1,
+            "structure": "surface"
+          },
+          {
+            "x": 27,
+            "y": 64,
+            "z": -2,
+            "structure": "surface"
+          }
+        ]
+      },
+      "foundation": {
+        "type": "bounded_slab",
+        "retainingWalls": []
+      },
+      "builder": {
+        "generatorType": "locked_preset",
+        "presetId": "nordic_cottage",
+        "templateCategory": "residential",
+        "footprintSize": [
+          10,
+          10
+        ],
+        "heightLimit": 10,
+        "subSeed": -347915606478439689
+      }
+    }
+  ],
+  "earthworks": {
+    "totalCutVolume": 0,
+    "totalFillVolume": 0,
+    "cutFillBalance": 0
+  },
+  "clearance": {
+    "clearVegetationBoxes": []
+  },
+  "auditLog": {
+    "warnings": [],
+    "rejectedCandidates": []
+  },
+  "status": "COMPLETE",
+  "unmetRequirements": [],
+  "search": {
+    "candidateChecks": 24000,
+    "pathExpanded": 12113,
+    "attempts": 3,
+    "candidateLimit": 24000,
+    "pathLimit": 180000,
+    "budgetExhausted": true,
+    "modelCalls": 0,
+    "elapsedNanos": 64601200
+  },
+  "groundColumns": [
+    {
+      "x": 16,
+      "z": -16,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 16,
+      "z": -15,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 16,
+      "z": -14,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 16,
+      "z": -13,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 16,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 16,
+      "z": -11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 16,
+      "z": -10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 16,
+      "z": -9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 16,
+      "z": -8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 16,
+      "z": -7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 17,
+      "z": -16,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 17,
+      "z": -15,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 17,
+      "z": -14,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 17,
+      "z": -13,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 17,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 17,
+      "z": -11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 17,
+      "z": -10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 17,
+      "z": -9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 17,
+      "z": -8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 17,
+      "z": -7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": -16,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": -15,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": -14,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": -13,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": -11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": -10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": -9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": -8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 18,
+      "z": -7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": -16,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": -15,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": -14,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": -13,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": -11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": -10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": -9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": -8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 19,
+      "z": -7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": -16,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": -15,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": -14,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": -13,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": -11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": -10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": -9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": -8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 20,
+      "z": -7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": -16,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": -15,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": -14,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": -13,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": -11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": -10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": -9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": -8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 21,
+      "z": -7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 4,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 5,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 6,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": 11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -27,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -26,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -25,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -16,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -15,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -14,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -13,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 22,
+      "z": -7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 4,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 5,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 6,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": 11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -27,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -26,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -25,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -16,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -15,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -14,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -13,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 23,
+      "z": -7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 4,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 5,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 6,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": 11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -27,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -26,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -25,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -16,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -15,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -14,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -13,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 24,
+      "z": -7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 4,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 5,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 6,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": 11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -27,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -26,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -25,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -21,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 25,
+      "z": -20,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 25,
+      "z": -16,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -15,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -14,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -13,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 25,
+      "z": -7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 71,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 4,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 5,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 6,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": 11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": -34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": -33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": -32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": -31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": -30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": -29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": -28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": -27,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": -26,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": -25,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 26,
+      "z": -24,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "access"
+    },
+    {
+      "x": 26,
+      "z": -23,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "access"
+    },
+    {
+      "x": 26,
+      "z": -22,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "access"
+    },
+    {
+      "x": 26,
+      "z": -21,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 26,
+      "z": -20,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 26,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "access"
+    },
+    {
+      "x": 26,
+      "z": -3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 26,
+      "z": -2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 27,
+      "z": 0,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "access"
+    },
+    {
+      "x": 27,
+      "z": 1,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "access"
+    },
+    {
+      "x": 27,
+      "z": 2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 4,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 5,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 6,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": 11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": -34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": -33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": -32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": -31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": -30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": -29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": -28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": -27,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": -26,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": -25,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 27,
+      "z": -21,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 27,
+      "z": -20,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 27,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "access"
+    },
+    {
+      "x": 27,
+      "z": -3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 27,
+      "z": -2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 27,
+      "z": -1,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "access"
+    },
+    {
+      "x": 28,
+      "z": 2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": 3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": 4,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": 5,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": 6,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": 7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": 8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": 9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": 10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": 11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": -34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": -33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": -32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": -31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": -30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": -29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": -28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": -27,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": -26,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": -25,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 28,
+      "z": -21,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 28,
+      "z": -20,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 28,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "access"
+    },
+    {
+      "x": 28,
+      "z": -3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 28,
+      "z": -2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": 2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": 3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": 4,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": 5,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": 6,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": 7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": 8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": 9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": 10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": 11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": -34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": -33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": -32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": -31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": -30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": -29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": -28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": -27,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": -26,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": -25,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 29,
+      "z": -21,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": -20,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": -13,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": -11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": -10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": -9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": -8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": -7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": -6,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": -5,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": -4,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": -3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 29,
+      "z": -2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": 2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": 3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": 4,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": 5,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": 6,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": 7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": 8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": 9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": 10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": 11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": -34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": -33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": -32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": -31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": -30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": -29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": -28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": -27,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": -26,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": -25,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 30,
+      "z": -21,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -20,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -19,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -18,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -17,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -16,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -15,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -14,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -13,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -6,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -5,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -4,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 30,
+      "z": -2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 31,
+      "z": 2,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": 3,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": 4,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": 5,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": 6,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": 7,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": 8,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": 9,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": 10,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": 11,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": -34,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": -33,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": -32,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": -31,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": -30,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": -29,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": -28,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": -27,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": -26,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": -25,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 73,
+      "kind": "foundation"
+    },
+    {
+      "x": 31,
+      "z": -21,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 31,
+      "z": -20,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 31,
+      "z": -19,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 31,
+      "z": -18,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 31,
+      "z": -17,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 31,
+      "z": -16,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 31,
+      "z": -15,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 31,
+      "z": -14,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 31,
+      "z": -13,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    },
+    {
+      "x": 31,
+      "z": -12,
+      "originalY": 64,
+      "targetY": 64,
+      "clearToY": 67,
+      "kind": "road"
+    }
+  ]
+}

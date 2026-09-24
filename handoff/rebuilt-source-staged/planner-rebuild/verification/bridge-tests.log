@@ -1,0 +1,12 @@
+PASS intent_to_request_preserves_requirements
+PASS offline_keywords_are_per_purpose
+[LLM] Using offline heuristic strategy generator.
+PASS offline_manager_zero_model_calls
+[LLM] Calling remote LLM API (http://127.0.0.1:46751/v1)...
+[BuildingPresetRegistry] Successfully initialized 10 building presets.
+PASS single_loopback_intent_and_rich_schema
+PASS locked_buildings_no_extra_calls_or_prompt_override
+PASS mismatched_locked_dimensions_fail_closed
+PASS untrusted_numeric_requirements_rejected
+PASS landmark_field_reaches_geometric_search
+RESULT 8 bridge checks passed; external model calls=0 (one loopback fixture request)

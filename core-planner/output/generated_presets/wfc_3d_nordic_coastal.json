@@ -1,0 +1,144 @@
+{
+  "id": "gen_wfc_nordic_coastal",
+  "name": "3D WFC 生成建筑 (nordic_coastal)",
+  "generator": "3D Wave Function Collapse (WFC)",
+  "paradigm": "Constraint-based 3D Entropy Collapse",
+  "theme": "nordic_coastal",
+  "execution_ms": 0.1,
+  "sizeX": 9,
+  "sizeY": 9,
+  "sizeZ": 9,
+  "solid_voxels": 361,
+  "total_volume": 729,
+  "layers": [
+    [
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCWWWCCC",
+      "CCCWWWCCC",
+      "CCCWWWCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC"
+    ],
+    [
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCWWWCCC",
+      "CCCWWWCCC",
+      "CCCWWWCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC"
+    ],
+    [
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCWWWCCC",
+      "CCCWWWCCC",
+      "CCCWWWCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC"
+    ],
+    [
+      "LWL...LWL",
+      "....T....",
+      "....X....",
+      "L.L...LWL",
+      "....T....",
+      "....X....",
+      "LWL...LWL",
+      "....T....",
+      "....X...."
+    ],
+    [
+      "LGL...LWL",
+      ".........",
+      ".........",
+      "L.L...LWL",
+      ".........",
+      ".........",
+      "LGL...LWL",
+      ".........",
+      "........."
+    ],
+    [
+      "LWL.P.LWL",
+      ".........",
+      ".........",
+      "LWL.P.LWL",
+      ".........",
+      ".........",
+      "LWL.P.LWL",
+      ".........",
+      "........."
+    ],
+    [
+      "SW.....WS",
+      ".........",
+      ".........",
+      "SW.....WS",
+      ".........",
+      ".........",
+      "SW.....WS",
+      ".........",
+      "........."
+    ],
+    [
+      ".SW...WS.",
+      ".........",
+      ".........",
+      ".SW...WS.",
+      ".........",
+      ".........",
+      ".SW...WS.",
+      ".........",
+      "........."
+    ],
+    [
+      "..SSSSS..",
+      "...SSS...",
+      "...SSS...",
+      "..SSSSS..",
+      "...SSS...",
+      "...SSS...",
+      "..SSSSS..",
+      "...SSS...",
+      "...SSS..."
+    ]
+  ],
+  "palette": {
+    ".": "minecraft:air",
+    "C": "minecraft:cobblestone",
+    "S": "minecraft:stone_bricks",
+    "W": "minecraft:oak_planks",
+    "L": "minecraft:oak_log[axis=y]",
+    "G": "minecraft:glass_pane",
+    "T": "minecraft:crafting_table",
+    "X": "minecraft:chest[facing=south]",
+    "P": "minecraft:lantern"
+  },
+  "themeReplacements": {
+    "nordic_coastal": {
+      "minecraft:oak_planks": "minecraft:spruce_planks",
+      "minecraft:oak_log[axis=y]": "minecraft:spruce_log[axis=y]"
+    },
+    "mountain_outpost": {
+      "minecraft:cobblestone": "minecraft:cobbled_deepslate",
+      "minecraft:stone_bricks": "minecraft:deepslate_bricks",
+      "minecraft:oak_planks": "minecraft:dark_oak_planks",
+      "minecraft:oak_log[axis=y]": "minecraft:dark_oak_log[axis=y]"
+    }
+  },
+  "metrics": {
+    "void_ratio_pct": 50.5,
+    "facade_depth_index": 6.2,
+    "roof_complexity_score": 50,
+    "interior_furnishing_score": 75.0,
+    "overall_aesthetic_grade": "C"
+  }
+}

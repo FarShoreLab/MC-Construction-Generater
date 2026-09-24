@@ -1,0 +1,229 @@
+{
+  "id": "country_windmill",
+  "name": "乡村风车磨坊 (Country Windmill Pro)",
+  "category": "agriculture",
+  "tags": [
+    "agriculture",
+    "food",
+    "windmill",
+    "mill",
+    "master"
+  ],
+  "styles": [
+    "medieval_rustic",
+    "nordic_coastal",
+    "mountain_outpost"
+  ],
+  "author": "MCSettlement Master",
+  "description": "大师级乡村八角收分风车磨坊，圆石与石砖收分基座，上层悬挑木构磨粉阁楼，外挑倒置楼梯挑檐与十字巨型旋转风帆",
+  "sizeX": 9,
+  "sizeY": 13,
+  "sizeZ": 9,
+  "entrance": {
+    "facing": "SOUTH",
+    "x": 4,
+    "z": 8
+  },
+  "palette": {
+    ".": "minecraft:air",
+    "C": "minecraft:cobblestone",
+    "S": "minecraft:stone_bricks",
+    "W": "minecraft:oak_planks",
+    "L": "minecraft:oak_log[axis=y]",
+    "G": "minecraft:glass_pane",
+    "U": "minecraft:oak_stairs[half=top,facing=east]",
+    "u": "minecraft:oak_stairs[half=top,facing=west]",
+    "[": "minecraft:oak_stairs[facing=east,half=bottom]",
+    "]": "minecraft:oak_stairs[facing=west,half=bottom]",
+    "{": "minecraft:stone_brick_stairs[facing=east,half=bottom]",
+    "}": "minecraft:stone_brick_stairs[facing=west,half=bottom]",
+    "O": "minecraft:oak_slab",
+    "o": "minecraft:stone_brick_slab",
+    "R": "minecraft:bricks",
+    "H": "minecraft:campfire",
+    "I": "minecraft:iron_bars",
+    "T": "minecraft:crafting_table",
+    "X": "minecraft:chest[facing=south]",
+    "F": "minecraft:furnace[facing=north]",
+    "B": "minecraft:blast_furnace[facing=north]",
+    "A": "minecraft:anvil[facing=east]",
+    "K": "minecraft:cauldron",
+    "E": "minecraft:red_bed",
+    "M": "minecraft:bookshelf",
+    "P": "minecraft:lantern",
+    "J": "minecraft:red_carpet",
+    "N": "minecraft:oak_fence",
+    "D": "minecraft:dark_oak_planks"
+  },
+  "themeReplacements": {
+    "nordic_coastal": {
+      "minecraft:oak_planks": "minecraft:spruce_planks",
+      "minecraft:oak_log[axis=y]": "minecraft:spruce_log[axis=y]",
+      "minecraft:oak_slab": "minecraft:spruce_slab",
+      "minecraft:oak_stairs[half=top,facing=east]": "minecraft:spruce_stairs[half=top,facing=east]",
+      "minecraft:oak_stairs[half=top,facing=west]": "minecraft:spruce_stairs[half=top,facing=west]",
+      "minecraft:oak_stairs[facing=east,half=bottom]": "minecraft:spruce_stairs[facing=east,half=bottom]",
+      "minecraft:oak_stairs[facing=west,half=bottom]": "minecraft:spruce_stairs[facing=west,half=bottom]",
+      "minecraft:oak_fence": "minecraft:spruce_fence",
+      "minecraft:red_carpet": "minecraft:blue_carpet"
+    },
+    "mountain_outpost": {
+      "minecraft:cobblestone": "minecraft:cobbled_deepslate",
+      "minecraft:stone_bricks": "minecraft:deepslate_bricks",
+      "minecraft:oak_planks": "minecraft:dark_oak_planks",
+      "minecraft:oak_log[axis=y]": "minecraft:dark_oak_log[axis=y]",
+      "minecraft:oak_slab": "minecraft:deepslate_brick_slab",
+      "minecraft:oak_stairs[half=top,facing=east]": "minecraft:deepslate_brick_stairs[half=top,facing=east]",
+      "minecraft:oak_stairs[half=top,facing=west]": "minecraft:deepslate_brick_stairs[half=top,facing=west]",
+      "minecraft:oak_stairs[facing=east,half=bottom]": "minecraft:deepslate_brick_stairs[facing=east,half=bottom]",
+      "minecraft:oak_stairs[facing=west,half=bottom]": "minecraft:deepslate_brick_stairs[facing=west,half=bottom]",
+      "minecraft:oak_fence": "minecraft:dark_oak_fence",
+      "minecraft:red_carpet": "minecraft:gray_carpet"
+    }
+  },
+  "layers": [
+    [
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC",
+      "CCCCCCCCC"
+    ],
+    [
+      ".LSSSSL..",
+      ".S.....S.",
+      "LS.....SL",
+      "S.......S",
+      "S.......S",
+      "S.......S",
+      "LS.....SL",
+      ".S.....S.",
+      ".LS...SL."
+    ],
+    [
+      ".LSSSSL..",
+      ".G..F..G.",
+      "LS..K..SL",
+      "G.......G",
+      "G...A...G",
+      "G.......G",
+      "LS..T..SL",
+      ".G.....G.",
+      ".LS...SL."
+    ],
+    [
+      ".LLLLLL..",
+      "LSS..SSL.",
+      "S......S.",
+      "S......S.",
+      "S......S.",
+      "S......S.",
+      "S......S.",
+      "LSS..SSL.",
+      ".LLLLLL.."
+    ],
+    [
+      "UUUUUUUUU",
+      "USSSSSSSU",
+      "US.....SU",
+      "US.....SU",
+      "US.....SU",
+      "US.....SU",
+      "US.....SU",
+      "USSSSSSSU",
+      "UUUUUUUUU"
+    ],
+    [
+      ".LWWWWL..",
+      ".W.....W.",
+      "LW.....WL",
+      "W...X...W",
+      "W...P...W",
+      "W.......W",
+      "LW.....WL",
+      ".W.....W.",
+      ".LWWWWL.."
+    ],
+    [
+      ".LWWWWL..",
+      ".G.....G.",
+      "LG.....GL",
+      "W.......W",
+      "W...L...W",
+      "W.......W",
+      "LG.....GL",
+      ".G.....G.",
+      ".LWWWWL.."
+    ],
+    [
+      "UUUUUUUUU",
+      "UWWWWWWWU",
+      "UW.....WU",
+      "UW.....WU",
+      "UW.....WU",
+      "UW.....WU",
+      "UW.....WU",
+      "UWWWWWWWU",
+      "UUUUUUUUU"
+    ],
+    [
+      ".OOOOOOO.",
+      ".OWWWWO..",
+      ".OWWWWO..",
+      ".OWWWWO..",
+      ".OWWWWO..",
+      ".OWWWWO..",
+      ".OWWWWO..",
+      ".OWWWWO..",
+      ".OOOOOOO."
+    ],
+    [
+      "..OOOOO..",
+      "..OWWWO..",
+      "..OWWWO..",
+      "..OWWWO..",
+      "..OWWWO..",
+      "..OWWWO..",
+      "..OWWWO..",
+      "..OWWWO..",
+      "..OOOOO.."
+    ],
+    [
+      "...OOO...",
+      "...OWO...",
+      "...OWO...",
+      "...OWO...",
+      "...OWO...",
+      "...OWO...",
+      "...OWO...",
+      "...OWO...",
+      "...OOO..."
+    ],
+    [
+      "....S....",
+      "....S....",
+      "....L....",
+      "....S....",
+      "....S....",
+      "....S....",
+      "....S....",
+      "....S....",
+      "....S...."
+    ],
+    [
+      "....N....",
+      "....N....",
+      "NNNNLNNNN",
+      "....N....",
+      "....N....",
+      "....N....",
+      "....N....",
+      "....N....",
+      "....N...."
+    ]
+  ]
+}

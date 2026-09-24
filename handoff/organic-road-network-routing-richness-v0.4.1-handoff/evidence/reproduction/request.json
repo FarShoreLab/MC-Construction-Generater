@@ -1,0 +1,22 @@
+{
+  "method": "GET",
+  "server": "http://127.0.0.1:18767",
+  "path": "/api/plan",
+  "query": {
+    "width": 512,
+    "depth": 512,
+    "terrainType": "rolling_hills",
+    "relief": 24,
+    "terrainSeed": 42,
+    "planSeed": 45,
+    "targetPlots": 7,
+    "roadDirections": 12,
+    "diagonalBuildings": false,
+    "presetPalette": "mixed",
+    "singlePresetId": "square_cabin"
+  },
+  "evidence": {
+    "userScreenshot": "evidence/reproduction/user-route-straight-reference.png",
+    "response": "evidence/reproduction/plan-512-rolling-hills-terrain42-plan45.json"
+  }
+}

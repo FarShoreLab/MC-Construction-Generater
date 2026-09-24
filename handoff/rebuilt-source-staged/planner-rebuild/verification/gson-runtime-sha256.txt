@@ -1,0 +1,1 @@
+0e2b89eaa3542acae5b872a1450a1f53035352b5ad208276fc607c22cdfad785  /usr/share/texlive/texmf-dist/scripts/texplate/texplate.jar
