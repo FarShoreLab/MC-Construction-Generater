@@ -19,6 +19,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlencode, parse_qs, urlparse
 from modern_city import generate_city
+from legacy_city_terrain import terrain_preview
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -248,14 +249,22 @@ class Handler(BaseHTTPRequestHandler):
             if parsed.path in {"/modern-city", "/modern-city/"}:
                 self.send_file(ROOT / "tools" / "modern_city.html", "text/html; charset=utf-8")
                 return
+            if parsed.path == "/api/modern-city-terrain":
+                query = parse_qs(parsed.query, keep_blank_values=True)
+                if set(query) - {"seed", "terrain"} or any(len(v) != 1 for v in query.values()):
+                    raise ValueError("Expected unique seed and terrain parameters")
+                self.send_json(terrain_preview(int(query.get("seed", ["42"])[0]), query.get("terrain", ["hills"])[0]))
+                return
             if parsed.path == "/api/modern-city":
                 query = parse_qs(parsed.query, keep_blank_values=True)
-                if set(query) - {"seed", "density", "layout"} or any(len(v) != 1 for v in query.values()):
-                    raise ValueError("Expected unique seed, density and layout parameters")
+                if set(query) - {"seed", "density", "layout", "terrain", "maxEdit"} or any(len(v) != 1 for v in query.values()):
+                    raise ValueError("Expected unique seed, density, layout, terrain and maxEdit parameters")
                 self.send_json(generate_city(
                     seed=int(query.get("seed", ["42"])[0]),
                     density=float(query.get("density", ["0.75"])[0]),
                     layout=query.get("layout", ["balanced"])[0],
+                    terrain=query.get("terrain", ["hills"])[0],
+                    max_edit=float(query.get("maxEdit", ["6"])[0]),
                 ))
                 return
             if parsed.path in ("/", "/index.html", "/simulation_3d_viewer.html"):

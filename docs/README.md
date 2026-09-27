@@ -10,7 +10,8 @@
 
 ## 功能与使用
 
-- [现代城市 Demo（平地体量，2026-09-27）](MODERN_CITY_DEMO_ZH.md)
+- [现代城市 Demo（2026-09-27）](MODERN_CITY_DEMO_ZH.md)
+- [城市自然地形与原 MC 地形接入（2026-09-27）](MODERN_CITY_TERRAIN_ZH.md)
 - [接手指南与未提交改动清单](HANDOVER_ZH.md)
 - [新增地形、农田与吊桥（2026-09-24）](TERRAIN_FARMLAND_20260924_ZH.md)
 - [两步 Demo：先选址，再生成道路（2026-09-26）](TWO_STAGE_DEMO_20260926_ZH.md)

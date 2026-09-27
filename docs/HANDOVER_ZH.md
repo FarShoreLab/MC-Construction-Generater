@@ -6,7 +6,7 @@
 
 调用路径：`tools/preview.html` → `tools/preview_server.py` → `SimulationApiRunner` → 聚落规划器 → `PlanningIR` → `PlanConstruction`。预览是本地模拟，不是 Minecraft 实机验收。Fabric 模块仍需单独完成依赖构建和客户端验收。
 
-独立现代城市链路：`tools/modern_city.html` → `/api/modern-city` → `tools/modern_city.py`。它生成平地城市几何，不使用 Java 聚落规划器或施工器；说明见 `MODERN_CITY_DEMO_ZH.md`，研究依据见 `MODERN_CITY_RESEARCH_ZH.md`。
+现代城市链路：`tools/modern_city.html` → `/api/modern-city` → `tools/modern_city.py`。丘陵/河谷通过 `legacy_city_terrain.py` 读取原 Java 地形，`city_terrain.py` 与 `city_districts.py` 负责城市几何；保留平地对照。它不使用 Java 聚落规划器或 Minecraft 施工器；说明见 `MODERN_CITY_DEMO_ZH.md`、`MODERN_CITY_TERRAIN_ZH.md`，研究依据见 `MODERN_CITY_RESEARCH_ZH.md`。
 
 ## 环境与验证
 
@@ -19,10 +19,13 @@
 3. `python tools/verify_site_orientations.py` → Verify: 四向和 45° 占地、入口与实际放置一致。
 4. `python tools/preview_server.py --port 8766` → Verify: 打开 http://127.0.0.1:8766/ ，生成选址、调整一栋、确认生成道路。
 5. `python tools/test_modern_city.py`，服务运行后执行 `python tools/verify_modern_city_api.py --port 8766` → Verify: 几何约束与三种布局 API 检查通过；打开 `/modern-city` 检查阶段切换、俯视、密度和 JSON 导出。
+6. `python tools/test_city_terrain.py -v` → Verify: 原 Java 地形来源一致、道路/建筑几何和挖填约束通过。丘陵/河谷需要先完成 Java 编译和 Gson 准备。
 
 若缺少 Java 或 Gson，先修复环境再重试。编译或回归失败时查看对应日志，不用旧生成结果代替本次验证。完整 Fabric 类型检查和 Minecraft 运行不包含在离线验证中。
 
 2026-09-27 验证：主源码、可执行测试编译及全部 16 组离线回归通过；两步 API 检查和八种朝向/45° 占地检查通过。精简后从 Git 索引导出干净副本 `build/clean-handoff/`，重新检查预设编译与独立打包、两步 API、朝向、现代城市几何/API 及 HTTP 地形控制，均通过。现代城市的浏览器验收记录见其说明；本次整理未重跑浏览器手工验收、可选 loopback fixture 或 Minecraft 客户端验收。首次沙箱运行因 Gson 缓存读取权限失败，获准在沙箱外重跑后通过。
+
+城市地形增量发布验证：从提交候选导出 `build/city-release-check/`，Java 主源码编译、4 项平地城市测试、5 项地形城市测试、城市 HTTP API 和原两步规划 API 均通过；其中地形测试直接核对旧 Java 来源及导出几何。此次未重复执行浏览器或 Minecraft 客户端验收。
 
 ## 当前包含的功能
 

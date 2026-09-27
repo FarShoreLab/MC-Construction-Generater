@@ -17,7 +17,7 @@ python tools/preview_server.py --port 8766
 
 打开 http://127.0.0.1:8766/ 。离线构建不下载依赖；无本地 Gson 时，可先运行 `./gradlew :core-planner:classes`（Windows 使用 `./gradlew.bat`）准备依赖，需要联网。
 
-现代城市体量 Demo 入口为 http://127.0.0.1:8766/modern-city ，采用道路 → 街区 → 建筑的规划顺序，支持单中心、多中心和均衡布局。该入口为平地 Python 几何预演，尚未接入 Minecraft 施工。
+现代城市体量 Demo 入口为 http://127.0.0.1:8766/modern-city ，先调用原城镇 Java 生成器展示完整 MC 方块地形，再按道路 → 街区 → 建筑的顺序规划。支持原始丘陵、谷地、平地对照与有限挖填，以及单中心、多中心和均衡布局。城市规划为 Python 几何预演，尚未接入 Minecraft 施工。详见[自然地形城市说明](docs/MODERN_CITY_TERRAIN_ZH.md)。
 
 - [接手指南：模块、验证、已知边界](docs/HANDOVER_ZH.md)
 - [两步 Demo 操作与接口](docs/TWO_STAGE_DEMO_20260926_ZH.md)

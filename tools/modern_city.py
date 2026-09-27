@@ -49,7 +49,7 @@ def _segments(start, length, target, gap, rng):
         cursor += size + gap
 
 
-def generate_city(seed=42, density=.75, layout="balanced"):
+def generate_city(seed=42, density=.75, layout="balanced", terrain="flat", max_edit=6):
     """Return one reproducible city; density ranges from .25 to 1.
 
     populationEstimate assumes 35 m² per resident and residential floor shares
@@ -62,6 +62,13 @@ def generate_city(seed=42, density=.75, layout="balanced"):
     density = float(density)
     if not math.isfinite(density) or not .25 <= density <= 1:
         raise ValueError("density must be between 0.25 and 1")
+    if terrain not in ("flat", "hills", "river"):
+        raise ValueError("terrain must be flat, hills, or river")
+    if not math.isfinite(max_edit) or not 2 <= max_edit <= 10:
+        raise ValueError("max_edit must be between 2 and 10")
+    if terrain != "flat":
+        from city_terrain import generate_terrain_city
+        return generate_terrain_city(seed, density, layout, terrain, max_edit)
     rng = random.Random(seed)
     centers = ({"balanced": [(360, 345, 1)],
                 "polycentric": [(215, 225, 1), (520, 470, .95), (225, 555, .7)],
