@@ -83,7 +83,7 @@ public final class RoadGeometry {
         return stair(high)&&direction.equals(high.facing)&&(!stair(low)||direction.equals(low.facing));
     }
     public static GroundColumn copy(GroundColumn c){
-        GroundColumn r=new GroundColumn(c.x,c.z,c.originalY,c.targetY,c.clearToY,c.kind);r.structure=c.structure;r.facing=c.facing;r.waterY=c.waterY;r.support=c.support;return r;
+        GroundColumn r=new GroundColumn(c.x,c.z,c.originalY,c.targetY,c.clearToY,c.kind);r.structure=c.structure;r.facing=c.facing;r.waterY=c.waterY;r.support=c.support;r.suspensionBridge=c.suspensionBridge;return r;
     }
     public static RoadStep step(GroundColumn c){return new RoadStep(c.x,c.targetY,c.z,c.structure);}
     public static int[] distanceField(HeightfieldMap map,Collection<Long> goals) {

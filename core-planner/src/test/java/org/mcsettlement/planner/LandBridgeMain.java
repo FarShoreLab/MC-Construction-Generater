@@ -45,5 +45,17 @@ public final class LandBridgeMain {
         }
         var c=ir.groundColumns.stream().filter(RoadTerrain::landBridge).findFirst().orElseThrow();c.support=!c.support;
         try{PlanConstruction.prepare(ir,"medieval");throw new AssertionError("forged support accepted");}catch(IllegalArgumentException expected){System.out.println("PASS forged support");}
+        r=request();r.expert.suspensionBridges=true;var canyon=terrain(40);var suspended=SettlementPlanner.plan(canyon,r);
+        require("COMPLETE".equals(suspended.status),"suspension rejected: "+suspended.sitePlanning.reasons+" "+suspended.sitePlanning.attempts);
+        ExpertTerrainAudit.validate(canyon,r,suspended);var built=PlanConstruction.prepare(suspended,"medieval");
+        require(suspended.groundColumns.stream().anyMatch(a->a.suspensionBridge),"missing suspension deck");
+        require(suspended.groundColumns.stream().filter(a->"bridge_anchor".equals(a.kind)).count()>=4,"missing bank towers");
+        require(built.stream().anyMatch(e->e.block().startsWith("minecraft:chain")),"missing suspension cables");
+        for(var a:suspended.groundColumns)if(a.suspensionBridge){
+            require(!a.support&&RoadTerrain.matchesFreshTerrain(canyon,a,true),"suspension preflight/pile");
+            require(built.stream().noneMatch(e->e.x()==a.x&&e.z()==a.z&&e.y()<a.targetY),"suspension gap was infilled");
+            if("road".equals(a.kind))require(built.stream().filter(e->e.x()==a.x&&e.z()==a.z&&e.y()>a.targetY&&e.y()<=a.targetY+2).allMatch(e->e.block().equals("minecraft:air")),"blocked bridge headroom");
+        }
+        System.out.println("PASS deep canyon suspension, bank towers, cables and clear walkway");
     }
 }

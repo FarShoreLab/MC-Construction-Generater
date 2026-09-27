@@ -13,3 +13,15 @@ venv/
 .env
 .env.*
 !.env.example
+
+# Local archives and generated exports
+/.local-archive/
+/output/
+/core-planner/output/
+/handoff/*
+!/handoff/building-preset-standard-v1/
+/handoff/building-preset-standard-v1/source-reference/
+/handoff/building-preset-standard-v1/verification/
+/handoff/building-preset-standard-v1/manifest.json
+/handoff/building-preset-standard-v1/LATEST_HANDOFF_ZH.md
+/handoff/building-preset-standard-v1/compiled.json

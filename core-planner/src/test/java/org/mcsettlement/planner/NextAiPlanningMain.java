@@ -82,7 +82,7 @@ public final class NextAiPlanningMain {
         TerrainLandUsePlanner.add(m,r,ir);require(ir.landUses.stream().anyMatch(a->"farmland".equals(a.type)),"farmland missing");require(ir.landUses.stream().anyMatch(a->"pasture".equals(a.type)),"pasture missing");
         Map<Long,GroundColumn> manifest=new HashMap<>();for(var c:ir.groundColumns)manifest.put(key(c.x,c.z),c);
         for(var area:ir.landUses){require(area.cells.size()>=12,"land-use region too small");require(!area.boundary2D.isEmpty(),"natural boundary missing");Set<Long> cells=new HashSet<>();int minX=9999,minZ=9999,maxX=-9999,maxZ=-9999;
-            for(int[] c:area.cells){cells.add(key(c[0],c[1]));minX=Math.min(minX,c[0]);maxX=Math.max(maxX,c[0]);minZ=Math.min(minZ,c[1]);maxZ=Math.max(maxZ,c[1]);GroundColumn g=manifest.get(key(c[0],c[1]));require(g!=null&&area.type.equals(g.kind)&&g.targetY==m.getSurfaceY(c[0],c[1])&&g.originalY==g.targetY,"land use did not follow terrain");}
+            for(int[] c:area.cells){cells.add(key(c[0],c[1]));minX=Math.min(minX,c[0]);maxX=Math.max(maxX,c[0]);minZ=Math.min(minZ,c[1]);maxZ=Math.max(maxZ,c[1]);GroundColumn g=manifest.get(key(c[0],c[1]));require(g!=null&&area.type.equals(g.kind)&&g.originalY==m.getSurfaceY(c[0],c[1])&&(area.terraced?g.terracedFarmland&&Math.abs(g.targetY-g.originalY)<=1:g.originalY==g.targetY),"land use did not follow terrain");}
             require("farm_hut".equals(area.type)||cells.size()<(maxX-minX+1)*(maxZ-minZ+1),"land-use region degenerated to rectangle");for(int[] c:area.boundary2D)require(cells.contains(key(c[0],c[1])),"boundary references non-member cell");
         }
     }

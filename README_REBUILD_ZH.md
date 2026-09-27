@@ -1,4 +1,6 @@
-# 当前源码：有机道路与多形状建筑 v0.4.0
+# 历史重建记录：有机道路与多形状建筑 v0.4.0
+
+当前启动、模块与验收入口见 [README](README.md) 和 [接手指南](docs/HANDOVER_ZH.md)。下文为历史交付语境，其中旧 ZIP 和报告不随当前克隆提供。
 
 2026-09-22 最新增量：独立建筑开关/数量、平地岸边选址偏好、多候选入口；48/64/96 大占地已封存。最新说明见 [预设控制说明](docs/PRESET_CONTROLS_20260922_ZH.md)，作者标准与其他 AI 交接包在 `handoff/building-preset-standard-v1.zip`。文档索引见 [docs/README.md](docs/README.md)。下文为早期重建记录。
 

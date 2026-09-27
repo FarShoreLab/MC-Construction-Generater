@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MC Settlement · 建筑组团与乡村地表</title>
+  <title>MC Settlement · 先选址，再连路</title>
   <style>
     :root { color-scheme: dark; --bg:#07101c; --panel:#0e1b2b; --line:#24384f; --text:#e5eef9; --muted:#94a8bf; --accent:#65d7c7; --orange:#ff9f5b; --cyan:#58c6ff; }
     * { box-sizing:border-box; }
@@ -60,106 +60,46 @@
     .catalog-head button {width:auto;} #catalogGrid {display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:18px;}
     .preset-card {padding:12px;text-align:left;background:#102438;}.preset-card canvas {display:block;width:100%;height:100px;image-rendering:pixelated;margin-bottom:8px;}
     .preset-card small {display:block;color:#a4bace;} #networkDetails {margin-top:10px;}.preset-card:hover{border-color:var(--accent);}
+
+    #app {grid-template-columns:390px 1fr;} #panel {padding:0 20px 24px;background:#0e1926;}
+    .brand {padding:24px 0 18px;} .brand h1 {font-size:25px;margin:5px 0;letter-spacing:-.02em;}
+    .eyebrow {font-size:10px;letter-spacing:.18em;color:var(--accent);}
+    .workflow {position:sticky;top:0;z-index:10;background:#0e1926;padding:12px 0 16px;border-bottom:1px solid var(--line);}
+    .step-track {display:flex;gap:8px;} .step {flex:1;padding:7px 9px;border-radius:7px;color:var(--muted);background:#142333;}
+    .step.active {color:var(--accent);background:#163633;} .step.done {color:#d5e6e4;}
+    #workflowHint {min-height:34px;font-size:12px;margin-top:9px;} #generateRoads {margin-top:8px;}
+    .section {margin-top:16px;padding:14px;border:1px solid var(--line);border-radius:12px;background:#101f2e;}
+    .section>summary {cursor:pointer;font-weight:600;color:#e5eef9;display:flex;justify-content:space-between;gap:6px;}
+    .section>summary span {font-weight:400;font-size:11px;color:var(--muted);} .section h2 {margin:0 0 10px;letter-spacing:.07em;}
+    .section label {font-size:12px;} .section>.hint {margin-top:8px;} .actions {margin-top:10px;}
+    .site-editor {margin-top:16px;padding-top:14px;border-top:1px solid var(--line);} .editor-heading {display:flex;justify-content:space-between;align-items:center;}
+    h3 {font-size:14px;margin:0;} #siteCount {color:var(--accent);font-size:11px;}
+    .text-button {background:transparent;border:0;color:var(--muted);padding:8px;margin-top:3px;}
+    #buildingSelectionPanel {margin-top:12px;} #buildingList {max-height:280px;overflow:auto;}
+    #message {display:block;} #message:empty {display:none;} #siteSummary {font-size:11px;}
+    #hud {max-width:380px;} @media(max-width:800px){#app{grid-template-columns:330px 1fr;}#panel{padding:0 14px 20px;}}
+    #viewToolbar {position:absolute;left:16px;top:16px;z-index:4;display:flex;gap:7px;flex-wrap:wrap;padding:7px;background:#0b1726ee;border:1px solid var(--line);border-radius:10px;max-width:calc(100% - 32px);}
+    #viewToolbar .actions {display:flex;gap:7px;margin:0;} #viewToolbar button {width:auto;padding:7px 10px;margin:0!important;}
+    #hud {top:auto;bottom:16px;right:16px;} #workflowHint {min-height:0;}
+    #draftNotice {position:absolute;left:16px;bottom:18px;z-index:5;max-width:calc(100% - 32px);padding:12px 14px;background:#102332ef;border:1px solid #ffd16a;border-radius:10px;box-shadow:0 8px 28px #0007;}
+    #draftNotice.error {border-color:#ff7373;} #draftNotice strong {display:block;color:#ffd16a;} #draftNotice.error strong {color:#ff9191;}
+    #draftNotice p {font-size:12px;margin:4px 0 8px;} #draftNotice button {width:auto;padding:7px 12px;margin-right:6px;}
   </style>
 </head>
 <body>
 <div id="app">
-  <aside id="panel">
-    <h1>🏔️ 聚落交互预演</h1><p class="hint" id="releaseVersion">34种启用预设 · 自定义数量 / 候选入口 · 多材质路面</p>
-    <p class="hint">地形固定时可反复 roll 方案，比较不同布局。</p>
-
-    <h2>地形输入</h2>
-    <label for="mapSize">地图尺寸</label>
-    <select id="mapSize"><option value="128" selected>128 × 128</option><option value="256">256 × 256</option><option value="512">512 × 512</option><option value="custom">自定义长宽</option></select>
-    <div class="row"><div><label for="mapWidth">宽度 X</label><input id="mapWidth" type="number" min="32" max="512" value="128" disabled></div><div><label for="mapDepth">长度 Z</label><input id="mapDepth" type="number" min="32" max="512" value="128" disabled></div></div>
-    <label for="terrainType">地形类型</label>
-    <select id="terrainType">
+<aside id="panel"><header class="brand"><span class="eyebrow">MC SETTLEMENT / DEMO</span><h1>从选址到路网</h1><p id="releaseVersion">先安排建筑，再连接道路。</p></header><div class="workflow"><div class="step-track"><span id="siteStep" class="step active">01 建筑选址</span><span id="roadStep" class="step">02 道路生成</span></div><p id="workflowHint">生成建筑选址后，可逐栋调整位置。</p><p class="hint">生成选址应用当前设置；换一组沿用已生成地形。</p><div id="message" role="status" aria-live="polite"></div><div class="actions"><button class="primary" id="generate">生成建筑选址</button><button class="secondary" id="roll">换一组选址</button></div><button id="generateRoads" class="primary" disabled>② 确认选址，生成道路</button></div><details class="section"><summary>地形与地图 <span>生成前设置</span></summary><label for="mapSize">地图尺寸</label><select id="mapSize"><option value="128" selected>128 × 128</option><option value="256">256 × 256</option><option value="512">512 × 512</option><option value="custom">自定义长宽</option></select><div class="row"><div><label for="mapWidth">宽度 X</label><input id="mapWidth" type="number" min="32" max="512" value="128" disabled></div><div><label for="mapDepth">长度 Z</label><input id="mapDepth" type="number" min="32" max="512" value="128" disabled></div></div><label for="terrainType">地形类型</label><select id="terrainType">
       <option value="rolling_hills">起伏丘陵</option>
       <option value="mountain">山地脊线</option>
       <option value="valley">环谷地形</option>
       <option value="plateau">台地阶地</option>
-    </select>
-    <p id="terrainTypeHelp" class="hint"></p>
-    <div class="row">
-      <div><label for="relief">起伏 relief</label><input id="relief" type="number" min="4" max="36" value="24"></div>
-      <div><label for="baseElevation">基准 Y</label><input id="baseElevation" type="number" min="50" max="75" value="58"></div>
-    </div>
-    <p class="hint">起伏调低：高差收小；调高：高差拉大。基准Y只上下平移地形和水位，不让坡面更平。</p>
-    <label for="terrainSeed">terrainSeed（地形）</label>
-    <input id="terrainSeed" type="number" value="42">
-
-    <p class="hint">种子改变布局，没有“越大越高”的关系。先固定种子，再逐项调节。</p>
-    <div id="terrainControls"></div>
-    <div class="actions">
-      <button class="primary" id="terrainOnly">只生成地形</button>
-      <button id="resetTerrain">重置调节项</button>
-    </div>
-    <p class="hint">修改后点击“只生成地形”或“生成地形 + 规划”。“只重新规划”沿用上次已生成地形，不应用未生成的调节值。</p>
-    <details class="terrain-group"><summary>原生成函数与接口</summary>
-      <p class="hint">原入口 generateHillsideWorld(...)、generateWorld(...) 保留。新增 generateWorld(..., TerrainParameters) 和 sampleSurfaceY(...)；同一份公式同时用于生成和采样。</p>
-      <p class="hint">HTTP：/api/terrain 只生成地形；/api/plan 将同样参数接入原规划。恢复默认不会改种子、尺寸、起伏或基准Y。</p>
-    </details>
-
-    <h2>规划输入</h2>
-    <label for="layoutMode">规划方式</label><select id="layoutMode"><option value="expert">选址专家 · 先建筑后道路</option><option value="legacy">旧版 · 沿路生长（对照）</option></select>
-    <div id="expertFields">
-      <p class="hint">关键建筑优先、逐栋动态选址、近邻拥挤评分、土方与滨水规则；不调用语言模型。满足数量但占图太少或太瘦长，也会拒绝施工。</p>
-      <div class="row"><div><label for="sitePreference">专家选址偏好</label><select id="sitePreference"><option value="clearings" selected>平地 / 岸边优先 · 减少清林</option><option value="balanced">原版均衡 · 对照</option></select>
-      <label for="settlementMode">聚落模式</label><select id="settlementMode"><option value="village">村落 · 疏朗</option><option value="town">城镇 · 中密度</option><option value="city">城市 · 紧凑街区 / 高度层级</option></select></div><div><label for="maxPlanAttempts">REJECTED 自动重试轮数</label><input id="maxPlanAttempts" type="number" min="1" max="8" step="1" value="3"></div></div>
-      <div class="row"><div><label for="siteSeed">siteSeed（固定选址）</label><input id="siteSeed" placeholder="留空 = 跟随 planSeed"></div><div style="display:flex;gap:6px;align-items:end"><button id="lockSites" type="button">锁定当前选址</button><button id="unlockSites" type="button">解除锁定</button></div></div>
-      <p class="hint">固定 siteSeed 后，planSeed 只 roll 道路；自动建筑选址保持不变。人工指定点始终是硬约束。自动重试仅在完整方案 REJECTED 时换 planSeed，达到轮数上限即停止。</p>
-      <div class="row"><div><label for="minBBoxCoverage">最小包围框占图 %</label><input id="minBBoxCoverage" type="number" min="0" max="85" step="1" value="25"></div><div><label for="minMinorAxisRatio">最小短／长轴比 %</label><input id="minMinorAxisRatio" type="number" min="0" max="90" step="1" value="30"></div></div>
-      <p class="hint">占图调高：要求建筑展开更广；调低：允许集中。轴比调高：拒绝更瘦长的布局。只统计建筑，不拿道路或码头凑面积。≥3栋还检查中心凸包，防止斜线刷大框。高门槛可能无方案。</p>
-      <div class="row"><div><label for="buildingRepulsion">建筑拥挤惩罚</label><input id="buildingRepulsion" type="number" min="0" max="3" step="0.25" value="1"></div><div><label for="roadMergeDistance">近路复用范围（格）</label><input id="roadMergeDistance" type="number" min="0" max="16" step="1" value="7"></div></div>
-      <p class="hint">拥挤默认1，0—3：调高更排斥自动建筑挤在一起；调低更允许接近；0同时移除自动选址的宏观 maximin 拉开压力；包围框/轴比仍是独立硬约束。人工锁定点不移动。近路范围默认7，0—16：调高更倾向复用附近同层道路；调低缩小范围；0关闭此项。交叉路口、不同标高不强行合并。</p>
-      <label><input id="allowBridges" type="checkbox" checked style="width:auto"> 允许桩桥和水上桩基</label>
-      <label><input id="autoDock" type="checkbox" checked style="width:auto"> 尝试一个可选码头</label>
-      <div class="row"><div><label for="maxBridgeSpan">连续涉水上限（格）</label><input id="maxBridgeSpan" type="number" min="4" max="96" step="1" value="48"></div><div><label for="maxLandBridgeSpan">连续陆地架空上限（格）</label><input id="maxLandBridgeSpan" type="number" min="2" max="32" step="1" value="12"></div></div>
-      <p class="hint">普通陆地默认只允许常规挖填；陆地桥只用于局部沟谷/陡坎并限制连续跨度。跨水桥仍使用独立上限，桥面固定在水面上一格。</p>
-      <details class="terrain-group" id="pinPanel"><summary>人工指定建筑 / 码头（最多8项）</summary>
-        <p class="hint">指定点优先于自动选址；建筑计入目标总数，码头不计。锁定的是旋转后占地框的最小X/Z原点，不是建筑中心。无法安放或连接则整案拒绝，不移动、不缩小。</p>
-        <div class="row"><div><label for="pinId">唯一 ID</label><input id="pinId" value="my_building" maxlength="32"></div><div><label for="pinKind">类型</label><select id="pinKind"><option value="land">陆地建筑</option><option value="water">水上桩基建筑</option><option value="dock">码头端点</option></select></div></div>
-        <label for="pinPreset">建筑预设</label><select id="pinPreset"><option value="square_cabin">方形小屋 · 5 × 5</option></select>
-        <div class="row"><div><label for="pinX">原点 X</label><input id="pinX" type="number" step="1" value="32"></div><div><label for="pinZ">原点 Z</label><input id="pinZ" type="number" step="1" value="32"></div></div>
-        <button id="pickPin" type="button" style="margin-top:8px">从地图点选 X/Z</button>
-        <div class="row"><div><label for="pinFacing">门朝向</label><select id="pinFacing"><option>NORTH</option><option>EAST</option><option>SOUTH</option><option>WEST</option></select></div><div><label for="pinY">平台 Y（留空自动）</label><input id="pinY" type="number" step="1" placeholder="自动选高"></div></div>
-        <label for="pinConnect">强制连接对象</label><input id="pinConnect" list="pinTargets" value="network"><datalist id="pinTargets"><option value="network"><option value="entry"></datalist>
-        <p class="hint">network = 接入路网；entry = 指定连至入口；其他人工 ID = 保留明确的端点到端点路线，可复用已有道路。ID 仅英文、数字、下划线和短横线；水上建筑须实际覆盖水面，码头端点须在水上。</p>
-        <button id="savePin" class="primary" type="button">添加 / 更新同 ID 约束</button><div id="pinList" style="margin-top:9px"></div>
-      </details>
-    </div>
-    <label for="roadDirections">道路航向</label><select id="roadDirections"><option value="8">8方向 · 含45°斜向</option><option value="12">12方向 · 对称(2,1)/(1,2)斜向</option><option value="16" selected>8＋12混合 · 16种航向</option></select>
-    <label for="diagonalBuildings"><input id="diagonalBuildings" type="checkbox" style="width:auto;margin-right:6px">允许45°建筑区域（真实栅格占地）</label>
-    <p class="hint">平台独立选高；升降铺装使用真实台阶。12方向不是精确30°分度；混合模式取8向与12向的并集，可在同一路线上使用45°和(2,1)斜向，不是20向。</p>
-    <label for="planSeed">planSeed（方案 roll）</label>
-    <input id="planSeed" type="number" value="42">
-    <label for="targetPlots">目标地块 / 组团数</label>
-    <input id="targetPlots" type="number" min="1" max="64" value="7">
-    <label for="roadSurface">路面材质</label><select id="roadSurface"><option value="dirt_path" selected>土径 · 黄色乡村路面</option><option value="gravel">砂砾</option><option value="cobblestone">圆石</option><option value="stone_bricks">石砖</option></select>
-    <p class="hint">坡面使用圆石台阶，石砖路使用石砖台阶；桥面保留木板。农田按地形开垦，粗泥土围边；附近有平整空地且预算允许时配套小屋。</p>
-    <label for="presetPalette">建筑占地预设组</label>
-    <select id="presetPalette"><option value="estates" selected>按地图配比 · 中小建筑</option><option value="crafted">精制建筑 · 12种大小 / 庭院 / 坡屋顶</option><option value="mixed">混合 · 多尺寸 / 多形状</option><option value="classic">原版 · 公平回归对照</option><option value="compact">紧凑组 · 明确选择小体量</option><option value="spacious">大体量组</option><option value="custom">独立建筑列表 · 开关与数量</option><option value="single">单一指定预设</option></select>
-    <select id="singlePresetId" style="display:none;margin-top:7px"><option value="square_cabin">方形小屋 · 5 × 5</option></select>
-    <details id="buildingSelectionPanel"><summary>独立建筑开关与数量</summary><p class="hint">切换到“独立建筑列表”后生效；数量总和即目标地块数（1–64）。此模式不与人工建筑锁定点混用。</p><div id="buildingList"></div><button type="button" id="useBuildingList">使用此列表</button></details>
-    <button id="openCatalog" style="margin-top:7px">查看建筑占地预设</button>
-    <p class="hint">48/64/96格大组团已封存。按地图配比生成中小建筑；自定义列表按启用项的指定数量生成，不放入禁用预设。目标数量超过承载量或硬约束时明确拒绝。农田配套小屋独立于主体预设列表。</p>
-    <div class="actions">
-      <button class="primary" id="generate">生成地形 + 规划</button>
-      <button class="secondary" id="roll">只重新规划</button>
-      <button class="secondary" id="randomTerrain">随机地形种子</button>
-      <button class="secondary" id="compare" disabled>比较上一方案</button>
-    </div>
-
-    <h2>查看模式</h2>
-    <div class="actions">
-      <button data-mode="original">原始地形</button>
-      <button data-mode="planning" class="active">规划叠加</button>
-      <button data-mode="constructed">施工结果</button>
-      <button data-mode="compare" disabled>方案比较</button>
-    </div>
-
-    <button id="topView" style="margin-top:10px">俯视 / 斜视</button>
-    <h2>实际生成参数</h2>
+      <option value="desert">沙漠</option>
+      <option value="canyon">大峡谷</option>
+      <option value="basin">盆地</option>
+      <option value="cliff">悬崖</option>
+      <option value="mountain_range">山脉</option>
+      <option value="snow_peak">雪峰</option>
+    </select><p id="terrainTypeHelp" class="hint"></p><div class="row"><div><label for="relief">地形起伏（格）</label><input id="relief" type="number" min="4" max="128" value="24"></div><div><label for="baseElevation">地表基准高度</label><input id="baseElevation" type="number" min="50" max="75" value="58"></div></div><label for="terrainSeed">地形种子</label><input id="terrainSeed" type="number" value="42"><details class="terrain-group"><summary>地形细节</summary><div id="terrainControls"></div></details><div class="actions"><button class="primary" id="terrainOnly">只生成地形</button><button class="secondary" id="randomTerrain">随机地形种子</button></div><button id="resetTerrain">重置调节项</button></details><section class="section"><h2>01 / 建筑选址</h2><label for="presetPalette">建筑组合</label><select id="presetPalette"><option value="estates" selected>按地图配比 · 中小建筑</option><option value="crafted">精制建筑 · 12种大小 / 庭院 / 坡屋顶</option><option value="mixed">混合 · 多尺寸 / 多形状</option><option value="classic">原版 · 公平回归对照</option><option value="compact">紧凑组 · 明确选择小体量</option><option value="spacious">大体量组</option><option value="custom">独立建筑列表 · 开关与数量</option><option value="single">单一指定预设</option></select><select id="singlePresetId" style="display:none;margin-top:7px"><option value="square_cabin">方形小屋 · 5 × 5</option></select><div class="row"><div><label for="targetPlots">建筑数量</label><input id="targetPlots" type="number" min="1" max="64" value="7"></div><div><label for="settlementMode">聚落密度</label><select id="settlementMode"><option value="village">村落 · 疏朗</option><option value="town">城镇 · 中密度</option><option value="city">城市 · 紧凑街区 / 高度层级</option></select></div></div><button id="openCatalog" style="margin-top:7px">查看建筑占地预设</button><details id="buildingSelectionPanel"><summary>独立建筑开关与数量</summary><p class="hint">切换到“独立建筑列表”后生效；数量总和即目标地块数（1–64）。生成后可逐栋调整位置。</p><div id="buildingList"></div><button type="button" id="useBuildingList">使用此列表</button></details><div id="siteEditor" class="site-editor" hidden><div class="editor-heading"><h3>调整建筑位置</h3><span id="siteCount"></span></div><p class="hint">选择一栋建筑，在地图点选新原点，或填写坐标。</p><label for="selectedBuilding">当前建筑</label><select id="selectedBuilding"></select><div class="row"><div><label for="siteX">原点 X</label><input id="siteX" type="number" step="1"></div><div><label for="siteZ">原点 Z</label><input id="siteZ" type="number" step="1"></div></div><div class="row"><div><label for="siteY">平台高度 Y</label><input id="siteY" type="number" step="1" placeholder="留空自动选高"></div><div><label for="siteFacing">建筑朝向</label><select id="siteFacing"><option value="NORTH">北</option><option value="EAST">东</option><option value="SOUTH">南</option><option value="WEST">西</option></select></div></div><p id="selectedBuildingInfo" class="hint"></p><div class="actions"><button id="moveSite">地图点选新位置</button><button id="applySite" class="primary">应用位置调整</button></div><button id="cancelSiteEdit" class="text-button">撤回未应用调整</button><p id="siteEditHint" class="hint"></p></div></section><details class="section" open><summary>02 / 道路设置 <span>确认选址后生成</span></summary><label for="roadSurface">路面材质</label><select id="roadSurface"><option value="dirt_path" selected>土径 · 黄色乡村路面</option><option value="gravel">砂砾</option><option value="cobblestone">圆石</option><option value="stone_bricks">石砖</option></select><details class="terrain-group"><summary>道路细节</summary><label for="roadDirections">连接方向</label><select id="roadDirections"><option value="8">8方向 · 含45°斜向</option><option value="12">12方向 · 对称(2,1)/(1,2)斜向</option><option value="16" selected>8＋12混合 · 16种航向</option></select><div class="row"><div><label for="roadMergeDistance">附近道路复用（格）</label><input id="roadMergeDistance" type="number" min="0" max="16" step="1" value="7"></div><div><label for="planSeed">道路种子</label><input id="planSeed" type="number" value="42"></div></div><label for="allowBridges">允许桥梁与水上桩基</label><input id="allowBridges" type="checkbox" checked style="width:auto"><label for="autoDock">尝试生成码头</label><input id="autoDock" type="checkbox" checked style="width:auto"><div class="row"><div><label for="maxBridgeSpan">跨水上限（格）</label><input id="maxBridgeSpan" type="number" min="4" max="96" step="1" value="48"></div><div><label for="maxLandBridgeSpan">陆地桥上限（格）</label><input id="maxLandBridgeSpan" type="number" min="2" max="32" step="1" value="12"></div></div></details><p class="hint">道路连接当前确认的全部建筑。调整建筑后，需要重新生成道路。</p></details><details class="section"><summary>选址高级设置</summary><div id="expertFields"><label for="sitePreference">选址偏好</label><select id="sitePreference"><option value="clearings" selected>平地 / 岸边优先 · 减少清林</option><option value="balanced">原版均衡 · 对照</option></select><label for="buildingRepulsion">建筑间距偏好</label><input id="buildingRepulsion" type="number" min="0" max="3" step="0.25" value="1"><div class="row"><div><label for="minBBoxCoverage">最小展开面积 %</label><input id="minBBoxCoverage" type="number" min="0" max="85" step="1" value="25"></div><div><label for="minMinorAxisRatio">最小短长轴比 %</label><input id="minMinorAxisRatio" type="number" min="0" max="90" step="1" value="30"></div></div><label for="diagonalBuildings">允许 45° 建筑占地</label><input id="diagonalBuildings" type="checkbox" style="width:auto;margin-right:6px"><label for="siteSeed">选址种子（留空跟随道路种子）</label><input id="siteSeed" placeholder="留空 = 跟随 planSeed"><label for="maxPlanAttempts">失败尝试次数</label><input id="maxPlanAttempts" type="number" min="1" max="8" step="1" value="3"></div></details><details class="section"><summary>视图与生成信息</summary><button class="secondary" id="compare" disabled>比较上一方案</button>    <h2>实际生成参数</h2>
     <div id="actual">等待规划响应…</div>
     <h2>指标</h2>
     <div id="terrainMetrics" hidden></div>
@@ -177,11 +117,102 @@
     <details style="margin-top:10px"><summary>搜索与资源上限</summary><div id="budgets" class="hint"></div><p class="hint">响应 ≤32 MiB；每层地上可见体素 ≤400,000；单次服务端请求 ≤90秒。达到上限会拒绝或明确报告缺额，不截断施工。</p></details>
     <ul id="unmet"></ul>
     <div id="compareInfo" style="display:none"></div>
-    <div id="message"></div>
-  </aside>
-  <main id="viewport">
+
+</details>  <div hidden>
+    <h1>🏔️ 聚落交互预演</h1><p class="hint" id="legacyReleaseVersion">34种启用预设 · 自定义数量 / 候选入口 · 多材质路面</p>
+    <p class="hint">地形固定时可反复 roll 方案，比较不同布局。</p>
+
+    <h2>地形输入</h2>
+    <label for="mapSize">地图尺寸</label>
+
+    <div class="row"><div><label for="mapWidth">宽度 X</label></div><div><label for="mapDepth">长度 Z</label></div></div>
+    <label for="terrainType">地形类型</label>
+
+
+    <div class="row">
+      <div><label for="relief">起伏 relief</label></div>
+      <div><label for="baseElevation">基准 Y</label></div>
+    </div>
+    <p class="hint">起伏范围 4–128 格：地表位于基准Y至基准Y＋起伏之间。调低收小高差，调高增加高差；雪峰的横向尺度调高可生成更宽的山体。</p>
+    <label for="terrainSeed">terrainSeed（地形）</label>
+
+
+    <p class="hint">种子改变布局，没有“越大越高”的关系。先固定种子，再逐项调节。</p>
+
+    <div class="actions">
+
+
+    </div>
+    <p class="hint">修改后点击“只生成地形”或“生成建筑选址”。“重新生成选址”沿用上次已生成地形，不应用未生成的调节值。</p>
+    <details class="terrain-group"><summary>原生成函数与接口</summary>
+      <p class="hint">原入口 generateHillsideWorld(...)、generateWorld(...) 保留。新增 generateWorld(..., TerrainParameters) 和 sampleSurfaceY(...)；同一份公式同时用于生成和采样。</p>
+      <p class="hint">HTTP：/api/terrain 只生成地形；/api/plan 将同样参数接入原规划。恢复默认不会改种子、尺寸、起伏或基准Y。</p>
+    </details>
+
+    <h2>规划输入</h2>
+    <label for="layoutMode">规划方式</label><select id="layoutMode"><option value="expert">选址专家 · 先建筑后道路</option><option value="legacy">旧版 · 沿路生长（对照）</option></select>
+    <div id="legacyExpertFields">
+      <p class="hint">关键建筑优先、逐栋动态选址、近邻拥挤评分、土方与滨水规则；不调用语言模型。满足数量但占图太少或太瘦长，也会拒绝施工。</p>
+      <div class="row"><div><label for="sitePreference">专家选址偏好</label>
+      <label for="settlementMode">聚落模式</label></div><div><label for="maxPlanAttempts">REJECTED 自动重试轮数</label></div></div>
+      <div class="row"><div><label for="siteSeed">siteSeed（固定选址）</label></div><div style="display:flex;gap:6px;align-items:end"><button id="lockSites" type="button">锁定当前选址</button><button id="unlockSites" type="button">解除锁定</button></div></div>
+      <p class="hint">固定 siteSeed 后，planSeed 只 roll 道路；自动建筑选址保持不变。人工指定点始终是硬约束。自动重试仅在完整方案 REJECTED 时换 planSeed，达到轮数上限即停止。</p>
+      <div class="row"><div><label for="minBBoxCoverage">最小包围框占图 %</label></div><div><label for="minMinorAxisRatio">最小短／长轴比 %</label></div></div>
+      <p class="hint">占图调高：要求建筑展开更广；调低：允许集中。轴比调高：拒绝更瘦长的布局。只统计建筑，不拿道路或码头凑面积。≥3栋还检查中心凸包，防止斜线刷大框。高门槛可能无方案。</p>
+      <div class="row"><div><label for="buildingRepulsion">建筑拥挤惩罚</label></div><div><label for="roadMergeDistance">近路复用范围（格）</label></div></div>
+      <p class="hint">拥挤默认1，0—3：调高更排斥自动建筑挤在一起；调低更允许接近；0同时移除自动选址的宏观 maximin 拉开压力；包围框/轴比仍是独立硬约束。人工锁定点不移动。近路范围默认7，0—16：调高更倾向复用附近同层道路；调低缩小范围；0关闭此项。交叉路口、不同标高不强行合并。</p>
+      <label> 允许桥梁（峡谷吊桥）和水上桩基</label>
+      <label> 尝试一个可选码头</label>
+      <div class="row"><div><label for="maxBridgeSpan">连续涉水上限（格）</label></div><div><label for="maxLandBridgeSpan">连续陆地架空上限（格）</label></div></div>
+      <p class="hint">普通陆地默认只允许常规挖填；陆地桥只用于局部沟谷/陡坎并限制连续跨度。跨水桥仍使用独立上限，桥面固定在水面上一格。</p>
+      <details class="terrain-group" id="pinPanel"><summary>人工指定建筑 / 码头（最多8项）</summary>
+        <p class="hint">指定点优先于自动选址；建筑计入目标总数，码头不计。锁定的是旋转后占地框的最小X/Z原点，不是建筑中心。无法安放或连接则整案拒绝，不移动、不缩小。</p>
+        <div class="row"><div><label for="pinId">唯一 ID</label><input id="pinId" value="my_building" maxlength="32"></div><div><label for="pinKind">类型</label><select id="pinKind"><option value="land">陆地建筑</option><option value="water">水上桩基建筑</option><option value="dock">码头端点</option></select></div></div>
+        <label for="pinPreset">建筑预设</label><select id="pinPreset"><option value="square_cabin">方形小屋 · 5 × 5</option></select>
+        <div class="row"><div><label for="pinX">原点 X</label><input id="pinX" type="number" step="1" value="32"></div><div><label for="pinZ">原点 Z</label><input id="pinZ" type="number" step="1" value="32"></div></div>
+        <button id="pickPin" type="button" style="margin-top:8px">从地图点选 X/Z</button>
+        <div class="row"><div><label for="pinFacing">门朝向</label><select id="pinFacing"><option>NORTH</option><option>EAST</option><option>SOUTH</option><option>WEST</option></select></div><div><label for="pinY">平台 Y（留空自动）</label><input id="pinY" type="number" step="1" placeholder="自动选高"></div></div>
+        <label for="pinConnect">强制连接对象</label><input id="pinConnect" list="pinTargets" value="network"><datalist id="pinTargets"><option value="network"><option value="entry"></datalist>
+        <p class="hint">network = 接入路网；entry = 指定连至入口；其他人工 ID = 保留明确的端点到端点路线，可复用已有道路。ID 仅英文、数字、下划线和短横线；水上建筑须实际覆盖水面，码头端点须在水上。</p>
+        <button id="savePin" class="primary" type="button">添加 / 更新同 ID 约束</button><div id="pinList" style="margin-top:9px"></div>
+      </details>
+    </div>
+    <label for="roadDirections">道路航向</label>
+    <label for="diagonalBuildings">允许45°建筑区域（真实栅格占地）</label>
+    <p class="hint">平台独立选高；升降铺装使用真实台阶。12方向不是精确30°分度；混合模式取8向与12向的并集，可在同一路线上使用45°和(2,1)斜向，不是20向。</p>
+    <label for="planSeed">planSeed（方案 roll）</label>
+
+    <label for="targetPlots">目标地块 / 组团数</label>
+
+    <label for="roadSurface">路面材质</label>
+    <p class="hint">坡面使用圆石台阶，石砖路使用石砖台阶；桥面保留木板。农田包含多块不规则顺地形田地与局部挖填梯田，粗泥土围边；附近有平整空地且预算允许时配套小屋。</p>
+    <label for="presetPalette">建筑占地预设组</label>
+
+
+
+
+    <p class="hint">48/64/96格大组团已封存。按地图配比生成中小建筑；自定义列表按启用项的指定数量生成，不放入禁用预设。目标数量超过承载量或硬约束时明确拒绝。农田配套小屋独立于主体预设列表。</p>
+    <div class="actions">
+
+
+
+
+    </div>
+
+    <h2>查看模式</h2>
+
+
+
+  </div></aside>
+  <main id="viewport"><nav id="viewToolbar" aria-label="地图视图"><div class="actions">
+      <button data-mode="original">原始地形</button>
+      <button data-mode="planning" class="active">规划叠加</button>
+      <button data-mode="constructed">施工结果</button>
+      <button data-mode="compare" disabled>方案比较</button>
+    </div><button id="topView" style="margin-top:10px">俯视 / 斜视</button></nav>
     <div id="hud"><span class="chip"><i class="dot orange"></i>当前方案</span><span class="chip"><i class="dot cyan"></i>上一方案</span></div>
     <canvas id="canvas"></canvas>
+    <div id="draftNotice" hidden role="status" aria-live="polite"><strong id="draftTitle"></strong><p id="draftDescription"></p><button id="applyDraft" class="primary">应用此位置</button><button id="cancelDraft">撤回调整</button><button id="exitMove">结束点选</button></div>
     <div id="loading">规划请求处理中…</div>
   </main>
 </div>
@@ -191,7 +222,8 @@
 <script src="/vendor/OrbitControls.js"></script>
 <script>
   const $ = id => document.getElementById(id);
-  const state = { current:null, previous:null, mode:'planning', scene:null, camera:null, renderer:null, controls:null, worldGroup:null, overlayGroup:null, centerY:0, requestPending:false };
+  const state = { current:null, previous:null, sites:null, selectedSite:null, siteDirty:false, moveSite:false, mode:'planning', scene:null, camera:null, renderer:null, controls:null, worldGroup:null, overlayGroup:null, centerY:0, requestPending:false };
+  const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
   let terrainSchema=null, terrainLastType=null;
   let manualPins=[],pickPinMode=false;
   const terrainSpecs = () => terrainSchema ? terrainSchema.controls : [];
@@ -271,9 +303,9 @@
     return Object.fromEntries(Object.entries(params).filter(([key])=>keys.has(key)));
   }
   function showInputError(error) {$('message').className='error';$('message').textContent=String(error.message||error);}
-  function generateFromForm(terrainOnly=false) {try {requestPlan(formParams(terrainOnly),terrainOnly);}catch(error){showInputError(error);}}
+  function generateFromForm(terrainOnly=false) {try {const params=formParams(terrainOnly);params.planningStage='sites';params.layoutMode='expert';params.pins=[];requestPlan(params,terrainOnly);}catch(error){showInputError(error);}}
 
-  const colors = { 1:0x64748b, 2:0x795548, 3:0x4f8c3b, 4:0x237bb8, 5:0x5b3a29, 6:0x2d7b45, 7:0xaaa69d, 8:0x73777f, 9:0x4b5563, 10:0xe87936, 11:0x3e2c20, 12:0x8d6e63, 13:0xc9b6a8, 14:0x7dd3fc, 15:0xa1887f, 16:0xb59a60, 17:0x68482d, 18:0x93704a, 19:0xddd0b7, 20:0x995f4e, 21:0x38414c, 22:0x4b3328, 23:0x65717d };
+  const colors = { 1:0x64748b, 2:0x795548, 3:0x4f8c3b, 4:0x237bb8, 5:0x5b3a29, 6:0x2d7b45, 7:0xaaa69d, 8:0x73777f, 9:0x4b5563, 10:0xe87936, 11:0x3e2c20, 12:0x8d6e63, 13:0xc9b6a8, 14:0x7dd3fc, 15:0xa1887f, 16:0xb59a60, 17:0x68482d, 18:0x93704a, 19:0xddd0b7, 20:0x995f4e, 21:0x38414c, 22:0x4b3328, 23:0x65717d, 24:0xdfc68a, 25:0xbe985d, 26:0xb66e48, 27:0xedf4fa, 28:0x514a42, 29:0x514a42, 30:0x514a42 };
   const worldBox = new THREE.BoxGeometry(1, 1, 1);
   const dummy = new THREE.Object3D();
 
@@ -287,7 +319,7 @@
     catch(error) {
       state.fallback2D=true;
       $('hud').insertAdjacentHTML('beforeend','<span class="chip">二维兼容视图 · WebGL 不可用</span>');
-      resize();return;
+      resize();animateDraft2D();return;
     }
     state.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     state.renderer.outputEncoding = THREE.sRGBEncoding;
@@ -309,10 +341,12 @@
     state.renderer.setSize(w, h, false);
     state.camera.aspect = w / Math.max(1, h);
     state.camera.updateProjectionMatrix();
+    if(state.current)fitCameraToTerrain(state.current.original);
   }
 
   function animate() {
     requestAnimationFrame(animate);
+    if(state.draftFill){const pulse=draftPulse();state.draftFill.material.opacity=.22+.35*pulse;state.draftOutline.material.opacity=.45+.4*pulse;}
     state.controls.update();
     state.renderer.render(state.scene, state.camera);
   }
@@ -343,8 +377,10 @@
     const center = bounds.getCenter(new THREE.Vector3());
     const radius = bounds.getSize(new THREE.Vector3()).length() / 2;
     const fov = THREE.MathUtils.degToRad(state.camera.fov);
-    const distance = Math.max(32, radius / Math.sin(fov / 2) * 1.15);
-    const direction = new THREE.Vector3(1.05, 1.45, 1.05).normalize();
+    const halfFov=Math.min(fov/2,Math.atan(Math.tan(fov/2)*state.camera.aspect));
+    const distance = Math.max(32, radius / Math.sin(halfFov) * 1.15);
+    const direction = state.topView?new THREE.Vector3(0,1,.0001).normalize():new THREE.Vector3(1.05, 1.45, 1.05).normalize();
+    state.camera.up.set(0,state.topView?0:1,state.topView?-1:0);
     state.camera.position.copy(center).add(direction.multiplyScalar(distance));
     state.camera.near = Math.max(.1, distance / 1000);
     state.camera.far = Math.max(1000, distance * 8);
@@ -356,6 +392,7 @@
   function renderWorld(layer, opacity=1) {
     const group=new THREE.Group(), width=layer.sizeX, depth=layer.sizeZ, centerY=layer.minY+layer.sizeY/2;
     state.centerY=centerY;
+    const strata=new Map();for(const band of layer.strata||[]){if(!strata.has(band[0]))strata.set(band[0],[]);strata.get(band[0]).push(band);}
     const palette={}; for(const [id,value] of Object.entries(colors)) palette[id]=new THREE.Color(value);
     const terrainMaterial=new THREE.MeshStandardMaterial({vertexColors:true,roughness:.95,side:THREE.DoubleSide});
     const waterMaterial=new THREE.MeshStandardMaterial({color:colors[4],transparent:true,opacity:.74,roughness:.3,side:THREE.DoubleSide});
@@ -371,10 +408,15 @@
         const i=z*width+x,h=layer.heights[i]+1-centerY,id=layer.materials[i],ax=x-width/2,bx=ax+1,az=z-depth/2,bz=az+1;
         quad([[ax,h,az],[ax,h,bz],[bx,h,bz],[bx,h,az]],[0,1,0],id);
         const level=(xx,zz)=>xx<0||zz<0||xx>=width||zz>=depth?layer.minY-centerY:layer.heights[zz*width+xx]+1-centerY;
-        let low=level(x-1,z);if(h>low)quad([[ax,low,az],[ax,low,bz],[ax,h,bz],[ax,h,az]],[-1,0,0],id===3?2:id);
-        low=level(x+1,z);if(h>low)quad([[bx,low,bz],[bx,low,az],[bx,h,az],[bx,h,bz]],[1,0,0],id===3?2:id);
-        low=level(x,z-1);if(h>low)quad([[bx,low,az],[ax,low,az],[ax,h,az],[bx,h,az]],[0,0,-1],id===3?2:id);
-        low=level(x,z+1);if(h>low)quad([[ax,low,bz],[bx,low,bz],[bx,h,bz],[ax,h,bz]],[0,0,1],id===3?2:id);
+        function wall(low,normal,points){
+          if(h<=low)return;
+          const bands=strata.get(i);if(!bands){quad(points(low,h),normal,id===3?2:id);return;}
+          for(const band of bands){const bottom=Math.max(low,band[1]-centerY),top=Math.min(h,band[2]-centerY);if(top>bottom)quad(points(bottom,top),normal,band[3]);}
+        }
+        wall(level(x-1,z),[-1,0,0],(l,t)=>[[ax,l,az],[ax,l,bz],[ax,t,bz],[ax,t,az]]);
+        wall(level(x+1,z),[1,0,0],(l,t)=>[[bx,l,bz],[bx,l,az],[bx,t,az],[bx,t,bz]]);
+        wall(level(x,z-1),[0,0,-1],(l,t)=>[[bx,l,az],[ax,l,az],[ax,t,az],[bx,t,az]]);
+        wall(level(x,z+1),[0,0,1],(l,t)=>[[ax,l,bz],[bx,l,bz],[bx,t,bz],[ax,t,bz]]);
         if(layer.waters[i]>=0){const wh=layer.waters[i]+1-centerY;water.push(ax,wh,az,ax,wh,bz,bx,wh,bz,ax,wh,az,bx,wh,bz,bx,wh,az);}
       }
       const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));geometry.setAttribute('normal',new THREE.Float32BufferAttribute(normals,3));geometry.setAttribute('color',new THREE.Float32BufferAttribute(vertexColors,3));geometry.setIndex(indices);geometry.computeBoundingSphere();group.add(new THREE.Mesh(geometry,terrainMaterial));
@@ -386,7 +428,7 @@
       const isStair=id===10||id===23,mesh=new THREE.InstancedMesh(worldBox,material,voxels.length*(isStair?2:1));
       voxels.forEach((v,i)=>{
         const x=v[0]-width/2+.5,y=v[1]+layer.minY-centerY,z=v[2]-depth/2+.5;
-        dummy.rotation.set(0,0,0);dummy.position.set(x,y+(isStair?.25:.5),z);dummy.scale.set(1,isStair?.5:1,1);dummy.updateMatrix();mesh.setMatrixAt(isStair?i*2:i,dummy.matrix);
+        dummy.rotation.set(0,0,0);dummy.position.set(x,y+(isStair?.25:.5),z);dummy.scale.set(id===29||id===30?.18:1,isStair?.5:id===28||id===30?.18:1,id===28||id===29?.18:1);dummy.updateMatrix();mesh.setMatrixAt(isStair?i*2:i,dummy.matrix);
         if(isStair){const dir=[[0,-1],[1,0],[0,1],[-1,0]][v[4]||0];dummy.position.set(x+dir[0]*.25,y+.75,z+dir[1]*.25);dummy.scale.set(dir[0]?.5:1,.5,dir[1]?.5:1);dummy.updateMatrix();mesh.setMatrixAt(i*2+1,dummy.matrix);}
       });mesh.instanceMatrix.needsUpdate=true;group.add(mesh);
     });
@@ -409,14 +451,20 @@
       dummy.rotation.set(0, 0, 0); dummy.scale.set(1, 1, 1); dummy.updateMatrix(); roads.setMatrixAt(index, dummy.matrix);
     });
     roads.instanceMatrix.needsUpdate = true; group.add(roads);
-    const foundationCells=plan.groundColumns.filter(c=>c.kind==='foundation');
+    const selected=plan.plots.find(p=>p.id===state.selectedSite);
+    const editing=state.siteDirty||state.moveSite;
+    const oldCells=new Set(editing&&selected?selected.footprint.map(([x,z])=>(x+selected.origin[0])+','+(z+selected.origin[1])):[]);
+    const foundationCells=plan.groundColumns.filter(c=>c.kind==='foundation'&&!oldCells.has(c.x+','+c.z));
     const fm=new THREE.MeshBasicMaterial({color,transparent:true,opacity:opacity*.35,depthTest:false,depthWrite:false});
     const floors=new THREE.InstancedMesh(roadGeometry,fm,foundationCells.length);floors.renderOrder=21;
     foundationCells.forEach((c,i)=>{dummy.position.set(c.x-width/2+.5,c.targetY-centerY+1.06,c.z-depth/2+.5);dummy.scale.set(1,1,1);dummy.updateMatrix();floors.setMatrixAt(i,dummy.matrix);});
     floors.instanceMatrix.needsUpdate=true;group.add(floors);
     for(const [kind,landColor] of [['farmland',0x9b6b3f],['pasture',0x7ea766]]){const cells=plan.groundColumns.filter(c=>c.kind===kind);if(!cells.length)continue;const lm=new THREE.MeshBasicMaterial({color:landColor,transparent:true,opacity:opacity*.6,depthTest:false,depthWrite:false});const mesh=new THREE.InstancedMesh(roadGeometry,lm,cells.length);mesh.renderOrder=20;cells.forEach((c,i)=>{dummy.position.set(c.x-width/2+.5,c.targetY-centerY+1.04,c.z-depth/2+.5);dummy.scale.set(1,1,1);dummy.updateMatrix();mesh.setMatrixAt(i,dummy.matrix);});mesh.instanceMatrix.needsUpdate=true;group.add(mesh);}
     const lineMaterial=new THREE.LineBasicMaterial({color,transparent:true,opacity:.95,depthTest:false,depthWrite:false});
-    const points=[];for(const plot of plan.plots)for(const [a,b] of footprintEdges(plot)) {
+    if(selected){const pts=[];for(const [a,b] of footprintEdges(selected))for(const p of [a,b])pts.push(new THREE.Vector3(p[0]-width/2,selected.baseElevation-centerY+1.4,p[1]-depth/2));const geometry=new THREE.BufferGeometry().setFromPoints(pts);const highlight=new THREE.LineSegments(geometry,new THREE.LineBasicMaterial({color:editing?0x8b9ead:0x65d7c7,transparent:true,opacity:editing?.4:1,depthTest:false,depthWrite:false}));highlight.renderOrder=25;group.add(highlight);
+      if(editing){const oldFill=new THREE.InstancedMesh(roadGeometry,new THREE.MeshBasicMaterial({color:0x8b9ead,transparent:true,opacity:.1,depthTest:false,depthWrite:false}),selected.footprint.length);oldFill.renderOrder=23;selected.footprint.forEach(([x,z],i)=>{dummy.position.set(selected.origin[0]+x-width/2+.5,selected.baseElevation-centerY+1.1,selected.origin[1]+z-depth/2+.5);dummy.rotation.set(0,0,0);dummy.scale.set(1,1,1);dummy.updateMatrix();oldFill.setMatrixAt(i,dummy.matrix);});oldFill.instanceMatrix.needsUpdate=true;group.add(oldFill);}}
+
+    const points=[];for(const plot of plan.plots.filter(p=>!(editing&&p.id===state.selectedSite)))for(const [a,b] of footprintEdges(plot)) {
       for(const p of [a,b])points.push(new THREE.Vector3(p[0]-width/2,plot.baseElevation-centerY+1.2,p[1]-depth/2));
     }
     const outline=new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(points),lineMaterial);outline.renderOrder=22;group.add(outline);
@@ -471,11 +519,12 @@
     ic.putImageData(pixels,0,0);
     for(const v of layer.voxels){ic.fillStyle='#'+(colors[v[3]]||0x777777).toString(16).padStart(6,'0');ic.fillRect(v[0],v[2],1,1);}
     if(state.mode!=='original'&&state.mode!=='constructed') {
-      const overlay=(plan,color,alpha)=>{ic.globalAlpha=alpha;ic.fillStyle=color;for(const c of plan.groundColumns)ic.fillRect(c.x,c.z,1,1);ic.globalAlpha=1;ic.strokeStyle=color;ic.lineWidth=.4;for(const p of plan.plots){ic.beginPath();for(const [a,b] of footprintEdges(p)){ic.moveTo(...a);ic.lineTo(...b);}ic.stroke();}};
+      const overlay=(plan,color,alpha)=>{const selected=plan.plots.find(p=>p.id===state.selectedSite),oldCells=new Set((state.siteDirty||state.moveSite)&&selected?selected.footprint.map(([x,z])=>(selected.origin[0]+x)+','+(selected.origin[1]+z)):[]);ic.globalAlpha=alpha;ic.fillStyle=color;for(const c of plan.groundColumns)if(!oldCells.has(c.x+','+c.z))ic.fillRect(c.x,c.z,1,1);ic.globalAlpha=1;ic.strokeStyle=color;ic.lineWidth=.4;for(const p of plan.plots){if((state.siteDirty||state.moveSite)&&p.id===state.selectedSite){ic.save();ic.strokeStyle='#8b9ead';ic.fillStyle='#8b9ead';ic.globalAlpha=.25;for(const [x,z] of p.footprint)ic.fillRect(p.origin[0]+x,p.origin[1]+z,1,1);}ic.beginPath();for(const [a,b] of footprintEdges(p)){ic.moveTo(...a);ic.lineTo(...b);}ic.stroke();if((state.siteDirty||state.moveSite)&&p.id===state.selectedSite)ic.restore();}};
       if(state.mode==='compare'&&state.previous)overlay(state.previous.plan,'#58c6ff',.65);overlay(data.plan,'#ff9f5b',.85);
     }
     ctx.fillStyle='#07101c';ctx.fillRect(0,0,canvas.width,canvas.height);const scale=Math.min((canvas.width-48)/w,(canvas.height-80)/d),ox=(canvas.width-w*scale)/2,oz=(canvas.height-d*scale)/2;
-    ctx.imageSmoothingEnabled=false;ctx.drawImage(image,ox,oz,w*scale,d*scale);drawSite2D(ctx,ox,oz,scale);ctx.fillStyle='#c4d3e2';ctx.font='13px system-ui';ctx.fillText(data.kind==='TERRAIN_ONLY'?`${w} × ${d} · 仅地形 · 地表Y ${data.metrics.minSurface}–${data.metrics.maxSurface}`:`${w} × ${d} · ${data.metrics.status} · 平台 Y ${data.metrics.minPlatform}—${data.metrics.maxPlatform}`,ox,oz+d*scale+25);
+    ctx.imageSmoothingEnabled=false;ctx.drawImage(image,ox,oz,w*scale,d*scale);const selected=data.plan?.plots.find(p=>p.id===state.selectedSite);if(selected&&!state.siteDirty&&!state.moveSite){ctx.strokeStyle='#65d7c7';ctx.lineWidth=2;ctx.beginPath();for(const [a,b] of footprintEdges(selected)){ctx.moveTo(ox+a[0]*scale,oz+a[1]*scale);ctx.lineTo(ox+b[0]*scale,oz+b[1]*scale);}ctx.stroke();}drawSite2D(ctx,ox,oz,scale);ctx.fillStyle='#c4d3e2';ctx.font='13px system-ui';ctx.fillText(data.kind==='TERRAIN_ONLY'?`${w} × ${d} · 仅地形 · 地表Y ${data.metrics.minSurface}–${data.metrics.maxSurface}`:`${w} × ${d} · ${data.metrics.status} · 平台 Y ${data.metrics.minPlatform}—${data.metrics.maxPlatform}`,ox,oz+d*scale+25);
+    state.base2D=document.createElement('canvas');state.base2D.width=canvas.width;state.base2D.height=canvas.height;state.base2D.getContext('2d').drawImage(canvas,0,0);drawDraft2D();
   }
 
   function render() {
@@ -499,6 +548,7 @@
       }
     }
     drawPins3D();
+    updateDraftFeedback();
   }
 
   function formParams(terrainOnly=false) {
@@ -532,6 +582,9 @@
     state.requestPending = pending;document.querySelectorAll('#expertFields input,#expertFields select,#pinList button').forEach(e=>e.disabled=pending);$('layoutMode').disabled=pending;
     ['generate', 'roll', 'randomTerrain', 'terrainOnly', 'resetTerrain', 'pickPin','savePin','lockSites','unlockSites'].forEach(id => { $(id).disabled = pending; });
     if(!pending)togglePinKind();
+    ['selectedBuilding','siteX','siteZ','siteY','siteFacing','moveSite','applySite','cancelSiteEdit'].forEach(id=>$(id).disabled=pending);
+    updateWorkflow();
+    updateDraftFeedback();
   }
 
   async function requestPlan(params, terrainOnly=false) {
@@ -545,20 +598,33 @@
       const response = await fetch(terrainOnly?'/api/terrain?'+query.toString():'/api/plan', terrainOnly?{cache:'no-store',signal:AbortSignal.timeout(100000)}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(params),cache:'no-store',signal:AbortSignal.timeout(100000)});
       const data = await response.json();
       if (!response.ok || !data.ok) throw new Error(data.error || '规划请求失败');
+      if(!terrainOnly&&params.planningStage!=='full'&&!['SITES_READY','COMPLETE'].includes(data.metrics.status)){
+        const reasons=[...(data.plan.sitePlanning?.reasons||[]),...(data.plan.warnings||[])];
+        throw new Error((params.planningStage==='roads'?'道路未能连接全部建筑。':'选址未通过校验。')+' '+[...new Set(reasons.map(friendlyReason))].join('；')+' 当前有效选址已保留，可调整位置后重试。');
+      }
       const prior = state.current;
       state.previous = data.plan && prior && prior.plan && prior.config.originalTerrainHash === data.config.originalTerrainHash ? {config:prior.config,metrics:prior.metrics,plan:prior.plan} : null;
       const terrainChanged = !prior || prior.config.originalTerrainHash !== data.config.originalTerrainHash;
       state.current = data; if(data.presets)updateCatalog(data.presets); syncForm(data.config,terrainOnly);
+      if(terrainOnly){state.sites=null;state.selectedSite=null;state.siteDirty=false;state.siteConfigDirty=false;}
+      else if(data.kind==='SITES'){state.sites=data;state.siteDirty=false;state.siteConfigDirty=false;state.selectedSite=data.plan.plots.some(p=>p.id===state.selectedSite)?state.selectedSite:data.plan.plots[0]?.id;}
       if(terrainOnly) state.mode='original';
+      else if(params.planningStage==='roads')state.mode='constructed';
+      else if(data.kind==='SITES')state.mode='planning';
       else if(prior && !prior.plan) state.mode='planning';
       for(const mode of ['planning','constructed'])document.querySelector(`[data-mode="${mode}"]`).disabled=terrainOnly;
+      document.querySelector('[data-mode="constructed"]').disabled=terrainOnly||data.kind==='SITES';
+      if(data.kind==='SITES'&&state.mode==='constructed')state.mode='planning';
       document.querySelectorAll('[data-mode]').forEach(button=>button.classList.toggle('active',button.dataset.mode===state.mode));
       $('compare').disabled = !state.previous; document.querySelector('[data-mode="compare"]').disabled = !state.previous;
       if (state.mode === 'compare' && !state.previous) state.mode = 'planning';
+      updateSiteEditor();updateWorkflow();
       updateSummary(data); render();
       if (terrainChanged) fitCameraToTerrain(state.current.original);
+      return true;
     } catch (error) {
       $('message').className = 'error'; $('message').textContent = String(error.message || error);
+      return false;
     } finally { $('loading').classList.remove('show'); setRequestPending(false); }
   }
 
@@ -574,13 +640,14 @@
     }
     $('actual').innerHTML = `地图 <code>${c.width} × ${c.depth}</code> · 道路 ${c.roadDirections}方向 · 斜向建筑 ${c.diagonalBuildings?'允许':'关闭'}<br>类型 <code>${c.terrainType}</code> · relief <code>${c.relief}</code> · 基准 Y <code>${c.baseElevation}</code><br>terrainSeed <code>${c.terrainSeed}</code> · planSeed <code>${c.planSeed}</code><details><summary>查看方案标识</summary><div>原始地形 hash <code>${c.originalTerrainHash.slice(0,16)}…</code><br>方案 hash <code>${m.planHash.slice(0,16)}…</code></div></details>`;
     appendTerrainSummary(c);
-    $('status').textContent=m.status; $('plotCount').textContent=`${m.plotCount} / ${c.targetPlots}`; $('roadCount').textContent=m.roadColumnCount;
+    $('status').textContent=data.kind==='SITES'?'选址已就绪':m.status==='COMPLETE'?'道路已生成':m.status; $('plotCount').textContent=`${m.plotCount} / ${c.targetPlots}`; $('roadCount').textContent=m.roadColumnCount;
     $('edgeCount').textContent=m.roadEdgeCount; $('cut').textContent=m.cutBlocks; $('fill').textContent=m.fillBlocks;
     $('stairCount').textContent=m.stairBlocks;$('platformRange').textContent=`${m.minPlatform}—${m.maxPlatform}`;
     $('editCount').textContent=m.constructionEdits;$('planTime').textContent=(m.search.elapsedNanos/1e6).toFixed(0)+' ms';
     const n=m.network||{},types=n.roadTypes||{};const labels={collector:'主连接',local:'局部分支',secondary:'二级路',ring:'环路'};
     $('networkDetails').textContent=`网络：${n.status||'基线'} · 枢纽 ${n.hubs||0} · 真实分叉枢纽 ${n.branchNodes||0} · 已验证回路 ${n.verifiedLoops||0} · 语义环秩 ${n.cycleRank||0}。${Object.entries(types).map(([k,v])=>(labels[k]||k)+' '+v).join(' / ')}。最长直段比例 ${((n.longestStraightRatio||0)*100).toFixed(0)}%。${(n.reasons||[]).slice(-2).join('；')}`;
     if(m.sitePlanning)$('networkDetails').textContent=`网络：${n.status}。${Object.entries(types).map(([k,v])=>({collector:'主连接',local:'支路',secondary:'次级路',required:'强制连接',dock:'码头路'}[k]||k)+' '+v).join(' / ')}。所有已提交建筑均接入同一实际铺装图；不把铺装网格的小环算作聚落环路。实际独立中心线 ${(n.uniqueCenterlineLength??0).toFixed(1)}格；共享重复段 ${(n.sharedCenterlineLength??0).toFixed(1)}格；近邻平行警报 ${(n.nearParallelLength??0).toFixed(1)}格；45°段 ${n.diagonal45Steps??0}；(2,1)段 ${n.obliqueSteps??0}。`;
+    if(data.kind==='SITES')$('networkDetails').textContent='建筑选址预览：尚未生成道路。可在第一步选择并调整每一栋建筑。';
     const b=m.search;$('budgets').textContent=`候选 ${b.candidateChecks}/${b.candidateLimit}；寻路扩展 ${b.pathExpanded}/${b.pathLimit}；单路状态峰值 ${b.peakPathStates}/${b.stateLimit}；标高求解 ${b.gradeRelaxations}/${b.gradeLimit}；施工列 ${p.groundColumns.length}/${b.columnLimit}；编辑 ${m.constructionEdits}/${b.editLimit}。预算触发：${b.exhaustedBudgets.join(', ')||'无'}。`;
     $('unmet').innerHTML='';
     (p.unmetRequirements || []).forEach(u => { const li=document.createElement('li'); li.textContent=`${u.requirementId}: ${u.allocated}/${u.requested} · ${u.reason}`; $('unmet').appendChild(li); });
@@ -598,6 +665,7 @@
   }
 
   function setMode(mode) {
+    if(mode==='constructed'&&state.current?.kind==='SITES')return;
     if(state.current && !state.current.plan && mode!=='original')return;
     if (mode==='compare' && !state.previous) return;
     state.mode=mode;
@@ -642,7 +710,7 @@
     const pin={id,x,z,kind:kind==='dock'?'dock':'building',medium:kind==='water'?'water':'land',presetId:$('pinPreset').value,facing:$('pinFacing').value,connectTo:$('pinConnect').value.trim()||'network'};
     if($('pinY').value.trim()!==''){pin.y=Number($('pinY').value);if(!Number.isSafeInteger(pin.y))throw new Error('平台Y须为整数或留空');}
     const i=manualPins.findIndex(p=>p.id===id);if(i<0&&manualPins.length>=8)throw new Error('人工约束最多8项');
-    if(i>=0)manualPins[i]=pin;else manualPins.push(pin);renderPins();render();$('message').className='';$('message').style.display='block';$('message').textContent='已加入待提交约束；点击生成或只重新规划。黄色十字是指定原点，不是已建建筑。';
+    if(i>=0)manualPins[i]=pin;else manualPins.push(pin);renderPins();render();$('message').className='';$('message').style.display='block';$('message').textContent='已加入待提交约束；点击生成或重新生成选址。黄色十字是指定原点，不是已建建筑。';
   }catch(error){showInputError(error);}}
   function drawSite2D(ctx,ox,oz,scale){
     if(state.mode==='constructed')return;
@@ -668,14 +736,14 @@
   }
   function updateSiteSummary(data){
     const site=data.metrics.sitePlanning;$('siteDetails').hidden=!site;$('siteSummary').textContent='';$('siteDecisions').replaceChildren();$('siteReasons').replaceChildren();if(!site)return;
-    $('siteSummary').textContent=`${site.status==='ACCEPTED'?'已提交布局':'未提交的候选布局'}：建筑包围框 ${(site.bboxCoverage*100).toFixed(1)}%（最低 ${(site.minBBoxCoverage*100).toFixed(0)}%）；短／长轴比 ${(site.minorAxisRatio*100).toFixed(1)}%；中心凸包 ${(site.hullCoverage*100).toFixed(1)}%。近邻拥挤对 ${site.closePairs??0}；拥挤罚分 ${(site.crowdingPenalty??0).toFixed(3)}；宏观围合 ${site.macroLoops??0}；新增跨区联系 ${site.crossLinksBuilt??0}/${site.crossLinksTried??0}。模式 ${site.settlementMode||'village'}；水上建筑 ${site.waterBuildingCount}；桥面列 ${site.bridgeColumns}；陆地连续架空最大 ${site.maxLandAirborneRun??0}格；道路最大离地 ${site.maxRoadClearance??0}格；农田 ${site.farmlandCells??0}格；牧场 ${site.pastureCells??0}格；农田小屋 ${(state.current.plan.landUses||[]).filter(a=>a.type==='farm_hut').length}间；码头 ${site.docks}。`;
+    $('siteSummary').textContent=`${site.status==='ACCEPTED'?'已提交布局':'未提交的候选布局'}：建筑包围框 ${(site.bboxCoverage*100).toFixed(1)}%（最低 ${(site.minBBoxCoverage*100).toFixed(0)}%）；短／长轴比 ${(site.minorAxisRatio*100).toFixed(1)}%；中心凸包 ${(site.hullCoverage*100).toFixed(1)}%。近邻拥挤对 ${site.closePairs??0}；拥挤罚分 ${(site.crowdingPenalty??0).toFixed(3)}；宏观围合 ${site.macroLoops??0}；新增跨区联系 ${site.crossLinksBuilt??0}/${site.crossLinksTried??0}。模式 ${site.settlementMode||'village'}；水上建筑 ${site.waterBuildingCount}；桥面列 ${site.bridgeColumns}；陆地连续架空最大 ${site.maxLandAirborneRun??0}格；道路最大离地 ${site.maxRoadClearance??0}格；农田 ${site.farmlandCells??0}格（${(state.current.plan.landUses||[]).filter(a=>a.type==='farmland'&&!a.terraced).length}块顺地形 / ${(state.current.plan.landUses||[]).filter(a=>a.terraced).length}块梯田）；牧场 ${site.pastureCells??0}格；农田小屋 ${(state.current.plan.landUses||[]).filter(a=>a.type==='farm_hut').length}间；码头 ${site.docks}。`;
     const roles={civic:'公共核心',trade:'作坊／商贸',residential:'居住',highland:'高地节点'};
     for(const a of site.decisions){const p=document.createElement('p');p.textContent=`${a.pinned?'[人工锁定]':'[规则选址]'} ${a.id} · ${roles[a.role]||a.role} (${a.x},${a.z}) Y${a.y} · 拥挤项 ${(a.repulsionPenalty??0).toFixed(3)} · 单位土方 ${a.terrainCost.toFixed(2)}${a.shoreDistance<1000000?' · 距水 '+a.shoreDistance+'格':''}`;$('siteDecisions').append(p);}
     for(const c of site.requiredConnections){const p=document.createElement('p');p.textContent=`强制连接 ${c.from} → ${c.to}: ${c.status}${c.reason?' · '+c.reason:''}`;$('siteDecisions').append(p);}
     const reasons=[...site.reasons,...site.attempts,...(site.planRollAttempts||[]).map(a=>`plan retry ${a.round}: seed=${a.planSeed} status=${a.status}${a.reasons?.length?' · '+a.reasons.join(' | '):''}`)];for(const reason of reasons){const p=document.createElement('p');p.textContent=reason;$('siteReasons').append(p);}
     if(data.metrics.status==='REJECTED'){$('message').className='error';$('message').textContent='方案未通过硬约束，未施工。查看选址与拒绝明细；人工点不会被自动挪走。';}
   }
-  $('lockSites').onclick=()=>{const site=state.current?.plan?.sitePlanning;if(!site){showInputError(new Error('先生成一次专家方案'));return;}$('siteSeed').value=String(site.effectiveSiteSeed??site.effectivePlanSeed??state.current.config.planSeed);$('message').className='';$('message').textContent='已固定 siteSeed；后续只重新规划会保持自动建筑选址并 roll 道路。';};
+  $('lockSites').onclick=()=>{const site=state.current?.plan?.sitePlanning;if(!site){showInputError(new Error('先生成一次专家方案'));return;}$('siteSeed').value=String(site.effectiveSiteSeed??site.effectivePlanSeed??state.current.config.planSeed);$('message').className='';$('message').textContent='已固定 siteSeed；后续重新生成选址会保持自动建筑选址并 roll 道路。';};
   $('unlockSites').onclick=()=>{$('siteSeed').value='';$('message').className='';$('message').textContent='已解除自动选址锁定；siteSeed 将重新跟随 planSeed。';};
   function togglePinKind(){const dock=$('pinKind').value==='dock';$('pinPreset').disabled=dock;$('pinFacing').disabled=dock;}
   $('pinKind').addEventListener('change',togglePinKind);
@@ -685,7 +753,7 @@
 
   $('presetPalette').addEventListener('change',togglePreset);
   $('openCatalog').onclick=()=>$('catalogDialog').showModal();$('closeCatalog').onclick=()=>$('catalogDialog').close();
-  $('topView').onclick=()=>{if(!state.current||state.fallback2D)return;state.topView=!state.topView;if(!state.topView){state.camera.up.set(0,1,0);fitCameraToTerrain(state.current.original);return;}const c=state.controls.target.clone(),size=Math.max(state.current.config.width,state.current.config.depth);state.camera.position.set(c.x,c.y+size*1.55,c.z+.01);state.camera.up.set(0,0,-1);state.controls.update();};
+  $('topView').onclick=()=>{if(!state.current||state.fallback2D)return;state.topView=!state.topView;fitCameraToTerrain(state.current.original);};
   $('mapSize').addEventListener('change',()=>{const custom=$('mapSize').value==='custom';$('mapWidth').disabled=$('mapDepth').disabled=!custom;if(!custom)$('mapWidth').value=$('mapDepth').value=$('mapSize').value;});
   $('generate').addEventListener('click', () => generateFromForm());
   $('terrainOnly').addEventListener('click', () => generateFromForm(true));
@@ -706,12 +774,147 @@
     } : formParams();
     if (!current) params.planSeed += 1;
     $('planSeed').value = params.planSeed;
+    params.planningStage='sites';params.layoutMode='expert';params.pins=[];params.siteSeed='follow';
     requestPlan(params);
   }catch(error){showInputError(error);}});
-  $('randomTerrain').addEventListener('click', () => { $('terrainSeed').value=Math.floor(Math.random()*2147483647); $('planSeed').value=Math.floor(Math.random()*2147483647); generateFromForm(state.current?.kind==='TERRAIN_ONLY'); });
+  $('randomTerrain').addEventListener('click', () => { $('terrainSeed').value=Math.floor(Math.random()*2147483647); $('planSeed').value=Math.floor(Math.random()*2147483647); generateFromForm(true); });
   $('compare').addEventListener('click', () => setMode('compare'));
   document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.mode)));
   window.addEventListener('resize', resize);
+  function friendlyReason(reason){
+    const text=String(reason);
+    if(text.startsWith('PIN_CANNOT_FIT_EXACT_POSITION'))return '该位置的占地、地形高度或入口空间不符合要求，请换位置或将平台高度留空';
+    if(text.startsWith('PIN_OUT_OF_BOUNDS'))return '建筑原点超出地图范围';
+    if(text.includes('PIN_CONSTRAINT_FAILED'))return '建筑位置校验未通过';
+    if(text.includes('REQUIRED_NETWORK_NOT_FOUND')||text.includes('ANCHOR_CONNECTION_FAILED'))return '在当前地形与搜索预算内无法连接全部建筑，请调整较偏远建筑位置或道路种子';
+    if(text.includes('LAYOUT_QUALITY_REJECTED'))return '无法找到满足数量与展开范围的选址，请减少建筑或放宽选址高级设置';
+    if(text.includes('COLUMN_OR_EDIT_LIMIT'))return '方案超过施工预算，请减少建筑数量';
+    return text;
+  }
+  function confirmedPins(){return state.sites.plan.plots.map(p=>({id:p.id,kind:'building',presetId:p.presetId,x:p.origin[0],z:p.origin[1],y:p.baseElevation,facing:p.sourceFacing||p.entranceFacing,diagonal45:p.diagonal45,entranceIndex:p.entranceIndex,medium:state.sites.plan.sitePlanning.decisions.find(d=>d.plotId===p.id)?.medium||'land',connectTo:'network'}));}
+  function draftPulse(){return reducedMotion.matches?.65:(1+Math.sin(performance.now()/260))/2;}
+  function draftLocation(){
+    const plot=state.sites?.plan.plots.find(p=>p.id===state.selectedSite);
+    const x=Number($('siteX').value),z=Number($('siteZ').value);
+    if(!state.siteDirty||!plot||!$('siteX').value.trim()||!$('siteZ').value.trim()||!Number.isSafeInteger(x)||!Number.isSafeInteger(z))return null;
+    const facing=$('siteFacing').value,variant=plot.orientationVariants[facing];
+    return {plot:{...plot,footprint:variant.footprint},x,z,facing,entrance:variant.entrance,entranceFacing:variant.entranceFacing,color:state.draftFailed?0xff7373:0xffd16a};
+  }
+  function updateDraftFeedback(){
+    const draft=draftLocation();
+    $('draftNotice').hidden=!state.siteDirty&&!state.moveSite;
+    $('draftNotice').className=state.draftFailed?'error':'';
+    const directionNames={NORTH:'北 ↑',EAST:'东 →',SOUTH:'南 ↓',WEST:'西 ←'};
+    const facingLabel=draft?`建筑朝向 ${directionNames[draft.facing]} · 入口朝向 ${directionNames[draft.entranceFacing]}`:'';
+    $('draftTitle').textContent=state.draftFailed?'此位置未通过校验 · 仍保留原建筑':draft?`待应用原点 (${draft.x}, ${draft.z})`:'点击地图，指定建筑新原点';
+    $('draftDescription').textContent=state.draftFailed?facingLabel+'。'+(state.moveSite?'红色为未应用地块，可直接继续点选或撤回。':'红色为未应用地块；修改坐标或重新开启地图点选。'):draft?facingLabel+'。黄色地块为当前朝向的精确占地，灰蓝色为原位置。':'可连续点选；点击“结束点选”或按 Esc 后恢复旋转地图。';
+    if(draft)$('selectedBuildingInfo').textContent=`${facingLabel} · 占地 ${draft.plot.footprint.length} 格${draft.plot.diagonal45?' · 45°栅格':''}`;
+    $('applyDraft').disabled=state.requestPending||!draft;$('cancelDraft').disabled=state.requestPending;$('exitMove').hidden=!state.moveSite;$('exitMove').disabled=state.requestPending;
+    if(state.fallback2D){drawDraft2D();return;}
+    disposeGroup(state.draftGroup);state.draftGroup=null;state.draftFill=null;state.draftOutline=null;
+    if(!draft||!state.current)return;
+    const {plot,x,z,color}=draft,{width:w,depth:d}=state.current.config,layer=state.current.original;
+    const height=(xx,zz)=>xx>=0&&zz>=0&&xx<w&&zz<d?Math.max(layer.heights[zz*w+xx],layer.waters[zz*w+xx]):plot.baseElevation;
+    const y=$('siteY').value.trim()&&Number.isFinite(Number($('siteY').value))?Number($('siteY').value):height(x,z);
+    const group=new THREE.Group(),material=new THREE.MeshBasicMaterial({color,transparent:true,opacity:.28,depthTest:false,depthWrite:false});
+    const fill=new THREE.InstancedMesh(new THREE.BoxGeometry(1,.12,1),material,plot.footprint.length);fill.renderOrder=40;
+    plot.footprint.forEach(([dx,dz],i)=>{dummy.position.set(x+dx-w/2+.5,Math.max(y,height(x+dx,z+dz))-state.centerY+1.5,z+dz-d/2+.5);dummy.rotation.set(0,0,0);dummy.scale.set(1,1,1);dummy.updateMatrix();fill.setMatrixAt(i,dummy.matrix);});fill.instanceMatrix.needsUpdate=true;group.add(fill);
+    const moved={...plot,origin:[x,z]},points=[];
+    for(const [a,b] of footprintEdges(moved))for(const p of [a,b])points.push(new THREE.Vector3(p[0]-w/2,Math.max(y,height(Math.floor(p[0]),Math.floor(p[1])))-state.centerY+1.7,p[1]-d/2));
+    const outline=new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(points),new THREE.LineBasicMaterial({color,transparent:true,opacity:.75,depthTest:false,depthWrite:false}));outline.renderOrder=42;group.add(outline);
+    const markerScale=Math.max(1,Math.max(w,d)/128);
+    const marker=new THREE.Mesh(new THREE.SphereGeometry(.85*markerScale,12,8),new THREE.MeshBasicMaterial({color,depthTest:false,depthWrite:false}));
+    marker.position.set(x-w/2+.5,Math.max(y,height(x,z))-state.centerY+3.5*markerScale,z-d/2+.5);marker.renderOrder=45;group.add(marker);
+    const [dx,dz]=draftDirection(draft.entranceFacing),ex=x+draft.entrance[0],ez=z+draft.entrance[1];
+    const arrow=new THREE.ArrowHelper(new THREE.Vector3(dx,0,dz),new THREE.Vector3(ex-w/2+.5,Math.max(y,height(ex,ez))-state.centerY+2,ez-d/2+.5),4*markerScale,color,1.3*markerScale,.8*markerScale);
+    arrow.traverse(object=>{object.renderOrder=46;if(object.material){object.material.depthTest=false;object.material.depthWrite=false;}});group.add(arrow);
+    state.draftGroup=group;state.draftFill=fill;state.draftOutline=outline;state.scene.add(group);
+  }
+  function draftDirection(facing){return {NORTH:[0,-1],EAST:[1,0],SOUTH:[0,1],WEST:[-1,0]}[facing];}
+  function drawDraft2D(){
+    if(!state.fallback2D||!state.base2D)return;
+    const canvas=$('canvas'),ctx=canvas.getContext('2d');ctx.drawImage(state.base2D,0,0);
+    const draft=draftLocation();if(!draft)return;
+    const {width:w,depth:d}=state.current.config,scale=Math.min((canvas.width-48)/w,(canvas.height-80)/d),ox=(canvas.width-w*scale)/2,oz=(canvas.height-d*scale)/2;
+    const color='#'+draft.color.toString(16).padStart(6,'0'),pulse=draftPulse();ctx.save();ctx.fillStyle=color;ctx.globalAlpha=.22+.35*pulse;
+    for(const [dx,dz] of draft.plot.footprint)ctx.fillRect(ox+(draft.x+dx)*scale,oz+(draft.z+dz)*scale,scale,scale);
+    ctx.globalAlpha=.45+.4*pulse;ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();for(const [a,b] of footprintEdges({...draft.plot,origin:[draft.x,draft.z]})){ctx.moveTo(ox+a[0]*scale,oz+a[1]*scale);ctx.lineTo(ox+b[0]*scale,oz+b[1]*scale);}ctx.stroke();ctx.globalAlpha=1;
+    const x=ox+(draft.x+.5)*scale,z=oz+(draft.z+.5)*scale;ctx.fillRect(x-3,z-3,6,6);ctx.font='bold 12px system-ui';ctx.fillText(`待应用 (${draft.x}, ${draft.z})`,x+10,z-10);
+    const [dx,dz]=draftDirection(draft.entranceFacing),ex=ox+(draft.x+draft.entrance[0]+.5)*scale,ez=oz+(draft.z+draft.entrance[1]+.5)*scale,tx=ex+dx*24,tz=ez+dz*24;
+    ctx.beginPath();ctx.moveTo(ex,ez);ctx.lineTo(tx,tz);ctx.moveTo(tx-dx*8-dz*5,tz-dz*8+dx*5);ctx.lineTo(tx,tz);ctx.lineTo(tx-dx*8+dz*5,tz-dz*8-dx*5);ctx.stroke();ctx.restore();
+  }
+  function animateDraft2D(){requestAnimationFrame(animateDraft2D);if(state.siteDirty&&!reducedMotion.matches)drawDraft2D();}
+  function refreshSiteReference(){if(!state.current)return;if(state.fallback2D){render2D();return;}if(state.mode==='planning'){disposeGroup(state.overlayGroup);state.overlayGroup=overlayPlan(state.current.plan,0xff9f5b,.85);state.scene.add(state.overlayGroup);}}
+  function stopSiteMove(){state.moveSite=false;$('moveSite').textContent='地图点选新位置';$('canvas').style.cursor='';if(state.controls)state.controls.enabled=true;refreshSiteReference();updateDraftFeedback();}
+  function startSiteMove(){state.moveSite=true;setMode('planning');$('moveSite').textContent='连续点选中 · 点击结束';$('canvas').style.cursor='crosshair';if(state.controls)state.controls.enabled=false;updateDraftFeedback();}
+  function currentSiteParams(stage){
+    const c=state.sites.config;
+    return {width:c.width,depth:c.depth,baseElevation:c.baseElevation,relief:c.relief,terrainType:c.terrainType,terrainSeed:c.terrainSeed,...c.terrainParameters,
+      roadDirections:Number($('roadDirections').value),diagonalBuildings:c.diagonalBuildings,planSeed:Number($('planSeed').value),targetPlots:state.sites.plan.plots.length,
+      roadSurface:$('roadSurface').value,presetPalette:c.presetPalette,singlePresetId:c.singlePresetId,...expertParams(),planningStage:stage,layoutMode:'expert',siteSeed:c.expertSettings.siteSeed??c.planSeed,pins:confirmedPins()};
+  }
+  function updateWorkflow(){
+    const hasSites=!!state.sites,roads=state.current?.kind==='PLAN'&&hasSites;
+    $('generateRoads').disabled=state.requestPending||!hasSites||state.siteDirty||state.siteConfigDirty;
+    $('generateRoads').textContent=roads?'② 重新生成道路':'② 确认选址，生成道路';
+    $('roll').disabled=state.requestPending||!state.current||state.siteConfigDirty;
+    $('siteStep').className='step '+(roads?'done':'active');$('roadStep').className='step '+(roads?'active':'');
+    $('workflowHint').textContent=state.siteConfigDirty?'地形或建筑设置已改变，请重新生成选址。':state.siteDirty?'位置有未应用调整，请应用或撤回后再生成道路。':roads?'道路已生成；仍可选择建筑，调整后重新连接道路。':hasSites?`${state.sites.plan.plots.length} 栋选址已就绪。可逐栋调整，完成后生成道路。`:'生成建筑选址后，可逐栋调整位置。';
+    $('siteEditor').hidden=!hasSites;
+    document.querySelectorAll('[data-mode]').forEach(button=>{const mode=button.dataset.mode;button.classList.toggle('active',mode===state.mode);button.disabled=state.requestPending||mode==='constructed'&&state.current?.kind!=='PLAN'||mode==='planning'&&!state.current?.plan||mode==='compare'&&!state.previous;});
+    document.querySelector('[data-mode="constructed"]').textContent='施工结果';document.querySelector('[data-mode="constructed"]').title=state.current?.kind==='SITES'?'完成第二步后可查看施工结果':'';
+  }
+  function updateSiteEditor(){
+    if(!state.sites){updateWorkflow();return;}
+    const plots=state.sites.plan.plots,presets=state.sites.presets||[];
+    $('selectedBuilding').replaceChildren(...plots.map((p,i)=>new Option(`${String(i+1).padStart(2,'0')} · ${presets.find(b=>b.id===p.presetId)?.name||p.presetId} · (${p.origin.join(', ')})`,p.id)));
+    $('selectedBuilding').value=state.selectedSite||plots[0].id;state.selectedSite=$('selectedBuilding').value;
+    const p=plots.find(p=>p.id===state.selectedSite);
+    $('siteX').value=p.origin[0];$('siteZ').value=p.origin[1];$('siteY').value=p.baseElevation;$('siteFacing').value=p.sourceFacing||p.entranceFacing;
+    $('siteCount').textContent=`${plots.findIndex(q=>q.id===p.id)+1} / ${plots.length}`;
+    $('selectedBuildingInfo').textContent=`占地 ${p.footprintArea} 格${p.diagonal45?' · 45° 旋转占地':''}；坐标为占地框左上原点。`;
+    $('siteEditHint').textContent='移动会检查占地、地形和入口空间；无效位置不会替换当前选址。';
+    state.siteDirty=false;state.draftFailed=false;stopSiteMove();
+    updateWorkflow();
+  }
+  function clearRoads(){
+    if(state.sites&&state.current?.kind==='PLAN'){state.current=state.sites;state.previous=null;state.mode='planning';updateSummary(state.current);render();}
+    $('compare').disabled=!state.previous;document.querySelector('[data-mode="compare"]').disabled=!state.previous;
+    updateWorkflow();
+  }
+  function dirtySite(){const firstEdit=!state.siteDirty;state.siteDirty=true;state.draftFailed=false;$('message').className='';$('message').textContent='';clearRoads();if(state.mode!=='planning')setMode('planning');if(firstEdit)refreshSiteReference();updateDraftFeedback();updateWorkflow();$('siteEditHint').textContent='黄色待选地块整体呼吸；改变朝向立即旋转占地与入口箭头，灰蓝色为原位置。';}
+  $('selectedBuilding').onchange=()=>{if(state.siteDirty){$('message').className='';$('message').textContent='已撤回上一栋建筑未应用的位置调整。';}state.selectedSite=$('selectedBuilding').value;updateSiteEditor();render();};
+  ['siteX','siteZ','siteY','siteFacing'].forEach(id=>$(id).addEventListener('input',dirtySite));
+  $('cancelSiteEdit').onclick=()=>{$('message').className='';$('message').textContent='';updateSiteEditor();render();};
+  $('moveSite').onclick=()=>{if(state.moveSite)stopSiteMove();else startSiteMove();};
+  $('applySite').onclick=async()=>{const wasMoving=state.moveSite;try{
+    stopSiteMove();const params=currentSiteParams('sites'),pin=params.pins.find(p=>p.id===state.selectedSite);
+    for(const [id,key] of [['siteX','x'],['siteZ','z']]){if(!$(id).value.trim()||!Number.isSafeInteger(Number($(id).value)))throw new Error('原点 X/Z 必须是整数。');pin[key]=Number($(id).value);}
+    pin.facing=$('siteFacing').value;pin.y=$('siteY').value.trim()?Number($('siteY').value):null;if(pin.y!==null&&!Number.isSafeInteger(pin.y))throw new Error('平台高度必须是整数，或留空自动选高。');
+    if(await requestPlan(params)){$('message').className='';$('message').textContent='位置调整已应用。确认全部选址后，可生成道路。';}
+    else {state.draftFailed=true;if(wasMoving)startSiteMove();else updateDraftFeedback();}
+  }catch(error){state.draftFailed=true;if(wasMoving)startSiteMove();else updateDraftFeedback();showInputError(error);}};
+  $('applyDraft').onclick=()=>$('applySite').click();$('cancelDraft').onclick=()=>$('cancelSiteEdit').click();$('exitMove').onclick=stopSiteMove;
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&state.moveSite){event.preventDefault();stopSiteMove();}});
+  $('generateRoads').onclick=()=>{try{if(!state.sites||state.siteDirty||state.siteConfigDirty)return;requestPlan(currentSiteParams('roads'));}catch(error){showInputError(error);}};
+  function workflowMapClick(event){
+    if(!state.sites||state.requestPending)return;
+    const rect=$('canvas').getBoundingClientRect(),u=event.clientX-rect.left,v=event.clientY-rect.top,{width:w,depth:d}=state.current.config;let x,z;
+    if(state.fallback2D){const scale=Math.min((rect.width-48)/w,(rect.height-80)/d);x=Math.floor((u-(rect.width-w*scale)/2)/scale);z=Math.floor((v-(rect.height-d*scale)/2)/scale);}
+    else {const ray=new THREE.Raycaster();ray.setFromCamera(new THREE.Vector2(u/rect.width*2-1,1-v/rect.height*2),state.camera);const hit=ray.intersectObject(state.worldGroup,true)[0];if(!hit)return;x=Math.floor(hit.point.x+w/2);z=Math.floor(hit.point.z+d/2);}
+    if(x<0||z<0||x>=w||z>=d)return;
+    if(state.moveSite){$('siteX').value=x;$('siteZ').value=z;$('siteY').value='';dirtySite();return;}
+    const p=state.sites.plan.plots.find(p=>p.footprint.some(([dx,dz])=>p.origin[0]+dx===x&&p.origin[1]+dz===z));
+    if(p){state.selectedSite=p.id;updateSiteEditor();render();$('siteEditor').scrollIntoView({block:'nearest',behavior:'smooth'});}
+  }
+  $('canvas').addEventListener('click',workflowMapClick);
+  function dirtySiteConfig(){if(state.sites){state.siteConfigDirty=true;clearRoads();}}
+  $('terrainControls').addEventListener('input',dirtySiteConfig);$('buildingList').addEventListener('input',dirtySiteConfig);$('useBuildingList').addEventListener('click',dirtySiteConfig);$('catalogGrid').addEventListener('click',dirtySiteConfig);$('resetTerrain').addEventListener('click',dirtySiteConfig);
+
+  const siteConfigControls=['mapSize','mapWidth','mapDepth','terrainType','relief','baseElevation','terrainSeed','presetPalette','singlePresetId','targetPlots','settlementMode','sitePreference','buildingRepulsion','minBBoxCoverage','minMinorAxisRatio','diagonalBuildings','siteSeed'];
+  siteConfigControls.forEach(id=>$(id).addEventListener('change',()=>{if(state.sites){state.siteConfigDirty=true;clearRoads();}}));
+  ['roadSurface','roadDirections','roadMergeDistance','planSeed','allowBridges','autoDock','maxBridgeSpan','maxLandBridgeSpan'].forEach(id=>$(id).addEventListener('change',clearRoads));
+  $('layoutMode').value='expert';$('autoDock').checked=false;
   initScene();
   setRequestPending(true);
   loadTerrainControls().then(()=>{setRequestPending(false);generateFromForm();}).catch(error=>{setRequestPending(false);showInputError(error);});

@@ -108,6 +108,7 @@ final class TerrainRoadRouter {
                     }
                     boolean landAir=false;
                     if(req.expert!=null&&req.expert.allowBridges)for(int[] v:brushes.get(di)){int xx=x+v[0],zz=z+v[1];if(map.inBounds(xx,zz)&&RoadTerrain.airborneLand(map,req,xx,zz,y)){landAir=true;break;}}
+                    if(landAir&&req.expert.suspensionBridges&&dx!=0&&dz!=0)continue;
                     int stepSpan=Math.max(Math.abs(dx),Math.abs(dz));
                     int landRun=landAir?n.landRun+stepSpan:0;
                     if(landAir&&(n.landRun>0&&turning||landRun>req.expert.maxLandBridgeSpan))continue;
@@ -439,12 +440,16 @@ final class TerrainRoadRouter {
             int h=RoadTerrain.natural(m,xx,zz),da=Math.abs(d[0])+Math.abs(d[1]),db=Math.abs(d[0]-dx)+Math.abs(d[1]-dz);
             int lo=Math.max(RoadTerrain.lower(m,r,xx,zz),Math.max(y-da,ny-db)),hi=Math.min(RoadTerrain.upper(m,r,xx,zz),Math.min(y+da,ny+db));
             GroundColumn c=fixed.get(k);if(c!=null){lo=Math.max(lo,c.targetY);hi=Math.min(hi,c.targetY);}
+            if(r.expert!=null&&r.expert.suspensionBridges&&lo>h+r.roadMaxFill&&
+                    (xx==m.getMinX()||zz==m.getMinZ()||xx==m.getMinX()+m.getWidth()-1||zz==m.getMinZ()+m.getDepth()-1))return -1;
             if(lo>hi)return -1;soil+=Math.max(0,Math.max(lo-h,h-hi));
         }
         // Terrain following is the default. Dry clearance above the ordinary fill allowance is
         // quadratic so a short ravine deck can win, but a long same-height viaduct cannot.
         int nx=x+dx,nz=z+dz,natural=RoadTerrain.natural(m,nx,nz);
         int deviation=Math.abs(natural-ny),clearance=RoadTerrain.wet(m,nx,nz)?0:Math.max(0,ny-m.getSurfaceY(nx,nz)-r.roadMaxFill);
+        // A suspended deck does not fill the ravine. Price cables/span instead of deep earthwork.
+        if(r.expert!=null&&r.expert.suspensionBridges&&clearance>0)return 35+clearance*2;
         int elevationCost=r.expert!=null?22:18;
         return (soil*8)/Math.max(1,brush.size())+deviation*elevationCost+clearance*clearance*14+(RoadTerrain.wet(m,nx,nz)?24:0);
     }

@@ -38,21 +38,26 @@ public final class PlanConstruction {
         int limit=ir.search.editLimit==0?1000000:ir.search.editLimit;if(limit<1||limit>1000000)throw new IllegalArgumentException("INVALID_EDIT_LIMIT");
         Map<Long,GroundColumn> columns=new HashMap<>();long editCount=0;
         for(GroundColumn c:ir.groundColumns){
-            if(!Set.of("road","access","foundation","farmland","pasture","farm_hut").contains(c.kind)||!Set.of("surface","stair","bridge","deck").contains(c.structure)||
-                    c.targetY < -2032 || c.targetY>2032 || c.clearToY<c.targetY+2||c.clearToY-c.targetY>64||Math.abs(c.targetY-c.originalY)>16||
+            if(!Set.of("road","access","foundation","farmland","pasture","farm_hut","bridge_anchor","bridge_rigging").contains(c.kind)||!Set.of("surface","stair","bridge","deck").contains(c.structure)||
+                    c.targetY < -2032 || c.targetY>2032 || c.clearToY<c.targetY+2||c.clearToY-c.targetY>64||Math.abs(c.targetY-c.originalY)>(c.suspensionBridge?RoadTerrain.MAX_SUSPENSION_HEIGHT:16)||
                     "foundation".equals(c.kind)&&stair(c))throw new IllegalArgumentException("INVALID_CONSTRUCTION_COLUMN");
             if(c.x<ir.metadata.minBounds[0]||c.x>ir.metadata.maxBounds[0]||c.z<ir.metadata.minBounds[2]||c.z>ir.metadata.maxBounds[2])throw new IllegalArgumentException("COLUMN_OUTSIDE_BOUNDS");
-            if(("farmland".equals(c.kind)||"pasture".equals(c.kind)||"farm_hut".equals(c.kind))&&(c.targetY!=c.originalY||!"surface".equals(c.structure)||c.waterY!=null||c.support||c.facing!=null))throw new IllegalArgumentException("INVALID_LAND_USE_COLUMN");
+            if(c.terracedFarmland&&(!"farmland".equals(c.kind)||Math.abs(c.targetY-c.originalY)>1))throw new IllegalArgumentException("INVALID_TERRACED_FIELD");
+            if(("farmland".equals(c.kind)||"pasture".equals(c.kind)||"farm_hut".equals(c.kind))&&(!c.terracedFarmland&&c.targetY!=c.originalY||!"surface".equals(c.structure)||c.waterY!=null||c.support||c.facing!=null))throw new IllegalArgumentException("INVALID_LAND_USE_COLUMN");
+            if(c.suspensionBridge&&(!RoadTerrain.landBridge(c)||!Set.of("road","bridge_rigging").contains(c.kind)))throw new IllegalArgumentException("INVALID_SUSPENSION_COLUMN");
             if(RoadTerrain.raised(c)) {
-                boolean validMedium=RoadTerrain.landBridge(c)?"road".equals(c.kind)&&c.targetY>c.originalY:c.waterY!=null&&c.waterY>c.originalY&&c.targetY==c.waterY+1;
-                if(!PlanningIR.EXPERT_SCHEMA_VERSION.equals(ir.metadata.version)||ir.sitePlanning==null||c.support!=(Math.floorMod(c.x+c.z,4)==0)||!validMedium||c.targetY-c.originalY>RoadTerrain.MAX_PILE_HEIGHT||c.facing!=null||"deck".equals(c.structure)!= "foundation".equals(c.kind))throw new IllegalArgumentException("INVALID_RAISED_DECK_COLUMN");
+                boolean validMedium=RoadTerrain.landBridge(c)?Set.of("road","bridge_rigging").contains(c.kind)&&c.targetY>c.originalY:c.waterY!=null&&c.waterY>c.originalY&&c.targetY==c.waterY+1;
+                if(!PlanningIR.EXPERT_SCHEMA_VERSION.equals(ir.metadata.version)||ir.sitePlanning==null||c.support!=(!c.suspensionBridge&&Math.floorMod(c.x+c.z,4)==0)||!validMedium||c.targetY-c.originalY>(c.suspensionBridge?RoadTerrain.MAX_SUSPENSION_HEIGHT:RoadTerrain.MAX_PILE_HEIGHT)||c.facing!=null||"deck".equals(c.structure)!= "foundation".equals(c.kind))throw new IllegalArgumentException("INVALID_RAISED_DECK_COLUMN");
             } else if(c.waterY!=null||c.support)throw new IllegalArgumentException("WATER_MUST_USE_RAISED_DECK");
-            if(c.aboveBlocks==null||c.aboveBlocks.size()>c.clearToY-c.targetY||!"farm_hut".equals(c.kind)&&!c.aboveBlocks.isEmpty())throw new IllegalArgumentException("INVALID_HUT_MANIFEST");
+            if(c.aboveBlocks==null||c.aboveBlocks.size()>c.clearToY-c.targetY||!"farm_hut".equals(c.kind)&&!"bridge_anchor".equals(c.kind)&&!"bridge_rigging".equals(c.kind)&&!c.suspensionBridge&&!c.aboveBlocks.isEmpty())throw new IllegalArgumentException("INVALID_HUT_MANIFEST");
             if("farm_hut".equals(c.kind)){var blocks=new HashSet<>(BuildingPresetRegistry.getInstance().getPreset("meadow_hut").palette.values());blocks.add("minecraft:cobblestone");if(c.aboveBlocks.isEmpty()||!blocks.containsAll(c.aboveBlocks))throw new IllegalArgumentException("INVALID_HUT_BLOCKS");}
+            if("bridge_anchor".equals(c.kind)&&(c.targetY!=c.originalY||!"surface".equals(c.structure)||c.aboveBlocks.isEmpty()||!c.aboveBlocks.stream().allMatch(b->"minecraft:oak_log".equals(b))))throw new IllegalArgumentException("INVALID_BRIDGE_ANCHOR");
+            if(c.suspensionBridge||"bridge_rigging".equals(c.kind))for(int i=0;i<c.aboveBlocks.size();i++)if(!"bridge_rigging".equals(c.kind)||!Set.of("minecraft:air","minecraft:oak_fence","minecraft:chain[axis=y,waterlogged=false]","minecraft:chain[axis=x,waterlogged=false]","minecraft:chain[axis=z,waterlogged=false]").contains(c.aboveBlocks.get(i)))throw new IllegalArgumentException("INVALID_BRIDGE_CABLE");
             pavementBlock(c);
             if(columns.put(key(c.x,c.z),c)!=null)throw new IllegalArgumentException("DUPLICATE_COLUMN");
             editCount+=columnEditCount(c);
         }
+        org.mcsettlement.planner.SuspensionBridges.validate(columns);
         if(editCount>limit)throw new IllegalArgumentException("CONSTRUCTION_EDIT_BUDGET_EXCEEDED");
         if(!RoadTerrain.validLandSpans(columns,96))throw new IllegalArgumentException("INVALID_LAND_BRIDGE_SPAN");
         if(ir.search.columnLimit>0&&columns.size()>ir.search.columnLimit)throw new IllegalArgumentException("GROUND_COLUMN_BUDGET_EXCEEDED");
@@ -99,7 +104,7 @@ public final class PlanConstruction {
         Set<String> reached=new HashSet<>();ArrayDeque<String> queue=new ArrayDeque<>();queue.add(entry);reached.add(entry);
         while(!queue.isEmpty())for(String next:adjacent.getOrDefault(queue.remove(),List.of()))if(reached.add(next))queue.add(next);
         if(reached.size()!=nodes.size())throw new IllegalArgumentException("DISCONNECTED_PAVEMENT");
-        for(GroundColumn c:cols.values())if(!Set.of("foundation","farmland","pasture","farm_hut").contains(c.kind)&&!position.containsKey(key(c.x,c.z)))throw new IllegalArgumentException("PAVEMENT_WITHOUT_NODE");
+        for(GroundColumn c:cols.values())if(!Set.of("foundation","farmland","pasture","farm_hut","bridge_anchor","bridge_rigging").contains(c.kind)&&!position.containsKey(key(c.x,c.z)))throw new IllegalArgumentException("PAVEMENT_WITHOUT_NODE");
         for(Plot p:ir.plots){String node=position.get(key(p.entrance.accessPoint[0],p.entrance.accessPoint[2]));RoadEdge e=edges.get(p.entrance.connectedEdgeId);
             if(!reached.contains(node)||e==null||!Objects.equals(e.fromNodeId,node)&&!Objects.equals(e.toNodeId,node))throw new IllegalArgumentException("DISCONNECTED_DOOR");}
         for(RoadEdge route:ir.transportNetwork.corridors){

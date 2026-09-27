@@ -106,6 +106,7 @@ public class SimulatedSettlementPipeline {
         // 3. Run the bounded planner
         PlanRequest req = new PlanRequest();
         req.roadSurface=roadSurface;req.seed = planSeed;req.expert=expertSettings;
+        if(req.expert!=null)req.expert.suspensionBridges="canyon".equals(res.terrainType);
         req.targetPlots = targetPlots;
         req.roadWidth = 3;req.roadDirections=roadDirections;req.diagonalBuildings=diagonalBuildings;req.searchBudget=budget;req.presetPalette=presetPalette;req.singlePresetId=singlePresetId;
         if ("plateau".equals(res.terrainType)) {
@@ -302,6 +303,8 @@ public class SimulatedSettlementPipeline {
         if ("minecraft:air".equals(id)) return VoxelType.AIR;
         if(id.equals("minecraft:oak_leaves"))return VoxelType.OAK_LEAVES;
         if(id.equals("minecraft:dirt_path"))return VoxelType.DIRT_PATH;
+        if(id.equals("minecraft:dirt"))return VoxelType.DIRT;
+        if(id.startsWith("minecraft:chain"))return id.contains("axis=x")?VoxelType.CHAIN_X:id.contains("axis=z")?VoxelType.CHAIN_Z:VoxelType.CHAIN_Y;
         if(id.equals("minecraft:gravel"))return VoxelType.GRAVEL;
         if(id.equals("minecraft:coarse_dirt"))return VoxelType.COARSE_DIRT;
         if(id.equals("minecraft:stone_bricks"))return VoxelType.STONE_BRICKS;

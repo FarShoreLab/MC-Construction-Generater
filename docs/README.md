@@ -2,12 +2,18 @@
 
 [返回项目入口](../README.md)
 
+2026-09-27 已将历史交接快照与导出结果移出当前 Git 树，本地保留并校验；旧文档引用的 ZIP、快照和本机验证证据不保证随当前克隆存在。当前接手以接手指南及两步 Demo 说明为准。
+
 归档文档保留原始内容。文中的命令仍在项目根目录运行；`tools/`、`build/`、`handoff/` 等工程路径仍以项目根目录为基准。同目录文档名及截图名可直接在本目录找到。
 
 部分历史说明引用原交付包中的 `source/`、`evidence/`、上一级报告或校验清单，这些引用保留原交付语境，不代表当前目录存在相应文件。历史测试记录不代表本次整理重新执行了业务测试。
 
 ## 功能与使用
 
+- [现代城市 Demo（平地体量，2026-09-27）](MODERN_CITY_DEMO_ZH.md)
+- [接手指南与未提交改动清单](HANDOVER_ZH.md)
+- [新增地形、农田与吊桥（2026-09-24）](TERRAIN_FARMLAND_20260924_ZH.md)
+- [两步 Demo：先选址，再生成道路（2026-09-26）](TWO_STAGE_DEMO_20260926_ZH.md)
 - [部署边界与本地使用](DEPLOYMENT.md)
 - [预设控制（2026-09-22）](PRESET_CONTROLS_20260922_ZH.md)
 - [建筑表面（2026-09-22）](BUILDING_SURFACES_20260922_ZH.md)
@@ -18,6 +24,8 @@
 
 ## 实现与历史记录
 
+- [现代城市研究依据（2026-09-27）](MODERN_CITY_RESEARCH_ZH.md)
+- [RoadWeaver 算法研究（2026-09-27，未接入）](ROADWEAVER_EVALUATION_20260927_ZH.md)
 - [Demo 同步记录（2026-09-22）](DEMO_SYNC_20260922_ZH.md)
 - [AI 实现记录](NEXT_AI_IMPLEMENTATION_ZH.md)
 - [原始任务说明](PROMPT_ZH.md)

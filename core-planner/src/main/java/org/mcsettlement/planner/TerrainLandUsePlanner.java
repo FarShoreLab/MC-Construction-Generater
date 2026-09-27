@@ -22,8 +22,10 @@ final class TerrainLandUsePlanner {
         double cx=ir.plots.stream().mapToDouble(p->p.origin2D[0]+p.builder.footprintSize[0]*.5).average().orElse(map.getMinX()+map.getWidth()*.5);
         double cz=ir.plots.stream().mapToDouble(p->p.origin2D[1]+p.builder.footprintSize[1]*.5).average().orElse(map.getMinZ()+map.getDepth()*.5);
         long seed=req.expert.effectiveSiteSeed(req.seed)^0x6a09e667f3bcc909L;
-        grow(map,req,ir,blocked,cx,cz,"farmland",Math.min(96,28+ir.plots.size()*7),seed);
-        grow(map,req,ir,blocked,cx,cz,"pasture",Math.min(128,34+ir.plots.size()*8),seed^0xbb67ae8584caa73bL);
+        int fieldSize=Math.min(192,64+ir.plots.size()*12);
+        for(int i=0;i<2;i++)grow(map,req,ir,blocked,cx,cz,"farmland",fieldSize,seed+i*7919,false);
+        grow(map,req,ir,blocked,cx,cz,"farmland",fieldSize,seed^0x3c6ef372fe94f82bL,true);
+        grow(map,req,ir,blocked,cx,cz,"pasture",Math.min(128,34+ir.plots.size()*8),seed^0xbb67ae8584caa73bL,false);
         addFarmHut(map,req,ir,blocked);
         ir.sitePlanning.farmlandCells=ir.landUses.stream().filter(a->"farmland".equals(a.type)).mapToInt(a->a.cells.size()).sum();
         ir.sitePlanning.pastureCells=ir.landUses.stream().filter(a->"pasture".equals(a.type)).mapToInt(a->a.cells.size()).sum();
@@ -59,14 +61,15 @@ final class TerrainLandUsePlanner {
         }
         ir.landUses.add(hut);
     }
-    private static void grow(HeightfieldMap map,PlanRequest req,PlanningIR ir,Set<Long> blocked,double cx,double cz,String type,int target,long seed){
+    private static void grow(HeightfieldMap map,PlanRequest req,PlanningIR ir,Set<Long> blocked,double cx,double cz,String type,int target,long seed,boolean terraced){
         int remainingCols=req.searchBudget.groundColumns-ir.groundColumns.size();
         int remainingEdits=req.searchBudget.constructionEdits-ir.search.constructionEdits;
-        target=Math.min(target,Math.max(0,Math.min(remainingCols,remainingEdits/3)));if(target<12)return;
+        target=Math.min(target,Math.max(0,Math.min(remainingCols,remainingEdits/(terraced?4:3))));if(target<12)return;
         Cell start=null;double radius="farmland".equals(type)?.18:.27, best=Double.POSITIVE_INFINITY;
         double scale=Math.max(map.getWidth(),map.getDepth());
         for(int z=map.getMinZ()+2;z<map.getMinZ()+map.getDepth()-2;z++)for(int x=map.getMinX()+2;x<map.getMinX()+map.getWidth()-2;x++){
             if(!usable(map,blocked,x,z,type))continue;double d=Math.hypot(x-cx,z-cz)/scale;
+            if(terraced&&(map.getSlope(x,z)<.25||map.getSlope(x,z)>1.55))continue;
             double s=Math.abs(d-radius)*40+map.getSlope(x,z)*3+noise(seed,x,z)*.035;
             if(s<best){best=s;start=new Cell(x,z,(int)Math.round(s*100));}
         }
@@ -83,11 +86,12 @@ final class TerrainLandUsePlanner {
             }
         }
         if(chosen.size()<12)return;
-        LandUseArea area=new LandUseArea();area.id=type+"_0";area.type=type;area.minY=Integer.MAX_VALUE;area.maxY=Integer.MIN_VALUE;
+        LandUseArea area=new LandUseArea();area.id=type+"_"+ir.landUses.stream().filter(a->type.equals(a.type)).count();area.type=type;area.terraced=terraced;area.minY=Integer.MAX_VALUE;area.maxY=Integer.MIN_VALUE;
         List<Long> sorted=new ArrayList<>(chosen);Collections.sort(sorted);
         for(long k:sorted){int x=x(k),z=z(k),y=map.getSurfaceY(x,z);area.cells.add(new int[]{x,z});area.minY=Math.min(area.minY,y);area.maxY=Math.max(area.maxY,y);
             boolean boundary=false;for(int[] d:CARDINAL)if(!chosen.contains(key(x+d[0],z+d[1]))){boundary=true;break;}if(boundary)area.boundary2D.add(new int[]{x,z});
-            GroundColumn c=new GroundColumn(x,z,y,y,y+2,type);c.structure="surface";ir.groundColumns.add(c);blocked.add(k);ir.search.constructionEdits+=PlanConstruction.columnEditCount(c);
+            int level=terraced?sy+3*Math.floorDiv(y-sy+1,3):y;
+            GroundColumn c=new GroundColumn(x,z,y,level,Math.max(y,level)+2,type);c.terracedFarmland=terraced;c.structure="surface";ir.groundColumns.add(c);blocked.add(k);ir.search.constructionEdits+=PlanConstruction.columnEditCount(c);
         }
         // A solid rectangle is explicitly not an accepted natural region.
         int minX=area.cells.stream().mapToInt(a->a[0]).min().orElse(0),maxX=area.cells.stream().mapToInt(a->a[0]).max().orElse(0);
@@ -101,11 +105,12 @@ final class TerrainLandUsePlanner {
         // Recompute from the final cell set so the boundary never references a notched-away cell.
         Set<Long> finalCells=new HashSet<>();for(int[] cell:area.cells)finalCells.add(key(cell[0],cell[1]));
         area.boundary2D.clear();area.minY=Integer.MAX_VALUE;area.maxY=Integer.MIN_VALUE;
-        for(int[] cell:area.cells){int y=map.getSurfaceY(cell[0],cell[1]);area.minY=Math.min(area.minY,y);area.maxY=Math.max(area.maxY,y);boolean boundary=false;for(int[] d:CARDINAL)if(!finalCells.contains(key(cell[0]+d[0],cell[1]+d[1]))){boundary=true;break;}if(boundary)area.boundary2D.add(cell.clone());}
+        for(int[] cell:area.cells){int original=map.getSurfaceY(cell[0],cell[1]),y=terraced?sy+3*Math.floorDiv(original-sy+1,3):original;area.minY=Math.min(area.minY,y);area.maxY=Math.max(area.maxY,y);boolean boundary=false;for(int[] d:CARDINAL)if(!finalCells.contains(key(cell[0]+d[0],cell[1]+d[1]))){boundary=true;break;}if(boundary)area.boundary2D.add(cell.clone());}
         if("farmland".equals(type)){Set<Long> border=new HashSet<>();for(int[] cell:area.boundary2D)border.add(key(cell[0],cell[1]));
             for(GroundColumn c:ir.groundColumns)if("farmland".equals(c.kind)&&border.contains(key(c.x,c.z)))c.surfaceMaterial="coarse_dirt";
         }
         ir.landUses.add(area);
+        for(int[] cell:area.cells)for(int[] d:CARDINAL)blocked.add(key(cell[0]+d[0],cell[1]+d[1]));
     }
     private static boolean usable(HeightfieldMap map,Set<Long> blocked,int x,int z,String type){
         if(!map.inBounds(x,z)||blocked.contains(key(x,z))||RoadTerrain.wet(map,x,z))return false;

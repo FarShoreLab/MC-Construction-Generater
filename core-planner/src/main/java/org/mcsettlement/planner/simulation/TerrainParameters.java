@@ -4,8 +4,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Parameters of the EXISTING four terrain formulas, not a second generator.
- * Immutable and range checked. Defaults reproduce v0.4.1 voxel-for-voxel.
+ * Shared controls for terrain formulas in the existing generator.
+ * Immutable and range checked. The original four terrain defaults reproduce v0.4.1 voxel-for-voxel.
  * The browser/HTTP parameter descriptions live in terrain-controls.json;
  * TerrainControlsMain checks that its ranges and defaults agree with this API.
  */
@@ -38,7 +38,11 @@ public record TerrainParameters(
     public static TerrainParameters defaults(String terrainType) {
         var type = TerrainBlockGenerator.TerrainType.from(terrainType);
         return new TerrainParameters(1, 1, 1, 1,
-                type == TerrainBlockGenerator.TerrainType.VALLEY ? .28 : .22, 1, 4, 1.65, 1, 5);
+                type == TerrainBlockGenerator.TerrainType.VALLEY ? .28 : dry(type) ? 0 : .22, dry(type) ? 0 : 1, 4, 1.65, 1, 5);
+    }
+
+    private static boolean dry(TerrainBlockGenerator.TerrainType type) {
+        return type == TerrainBlockGenerator.TerrainType.DESERT || type == TerrainBlockGenerator.TerrainType.CANYON;
     }
 
     /** Omitted keys use the selected type's original defaults; unknown keys are errors. */

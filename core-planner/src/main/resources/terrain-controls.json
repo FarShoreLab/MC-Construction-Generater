@@ -1,6 +1,6 @@
 {
   "version": "terrain-controls/1",
-  "generatorVersion": "terrain-block/0.4.2",
+  "generatorVersion": "terrain-block/0.5.3",
   "types": [
     {
       "id": "rolling_hills",
@@ -21,6 +21,36 @@
       "id": "plateau",
       "label": "台地阶地",
       "description": "将原起伏分级成台地，仍保留细噪声。减少分级数会增大每级落差，不等于更容易通路。"
+    },
+    {
+      "id": "desert",
+      "label": "沙漠",
+      "description": "风蚀沙丘与沙岩底层，默认无水无乔木。"
+    },
+    {
+      "id": "canyon",
+      "label": "大峡谷",
+      "description": "曲折峡谷切开分层岩台，跨谷连接使用吊桥。"
+    },
+    {
+      "id": "basin",
+      "label": "盆地",
+      "description": "宽阔低地与环绕山缘，可通过水位控制湖盆。"
+    },
+    {
+      "id": "cliff",
+      "label": "悬崖",
+      "description": "曲折陡崖分隔高低地表。"
+    },
+    {
+      "id": "mountain_range",
+      "label": "山脉",
+      "description": "连续山脊和交错谷地。"
+    },
+    {
+      "id": "snow_peak",
+      "label": "雪峰",
+      "description": "宽阔山体叠加主峰、副峰与侵蚀谷地；雪坡、裸岩和低地植被分层过渡。横向尺度调高扩大山体，峰脊收窄系数调低让峰顶更宽。"
     }
   ],
   "controls": [
@@ -37,11 +67,17 @@
         "rolling_hills",
         "mountain",
         "valley",
-        "plateau"
+        "plateau",
+        "desert",
+        "canyon",
+        "basin",
+        "cliff",
+        "mountain_range",
+        "snow_peak"
       ],
-      "description": "只缩放起伏噪声及其扭曲的水平尺度，不改变地图尺寸；不缩放环谷半径、整体倾斜或树木间距。",
-      "low": "山丘、脊线更小、更密；通常坡变更频繁。",
-      "high": "山丘、脊线更宽、更疏；小地图可能只看到一个大坡。"
+      "description": "缩放起伏噪声及扭曲的水平尺度；雪峰同时缩放整体山体和各个峰顶的宽度。不改变地图尺寸、环谷半径或树木间距。",
+      "low": "山丘、脊线更小、更密；雪峰山体更紧凑。",
+      "high": "山丘、脊线更宽、更疏；雪峰山体与雪坡更宽阔。"
     },
     {
       "key": "detailStrength",
@@ -56,7 +92,13 @@
         "rolling_hills",
         "mountain",
         "valley",
-        "plateau"
+        "plateau",
+        "desert",
+        "canyon",
+        "basin",
+        "cliff",
+        "mountain_range",
+        "snow_peak"
       ],
       "description": "控制原来19格尺度的细噪声振幅，不改变中大尺度形状。整数高度下，小幅修改可能不变。",
       "low": "细碎起伏减少；0只关闭细噪声，不保证整张图平坦。",
@@ -69,7 +111,13 @@
         "rolling_hills": 0.22,
         "mountain": 0.22,
         "valley": 0.28,
-        "plateau": 0.22
+        "plateau": 0.22,
+        "desert": 0,
+        "canyon": 0,
+        "basin": 0.22,
+        "cliff": 0.22,
+        "mountain_range": 0.22,
+        "snow_peak": 0.22
       },
       "min": 0,
       "max": 1,
@@ -80,7 +128,13 @@
         "rolling_hills",
         "mountain",
         "valley",
-        "plateau"
+        "plateau",
+        "desert",
+        "canyon",
+        "basin",
+        "cliff",
+        "mountain_range",
+        "snow_peak"
       ],
       "description": "水面Y = 基准Y + floor(起伏×相对水位)。它不是水域面积比例，也不挖湖盆。",
       "low": "只淹没更低的洼地；0完全无水。",
@@ -99,7 +153,13 @@
         "rolling_hills",
         "mountain",
         "valley",
-        "plateau"
+        "plateau",
+        "desert",
+        "canyon",
+        "basin",
+        "cliff",
+        "mountain_range",
+        "snow_peak"
       ],
       "description": "控制原有两路坐标扭曲的位移振幅；保持噪声通道和种子不变。",
       "low": "轮廓少些扭曲；0关闭坐标扭曲，仍有自然噪声。",
@@ -124,7 +184,7 @@
     },
     {
       "key": "ridgeSharpness",
-      "label": "山脊收窄系数",
+      "label": "峰脊收窄系数",
       "default": 1.65,
       "min": 0.5,
       "max": 3,
@@ -132,11 +192,13 @@
       "integer": false,
       "group": "type",
       "appliesTo": [
-        "mountain"
+        "mountain",
+        "mountain_range",
+        "snow_peak"
       ],
-      "description": "只影响山地。原式ridge = 1 - min(1, abs(noise)×系数)。",
-      "low": "高脊带更宽，地形整体偏高。",
-      "high": "高脊带更窄、两侧降低；不是把山峰抬高。"
+      "description": "山脊类型控制高脊带宽窄；雪峰控制山体上各个峰顶的宽窄，不改变整体起伏上限。",
+      "low": "山脊带或雪峰峰顶更宽、更圆缓。",
+      "high": "山脊带或雪峰峰顶更窄、更尖。"
     },
     {
       "key": "valleyWidth",
@@ -148,7 +210,9 @@
       "integer": false,
       "group": "type",
       "appliesTo": [
-        "valley"
+        "valley",
+        "canyon",
+        "basin"
       ],
       "description": "只影响环谷；缩放以地图中心为原点的径向距离归一化尺度。",
       "low": "中心低地变窄，周围更快升高。",
@@ -173,7 +237,18 @@
     {
       "key": "treeDensity",
       "label": "树木密度倍率",
-      "default": 1,
+      "default": {
+        "rolling_hills": 1,
+        "mountain": 1,
+        "valley": 1,
+        "plateau": 1,
+        "desert": 0,
+        "canyon": 0,
+        "basin": 1,
+        "cliff": 1,
+        "mountain_range": 1,
+        "snow_peak": 1
+      },
       "min": 0,
       "max": 2,
       "step": 0.1,
@@ -183,7 +258,11 @@
         "rolling_hills",
         "mountain",
         "valley",
-        "plateau"
+        "plateau",
+        "basin",
+        "cliff",
+        "mountain_range",
+        "snow_peak"
       ],
       "description": "乘在原湿度筛选通过率上；树木优先级和间距筛选不变。",
       "low": "同一间距下树木减少；0不生成树木。",
@@ -202,7 +281,11 @@
         "rolling_hills",
         "mountain",
         "valley",
-        "plateau"
+        "plateau",
+        "basin",
+        "cliff",
+        "mountain_range",
+        "snow_peak"
       ],
       "description": "原局部优先级筛选的邻域半径；不是等间隔栅格，树冠允许交叠。",
       "low": "允许树长得更近、数量更多。",

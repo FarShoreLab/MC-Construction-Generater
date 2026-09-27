@@ -35,7 +35,10 @@ final class ExpertSettlementPlanner {
         ir.metadata.minBounds=new int[]{map.getMinX(),-2048,map.getMinZ()};ir.metadata.maxBounds=new int[]{map.getMinX()+map.getWidth()-1,2048,map.getMinZ()+map.getDepth()-1};
         SearchStats st=ir.search;st.candidateLimit=r.searchBudget.candidateChecks;st.pathLimit=r.searchBudget.pathExpanded;st.stateLimit=r.searchBudget.pathStates;
         st.gradeLimit=r.searchBudget.gradeRelaxations;st.columnLimit=r.searchBudget.groundColumns;st.editLimit=r.searchBudget.constructionEdits;
-        List<int[]> gates=BoundedSettlementPlanner.gates(map,r);
+        boolean sitesOnly="sites".equals(r.expert.planningStage);
+        boolean confirmed=!"full".equals(r.expert.planningStage)&&r.expert.pins.stream().filter(p->"building".equals(p.kind)).count()==r.targetPlots;
+        int centerX=map.getMinX()+map.getWidth()/2,centerZ=map.getMinZ()+map.getDepth()/2;
+        List<int[]> gates=sitesOnly?List.of(new int[]{centerX,map.getSurfaceY(centerX,centerZ),centerZ}):BoundedSettlementPlanner.gates(map,r);
         if(gates.isEmpty())return reject(ir,"NO_VALID_FULL_WIDTH_ENTRY",started);
         int[] water=BoundedSettlementPlanner.waterDistances(map);st.terrainCellsAnalyzed=map.getWidth()*map.getDepth();
         List<Demand> demands=demands(r,map);Map<String,ExpertSettings.Pin> pins=new LinkedHashMap<>();for(var p:r.expert.pins)pins.put(p.id,p);
@@ -44,6 +47,7 @@ final class ExpertSettlementPlanner {
         List<Choice> choices=new ArrayList<>();List<String> attempts=new ArrayList<>();int count=r.expert.pins.stream().filter(p->"building".equals(p.kind)).count()==demands.size()?1:Math.min(3,r.searchBudget.attempts);
         for(int a=0;a<count&&st.candidateChecks<st.candidateLimit;a++) {
             st.siteLayoutsTried++;st.attempts++;Layout l=new Layout(map,gates.getFirst(),r.roadWidth);l.waterDistances=water;l.distances=distanceField(map,l.roadCells);
+            if(sitesOnly){l.roadCells.clear();l.walk.clear();}
             SitePlanning report=new SitePlanning();boolean fail=false;double sum=0;
             for(int i=0;i<demands.size();i++) {
                 Demand d=demands.get(i);ExpertSettings.Pin pin=pins.get(d.id());
@@ -65,13 +69,20 @@ final class ExpertSettlementPlanner {
                 if("highland".equals(decision.role))decision.rules.add("HIGH_GROUND_SOFT_PREFERENCE");report.decisions.add(decision);
             }
             SiteMetrics.measure(map,metricPlots(l.placed),r.expert,report);
-            report.reasons.addAll(SiteMetrics.failures(l.placed.size(),report));
+            if(!confirmed)report.reasons.addAll(SiteMetrics.failures(l.placed.size(),report));
             attempts.add("sites_"+a+": buildings="+l.placed.size()+" bbox="+round(report.bboxCoverage)+" minor="+round(report.minorAxisRatio)+" hull="+round(report.hullCoverage)+" reasons="+report.reasons);
             if(ir.sitePlanning.decisions.isEmpty()||report.decisions.size()>ir.sitePlanning.decisions.size()||report.coveragePenalty<ir.sitePlanning.coveragePenalty)ir.sitePlanning=report;
             if(!fail&&report.reasons.isEmpty())choices.add(new Choice(l,report,sum+report.crowdingPenalty*8*r.expert.buildingRepulsion));
         }
         choices.sort(Comparator.comparingDouble(Choice::score));
         if(choices.isEmpty()){ir.sitePlanning.attempts=attempts;return reject(ir,ir.sitePlanning.reasons.stream().anyMatch(s->s.startsWith("PIN_"))?"PIN_CONSTRAINT_FAILED":"LAYOUT_QUALITY_REJECTED",started);}
+        if(sitesOnly){
+            Choice choice=choices.getFirst();ir.sitePlanning=choice.report;ir.sitePlanning.attempts=attempts;
+            BoundedSettlementPlanner.emit(map,r,choice.layout,ir);
+            if(ir.groundColumns.size()>st.columnLimit||st.constructionEdits>st.editLimit)return reject(ir,"COLUMN_OR_EDIT_LIMIT",started);
+            ir.status="SITES_READY";ir.sitePlanning.status="ACCEPTED";ir.transportNetwork.algorithm="sites_only/1";ir.transportNetwork.metrics.status="NOT_GENERATED";
+            ir.search.elapsedNanos=System.nanoTime()-started;return ir;
+        }
         // A locked siteSeed means the site layout is authoritative. Road rolls may perturb only
         // routing tie-breaks; they must never fall through to a different macro site alternative.
         if(r.expert.siteSeed!=null&&choices.size()>1)choices=new ArrayList<>(List.of(choices.getFirst()));
@@ -143,9 +154,10 @@ final class ExpertSettlementPlanner {
             for(RoadEdge e:ir.transportNetwork.corridors)nm.roadTypes.merge(e.roadType,1,Integer::sum);
             ir.sitePlanning.bridgeColumns=(int)ir.groundColumns.stream().filter(c->"bridge".equals(c.structure)).count();ir.sitePlanning.pileColumns=(int)ir.groundColumns.stream().filter(c->c.support).count();
             ir.sitePlanning.waterBuildingCount=(int)ir.sitePlanning.decisions.stream().filter(d->"water".equals(d.medium)).count();
-            SiteMetrics.measure(map,ir.plots,r.expert,ir.sitePlanning);ir.sitePlanning.reasons.addAll(SiteMetrics.failures(ir.plots.size(),ir.sitePlanning));
-            if(!SiteMetrics.failures(ir.plots.size(),ir.sitePlanning).isEmpty())return reject(ir,"FINAL_LAYOUT_QUALITY_REJECTED",started);
+            SiteMetrics.measure(map,ir.plots,r.expert,ir.sitePlanning);if(!confirmed)ir.sitePlanning.reasons.addAll(SiteMetrics.failures(ir.plots.size(),ir.sitePlanning));
+            if(!confirmed&&!SiteMetrics.failures(ir.plots.size(),ir.sitePlanning).isEmpty())return reject(ir,"FINAL_LAYOUT_QUALITY_REJECTED",started);
             ir.status="COMPLETE";ir.sitePlanning.status="ACCEPTED";
+            try {SuspensionBridges.add(map,r,ir);}catch(IllegalArgumentException ex){return reject(ir,"CONSTRUCTION_AUDIT_FAILED: "+ex.getMessage(),started);}
             TerrainLandUsePlanner.add(map,r,ir);
             try {ExpertTerrainAudit.validate(map,r,ir);PlanConstruction.prepare(ir,r.settlementStyle);}catch(IllegalArgumentException ex){return reject(ir,"CONSTRUCTION_AUDIT_FAILED: "+ex.getMessage(),started);}
             ir.metadata.score.put("demand_satisfaction",1.0);ir.metadata.score.put("building_bbox_coverage",ir.sitePlanning.bboxCoverage);ir.metadata.score.put("building_minor_axis_ratio",ir.sitePlanning.minorAxisRatio);
@@ -158,8 +170,9 @@ final class ExpertSettlementPlanner {
         List<Demand> result=new ArrayList<>(),auto=new ArrayList<>();
         for(var pin:r.expert.pins)if("building".equals(pin.kind)) {
             BuildingPreset b=BuildingPresetRegistry.getInstance().getPreset(pin.presetId);BuildingRequirement q=new BuildingRequirement();q.id=pin.id;q.purpose=b.category;q.presetId=b.id;q.minWidth=q.minDepth=3;q.maxWidth=q.maxDepth=Math.max(32,Math.max(b.sizeX,b.sizeZ));q.heightLimit=b.sizeY;
-            result.add(new Demand(q,pin.id,List.of(new BuildingShape(b.rotateToFacing(pin.facing),false))));
+            result.add(new Demand(q,pin.id,List.of(new BuildingShape(b.selectEntrance(pin.entranceIndex).rotateToFacing(pin.facing),pin.diagonal45))));
         }
+        if(result.size()==r.targetPlots)return result;
         for(Demand d:BoundedSettlementPlanner.demands(r,map))for(int k=0;k<d.requirement().count;k++)auto.add(new Demand(d.requirement(),"auto:"+d.id()+(k==0?"":"_"+k),d.variants()));
         auto.sort(Comparator.<Demand>comparingInt(d->"center".equals(d.requirement().placement)?0:1).thenComparingInt(d->"civic".equals(role(d))?0:1));
         int total=r.requirements.isEmpty()?r.targetPlots:auto.size();

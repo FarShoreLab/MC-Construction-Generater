@@ -20,7 +20,7 @@
 4. 运行 `python tools/build_offline.py --test --evidence build/preset-verification`（Java 21、本地 Gson 2.10.1）。新增注册数量后同步合理的目录总数断言。
 5. 运行 `python tools/preview_server.py --port 18771`，从单预设和平地开始测试，再使用 custom 列表测试混合数量。
 
-包中 `source-reference/` 是本次交接时的数据模型、旋转、注册和规划接口快照，供理解集成点；不是完整项目，也不要盲目覆盖后续修改的工程。可直接独立运行的是作者配置与 Python 编译器。
+仓库中的接口以当前源码为准。运行 `python tools/package_preset_handoff.py` 可生成独立 ZIP，其中的 `source-reference/` 是打包时的接口快照，供理解集成点，不用于覆盖工程。打包不附历史验证结果；接收方应重新验证。
 
 ## 主要文件
 

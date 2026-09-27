@@ -28,7 +28,10 @@ public class SimulatedVoxelWorld {
         DIRT_PATH(16, "#B59A60", true), FARMLAND(17, "#68482D", true),
         COARSE_DIRT(18, "#93704A", true), PLASTER(19, "#DDD0B7", true),
         BRICKS(20, "#995F4E", true), SLATE(21, "#38414C", true),
-        DARK_OAK(22, "#4B3328", true), STONE_BRICK_STAIRS(23, "#65717D", true);
+        DARK_OAK(22, "#4B3328", true), STONE_BRICK_STAIRS(23, "#65717D", true),
+        SAND(24, "#DFC68A", true), SANDSTONE(25, "#BE985D", true),
+        TERRACOTTA(26, "#B66E48", true), SNOW_BLOCK(27, "#EDF4FA", true),
+        CHAIN_X(28, "#514A42", false), CHAIN_Y(29, "#514A42", false), CHAIN_Z(30, "#514A42", false);
 
         public final int id;
         public final String hexColor;

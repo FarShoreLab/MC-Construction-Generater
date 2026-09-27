@@ -10,6 +10,8 @@ import static org.mcsettlement.planner.RoadGeometry.*;
 public final class RoadTerrain {
     private RoadTerrain() {}
     public static final int MAX_PILE_HEIGHT=16;
+    public static final int MAX_SUSPENSION_HEIGHT=36;
+    static int landClearance(PlanRequest r){return r.expert!=null&&r.expert.suspensionBridges?MAX_SUSPENSION_HEIGHT:MAX_PILE_HEIGHT;}
     public static boolean wet(HeightfieldMap m,int x,int z) {
         if(!m.inBounds(x,z))return false;
         var o=m.getObstacle(x,z);return (o==HeightfieldMap.ObstacleType.WATER||o==HeightfieldMap.ObstacleType.WATER_DEEP)&&m.getWaterY(x,z)>m.getSurfaceY(x,z);
@@ -48,13 +50,13 @@ public final class RoadTerrain {
     }
     static int upper(HeightfieldMap m,PlanRequest r,int x,int z) {
         if(wet(m,x,z))return natural(m,x,z);
-        return m.getSurfaceY(x,z)+(landBridgeEligible(m,r,x,z)?MAX_PILE_HEIGHT:r.roadMaxFill);
+        return m.getSurfaceY(x,z)+(landBridgeEligible(m,r,x,z)?landClearance(r):r.roadMaxFill);
     }
     static boolean airborneLand(HeightfieldMap m,PlanRequest r,int x,int z,int y){
         return !wet(m,x,z)&&y>m.getSurfaceY(x,z)+r.roadMaxFill;
     }
     static void markLand(PlanRequest r,GroundColumn c) {
-        if(r.expert!=null&&r.expert.allowBridges&&"road".equals(c.kind)&&c.waterY==null&&c.targetY-c.originalY>r.roadMaxFill){c.structure="bridge";c.support=Math.floorMod(c.x+c.z,4)==0;}
+        if(r.expert!=null&&r.expert.allowBridges&&"road".equals(c.kind)&&c.waterY==null&&c.targetY-c.originalY>r.roadMaxFill){c.structure="bridge";c.suspensionBridge=r.expert.suspensionBridges;c.support=!c.suspensionBridge&&Math.floorMod(c.x+c.z,4)==0;}
     }
     public static boolean landBridge(GroundColumn c){return "bridge".equals(c.structure)&&c.waterY==null;}
     /** Full-width unsupported reach bound. A viaduct can contain several supported spans. */
@@ -102,7 +104,7 @@ public final class RoadTerrain {
     /** Re-scan preflight shared with the game constructor. Does not authorize arbitrary fluid edits. */
     public static boolean matchesFreshTerrain(HeightfieldMap fresh,GroundColumn c,boolean expertManifest) {
         if(!fresh.inBounds(c.x,c.z)||fresh.getSurfaceY(c.x,c.z)!=c.originalY)return false;
-        if(landBridge(c))return expertManifest&&(buildable(fresh,c.x,c.z)||fresh.isDerivedCliff(c.x,c.z))&&c.targetY>c.originalY&&c.targetY-c.originalY<=MAX_PILE_HEIGHT;
+        if(landBridge(c))return expertManifest&&(buildable(fresh,c.x,c.z)||fresh.isDerivedCliff(c.x,c.z))&&c.targetY>c.originalY&&c.targetY-c.originalY<=(c.suspensionBridge?MAX_SUSPENSION_HEIGHT:MAX_PILE_HEIGHT);
         if(raised(c))return expertManifest&&wet(fresh,c.x,c.z)&&c.waterY!=null&&c.waterY==fresh.getWaterY(c.x,c.z)&&c.targetY==c.waterY+1&&c.targetY-c.originalY<=MAX_PILE_HEIGHT;
         return buildable(fresh,c.x,c.z)||expertManifest&&fresh.isDerivedCliff(c.x,c.z);
     }

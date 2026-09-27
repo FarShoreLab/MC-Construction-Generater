@@ -52,6 +52,14 @@ def main() -> None:
         assert a==b;checks.append('Custom non-square terrain repeats exactly')
         large=terrain('custom512',dict(width=512,depth=512,terrainType='rolling_hills',terrainSeed=42,horizontalScale=1.7,detailStrength=.3,treeDensity=.4,waterLevelRatio=.35))
         checks.append('512 terrain-only payload obeys dimensions, byte and voxel bounds')
+        tall=terrain('snow512-relief128',dict(width=512,depth=512,terrainType='snow_peak',terrainSeed=42,baseElevation=75,relief=128,waterLevelRatio=0))
+        assert tall['metrics']['waterCells']==0 and 111<max(tall['original']['heights'])<=203
+        assert min(tall['original']['heights'])>=75
+        assert tall['original']['minY']+tall['original']['sizeY']-1>=230
+        assert 27 in tall['original']['materials'] and tall['original']['strata']
+        for endpoint in ['/api/terrain','/api/plan']:
+            code,p=fetch(endpoint,{'terrainType':'snow_peak','relief':129});assert code==400 and not p['ok']
+        checks.append('512 snow massif accepts relief128 without clipping or water; both endpoints reject relief129')
         lo=terrain('water-low',dict(width=192,depth=192,terrainType='valley',waterLevelRatio=.1))
         hi=terrain('water-high',dict(width=192,depth=192,terrainType='valley',waterLevelRatio=.6))
         assert lo['original']['heights']==hi['original']['heights']

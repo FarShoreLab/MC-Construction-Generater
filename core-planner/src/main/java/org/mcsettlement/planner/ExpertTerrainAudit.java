@@ -18,11 +18,11 @@ public final class ExpertTerrainAudit {
             } else {
                 if(!RoadTerrain.allowed(map,req,c.x,c.z))throw new IllegalArgumentException("AUDIT_FORBIDDEN_TERRAIN");
                 if(RoadTerrain.landBridge(c)){
-                    if(!req.expert.allowBridges||!RoadTerrain.landBridgeEligible(map,req,c.x,c.z)||!"road".equals(c.kind)||c.targetY<=c.originalY||c.targetY-c.originalY>RoadTerrain.MAX_PILE_HEIGHT||c.support!=(Math.floorMod(c.x+c.z,4)==0))throw new IllegalArgumentException("AUDIT_LAND_BRIDGE");
+                    if(!req.expert.allowBridges||(!RoadTerrain.landBridgeEligible(map,req,c.x,c.z)&&!("bridge_rigging".equals(c.kind)&&c.targetY-c.originalY<=req.roadMaxFill))||!Set.of("road","bridge_rigging").contains(c.kind)||c.targetY<=c.originalY||c.targetY-c.originalY>RoadTerrain.landClearance(req)||c.suspensionBridge!=req.expert.suspensionBridges||c.support!=(!c.suspensionBridge&&Math.floorMod(c.x+c.z,4)==0))throw new IllegalArgumentException("AUDIT_LAND_BRIDGE");
                     continue;
                 }
                 if(RoadTerrain.raised(c))throw new IllegalArgumentException("AUDIT_FORBIDDEN_TERRAIN");
-                int cut="foundation".equals(c.kind)?req.parcelConfig.maxCutBudget:req.roadMaxCut,fill="foundation".equals(c.kind)?req.parcelConfig.maxFillBudget:req.roadMaxFill;
+                int cut=c.terracedFarmland?1:"foundation".equals(c.kind)?req.parcelConfig.maxCutBudget:req.roadMaxCut,fill=c.terracedFarmland?1:"foundation".equals(c.kind)?req.parcelConfig.maxFillBudget:req.roadMaxFill;
                 if(c.originalY-c.targetY>cut||c.targetY-c.originalY>fill)throw new IllegalArgumentException("AUDIT_CUT_FILL");
             }
         }
@@ -91,7 +91,8 @@ public final class ExpertTerrainAudit {
         for(var area:ir.landUses){if(!Set.of("farmland","pasture","farm_hut").contains(area.type)||area.cells.size()<12)throw new IllegalArgumentException("AUDIT_INVALID_LAND_USE");
             int minX=Integer.MAX_VALUE,minZ=minX,maxX=Integer.MIN_VALUE,maxZ=maxX;Set<Long> cells=new HashSet<>();
             for(int[] p:area.cells){if(p==null||p.length!=2||!cells.add(key(p[0],p[1]))||!declared.add(key(p[0],p[1])))throw new IllegalArgumentException("AUDIT_DUPLICATE_LAND_USE_CELL");
-                var c=columns.get(key(p[0],p[1]));if(c==null||!area.type.equals(c.kind)||c.targetY!=c.originalY||RoadTerrain.wet(map,c.x,c.z))throw new IllegalArgumentException("AUDIT_LAND_USE_MANIFEST");
+                var c=columns.get(key(p[0],p[1]));if(c==null||!area.type.equals(c.kind)||area.terraced!=c.terracedFarmland||
+                        (area.terraced?Math.abs(c.targetY-c.originalY)>1:c.targetY!=c.originalY)||RoadTerrain.wet(map,c.x,c.z))throw new IllegalArgumentException("AUDIT_LAND_USE_MANIFEST");
                 minX=Math.min(minX,p[0]);maxX=Math.max(maxX,p[0]);minZ=Math.min(minZ,p[1]);maxZ=Math.max(maxZ,p[1]);}
             if(!"farm_hut".equals(area.type)&&cells.size()==(maxX-minX+1)*(maxZ-minZ+1))throw new IllegalArgumentException("AUDIT_RECTANGULAR_LAND_USE");
             for(int[] p:area.boundary2D)if(!cells.contains(key(p[0],p[1])))throw new IllegalArgumentException("AUDIT_LAND_USE_BOUNDARY");

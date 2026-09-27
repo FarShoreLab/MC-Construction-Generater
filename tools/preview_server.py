@@ -18,6 +18,7 @@ import tempfile
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlencode, parse_qs, urlparse
+from modern_city import generate_city
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -91,6 +92,7 @@ def run_java(query: dict[str, str], terrain_only: bool = False) -> dict:
 
 def query_values(parsed, terrain_only: bool = False) -> dict[str, str]:
     defaults = {
+        "planningStage": "full",
         "layoutMode": "expert", "minBBoxCoverage": "0.25", "minMinorAxisRatio": "0.30",
         "allowBridges": "true", "autoDock": "true", "maxBridgeSpan": "48", "maxLandBridgeSpan": "12", "pins": "[]",
         "buildingRepulsion": "1", "roadMergeDistance": "7", "settlementMode": "village", "sitePreference": "clearings", "buildingSelection": "[]", "siteSeed": "follow", "maxPlanAttempts": "3",
@@ -109,6 +111,11 @@ def query_values(parsed, terrain_only: bool = False) -> dict[str, str]:
         "groundColumns": "40000", "constructionEdits": "500000",
     }
     query = parse_qs(parsed.query, keep_blank_values=True)
+    # Confirmed sites cannot be substituted on a routing failure. Give this stage a
+    # larger bounded route allowance; explicit budgets and the legacy API are preserved.
+    if query.get("planningStage") == ["roads"]:
+        defaults["pathExpanded"] = "1000000"
+        defaults["gradeRelaxations"] = "8000000"
     if any(len(values) != 1 or not values[0].strip() for values in query.values()):
         raise ValueError("Each parameter must occur once with a non-empty value")
     if terrain_only and set(query) - TERRAIN_INPUTS:
@@ -125,7 +132,7 @@ def query_values(parsed, terrain_only: bool = False) -> dict[str, str]:
             defaults[key] = values[-1]
     if set(query) - set(defaults):
         raise ValueError("Unknown request parameter")
-    if defaults["terrainType"] not in {"rolling_hills", "mountain", "valley", "plateau"}:
+    if defaults["terrainType"] not in {t["id"] for t in TERRAIN_SCHEMA["types"]}:
         raise ValueError("Invalid terrainType")
     if defaults["roadSurface"] not in {"dirt_path", "gravel", "cobblestone", "stone_bricks"}:
         raise ValueError("Invalid roadSurface")
@@ -138,7 +145,7 @@ def query_values(parsed, terrain_only: bool = False) -> dict[str, str]:
     if not (RESOURCES / "presets" / (defaults["singlePresetId"] + ".json")).is_file():
         raise ValueError("Unknown singlePresetId")
     bounds = {"width": (32, 512), "depth": (32, 512), "baseElevation": (50, 75),
-              "relief": (4, 36), "targetPlots": (1, 64), "roadDirections": (8, 16), "roadMergeDistance": (0, 16), "maxLandBridgeSpan": (2,32), "maxPlanAttempts": (1,8),
+              "relief": (4, 128), "targetPlots": (1, 64), "roadDirections": (8, 16), "roadMergeDistance": (0, 16), "maxLandBridgeSpan": (2,32), "maxPlanAttempts": (1,8),
               "terrainSeed": (-9007199254740991, 9007199254740991),
               "planSeed": (-9007199254740991, 9007199254740991),
               "candidateChecks": (1, 200000), "pathExpanded": (1, 2000000),
@@ -156,6 +163,10 @@ def query_values(parsed, terrain_only: bool = False) -> dict[str, str]:
         defaults[key] = str(value)
     if defaults["layoutMode"] not in {"expert", "legacy"}:
         raise ValueError("Invalid layoutMode")
+    if defaults["planningStage"] not in {"full", "sites", "roads"}:
+        raise ValueError("Invalid planningStage")
+    if defaults["planningStage"] != "full" and defaults["layoutMode"] != "expert":
+        raise ValueError("Two-stage workflow requires expert mode")
     if defaults["sitePreference"] not in {"balanced", "clearings"}:
         raise ValueError("Invalid sitePreference")
     if json.loads((RESOURCES / "presets" / (defaults["singlePresetId"] + ".json")).read_text(encoding="utf-8")).get("archived") and defaults["presetPalette"] == "single":
@@ -177,11 +188,11 @@ def query_values(parsed, terrain_only: bool = False) -> dict[str, str]:
             raise ValueError(key + " outside finite range")
     if not 4 <= int(defaults["maxBridgeSpan"]) <= 96:
         raise ValueError("maxBridgeSpan must be 4–96")
-    if len(defaults["pins"].encode("utf-8")) > 8192:
+    if len(defaults["pins"].encode("utf-8")) > 32768:
         raise ValueError("PIN_JSON_LIMIT")
     pins=json.loads(defaults["pins"], object_pairs_hook=unique_object)
-    if not isinstance(pins,list) or len(pins)>8:
-        raise ValueError("PINS_MUST_BE_ARRAY_MAX_8")
+    if not isinstance(pins,list) or len(pins)>64:
+        raise ValueError("PINS_MUST_BE_ARRAY_MAX_64")
     if defaults["roadDirections"] not in {"8", "12", "16"}:
         raise ValueError("roadDirections must be 8, 12 or 16 (8+12 union)")
     return defaults
@@ -205,8 +216,8 @@ class Handler(BaseHTTPRequestHandler):
             if self.headers.get("Transfer-Encoding") or self.headers.get_content_type() != "application/json":
                 raise ValueError("A bounded application/json body with Content-Length is required")
             length=int(self.headers.get("Content-Length","0"))
-            if not 0 < length <= 16384:
-                self.send_json({"ok":False,"error":"REQUEST_BODY_LIMIT_16_KIB"},status=413);return
+            if not 0 < length <= 65536:
+                self.send_json({"ok":False,"error":"REQUEST_BODY_LIMIT_64_KIB"},status=413);return
             self.connection.settimeout(10)
             body=self.rfile.read(length)
             if len(body)!=length: raise ValueError("INCOMPLETE_REQUEST_BODY")
@@ -234,6 +245,19 @@ class Handler(BaseHTTPRequestHandler):
             return
         parsed = urlparse(self.path)
         try:
+            if parsed.path in {"/modern-city", "/modern-city/"}:
+                self.send_file(ROOT / "tools" / "modern_city.html", "text/html; charset=utf-8")
+                return
+            if parsed.path == "/api/modern-city":
+                query = parse_qs(parsed.query, keep_blank_values=True)
+                if set(query) - {"seed", "density", "layout"} or any(len(v) != 1 for v in query.values()):
+                    raise ValueError("Expected unique seed, density and layout parameters")
+                self.send_json(generate_city(
+                    seed=int(query.get("seed", ["42"])[0]),
+                    density=float(query.get("density", ["0.75"])[0]),
+                    layout=query.get("layout", ["balanced"])[0],
+                ))
+                return
             if parsed.path in ("/", "/index.html", "/simulation_3d_viewer.html"):
                 self.send_file(PAGE, "text/html; charset=utf-8")
                 return

@@ -52,6 +52,7 @@ public final class SimulationApiRunner {
             for(String arg:args){if(!arg.startsWith("--")||!arg.contains("="))throw new IllegalArgumentException("INVALID_ARGUMENT");String[] pair=arg.substring(2).split("=",2);String v=pair[1];
                 switch(pair[0]){case "width"->r.width=Integer.parseInt(v);case "depth"->r.depth=Integer.parseInt(v);case "baseElevation"->r.baseElevation=Integer.parseInt(v);case "relief"->r.relief=Integer.parseInt(v);
                     case "roadSurface"->r.roadSurface=v;case "layoutMode"->r.layoutMode=v;
+                    case "planningStage"->r.expertSettings.planningStage=v;
                     case "minBBoxCoverage"->r.expertSettings.minBBoxCoverage=Double.parseDouble(v);
                     case "minMinorAxisRatio"->r.expertSettings.minMinorAxisRatio=Double.parseDouble(v);
                     case "buildingRepulsion"->r.expertSettings.buildingRepulsion=Double.parseDouble(v);
@@ -74,7 +75,7 @@ public final class SimulationApiRunner {
                     case "pathStates"->r.budget.pathStates=Integer.parseInt(v);case "gradeRelaxations"->r.budget.gradeRelaxations=Integer.parseInt(v);case "groundColumns"->r.budget.groundColumns=Integer.parseInt(v);case "constructionEdits"->r.budget.constructionEdits=Integer.parseInt(v);
                     default->{if(TerrainParameters.KEYS.contains(pair[0]))r.terrainOverrides.put(pair[0],v);
                         else throw new IllegalArgumentException("UNKNOWN_ARGUMENT: "+pair[0]);}}}
-            if(r.width<32||r.width>512||r.depth<32||r.depth>512||r.baseElevation<50||r.baseElevation>75||r.relief<4||r.relief>36||r.targetPlots<1||r.targetPlots>64||(r.roadDirections!=8&&r.roadDirections!=12&&r.roadDirections!=16))throw new IllegalArgumentException("INVALID_BROWSER_PARAMETERS");
+            if(r.width<32||r.width>512||r.depth<32||r.depth>512||r.baseElevation<50||r.baseElevation>75||r.relief<4||r.relief>128||r.targetPlots<1||r.targetPlots>64||(r.roadDirections!=8&&r.roadDirections!=12&&r.roadDirections!=16))throw new IllegalArgumentException("INVALID_BROWSER_PARAMETERS");
             if(r.budget.candidateChecks<1||r.budget.candidateChecks>200000||r.budget.pathExpanded<1||r.budget.pathExpanded>2000000||r.budget.attempts<1||r.budget.attempts>8||r.budget.pathStates<1||r.budget.pathStates>200000||r.budget.gradeRelaxations<1||r.budget.gradeRelaxations>10000000||r.budget.groundColumns<1||r.budget.groundColumns>100000||r.budget.constructionEdits<1||r.budget.constructionEdits>1000000)throw new IllegalArgumentException("INVALID_BROWSER_BUDGET");
             if(!PresetPalette.NAMES.contains(r.presetPalette)||!Arrays.asList(BuildingPresetRegistry.BUILTIN_PRESET_IDS).contains(r.singlePresetId))throw new IllegalArgumentException("INVALID_PRESET_SELECTION");
             TerrainBlockGenerator.TerrainType.from(r.terrainType);
@@ -88,8 +89,8 @@ public final class SimulationApiRunner {
         }
     }
     private static final class Payload{
-        final boolean ok=true;final String kind="PLAN";final String schemaVersion;final List<PresetInfo> presets=catalog();final Config config;final Metrics metrics;final Layer original,constructed;final PlanPreview plan;
-        Payload(PipelineResult r){schemaVersion=r.plan.metadata.version;config=new Config(r);metrics=new Metrics(r);original=new Layer(r,false);constructed=new Layer(r,true);plan=new PlanPreview(r.plan,r.planHash);}
+        final boolean ok=true;final String kind;final String schemaVersion;final List<PresetInfo> presets=catalog();final Config config;final Metrics metrics;final Layer original,constructed;final PlanPreview plan;
+        Payload(PipelineResult r){kind=r.expertSettings!=null&&"sites".equals(r.expertSettings.planningStage)?"SITES":"PLAN";schemaVersion=r.plan.metadata.version;config=new Config(r);metrics=new Metrics(r);original=new Layer(r,false);constructed=new Layer(r,true);plan=new PlanPreview(r.plan,r.planHash);}
     }
     private record Config(int width,int depth,int baseElevation,int relief,String terrainType,long terrainSeed,long planSeed,int targetPlots,int roadDirections,boolean diagonalBuildings,String presetPalette,String singlePresetId,String originalTerrainHash,
             TerrainParameters terrainParameters,String terrainGeneratorVersion,int waterLevel,String layoutMode,ExpertSettings expertSettings,String roadSurface){
@@ -136,7 +137,7 @@ public final class SimulationApiRunner {
         Metrics(PipelineResult r){sitePlanning=r.plan.sitePlanning;status=r.plan.status;planHash=r.planHash;plotCount=r.plan.plots.size();roadColumnCount=(int)r.plan.groundColumns.stream().filter(c->"road".equals(c.kind)).count();roadEdgeCount=r.plan.transportNetwork.edges.size();clearedBlocks=r.clearedBlocks;cutBlocks=r.cutBlocks;fillBlocks=r.fillBlocks;buildingBlocks=r.buildingBlocks;stairBlocks=r.stairBlocks;constructionEdits=r.constructionEdits;search=r.plan.search;network=r.plan.transportNetwork.metrics;networkAlgorithm=r.plan.transportNetwork.algorithm;minPlatform=r.plan.plots.stream().mapToInt(p->p.elevation.baseElevation).min().orElse(0);maxPlatform=r.plan.plots.stream().mapToInt(p->p.elevation.baseElevation).max().orElse(0);diagonalPlots=(int)r.plan.plots.stream().filter(p->p.builder.diagonal45).count();}}
     /** Row-major arrays (z*width+x). Heights are top FULL support blocks; stair voxels sit above. */
     private static final class Layer{
-        final int minY,sizeX,sizeY,sizeZ;final int[] heights,materials,waters;final List<int[]> voxels=new ArrayList<>();
+        final int minY,sizeX,sizeY,sizeZ;final int[] heights,materials,waters;final List<int[]> voxels=new ArrayList<>(),strata=new ArrayList<>();
         Layer(PipelineResult r,boolean after){SimulatedVoxelWorld world=after?r.worldAfter:r.worldBefore;minY=world.getMinY();sizeX=world.getSizeX();sizeY=world.getSizeY();sizeZ=world.getSizeZ();
             heights=new int[sizeX*sizeZ];materials=new int[heights.length];waters=new int[heights.length];Arrays.fill(waters,-1);
             Map<Long,GroundColumn> columns=new HashMap<>();if(after&&Set.of("COMPLETE","PARTIAL").contains(r.plan.status))for(GroundColumn c:r.plan.groundColumns)columns.put(key(c.x,c.z),c);
@@ -149,6 +150,14 @@ public final class SimulationApiRunner {
                     int facing=c!=null&&y==c.targetY&&"stair".equals(c.structure)?switch(c.facing){case "EAST"->1;case "SOUTH"->2;case "WEST"->3;default->0;}:0;
                     if(voxels.size()>=MAX_EXTRAS_PER_LAYER)throw new IllegalArgumentException("EXTRA_VOXEL_LIMIT_NO_TRUNCATION");
                     voxels.add(new int[]{x,y-minY,z,b.id,facing});}
+            }
+            if(Set.of("desert","canyon","snow_peak").contains(r.terrainType))for(int z=0;z<sizeZ;z++)for(int x=0;x<sizeX;x++){
+                int index=z*sizeX+x,low=heights[index];
+                for(int[] d:new int[][]{{1,0},{-1,0},{0,1},{0,-1}}){int nx=x+d[0],nz=z+d[1];low=Math.min(low,nx<0||nz<0||nx>=sizeX||nz>=sizeZ?minY-1:heights[nz*sizeX+nx]);}
+                int start=low+1;
+                while(start<=heights[index]){int material=world.getBlock(x,start,z).id,end=start+1;
+                    while(end<=heights[index]&&world.getBlock(x,end,z).id==material)end++;
+                    strata.add(new int[]{index,start,end,material});start=end;}
             }
         }
     }
@@ -163,7 +172,18 @@ public final class SimulationApiRunner {
         final List<SemanticNode> semanticNodes;final List<SemanticLink> semanticLinks;final List<PathPreview> roadPaths=new ArrayList<>();final List<UnmetRequirement> unmetRequirements;final List<String> warnings;
         PlanPreview(PlanningIR ir,String hash){sitePlanning=ir.sitePlanning;status=ir.status;this.hash=hash;landUses=ir.landUses;semanticNodes=ir.transportNetwork.semanticNodes;semanticLinks=ir.transportNetwork.semanticLinks;for(Plot p:ir.plots)plots.add(new PlotPreview(p));groundColumns=ir.groundColumns;for(RoadEdge e:ir.transportNetwork.corridors)roadPaths.add(new PathPreview(e));unmetRequirements=ir.unmetRequirements;warnings=ir.auditLog.warnings;}
     }
-    private record PlotPreview(String id,String requirementId,List<int[]> polygon,int[] origin,List<int[]> footprint,int baseElevation,String presetId,boolean diagonal45,String footprintShape,String sizeTier,int footprintArea,int entranceIndex,int[] entrance,String entranceFacing){
-        PlotPreview(Plot p){this(p.id,p.requirementId,p.polygon2D,p.origin2D,p.footprint,p.elevation.baseElevation,p.builder.presetId,p.builder.diagonal45,p.builder.footprintShape,p.builder.sizeTier,p.footprint.size(),p.builder.entranceIndex,p.entrance.accessPoint,p.entrance.facing);}}
+    private record PlotPreview(String id,String requirementId,List<int[]> polygon,int[] origin,List<int[]> footprint,int baseElevation,String presetId,boolean diagonal45,String footprintShape,String sizeTier,int footprintArea,int entranceIndex,String sourceFacing,int[] entrance,String entranceFacing,Map<String,OrientationPreview> orientationVariants){
+        PlotPreview(Plot p){this(p.id,p.requirementId,p.polygon2D,p.origin2D,p.footprint,p.elevation.baseElevation,p.builder.presetId,p.builder.diagonal45,p.builder.footprintShape,p.builder.sizeTier,p.footprint.size(),p.builder.entranceIndex,p.builder.sourceFacing,p.entrance.accessPoint,p.entrance.facing,orientations(p));}}
+    private record OrientationPreview(int width,int depth,List<int[]> footprint,int[] entrance,String entranceFacing) {}
+    /** Presentation data uses the same preset rotation and rasterization as placement/construction. */
+    private static Map<String,OrientationPreview> orientations(Plot p){
+        Map<String,OrientationPreview> out=new LinkedHashMap<>();
+        BuildingPreset source=BuildingPresetRegistry.getInstance().getPreset(p.builder.presetId).selectEntrance(p.builder.entranceIndex);
+        for(String facing:List.of("NORTH","EAST","SOUTH","WEST")){
+            BuildingShape shape=new BuildingShape(source.rotateToFacing(facing),p.builder.diagonal45);
+            out.put(facing,new OrientationPreview(shape.sizeX,shape.sizeZ,shape.cells,new int[]{shape.entranceX,shape.entranceZ},shape.facing));
+        }
+        return out;
+    }
     private static final class PathPreview{final String id,roadType,routingStyle;final List<int[]> steps=new ArrayList<>();PathPreview(RoadEdge e){id=e.id;roadType=e.roadType;routingStyle=e.routingStyle;for(RoadStep s:e.steps)steps.add(new int[]{s.x,s.y,s.z});}}
 }

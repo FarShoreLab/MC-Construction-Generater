@@ -282,16 +282,17 @@ final class BoundedSettlementPlanner {
         long sa=soil(columns(m,a.walk,a.placed)),sb=soil(columns(m,b.walk,b.placed));return sa!=sb?sa<sb:a.roadCells.size()<b.roadCells.size();}
     static long soil(Map<Long,GroundColumn> c){return c.values().stream().mapToLong(v->Math.abs(v.targetY-v.originalY)).sum();}
     static void emit(HeightfieldMap m,PlanRequest r,Layout l,PlanningIR ir){
+        boolean sitesOnly=r.expert!=null&&"sites".equals(r.expert.planningStage);
         ir.transportNetwork.corridorWidth=r.roadWidth;ir.transportNetwork.directionCount=r.roadDirections;Map<Long,GroundColumn> cols=columns(m,l.walk,l.placed);ir.groundColumns.addAll(cols.values());ir.search.constructionEdits=editCount(cols);
         for(GroundColumn c:cols.values()){ir.earthworks.totalCutVolume+=Math.max(0,c.originalY-c.targetY);ir.earthworks.totalFillVolume+=RoadTerrain.raised(c)?0:Math.max(0,c.targetY-c.originalY);}
         ir.earthworks.cutFillBalance=ir.earthworks.totalCutVolume-ir.earthworks.totalFillVolume;
         for(int i=0;i<l.placed.size();i++){Candidate c=l.placed.get(i);BuildingShape v=c.preset;Plot p=new Plot();p.id="plot_"+(i+1);p.requirementId=c.demand.id;p.tags.add(c.demand.requirement.purpose);
             p.origin2D=new int[]{c.x,c.z};p.footprint=v.cells;for(int[] point:v.hull)p.polygon2D.add(new int[]{c.x+point[0],c.z+point[1]});
             p.elevation.baseElevation=c.y;p.elevation.entranceElevation=c.y;p.elevation.maxCutDepth=r.parcelConfig.maxCutBudget;p.elevation.maxFillHeight=r.parcelConfig.maxFillBudget;
-            p.entrance.accessPoint=new int[]{c.x+v.entranceX,c.y,c.z+v.entranceZ};p.entrance.facing=v.facing;p.entrance.path=canonical(c.access,cols);p.foundation.type="bounded_slab";
+            p.entrance.accessPoint=new int[]{c.x+v.entranceX,c.y,c.z+v.entranceZ};p.entrance.facing=v.facing;p.entrance.path=sitesOnly?new ArrayList<>():canonical(c.access,cols);p.foundation.type="bounded_slab";
             p.builder.footprintShape=v.preset.footprintShape;p.builder.sizeTier=v.preset.sizeTier;p.builder.footprintArea=v.cells.size();
             p.builder.generatorType="locked_preset";p.builder.presetId=v.preset.id;p.builder.templateCategory=c.demand.requirement.purpose;p.builder.footprintSize=new int[]{v.sizeX,v.sizeZ};p.builder.heightLimit=v.sizeY;p.builder.subSeed=mix(r.seed+i);p.builder.diagonal45=v.diagonal;p.builder.sourceFacing=v.sourceFacing;p.builder.entranceIndex=v.entranceIndex;ir.plots.add(p);
-            RoadEdge corridor=new RoadEdge();corridor.id="corridor_"+(i+1);corridor.width=r.roadWidth;corridor.steps=canonical(l.routes.get(i),cols);ir.transportNetwork.corridors.add(corridor);}
+            if(!sitesOnly){RoadEdge corridor=new RoadEdge();corridor.id="corridor_"+(i+1);corridor.width=r.roadWidth;corridor.steps=canonical(l.routes.get(i),cols);ir.transportNetwork.corridors.add(corridor);}}
         Set<Long> walk=new TreeSet<>(l.walk.keySet());Map<Long,String> incident=new HashMap<>();
         for(long k:walk){GroundColumn c=cols.get(k);ir.transportNetwork.nodes.add(new RoadNode(nodeId(k),c.x,c.targetY,c.z,k==key(l.entry[0],l.entry[2])?"entry":"walkable"));}
         for(long k:walk)for(int[] d:List.of(CARDINAL[0],CARDINAL[1])){long next=key(x(k)+d[0],z(k)+d[1]);if(!walk.contains(next)||!canWalk(cols.get(k),cols.get(next)))continue;

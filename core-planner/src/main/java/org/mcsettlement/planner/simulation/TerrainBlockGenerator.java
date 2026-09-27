@@ -11,7 +11,7 @@ import static org.mcsettlement.planner.terrain.SpatialNoise.*;
  */
 public class TerrainBlockGenerator {
 
-    public static final String GENERATOR_VERSION = "terrain-block/0.4.2";
+    public static final String GENERATOR_VERSION = "terrain-block/0.5.3";
 
     public static SimulatedVoxelWorld generateHillsideWorld(int width, int depth, int baseElevation, int relief, long seed) {
         return generateWorld(width, depth, baseElevation, relief, "rolling_hills", seed);
@@ -59,10 +59,19 @@ public class TerrainBlockGenerator {
                 double wx = sample.warpedX, wz = sample.warpedZ;
                 int surfaceY = boundedSurfaceY(sample.normalizedHeight, baseElevation, relief);
                 surfaceHeights[x][z] = surfaceY;
+                double snowLine=type==TerrainType.SNOW_PEAK?.55+noise(seed,wx/43.0,wz/43.0,0x5509)*.065:0;
 
                 // Fill columns
                 for (int y = minY; y <= surfaceY; y++) {
-                    if (y == surfaceY) {
+                    if (type == TerrainType.DESERT && y >= surfaceY - 4) {
+                        world.setBlock(x, y, z, y >= surfaceY - 2 ? VoxelType.SAND : VoxelType.SANDSTONE);
+                    } else if (type == TerrainType.CANYON) {
+                        world.setBlock(x, y, z, Math.floorMod(y, 6) < 2 ? VoxelType.SANDSTONE : VoxelType.TERRACOTTA);
+                    } else if (type == TerrainType.SNOW_PEAK && sample.normalizedHeight > snowLine && y == surfaceY) {
+                        world.setBlock(x, y, z, VoxelType.SNOW_BLOCK);
+                    } else if (type == TerrainType.SNOW_PEAK && sample.normalizedHeight > snowLine-.10) {
+                        world.setBlock(x, y, z, VoxelType.STONE);
+                    } else if (y == surfaceY) {
                         if (y < waterLevel) {
                             world.setBlock(x, y, z, VoxelType.DIRT);
                         } else {
@@ -89,6 +98,7 @@ public class TerrainBlockGenerator {
         int spacing = parameters.treeSpacing(), margin = Math.max(4, spacing);
         for(int x=margin;x<width-margin;x++)for(int z=margin;z<depth-margin;z++) {
             int sy=surfaceHeights[x][z];
+            if(type==TerrainType.DESERT||type==TerrainType.CANYON||type==TerrainType.SNOW_PEAK&&world.getBlock(x,sy,z)!=VoxelType.GRASS_BLOCK)continue;
             double priority=unit(seed,x,z,0x4109);
             if(sy<=waterLevel+1||priority>=0.065||parameters.treeDensity()==0)continue;
             double moisture=noise(seed,x/67.0,z/67.0,0x4211);
@@ -119,7 +129,7 @@ public class TerrainBlockGenerator {
 
     /** Global fill level, not a target water coverage percentage. */
     public static int waterLevel(int baseElevation, int relief, TerrainParameters parameters) {
-        if (baseElevation < 50 || baseElevation > 75 || relief < 4 || relief > 36 || parameters == null)
+        if (baseElevation < 50 || baseElevation > 75 || relief < 4 || relief > 128 || parameters == null)
             throw new IllegalArgumentException("INVALID_TERRAIN_ELEVATION_OR_PARAMETERS");
         return baseElevation + (int)(relief * parameters.waterLevelRatio());
     }
@@ -155,12 +165,53 @@ public class TerrainBlockGenerator {
                 double raw=0.45+broad*0.31+middle*0.16+gradient;
                 yield StrictMath.round(Math.max(0,Math.min(1,raw))*p.terraceLevels())/(double)p.terraceLevels()+fine*0.04;
             }
+            case DESERT -> {
+                double dune=1-Math.abs(noise(seed,(wx+wz*.35)/(38*scale),wz/(96*scale),0x5101));
+                yield .12+dune*dune*.52+broad*.12+fine*.015;
+            }
+            case CANYON -> {
+                double center=width*.5+noise(seed,0,z/(85*scale),0x5201)*width*.16*p.warpStrength();
+                double distance=Math.abs(x-center)/(Math.max(2,Math.min(5,width*.035))*p.valleyWidth());
+                double wall=Math.max(0,Math.min(1,(distance-.65)*3));
+                yield .08+wall*.76+broad*.055+fine*.015;
+            }
+            case BASIN -> {
+                double dx=(x-width*.5)/(width*.48*p.valleyWidth()),dz=(z-depth*.5)/(depth*.48*p.valleyWidth());
+                double radius=Math.sqrt(dx*dx+dz*dz)+middle*.12;
+                double rim=Math.max(0,Math.min(1,(radius-.45)*2.4));
+                yield .13+rim*rim*.69+broad*.045+fine*.02;
+            }
+            case CLIFF -> {
+                double edge=(x-width*.5+noise(seed,0,z/(70*scale),0x5301)*width*.18*p.warpStrength())/Math.max(1,3*scale);
+                yield .13+Math.max(0,Math.min(1,.5+edge))*.68+broad*.07+fine*.025;
+            }
+            case MOUNTAIN_RANGE -> {
+                double ridge=1-Math.min(1,Math.abs(noise(seed,wx/(48*scale),wz/(105*scale),0x5401))*p.ridgeSharpness());
+                double envelope=.55+.45*(1-Math.min(1,Math.abs((x-width*.5)/(width*.65))));
+                yield .08+Math.pow(ridge,1.6)*envelope*.86+middle*.075+fine*.025;
+            }
+            case SNOW_PEAK -> {
+                // Broad massif with distinct summits: a ridge zero-contour must not define the whole mountain.
+                double cx=width*(.4+unit(seed,0,0,0x5501)*.2),cz=depth*(.4+unit(seed,0,0,0x5503)*.2);
+                double nx=(wx-cx)/(width*.48*scale),nz=(wz-cz)/(depth*.48*scale);
+                double massif=StrictMath.exp(-1.35*(nx*nx+nz*nz));
+                double summits=0;
+                for(int i=0;i<3;i++){
+                    double px=cx+(unit(seed,i,0,0x5511)-.5)*width*.48*scale;
+                    double pz=cz+(unit(seed,i,0,0x5513)-.5)*depth*.48*scale;
+                    double dx=(wx-px)/(width*.18*scale),dz=(wz-pz)/(depth*.18*scale);
+                    double peak=StrictMath.exp(-(dx*dx+dz*dz)*(.65+p.ridgeSharpness()*.3));
+                    summits=Math.max(summits,peak*(.82+unit(seed,i,0,0x5517)*.18));
+                }
+                double erosion=Math.abs(noise(seed,wx/(37*scale),wz/(37*scale),0x5521));
+                yield .10+massif*.56+summits*.28+broad*.045-middle*.035-erosion*massif*.065+fine*.025;
+            }
         };
         return new ElevationSample(wx, wz, Math.max(0,Math.min(1,combined)));
     }
 
     private static void validateDimensions(int width, int depth, int baseElevation, int relief) {
-        if (width < 1 || depth < 1 || width > 512 || depth > 512 || baseElevation < 50 || baseElevation > 75 || relief < 4 || relief > 36)
+        if (width < 1 || depth < 1 || width > 512 || depth > 512 || baseElevation < 50 || baseElevation > 75 || relief < 4 || relief > 128)
             throw new IllegalArgumentException("INVALID_TERRAIN_DIMENSIONS_OR_ELEVATION");
     }
 
@@ -168,7 +219,9 @@ public class TerrainBlockGenerator {
         ROLLING_HILLS("rolling_hills"),
         MOUNTAIN("mountain"),
         VALLEY("valley"),
-        PLATEAU("plateau");
+        PLATEAU("plateau"),
+        DESERT("desert"), CANYON("canyon"), BASIN("basin"), CLIFF("cliff"),
+        MOUNTAIN_RANGE("mountain_range"), SNOW_PEAK("snow_peak");
 
         public final String id;
 

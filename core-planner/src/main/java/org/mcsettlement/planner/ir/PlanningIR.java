@@ -61,6 +61,8 @@ public class PlanningIR {
         public int x, z, originalY, targetY, clearToY;
         public Integer waterY; // original water surface: deck target must be waterY+1
         public boolean support; // pile from original bed+1 to deck-1, never a solid embankment
+        public boolean terracedFarmland; // farmland only: at most one block of local cut/fill
+        public boolean suspensionBridge;
         public String surfaceMaterial; // optional road material or farmland border; geometry remains authoritative
         public List<String> aboveBlocks = new ArrayList<>(); // farm hut voxels at targetY+1 onward
         public String kind; // road, access, foundation, farmland, pasture
@@ -83,6 +85,7 @@ public class PlanningIR {
     /** Display/provenance region. Construction authority remains the matching groundColumns. */
     public static class LandUseArea {
         public String id,type; // farmland or pasture
+        public boolean terraced;
         public List<int[]> cells=new ArrayList<>(); // absolute [x,z] cells, terrain-adaptive flood region
         public List<int[]> boundary2D=new ArrayList<>(); // boundary cells, never a fabricated rectangle
         public int minY,maxY;
